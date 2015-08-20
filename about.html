@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>explore</title>
+<!-- core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.transitions.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<link href="css/tree.css" rel="stylesheet">
+<link href="css/videogallery.css" rel="stylesheet">
+<link href="css/popover-mask.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="images/favicon.png">
+</head>
+
+<body>
+<header id="header">
+  <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="index.html"><img src="images/activity-logo.png" alt="logo"></a> </div>
+      <div class="collapse navbar-collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li class="scroll"><a href="index.html">Home</a></li>
+          <li class="scroll"><a href="explore.html">Explore</a></li>
+          <li class="scroll"><a href="people.html">People</a></li>
+           <li class="scroll"><a href="download.html">Download</a>
+          	<div class="nav-folder" >
+          		<ul class="nav-menu">
+					<li class="nav nav-item" style="text-align:center">Version</li>
+                	<li class="nav nav-item" style="text-align:center">API</li>
+            	</ul>
+           	</div>
+          </li>
+          <li class="scroll active"><a href="about.html">About</a>
+          	<div class="nav-folder">
+          		<ul class="nav-menu">
+					<li class="nav nav-item" style="text-align:center">Papers</li>
+                	<li class="nav nav-item" style="text-align:center">History</li>
+            	</ul>
+           	</div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <!--/.container--> 
+  </nav>
+  <!--/nav--> 
+</header>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+    <div class="section-header"> 
+      <!--h2 class="section-title text-center wow fadeInDown">Papers</h2--> 
+    </div>
+    <div class="row">
+      <div class="features">
+        <div class="col-sm-8 col-md-offset-2 fadeInUp animated">
+          <h2 class="section-title text-left wow fadeInUp animated">What is it?</h2>
+          <p class="text-left wow fadeInUp animated">In spite of many dataset efforts for human action recognition, current computer vision algorithms are still severely limited in terms of the variability and complexity of the actions that they can recognize. This is in part due to the simplicity of current benchmarks, which mostly focus on simple actions and movements occurring on manually trimmed videos. 
+            We introduce ActivityNet, a new large-scale video benchmark for human activity understanding. Our benchmark aims at covering a wide range of complex human activities that are of interest to people in their daily living. In its current version, ActivityNet provides samples from 203 activity classes with an average of 137 untrimmed videos per class and 1.41 activity instances per video, for a total of 849 video hours. We illustrate three scenarios in which ActivityNet can be used to compare algorithms for human activity understanding: global video classification, trimmed activity classification and activity detection.</p>
+        </div>
+        
+        <div id="made" class="col-sm-8 col-md-offset-2">
+          <h2 class="section-title text-left wow fadeInUp animated">How was it made?</h2>
+          <p class="text-left wow fadeInUp animated">Our goal is to build an automatic system to retrieve videos depicting human activities.
+            We heavily rely on the crowd and specifically, Amazon Mechanical Turk, to help acquire and annotate web videos. Our acquisition pipeline has three main steps: Collection, Filtering, and Temporal Localization.</p>
+          <img class="img-responsive wow fadeInUp animated" src="images/flow.png" />
+          <ul class="wow fadeInUp animated">
+            <li>Collecting candidate videos.</li>
+            We search candidate videos in the web for each element in our activity list (including expanded queries)
+            <li>Filtering candidate videos.</li>
+            Retrieved videos are verified by Amazon Mechanical Turk workers and clean out those videos which are not related with any intended activity.
+            <li>Temporal annotation</li>
+            Temporal localization provides starting and ending times in which activity is performed (multiple Amazon Mechanical Turk workers annotate a single video)
+          </ul>
+          <p class="text-left wow fadeInUp animated"> See our ICMR 2014 paper for detailed information. Fabian Caba Heilbron and Juan Carlos Niebles. <a target="_blank" href="http://yamdrok.stanford.edu/crowd/icmr.pdf">Collecting and Annotating Human Activities in Web Videos. </a>In ICMR, 2014.</p>
+        </div>
+      </div>
+      <!--/.col-md-4--> 
+    </div>
+  </div>
+  <!--/.row-->
+  </div>
+  <!--/.container--> 
+</section>
+<!--/#about--> 
+<section id="papers" >
+  <div class="container">
+    <div class="row">
+      <div class="features">
+        <div class="col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+          <div class="media service-box wow fadeInUp animated col-sm-12">
+            <div class="pull-left"> <i class="fa fa-file-pdf-o"></i> </div>
+            <div class="media-body">
+              <h4 class="media-heading">ActivityNet: A Large-Scale Video Benchmark for Human Activity Understanding</h4>
+              <p>Fabian Caba Heilbron, Victor Escorcia, Bernard Ghanem and Juan Carlos Niebles. In CVPR, 2015.</p>
+              <a class="btn btn-default btn-primary" target="_blank" href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Heilbron_ActivityNet_A_Large-Scale_2015_CVPR_paper.html">PDF</a> <a class="btn btn-default btn-primary" href="tex/activity-net.tex">BibTex</a> </div>
+          </div>
+          <div class="col-sm-8 col-sm-offset-2 wow fadeInUp animated" data-wow-duration="300ms" data-wow-delay="0ms" id="citation"> </div>
+          <div class="media service-box wow fadeInUp animated col-sm-12">
+            <div class="pull-left"> <i class="fa fa-file-pdf-o"></i> </div>
+            <div class="media-body">
+              <h4 class="media-heading">Collecting and Annotating Human Activities in Web Videos.</h4>
+              <p>Fabian Caba Heilbron and Juan Carlos Niebles. In ICMR, 2014.</p>
+              <a class="btn btn-default btn-primary"  target="_blank" href="http://yamdrok.stanford.edu/crowd/icmr.pdf">PDF</a> <a class="btn btn-default btn-primary" href="tex/icmr.tex">BibTex</a> </div>
+          </div>
+          <div class="col-sm-2 wow fadeInUp animated" data-wow-duration="300ms" data-wow-delay="0ms" id="citation"> </div>
+        </div>
+      </div>
+    </div>
+    <!--/.row--> 
+  </div>
+  <!--/.container--> 
+</section>
+
+<!-- FACTS   -->
+<footer id="footer">
+  <div class="container">
+    <p class="text-center">@ Company Copy Rights 2015</p>
+  </div>
+</footer>
+
+<!-- SCRIPT  -->
+<script src="js/jquery.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+<script src="js/owl.carousel.min.js"></script> 
+<script src="js/mousescroll.js"></script> 
+<script src="js/smoothscroll.js"></script> 
+<script src="js/jquery.prettyPhoto.js"></script> 
+<script src="js/jquery.isotope.min.js"></script> 
+<script src="js/jquery.inview.min.js"></script> 
+<script src="js/wow.min.js"></script> 
+<script src="js/main.js"></script> 
+<script src="js/tree.js"> </script> 
+<script src="js/videoplay.js"> </script>
+<script>
+$(".navbar-nav >li").hover(function(){
+		$(this).find(".nav-folder").css("display","block");
+		},function(){
+			$(this).find(".nav-folder").css("display","none");
+		});
+</script>
+</body>
+</html>

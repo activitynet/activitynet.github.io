@@ -1,0 +1,49 @@
+#videoinfo {
+    height: 28px;
+    padding: 0;
+    padding-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#info {
+	height: 370px;
+	overflow: auto;
+    text-align: center;
+}
+
+#info img {
+    width: 160px;
+    height: 120px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+iframe {
+    width: 616px;
+    height: 361px;
+}
+
+#info img:hover {
+    -webkit-filter: blur(1px);
+}
+
+#paginationdiv {
+    text-align: center;
+    padding-bottom: 20px;
+
+}
+
+#paginationdiv p {
+    font-size: 14px;
+    font-family:'Roboto Condensed', Sans-Serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pager {
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+}
