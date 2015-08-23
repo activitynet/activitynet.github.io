@@ -10,9 +10,6 @@
 	return false;         
 });*/
 
-function get_video_duration() {
-    return 230;	
-}
 
 $('body').on('click', 'a.video', function(){
 	var myVideo = $(this).attr('href');
@@ -24,10 +21,10 @@ $('body').on('click', 'a.video', function(){
 	$('.theme-popover-mask').fadeIn(100);
 	$('.theme-popover').slideDown(200);
 	
-	var video_duration = get_video_duration();
 	var starting_times = VIDEO_TIME[myVideo].start.split(',');
 	var ending_times = VIDEO_TIME[myVideo].end.split(',');
 	var title = VIDEO_TIME[myVideo].title;
+        var video_duration = VIDEO_TIME[myVideo].duration;
 	//Current playing video
 	$('#frame2').attr("src", "https://www.youtube.com/v/" + myVideo + "?color=red&rel=0&start=" + starting_times[0]* video_duration +"&end=" + ending_times[0]*video_duration).show();	
 	//Video playing list

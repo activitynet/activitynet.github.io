@@ -160,7 +160,7 @@ function getVideos(nodeId, page)
 		VIDEO_TIME[v.videoId].title = v.title;
 		VIDEO_TIME[v.videoId].start = v.startTime;
 		VIDEO_TIME[v.videoId].end = v.endTime;
-		
+		VIDEO_TIME[v.videoId].end = v.duration;
 	  });
 	  
 
