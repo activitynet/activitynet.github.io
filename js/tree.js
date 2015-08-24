@@ -47,7 +47,7 @@ $('body').on('click', '.tree li.parent_li > span', function (e) {
   e.stopPropagation();
 });
 
-var ResultsperPage = 16;
+var ResultsperPage = 12;
 
 // When user clicks on a node
 
