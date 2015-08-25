@@ -33,7 +33,7 @@ $('body').on('click', 'a.video', function(){
 		var this_end = ending_times[idx];
 		var index = idx+1;
 		imgUrl = "https://www.youtube.com/v/" + myVideo + "?color=red&rel=0&start=" + this_start * video_duration + "&end=" + this_end * video_duration;
-		$('ol.list-group').append('<li class= "list-group-item" title="Click to play"><a href="' + imgUrl + '"><div class="tag-status status1"></div><h5>' + title + '_Part' + index + '</h5></a></li>');
+		$('ol.list-group').append('<li class= "list-group-item" title="Click to play"><a href="' + imgUrl + '"><div class="tag-status status1"></div><h5>' + title + ' (Instance ' + index + ') ' + '</h5></a></li>');
 
 	}
 	
