@@ -11,10 +11,9 @@
 <link href="css/prettyPhoto.css" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
-<link href="css/tree.css" rel="stylesheet">
-<link href="css/videogallery.css" rel="stylesheet">
 <link href="css/popover-mask.css" rel="stylesheet">
 <link href="css/hover.css" rel="stylesheet">
+<link href="css/peoplePage.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 <!--[if lt IE 9]>
@@ -52,7 +51,6 @@
             	</ul>
            	</div>
           </li>
-
         </ul>
       </div>
     </div>
@@ -69,16 +67,13 @@
     </div>
     <div class="row">
       <div class="features">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-9 col-sm-offset-2">
           <h2 class="section-title text-left wow fadeInUp animated">Who is behind it?</h2>
           <div class="wow fadeInUp animated">
-
             <div class="media-body col-sm-4">
               <div class="ih-item circle effect"><a href="http://www.cabaf.net/" target="_blank">
                 <div class="img"><img src="images/fabian.png" alt="img"></div>
-                <div class="info">
-                  <p>Ph.D. Student </br> KAUST</p>
-                </div>
+                <div class="info"><p>Ph.D. Student </br> KAUST</p></div>
               </a></div>
               <h4 class="heading">Fabian Caba Heilbron</h4>
             </div>
@@ -87,9 +82,7 @@
             <div class="media-body col-sm-4">
               <div class="ih-item circle effect"><a href="http://escorciav.github.io/" target="_blank">
                 <div class="img"><img src="images/victor.png" alt="img"></div>
-                <div class="info">
-                  <p>Ph.D. Student </br> KAUST</p>
-                </div>
+                <div class="info"><p>Ph.D. Student </br> KAUST</p></div>
               </a></div>
               <h4 class="heading">Victor Escorcia</h4>
             </div>
@@ -98,47 +91,35 @@
             <div class="media-body col-sm-4">
               <div class="ih-item circle effect"><a href="http://www.bernardghanem.com/" target="_blank">
                 <div class="img"><img src="images/bernard.png" alt="img"></div>
-                <div class="info">
-                  <p>Assistant Professor </br> KAUST</p>
-                </div>
+                <div class="info"><p>Assistant Professor </br> KAUST</p></div>
               </a></div>
               <h4>Bernard Ghanem</h4>
             </div>
           </div>
           <div class="wow fadeInUp animated">
-
             <div class="media-body col-sm-4">
               <div class="ih-item circle effect"><a href="#">
                 <div class="img"><img src="images/wayner.jpg" alt="img"></div>
-                <div class="info">
-                  <p>Research Assistant </br> UNINORTE</p>
-                </div>
+                <div class="info"><p>Research Assistant </br> UNINORTE</p></div>
               </a></div>
               <h4>Wayner Barrios</h4>
-
             </div>
           <div class="wow fadeInUp animated">
             <div class="media-body col-sm-4">
               <div class="ih-item circle effect"><a href="#">
                 <div class="img"><img src="images/david.png" alt="img"></div>
-                <div class="info">
-                  <p>Research Assistant </br> UNINORTE</p>
-                </div>
+                <div class="info"><p>Research Assistant </br> UNINORTE</p></div>
               </a></div>
               <h4>David Altamar</h4>
             </div>
           </div>
           <div class="wow fadeInUp animated">
-
             <div class="media-body col-sm-4">
               <div class="ih-item circle effect"><a href="http://www.niebles.net/" target="_blank">
                 <div class="img"><img src="images/juan.png" alt="img"></div>
-                <div class="info">
-                  <p>Assistant Professor </br> UNINORTE</p>
-                </div>
+                <div class="info"><p>Assistant Professor </br> UNINORTE</p></div>
               </a></div>
               <h4>Juan Carlos Niebles</h4>
-
             </div>
           </div>
         </div>
@@ -166,8 +147,6 @@
 <script src="js/jquery.inview.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/tree.js"> </script>
-<script src="js/videoplay.js"> </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -176,16 +155,6 @@
   ga('create', 'UA-63916817-1', 'auto');
   ga('send', 'pageview');
 
-
-     $(".sidebar-hidden").click(function(){
-		 $("#vList").addClass("sidebar-closed ");
-		 $("#infoWrap").addClass("mainarea");
-	    });
-
-	 $(".sidebar-show").click(function(){
-		 $("#vList").removeClass("sidebar-closed ");
-		 $("#infoWrap").removeClass("mainarea");
-		 });
 
 	$(".navbar-nav >li").hover(function(){
 		$(this).find(".nav-folder").css("display","block");
