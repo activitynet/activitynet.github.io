@@ -58,6 +58,7 @@ $('body').on('click', '.tree li span', function(){
   $('.tree li span').removeClass('selected');
   $(this).addClass('selected');
   var page = 1;
+  if (nodeId==0) { nodeId=1; }
   getVideos(nodeId, page);
   return false;
 });
