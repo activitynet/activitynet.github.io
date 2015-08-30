@@ -55,14 +55,15 @@ hr {
 .section-header {
   margin-bottom: 40px;
 }
-.section-header .section-title {
+
+/*.section-header .section-title {
   font-size: 44px;
   color: #272727;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 20px;
   margin: 0 0 20px;
-}
+}*/
 .btn {  
   border-width: 0;
   border-color: #7E120F;
@@ -163,6 +164,7 @@ ul.nostyle i {
   height: auto;
   padding: 22px 15px 21px;
 }
+
 @media only screen and (min-width: 768px) {
   #main-menu.navbar-default {
     background: rgba(255, 255, 255, 0.9);
@@ -345,7 +347,7 @@ ul.nostyle i {
   }
   
   #home-page > div{
- 	background:#800d08 url(../images/background-2.jpg);  
+ 	background:#800d08 url(../images/background-2.jpg);
 	background-position: top center;
     background-repeat: no-repeat;
   
@@ -685,23 +687,6 @@ ul.nostyle i {
   background-repeat: repeat;
   height:100%; 
 }
-
-#about .section-title i{
-	border-radius: 100%; 
-	text-align:center;
-	font-size:20px;
-	color:#F01C1E
-	;margin-right:10px;
-	box-shadow: 0px 0px 0px 3px #F01C1E inset;
-	height:50px; 
-	line-height:50px;
-	width:50px;
-}
-#about .section-version{
-	margin:10px 0 ; 
-	display:inline-block;
-}
-
 #about .pull-left i {
   font-size: .9em;
   height: 64px;
@@ -712,6 +697,9 @@ ul.nostyle i {
   color: #666666;
   transition: background-color 400ms, background-color 400ms;
   position: relative;
+}
+#papers .tools-paper-container{
+  margin-top:300px;
 }
 .media-body {
   margin-bottom: 10px;
@@ -726,6 +714,90 @@ ul.nostyle i {
   border-radius: 5px;
   padding: 10px 0 30px 0;
 }
+
+/* PEOPLE PAGE */
+
+#people{
+  color: #666666;
+  padding: 0;
+  background: url(../images/background-3.jpg);
+  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: repeat;
+  height:100%; 
+}
+
+
+/* DOWNLOAD PAGE */
+
+#download {
+  color: #666666;
+  padding: 0;
+  background: url(../images/background-3.jpg);
+  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: repeat;
+}
+
+#download .section-title i{
+	border-radius: 100%; 
+	text-align:center;
+	font-size:20px;
+	color:#F01C1E
+	;margin-right:10px;
+	box-shadow: 0px 0px 0px 3px #F01C1E inset;
+	height:50px; 
+	line-height:50px;
+	width:50px;
+}
+#download .section-version{
+	margin:10px 0 ; 
+	display:inline-block;
+}
+
+#download .pull-left i {
+  font-size: .9em;
+  height: 64px;
+  line-height: 40px;
+  text-align: center;
+  width: 64px;
+  border-radius: 100%;
+  color: #666666;
+  transition: background-color 400ms, background-color 400ms;
+  position: relative;
+}
+#download .section-header-version {
+	margin-top:40px;
+}
+
+.download{
+	line-height:70px;
+	margin-left:2px;
+}
+.download a{
+	color:#FFFFFF;
+	font-size:1.1em; 
+}
+.download a:hover{ 
+	color:#fff; 
+	background:#701616;
+	padding:5px 10px;
+}
+#api{
+  color: #666666;
+  padding: 0;
+  /*padding: 100px 0;*/
+  background: url(../images/background-3.jpg);
+  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: repeat;
+}
+
+#api .section-header-api{
+	margin-top: 400px;
+}
+
+
 
 /* GET IN TOUCH  */
 
@@ -788,6 +860,7 @@ ul.nostyle i {
   display: inline-block;
   margin: 0 7.5px;
 }
+
 @media only screen and (min-width: 768px) {
   #footer .social-icons {
     float: right;
@@ -807,9 +880,6 @@ ul.nostyle i {
 .bibtex a{color:#FFFFFF;font-size:1.1em; }
 .bibtex a:hover{ color:#fff; background:#701616;padding:5px 10px;}
 
-.download{line-height:70px;margin-left:2px;}
-.download a{color:#FFFFFF;font-size:1.1em; }
-.download a:hover{ color:#fff; background:#701616;padding:5px 10px;}
 
 .interact-links a{
 	text-align: center;
