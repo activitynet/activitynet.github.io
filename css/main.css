@@ -504,6 +504,8 @@ ul.nostyle i {
   background-attachment: fixed;
   background-position: top center;
   background-repeat: repeat; 
+  /*changed for reset the proportion 8-30-11:30*/
+  height:100%;
 }
 #video {
   height: 180px;
