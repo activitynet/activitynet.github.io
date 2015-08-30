@@ -47,8 +47,8 @@
           <li class="scroll active"><a href="about.html">About</a>
           	<div class="nav-folder" style="padding:0px">
           		<ul class="nav-menu">
-					<li class="nav nav-item" style="border:1px solid #ddd; border-bottom:none;text-align:center"><a href="#" style="color:#666">Papers</a></li>
-                	<li class="nav nav-item" style="border:1px solid #ddd; text-align:center"><a href="#" style="color:#666">History</a></li>
+					<li class="nav nav-item" style="border:1px solid #ddd; border-bottom:none;text-align:center"><a href="#about" style="color:#666">History</a></li>
+                	<li class="nav nav-item" style="border:1px solid #ddd; text-align:center"><a href="#papers" style="color:#666">Papers</a></li>
             	</ul>
            	</div>
           </li>
@@ -64,7 +64,7 @@
 <!-- ABOUT -->
 
 <section id="about">
-  <div class="container">
+  <div class="container about-container">
     <div class="section-header"> 
       <!--h2 class="section-title text-center wow fadeInDown">Papers</h2--> 
     </div>
@@ -99,10 +99,13 @@
   </div>
   <!--/.container--> 
 </section>
-<!--/#about--> 
+<!--/#about-->
+
+<!-- PAPERS -->
+
 <section id="papers" >
-  <div class="container">
-    <div class="row">
+  <div class="container tools-paper-container">
+    <div class="row tools-paper-row">
       <div class="features">
         <div class="col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
           <div class="media service-box wow fadeInUp animated col-sm-12">
@@ -128,11 +131,13 @@
   </div>
   <!--/.container--> 
 </section>
+<!--/#papers-->
+
 
 <!-- FACTS   -->
 <footer id="footer">
   <div class="container">
-    <p class="text-center">@ Company Copy Rights 2015</p>
+    <p class="text-center">@ Activity-Net</p>
   </div>
 </footer>
 
@@ -151,11 +156,11 @@
 <script src="js/tree.js"> </script> 
 <script src="js/videoplay.js"> </script>
 <script>
-$(".navbar-nav >li").hover(function(){
-		$(this).find(".nav-folder").css("display","block");
-		},function(){
-			$(this).find(".nav-folder").css("display","none");
-		});
+  $(function(){
+	var windowH = $(window).height();
+	$('.tools-paper-container').css("height",windowH);
+	});
 </script>
+
 </body>
 </html>
