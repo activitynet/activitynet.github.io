@@ -30,10 +30,16 @@
 <script src="js/smoothscroll.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/main.js"></script>
+<style>
+body,html {
+  height:100%;
+  width:100%; 
+}
+</style>
 </head>
 <!--/head-->
 
-<body id="home" class="homepage" style="overflow:hidden">
+<body style="overflow:hidden">
 <header id="header">
   <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
     <div class="container">
@@ -129,13 +135,5 @@
   <!--/#animated-number--> 
 </section>
 
-<!-- SCRIPT  -->
-<script>
-$(".navbar-nav >li").hover(function(){
-		$(this).find(".nav-folder").css("display","block");
-		},function(){
-			$(this).find(".nav-folder").css("display","none");
-		});
-</script>
 </body>
 </html>
