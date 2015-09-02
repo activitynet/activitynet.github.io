@@ -270,7 +270,8 @@ ul.nostyle i {
 	test-align: left;	
     font-size: 16px;
 	color:#FFF;
-	text-shadow: 1px 1px 1px #7E120F;
+	/*text-shadow: 1px 1px 1px #7E120F;*/
+	padding:15px;border-radius:5px;background:rgba(00,00,00, .2);
   }
   #home-page .home-content p {
     margin-top: 0px;
@@ -385,13 +386,14 @@ ul.nostyle i {
     text-shadow: 1px 1px 1px #7E120F;
   }
   #home-page #detail {
-    margin-top: 0px;
+  /*  margin-top: 0px;*/
 	line-height: 1.2;
 	font-family: 'Roboto', sans-serif;
-	test-align: left;	
+	test-align: left;
     font-size: 1.1em;
 	color:#FFF;
-	text-shadow: 1px 1px 1px #7E120F;
+	/*text-shadow: 1px 1px 1px #7E120F;*/
+	padding:20px ;border-radius:5px;background:rgba(00,00,00, .2);
   }
   #home-page .home-content p {
     margin-top: 0px;
