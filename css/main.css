@@ -331,7 +331,11 @@ ul.nostyle i {
   }
   #home-page .home-content #text-files .btn:hover {
     background-color: rgba(51,51,51,1);
-  }   
+  }  
+  #home-page .threebuttons{
+	margin-top:10px; 
+	text-align:center;
+  } 
 }
 
 
@@ -452,6 +456,10 @@ ul.nostyle i {
   }
   #home-page .home-content #text-files .btn:hover {
     background-color: rgba(51,51,51,1);
+  }
+  #home-page .threebuttons{
+	margin-top:60px; 
+	text-align:center;
   }
 }
 
@@ -729,7 +737,7 @@ ul.nostyle i {
 
 /* PEOPLE PAGE */
 
-#people{
+#people-page{
   color: #666666;
   padding: 0;
   background: url(../images/background-3.jpg);
