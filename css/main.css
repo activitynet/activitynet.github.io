@@ -230,23 +230,23 @@ ul.nostyle i {
 	background-repeat: no-repeat;
     overflow: hidden;
     width: 100%;
-	/*changed for propertion of index page 8-30-3:30*/
-    /*height: 930px;*/
 	height: 100%;
     top: 0;
     left: 0;
   }
+  
+  #home-page .home-inner {
+    position: absolute;
+    width:100%;
+    top: 13%;
+	}
   
   #home-page > div{
  	background:#800d08 url(../images/background-2.jpg);  
 	background-position: top center;
     background-repeat: no-repeat;  
 	background-size:cover;
-	
-  /* background-attachment:fixed;*/
- 	/*changed for propertion of index page 8-30-3:30*/
     width: 100%;
-    /*height: 456px;*/
 	height: 86%;
     top: 0;
     left: 0;
@@ -254,7 +254,8 @@ ul.nostyle i {
   
   
   #home-page #intro {
-    padding: 20px 0px;
+   /* padding: 20px 0px;*/
+	padding: 0px;/*change 9-6 */
     font-size: 2em;
     font-family: 'Roboto', sans-serif;
     text-align: left;
@@ -264,7 +265,8 @@ ul.nostyle i {
     text-shadow: 1px 1px 1px #7E120F;
   }
   #home-page #detail {
-    margin-top: 0px;
+    /*margin-top: 0px;*/
+	margin-top: 0px;margin-left:auto;margin-right:auto;
 	line-height: 1.2;
 	font-family: 'Roboto', sans-serif;
 	test-align: left;	
@@ -333,7 +335,6 @@ ul.nostyle i {
     background-color: rgba(51,51,51,1);
   }  
   #home-page .threebuttons{
-	margin-top:10px; 
 	text-align:center;
   } 
 }
@@ -348,8 +349,6 @@ ul.nostyle i {
 	background-repeat: no-repeat;
     overflow: hidden;
     width: 100%;
-	/*changed for propertion of index page 8-30-11:30*/
-    /*height: 930px;*/
 	height:100%;
     top: 0;
     left: 0;
@@ -360,18 +359,17 @@ ul.nostyle i {
 	background-position: top center;
     background-repeat: no-repeat;  
 	background-size:cover;	
-   /*background-attachment:fixed;*/  
     width: 100%;
-	/*changed for propertion of index page 8-30-11:30*/
-   /* height: 790px;*/
-	height: 86%;
+	height: 76%;
     top: 0;
     left: 0;
   }
 
-  #home-page .home-inner {
-   position: absolute;
-    top: 180px;
+  #animated-number { height:24%;}
+  
+  #home-page .home-inner {	
+	position:relative;
+    top: 10%;
     left: 0;
     width: 100%;
     height: 500px;
@@ -379,29 +377,30 @@ ul.nostyle i {
     overflow: hidden;
   }
  
-  #home-page #intro {
-    padding: 20px 0px;
+  #home-page #intro {	
+	padding:0 0px;
     font-size: 3.5em;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     line-height: 1.2;
     font-weight: 400;
     color: #FFF;
-    text-shadow: 1px 1px 1px #7E120F;
+    text-shadow: 1px 1px 1px #7E120F;width:90%;margin-left:auto;margin-right:auto;
   }
   #home-page #detail {
-  /*  margin-top: 0px;*/
 	line-height: 1.2;
 	font-family: 'Roboto', sans-serif;
-	test-align: left;
+	test-align: center;
     font-size: 1.1em;
 	color:#FFF;
 	/*text-shadow: 1px 1px 1px #7E120F;*/
-	padding:20px ;border-radius:5px;background:rgba(00,00,00, .2);
+	/*padding:20px ;border-radius:5px;background:rgba(00,00,00, .2);*/
+	padding:20px ;border-radius:5px;background:rgba(00,00,00, .2);width:50%; margin-left:auto;margin-right:auto;
+ margin-bottom:3%;margin-top:2%;font-size:14px;/*change 9-6*/
   }
   #home-page .home-content p {
     margin-top: 0px;
-    font-size: 16px;®
+    font-size: 16px;
   }
   #home-page .home-content .btn { 
     margin-bottom: 30px; position:absolute;right:6%;top:85px;
@@ -463,6 +462,11 @@ ul.nostyle i {
   }
 }
 
+@media (min-width: 981px) and (min-height:900px){
+	#home-page > div{height:84%}
+    #animated-number {height:16%;}
+	}
+
 /* Homepage animated FACTS */ 
 
 #animated-number {  
@@ -470,8 +474,6 @@ ul.nostyle i {
   background:#666;
   padding:15px 0;
   color: #fff;
-  /*changed for propertion of index page 8-30-11:30*/
-  height:14%;
 }
 
 #animated-number h1,
@@ -498,7 +500,44 @@ ul.nostyle i {
   margin-bottom: 10px;
 }
 
+@media (min-width:768px) and (max-width:980px){
+    #home-page > div{height:84%;}
+	 #animated-number { height:16%;}
+	  #home-page #detail { margin-bottom:5%;margin-top:5%;width:70%;}
+	 
+	}
 
+
+@media  (max-width: 767px) {
+body,html{height:auto; overflow:auto;}
+     #home-page > div{height:75%;}
+	 #animated-number { height:25%;}
+	 #home-page #intro {  font-size:2.5em; }
+	
+     #home-page #detail { margin-bottom:5%;margin-top:5%;}
+
+}
+
+@media  (max-width: 360px) {
+	 #home-page .home-inner { margin-top:35px; }
+	 #home-page #intro { font-size: 2em;}
+     #home-page .threebuttons a{font-size:14px;padding:6px;}
+     #animated-number strong { font-size:.8em;  line-height:20px;}
+    .animated-number {
+	  width: 50px;
+ 	  height: 50px;
+ 	 font-size: 1.1em;
+ 	 line-height:50px;
+  	 margin-bottom: 5px;
+     }
+   }
+@media  (max-width: 320px) {
+	 #home-page > div{height:70%;}
+	 #animated-number { height:30%;}
+	  #home-page .home-inner { margin-top:20%; }
+	    #home-page #detail {display:none;} 
+		 #home-page .threebuttons{margin-top:20px;}
+	}
 
 
 /*
@@ -563,7 +602,7 @@ ul.nostyle i {
   #papers {
     color: #7E120F;
     padding: 50px 0 50px;
-    background: url(../images/background-1.jpg);
+    background: url(../images/background-3.jpg);
     background-attachment: fixed;
     background-position: top center;
     background-repeat: repeat; 
@@ -583,7 +622,7 @@ ul.nostyle i {
     margin-bottom: 20px;
   }
   .media.service-box {
-    margin: 25px 0 50px 0;
+    margin: 25px 0 25px 0;
   }
   .media.service-box .btn {
     color: #FFF;
@@ -630,14 +669,14 @@ ul.nostyle i {
   #papers {
     color: #7E120F;
     padding: 50px 0 50px;
-    background: url(../images/background-1.jpg);
+    background: url(../images/background-3.jpg);
     background-attachment: fixed;
     background-position: top center;
     background-repeat: repeat; 
     background-size: 100%;
   }
   .media.service-box {
-    margin: 25px 0 50px 0;
+    margin: 25px 0 25px 0;
   }
   .media.service-box .btn {
     color: #FFF;
@@ -881,11 +920,6 @@ ul.nostyle i {
   margin: 0 7.5px;
 }
 
-@media only screen and (min-width: 768px) {
-  #footer .social-icons {
-    float: right;
-  }
-}
 .form-control {
   box-shadow: none;
   -webkit-box-shadow: none;
