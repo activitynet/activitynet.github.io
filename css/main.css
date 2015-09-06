@@ -151,6 +151,12 @@ ul.nostyle i {
 	width:100px;
 	display:none;
 }
+
+#header ul, li, img {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
 	
 .navbar.navbar-default {
   border: 0;
@@ -757,6 +763,17 @@ body,html{height:auto; overflow:auto;}
   transition: background-color 400ms, background-color 400ms;
   position: relative;
 }
+
+#about .container{
+	padding-bottom:100px;
+}
+#about .made li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
 #papers .tools-paper-container{
   margin-top:300px;
 }
