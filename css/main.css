@@ -826,10 +826,6 @@ body,html{height:auto; overflow:auto;}
 	line-height:50px;
 	width:50px;
 }
-#download .section-version{
-	margin:10px 0 ; 
-	display:inline-block;
-}
 
 #download .pull-left i {
   font-size: .9em;
