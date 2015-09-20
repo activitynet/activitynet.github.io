@@ -104,6 +104,7 @@ function print_classification_content() {
         uploadAsync: false,
         uploadUrl:serverurl + "/upload.php",
         mainClass: "input-group-lg",
+        allowedFileExtensions: ["json"],
         uploadExtraData: function() {
             return {
                 email: EMAIL,
