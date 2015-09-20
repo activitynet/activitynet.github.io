@@ -71,12 +71,10 @@ $(function() {
 });
 
 function view_as_logged() {
-  console.log("test");
   $.ajax({
-    url:"evaluation/logged.html",
+    url:serverurl + "/logged.html",
     type:"POST",
     success: function(html) {
-      console.log("hello");
       var firstname = JSON.parse(login_data)[0];
       var lastname = JSON.parse(login_data)[1];
       var homepage = sprintf(html, firstname, lastname);
