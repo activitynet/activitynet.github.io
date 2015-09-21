@@ -96,7 +96,7 @@ function print_classification_content() {
   var html = "<h2>Classification</h2> Classification task description... ";
   html += "<div> <h4>Upload your results</h4>" +
 '<label class="control-label">Select File</label>' + 
-'<input id="file_to_upload" name="file_to_upload" type="file" multiple="false" class="file-loading">' +
+'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 '<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div><div>';
   $("#evaluation-page").html(html);
     $("#file_to_upload").fileinput({
@@ -115,18 +115,25 @@ function print_classification_content() {
       $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>').hide();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
+      var result_url = data.response[0];
+      var accuracy = data.response[1];
       $.each(data.files, function(key, file) {
         var fname = file.name;
-        out = out + '<li>' + 'Uploaded file # ' + (key + 1) + ' - '  +  fname + ' successfully.' + '</li>';
+        out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>Download your results <a href="' + result_url + '" download>click here!</a></li>';
        });
       $('#kv-success-2 ul').append(out);
       $('#kv-success-2').fadeIn('slow');
     });
 
-
-    $("#file_to_upload").on('fileuploaded', function(event, data, id, index) {
-      console.log("upload.");
+    $('#file_to_upload').on('filebrowse', function(event) {
+      $('#kv-success-2').hide();
     });
+
+    $('#file_to_upload').on('fileclear', function(event) {
+      $('#kv-success-2').hide();
+    });
+
+
 }
 
 function print_detection_content() {
