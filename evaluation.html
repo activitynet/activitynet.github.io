@@ -37,14 +37,17 @@
 <style>
 
 #main-menu {
-height:60px;
+height:100px;
 }
 
-#brand-id {
+/*#brand-id {
 padding:0;
 margin:0;
+}*/
+#login-nav{
+	margin-top:33px;
+	margin-bottom:33px;
 }
-
 body,html {
   height:100%;
   width:100%;
@@ -113,20 +116,25 @@ body,html {
   <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <a id="brand-id" class="navbar-brand" href="index.html"><img src="images/activity-logo.png" alt="logo"></a> </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
+        	<span class="sr-only">Toggle</span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+        </button>
+        <a id="brand-id" class="navbar-brand" href="index.html"><img src="images/activity-logo.png" alt="logo"></a>
+     </div>
  
-             <div id="login-nav" class="navbar-form navbar-right" style="margin-top:10px;">
-                <a data-toggle="modal" data-target="#signup-modal"  href="#"> <span class="glyphicon glyphicon-user"></span> Register</a>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                </div>
-                <div class="form-group">          
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                </div>
-                <button type="submit" id="login-button" name="login" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
-                <span id="warning-message"></span>
-              </div>
+     <div id="login-nav" class="navbar-form navbar-right">
+        <a data-toggle="modal" data-target="#signup-modal"  href="#"> <span class="glyphicon glyphicon-user"></span> Register</a>
+        <div class="form-group">
+           <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+        </div>
+        <div class="form-group">          
+           <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+           <button type="submit" id="login-button" name="login" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
+        <span id="warning-message"></span>
       </div>
     </div>
     <!--/.container--> 
