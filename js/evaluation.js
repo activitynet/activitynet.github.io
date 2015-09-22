@@ -119,11 +119,7 @@ function print_classification_content() {
       var accuracy = data.response[1];
       $.each(data.files, function(key, file) {
         var fname = file.name;
-<<<<<<< HEAD
         out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
-=======
-        out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>Download your results <a href="' + result_url + '" download>click here!</a></li>';
->>>>>>> origin/master
        });
       $('#kv-success-2 ul').append(out);
       $('#kv-success-2').fadeIn('slow');
