@@ -1,4 +1,3 @@
-  <!-- Modal for User Registration-->
   <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -45,33 +44,3 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
-<?php
-
-if(isset($_POST['signup']))
-{
-
-  //Sanatize Variables
-  $name = $_POST['name'];
-  $lastname = $_POST['lastname'];
-  $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $created = date("Y-m-d H:i:s");
-
-  $users = users::singleton();
-  $results = $users->CheckFields($name, $lastname, $email, $password);
-
-  // Ok, if there are empty fields or errors display it. Else, save data
-
-  if(sizeof($results) > 0)
-  {
-    $users->DisplayEmptyFields($results);
-  }
-  else
-  {
-    $password = md5($password);
-    $users->addUser($name, $lastname, $email, $password, $created);
-  }
-}
-
-?>
