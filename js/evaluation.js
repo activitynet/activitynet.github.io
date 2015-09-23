@@ -37,7 +37,7 @@ $(function() {
   $('#login-button').on('click', function() {
     var email = $('#email').val();
     var password = $('#password').val();	
-	var pattern = RegExp("[~'!@#$%^&*()-+_=:]");
+	var pattern = RegExp("[~'!#$%^&*()-+_=:]");
 	if(pattern.test(email) || pattern.test(password)){
 			$("#email").attr("value","");
 			$("#password").attr("value","");  
