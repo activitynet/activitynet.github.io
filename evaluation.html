@@ -34,8 +34,8 @@
 <script src="js/sprintf.min.js"></script>
 <script src="evaluation/fileinput/js/fileinput.js"></script>
 <script src="js/evaluation.js"></script>
-<style>
 
+<style>
 #main-menu {
 height:100px;
 }
@@ -45,13 +45,15 @@ padding:0;
 margin:0;
 }*/
 #login-nav{
-	margin-top:33px;
-	margin-bottom:33px;
+	margin-top:25px;
+	margin-bottom:25px;
+	display:inline;
 }
 body,html {
   height:100%;
   width:100%;
 }
+
 </style>
 </head>
 <!--/head-->
@@ -125,17 +127,30 @@ body,html {
         <a id="brand-id" class="navbar-brand" href="index.html"><img src="images/activity-logo.png" alt="logo"></a>
      </div>
  
-     <div id="login-nav" class="navbar-form navbar-right">
+ <!--    <div id="login-nav" class="navbar-form navbar-right">
         <a data-toggle="modal" data-target="#signup-modal"  href="#"> <span class="glyphicon glyphicon-user"></span> Register</a>
         <div class="form-group">
-           <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+           <input type="email" class="form-control" name="email" id="email" placeholder="Email" >
         </div>
         <div class="form-group">          
            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
         </div>
            <button type="submit" id="login-button" name="login" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
         <span id="warning-message"></span>
-      </div>
+      </div>-->
+      <div id="login-nav" class="navbar-form navbar-right">              
+          <form action="" method="post" class="navbar-form navbar-right" role="form">
+              <a data-toggle="modal" data-target="#signup-modal"  href="#"> <span class="glyphicon glyphicon-user"></span> Register</a>
+              <div class="form-group">
+              	<input type="email" class="form-control" name="email" id="email" required placeholder="Email">
+              </div>
+              <div class="form-group">          
+              	<input type="password" class="form-control" name="password" id="password"  required="required" placeholder="Password">
+              </div>
+              <button type="button" id="login-button" name="login" class="btn btn-primary btn-sm" > <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
+              <span id="warning-message"></span>
+          </form>              
+		</div>
     </div>
     <!--/.container--> 
   </nav>
