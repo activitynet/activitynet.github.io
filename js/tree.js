@@ -25,6 +25,22 @@ $(document).ready(function(){
 		   var itemName = itemStr + "(" + account + ")";
 		   $(this).find('>span').get(0).lastChild.nodeValue = itemName;		 
 		});
+		
+		
+		var totalvideo = 0;
+		$('#categories').find('a:has(i)').each(function(){
+			var nodeText = $(this).find('>span').text();
+			var ex =  /.*\((.*)\)/;				
+			var nodeNumber = nodeText.match(ex)[1];
+			var number = parseInt(nodeNumber,10);
+			totalvideo  += number;
+		});
+		
+		console.log("totalvideo= " + totalvideo);
+		
+		/*var rootStr = $('#categories').find('>span').get(0).lastChild.text;*/
+		var rootName = "Video Collection(" + totalvideo + ")";
+		$('#categories').find('>span').get(0).lastChild.nodeValue = rootName;
     },	
     error:function(data){
       //$('.tree').text(data);
