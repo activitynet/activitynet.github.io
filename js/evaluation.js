@@ -1,4 +1,4 @@
-var serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server";
+var serverurl = "evaluation_server";
 var login_data;
 var EMAIL;
 var PASSWORD;
@@ -36,7 +36,47 @@ $(function() {
 
   $('#login-button').on('click', function() {
     var email = $('#email').val();
+    var password = $('#password').val();	
+	var pattern = RegExp("[~'!@#$%^&*()-+_=:]");
+	if(pattern.test(email) && pattern.test(password)){
+			$("#email").attr("value","");
+			$("#password").attr("value","");  
+			$("#name").focus(); 
+			alert("unAllowable input!");
+	}else{
+	  $.ajax({
+      	url:serverurl + "/logging.php",
+      	type:"POST",
+      	data:{action: "validate_login", email: email, password: password},
+      	success: function(data) {
+       		login_data = data;
+        	EMAIL = JSON.parse(login_data)[2];
+       		PASSWORD = JSON.parse(login_data)[3];
+        	var firstname = JSON.parse(login_data)[0];
+        	var lastname = JSON.parse(login_data)[1];
+        	if (firstname) {
+          		localStorage.setItem("EMAIL_CACHED", EMAIL);
+          		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
+          		view_as_logged();
+        }
+        else {
+          $("#warning-message").hide();
+          $("#warning-message").html('<span class="help-inline">Invalid username or password</span>');
+          $("#warning-message").fadeIn('slow');
+        }
+      }
+    });
+	}
+	
+
+  });
+
+
+
+/*  $('#login-button').on('click', function() {
+    var email = $('#email').val();
     var password = $('#password').val();
+	
     $.ajax({
       url:serverurl + "/logging.php",
       type:"POST",
@@ -59,8 +99,7 @@ $(function() {
         }
       }
     });
-  });
-
+  });*/
   
 
   if (localStorage.getItem("EMAIL_CACHED") && localStorage.getItem("PASSWORD_CACHED")) {
@@ -68,9 +107,24 @@ $(function() {
     $('#password').val(localStorage.getItem("PASSWORD_CACHED"));
     $('#login-button').click();
   }
+  
+  
 });
 
-function view_as_logged() {
+
+function str_filter(value){
+	var pattern = RegExp("[~'!@#$%^&*()-+_=:]");
+	if(pattern.test($('#email').val()) && pattern.test($('#password').val())){
+			alert( 'unAllowable input!');
+			$("#email").attr("value","");  
+			$("#name").focus();  
+			return false;  
+	}
+	
+}
+
+
+function view_as_logged() {	
   $.ajax({
     url:serverurl + "/logged.html",
     type:"POST",
@@ -136,8 +190,8 @@ function print_classification_content() {
 
 }
 
-function print_detection_content() {
-  var html = "<h2>Detection</h2> Coming soon...";
+function print_leadership_content() {
+  var html = "<h2>leadership</h2> Coming soon...";
   $("#evaluation-page").html(html);
 }
 
@@ -149,8 +203,8 @@ function fill_logged_content() {
   $("#classification-btn").on("click", function() {
     print_classification_content();
   });
-  $("#detection-btn").on("click", function() {
-    print_detection_content();
+  $("#leadership-btn").on("click", function() {
+    print_leadership_content();
   });
   $("#signout-btn").on("click", function() {
     localStorage.clear();
