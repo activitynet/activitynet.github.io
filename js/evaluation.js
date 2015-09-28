@@ -30,14 +30,14 @@ $(function() {
 			  }
 			  else {
 				$("#warning-register").hide();
-				$("#warning-register").html('</br><span class="help-inline">Email address already taken</span>');
+				$("#warning-register").html('</br><span class="help-inline text-danger">Email address already taken</span>');
 				$("#warning-register").fadeIn('slow');
 			  }
 			}
 		  });
 	}else{
 		  $("#warning-register").hide();
-          $("#warning-register").html('</br><span class="help-inline">Please type correct email</span>');
+          $("#warning-register").html('</br><span class="help-inline text-danger">Please type correct email</span>');
           $("#warning-register").fadeIn('slow');
 	}	
   });
@@ -62,7 +62,7 @@ $(function() {
 			}
 			else {
 			  $("#warning-message").hide();
-			  $("#warning-message").html('<span class="help-inline">Invalid username or password</span>');
+			  $("#warning-message").html('<span class="help-inline text-danger">Invalid username or password</span>');
 			  $("#warning-message").fadeIn('slow');
 			}
       	}
