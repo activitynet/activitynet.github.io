@@ -1,4 +1,4 @@
-var serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server";
+var serverurl = "evaluation_server";
 var login_data;
 var leadership_data
 var EMAIL;
@@ -11,11 +11,12 @@ $(function() {
     var newpassword = $("#newpassword").val();
     var newfirstname = $("#newfirstname").val();
     var newlastname = $("#newlastname").val();
+	var organization = $("#organization").val();
     $.ajax({
       url:serverurl + "/logging.php",
       type:"POST",
       data:{action: "adduser", email: newemail, password: newpassword,
-            firstname: newfirstname, lastname: newlastname},
+            firstname: newfirstname, lastname: newlastname, organization:organization},
       success: function(data) {
         var email = JSON.parse(data)[0];
         var password = JSON.parse(data)[1];
@@ -47,7 +48,6 @@ $(function() {
        		PASSWORD = JSON.parse(login_data)[3];
         	var firstname = JSON.parse(login_data)[0];
         	var lastname = JSON.parse(login_data)[1];
-			alert ("firstname--test-----")+firstname;
         	if (firstname) {
           		localStorage.setItem("EMAIL_CACHED", EMAIL);
           		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
