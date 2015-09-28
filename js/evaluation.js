@@ -1,4 +1,4 @@
-var serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server";
+var serverurl = "evaluation_server";
 var login_data;
 var leadership_data
 var EMAIL;
@@ -179,31 +179,26 @@ function print_classification_content() {
 }
 
 function print_leadership_content() {
-	var html = '<div class="col-sm-12"><table id="lstable" class="table table-striped dataTable no-footer" role="grid" style="width:100%"><thead><tr role="row">'+
+	var html = '<div class="col-sm-12" style="margin-top:50px"><table id="lstable" class="table table-striped dataTable no-footer" role="grid" style="width:100%"><thead><tr role="row">'+
   			   '<th class="th-title sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
 			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
 			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
 			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
 			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
 			   '</tr></thead></table></div>';
-  	$("#evaluation-page").html(html);
-	
+  	$("#evaluation-page").html(html);	
 	$.ajax({
 		url:serverurl + "/leadership.php",
 		type:"POST",
    		data:{action: "leadership_action"},
       	success: function(data) {
 			//Take all records from JSON 
-			//var leadership_data = JSON.parse(data);
 			var leadership_data = jQuery.parseJSON(data);
-			 $.each(leadership_data, function(i, l){
-			$('#lstable').append('<tr><td>'+ l[0] +'</td><td>'+ l[1] +'</td></tr>');	
-		  });	
-			
-    }
-	});
-		
-  
+			 $.each(leadership_data, function(i, ls){
+			$('#lstable').append('<tr><td>'+ ls[0] +'</td><td>'+ ls[1] +'</td><td>'+ ls[2] +'</td><td>'+ ls[3] +'</td><td>'+ '0' +'</td></tr>');	
+		  	});			
+    	}
+	});  
 }
 
 function fill_logged_content() {
