@@ -1,5 +1,6 @@
 var serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server";
 var login_data;
+var leadership_data
 var EMAIL;
 var PASSWORD;
 var TASKID;
@@ -33,8 +34,35 @@ $(function() {
     });
   });
 
-
   $('#login-button').on('click', function() {
+	  var email = $('#email').val();
+      var password = $('#password').val();
+	  $.ajax({
+      	url:serverurl + "/logging.php",
+      	type:"POST",
+      	data:{action: "validate_login", email: email, password: password},
+      	success: function(data) {
+       		login_data = data;			
+        	EMAIL = JSON.parse(login_data)[2];
+       		PASSWORD = JSON.parse(login_data)[3];
+        	var firstname = JSON.parse(login_data)[0];
+        	var lastname = JSON.parse(login_data)[1];
+			alert ("firstname--test-----")+firstname;
+        	if (firstname) {
+          		localStorage.setItem("EMAIL_CACHED", EMAIL);
+          		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
+          		view_as_logged();
+			}
+			else {
+			  $("#warning-message").hide();
+			  $("#warning-message").html('<span class="help-inline">Invalid username or password</span>');
+			  $("#warning-message").fadeIn('slow');
+			}
+      	}
+    });
+  });
+
+/*  $('#login-button').on('click', function() {
     var email = $('#email').val();
     var password = $('#password').val();	
 	var pattern = RegExp("[~'!#$%^&*()-+_=:]");
@@ -67,38 +95,6 @@ $(function() {
       }
     });
 	}
-	
-
-  });
-
-
-
-/*  $('#login-button').on('click', function() {
-    var email = $('#email').val();
-    var password = $('#password').val();
-	
-    $.ajax({
-      url:serverurl + "/logging.php",
-      type:"POST",
-      data:{action: "validate_login", email: email, password: password},
-      success: function(data) {
-        login_data = data;
-        EMAIL = JSON.parse(login_data)[2];
-        PASSWORD = JSON.parse(login_data)[3];
-        var firstname = JSON.parse(login_data)[0];
-        var lastname = JSON.parse(login_data)[1];
-        if (firstname) {
-          localStorage.setItem("EMAIL_CACHED", EMAIL);
-          localStorage.setItem("PASSWORD_CACHED", PASSWORD);
-          view_as_logged();
-        }
-        else {
-          $("#warning-message").hide();
-          $("#warning-message").html('<span class="help-inline">Invalid username or password</span>');
-          $("#warning-message").fadeIn('slow');
-        }
-      }
-    });
   });*/
   
 
@@ -106,25 +102,12 @@ $(function() {
     $('#email').val(localStorage.getItem("EMAIL_CACHED"));
     $('#password').val(localStorage.getItem("PASSWORD_CACHED"));
     $('#login-button').click();
-  }
-  
+  }  
   
 });
 
 
-function str_filter(value){
-	var pattern = RegExp("[~'!@#$%^&*()-+_=:]");
-	if(pattern.test($('#email').val()) && pattern.test($('#password').val())){
-			alert( 'unAllowable input!');
-			$("#email").attr("value","");  
-			$("#name").focus();  
-			return false;  
-	}
-	
-}
-
-
-function view_as_logged() {	
+function view_as_logged() {
   $.ajax({
     url:serverurl + "/logged.html",
     type:"POST",
@@ -186,13 +169,34 @@ function print_classification_content() {
     $('#file_to_upload').on('fileclear', function(event) {
       $('#kv-success-2').hide();
     });
-
-
 }
 
 function print_leadership_content() {
-  var html = "<h2>leadership</h2> Coming soon...";
-  $("#evaluation-page").html(html);
+	var html = '<div class="col-sm-12"><table id="lstable" class="table table-striped dataTable no-footer" role="grid" style="width:100%"><thead><tr role="row">'+
+  			   '<th class="th-title sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
+			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
+			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
+			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
+			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
+			   '</tr></thead></table></div>';
+  	$("#evaluation-page").html(html);
+	
+	$.ajax({
+		url:serverurl + "/leadership.php",
+		type:"POST",
+   		data:{action: "leadership_action"},
+      	success: function(data) {
+			//Take all records from JSON 
+			//var leadership_data = JSON.parse(data);
+			var leadership_data = jQuery.parseJSON(data);
+			 $.each(leadership_data, function(i, l){
+			$('#lstable').append('<tr><td>'+ l[0] +'</td><td>'+ l[1] +'</td></tr>');	
+		  });	
+			
+    }
+	});
+		
+  
 }
 
 function fill_logged_content() {
