@@ -12,27 +12,34 @@ $(function() {
     var newfirstname = $("#newfirstname").val();
     var newlastname = $("#newlastname").val();
 	var organization = $("#organization").val();
-    $.ajax({
-      url:serverurl + "/logging.php",
-      type:"POST",
-      data:{action: "adduser", email: newemail, password: newpassword,
-            firstname: newfirstname, lastname: newlastname, organization:organization},
-      success: function(data) {
-        var email = JSON.parse(data)[0];
-        var password = JSON.parse(data)[1];
-        
-        if (email) { 
-          $('#email').val(email);
-          $('#password').val(password);
-          $('#login-button').click();
-        }
-        else {
-          $("#warning-register").hide();
-          $("#warning-register").html('</br><span class="help-inline">Email address already taken</span>');
+	var emailreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+	if(emailreg.test(newemail)){	
+		$.ajax({
+			url:serverurl + "/logging.php",
+			type:"POST",
+			data:{action: "adduser", email: newemail, password: newpassword,
+				  firstname: newfirstname, lastname: newlastname, organization:organization},
+			success: function(data) {
+			  var email = JSON.parse(data)[0];
+			  var password = JSON.parse(data)[1];
+			  
+			  if (email) { 
+				$('#email').val(email);
+				$('#password').val(password);
+				$('#login-button').click();
+			  }
+			  else {
+				$("#warning-register").hide();
+				$("#warning-register").html('</br><span class="help-inline">Email address already taken</span>');
+				$("#warning-register").fadeIn('slow');
+			  }
+			}
+		  });
+	}else{
+		  $("#warning-register").hide();
+          $("#warning-register").html('</br><span class="help-inline">Please type correct email</span>');
           $("#warning-register").fadeIn('slow');
-        }
-      }
-    });
+	}	
   });
 
   $('#login-button').on('click', function() {
