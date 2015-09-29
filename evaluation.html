@@ -18,11 +18,6 @@
 <link href="css/responsive.css" rel="stylesheet">
 <link href="css/popover-mask.css" rel="stylesheet">
 <link href="evaluation/fileinput/css/fileinput.css" rel="stylesheet">
-
-<!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 <link rel="shortcut icon" href="images/favicon.png">
 
 <!-- SCRIPT  -->
@@ -49,6 +44,14 @@
 body,html {
   height:100%;
   width:100%;
+}
+#home {
+  background: url(../images/background-3.jpg);
+  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: repeat; 
+  /*changed for reset the proportion 8-30-11:30*/
+  /*height:100%;*/
 }
 </style>
 
@@ -149,9 +152,15 @@ body,html {
 <!--/header--> 
 
 <!-- HOME PAGE -->
-<div class="container" id="evaluation-page">
-<h2> Evaluation server </h2>
-This page is intended as a tool for benchmarking algorithms in ActivityNet. Please sign-in/register to submit your results.
+<div class="container" id="evaluation-page" style="margin-top:68px">
+	<div class="section-header section-header-version">
+      <h2 class="section-title text-center wow fadeInDown animated">Evaluation server</h2>
+   	</div>
+    <div class="row">
+    	<div class="col-sm-10 col-md-offset-2 fadeInUp animated">
+			<p class="text-left wow fadeInUp animated" style="font-size:16px">This page is intended as a tool for benchmarking algorithms in ActivityNet. Please sign-in/register to submit your results.</p>
+        </div>
+    </div>
 </div>
 </body>
 </html>
