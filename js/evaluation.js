@@ -179,13 +179,13 @@ function print_classification_content() {
 }
 
 function print_leadership_content() {
-	var html = '<div class="col-sm-12" style="margin-top:50px"><table id="lstable" class="table table-striped dataTable no-footer" role="grid" style="width:100%"><thead><tr role="row">'+
+	var html = '<div class="container-fluid col-sm-12" style="margin-top:50px"><table id="lstable" class="table table-striped dataTable no-footer sort_table" role="grid" style="width:100%"><thead><tr role="row">'+
   			   '<th class="th-title sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
 			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
-			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
-			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
-			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
-			   '</tr></thead></table></div>';
+			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
+			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
+			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
+			   '</tr></thead><tbody></tbody></table></div>';
   	$("#evaluation-page").html(html);	
 	$.ajax({
 		url:serverurl + "/leadership.php",
@@ -196,7 +196,8 @@ function print_leadership_content() {
 			var leadership_data = jQuery.parseJSON(data);
 			 $.each(leadership_data, function(i, ls){
 			$('#lstable').append('<tr><td>'+ ls[0] +'</td><td>'+ ls[1] +'</td><td>'+ ls[2] +'</td><td>'+ ls[3] +'</td><td>'+ '0' +'</td></tr>');	
-		  	});			
+		  	});
+		  	$("table.sort_table").sort_table({"action" : "init"});
     	}
 	});  
 }
