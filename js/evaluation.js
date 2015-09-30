@@ -186,7 +186,7 @@ function print_classification_content() {
 }
 
 function print_leadership_content() {
-	var html = '<div class="container-fluid col-sm-12" style="margin-top:50px"><table id="lstable" class="table table-striped dataTable no-footer sort_table" role="grid" style="width:100%"><thead><tr role="row">'+
+	var html = '<div class="container-fluid col-sm-12" style="margin-top:50px"><table id="lstable" class="table table-striped dataTable no-footer sort_table" role="grid" style="background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
   			   '<th class="th-title sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
 			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
