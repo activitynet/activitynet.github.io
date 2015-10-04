@@ -1,4 +1,4 @@
-var serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server";
+var serverurl = "evaluation_server";
 var login_data;
 var leadership_data
 var EMAIL;
@@ -13,34 +13,43 @@ $(function() {
     var newlastname = $("#newlastname").val();
 	var organization = $("#organization").val();
 	var emailreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-	if(emailreg.test(newemail)){	
-		$.ajax({
-			url:serverurl + "/logging.php",
-			type:"POST",
-			data:{action: "adduser", email: newemail, password: newpassword,
-				  firstname: newfirstname, lastname: newlastname, organization:organization},
-			success: function(data) {
-			  var email = JSON.parse(data)[0];
-			  var password = JSON.parse(data)[1];
-			  
-			  if (email) { 
-				$('#email').val(email);
-				$('#password').val(password);
-				$('#login-button').click();
-			  }
-			  else {
-				$("#warning-register").hide();
-				$("#warning-register").html('</br><span class="help-inline text-danger">Email address already taken</span>');
-				$("#warning-register").fadeIn('slow');
-			  }
-			}
-		  });
+	if($('input:text[value=""]'))
+	{		
+		$("#warning-register").hide();
+		$("#warning-register").html('</br><span class="help-inline text-danger "><i class="glyphicon glyphicon-warning-sign"></i>Please type all necessary information</span>');
+		$("#warning-register").fadeIn('slow');
 	}else{
-		  $("#warning-register").hide();
-          $("#warning-register").html('</br><span class="help-inline text-danger">Please type correct email</span>');
-          $("#warning-register").fadeIn('slow');
-	}	
-  });
+		if(emailreg.test(newemail)){
+			$.ajax({
+				url:serverurl + "/logging.php",
+				type:"POST",
+				data:{action: "adduser", email: newemail, password: newpassword,
+					  firstname: newfirstname, lastname: newlastname, organization:organization},
+				success: function(data) {
+				  var email = JSON.parse(data)[0];
+				  var password = JSON.parse(data)[1];
+				  
+				  if (email) { 
+					$('#email').val(email);
+					$('#password').val(password);
+					$('#login-button').click();
+				  }
+				  else {
+					$("#warning-register").hide();
+					$("#warning-register").html('</br><span class="help-inline text-danger">Email address already taken</span>');
+					$("#warning-register").fadeIn('slow');
+				  }
+				}
+			  });
+		}else{
+			  $("#warning-register").hide();
+			  $("#warning-register").html('</br><span class="help-inline text-danger">Please type correct email</span>');
+			  $("#warning-register").fadeIn('slow');
+		}  
+	}
+	});
+
+
 
   $('#login-button').on('click', function() {
 	  var email = $('#email').val();
@@ -132,7 +141,7 @@ function view_as_logged() {
 
 function print_home_content() {
   var html = "<h1>Home</h1> Fill your content here... ";
-  $("#evaluation-page").html(html);
+  $("#evaluation-page").html(html).st;
 }
 
 function print_classification_content() {
@@ -179,9 +188,10 @@ function print_classification_content() {
 }
 
 function print_leadership_content() {
-	var html = '<div class="container-fluid col-sm-12" style="margin-top:50px"><table id="lstable" class="table table-striped dataTable no-footer sort_table" role="grid" style="width:100%"><thead><tr role="row">'+
-  			   '<th class="th-title sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
-			   '<th class="sorting_desc" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
+	var html = '<div class="container-fluid col-sm-12" style="margin-top:50px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+  			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
+			   '<th class="sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
+			   '<th class="sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
@@ -195,11 +205,12 @@ function print_leadership_content() {
 			//Take all records from JSON 
 			var leadership_data = jQuery.parseJSON(data);
 			 $.each(leadership_data, function(i, ls){
-			$('#lstable').append('<tr><td>'+ ls[0] +'</td><td>'+ ls[1] +'</td><td>'+ ls[2] +'</td><td>'+ ls[3] +'</td><td>'+ '0' +'</td></tr>');	
+				 var rank = i + 1;
+				$('#myTable').append('<tr><td>'+ rank +'</td><td>'+ ls[0] +'</td><td>'+ ls[1] +'</td><td>'+ ls[2] +'</td><td>'+ ls[3] +'</td><td>'+ ls[4] +'</td></tr>');
 		  	});
-		  	$("table.sort_table").sort_table({"action" : "init"});
+			$("table.sort_table").sort_table({ "action" : "init" });		
     	}
-	});  
+	});
 }
 
 function fill_logged_content() {
