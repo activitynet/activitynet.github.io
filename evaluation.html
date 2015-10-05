@@ -49,12 +49,12 @@ body,html {
   background: url(../images/background-3.jpg);
   background-attachment: fixed;
   background-position: top center;
-  background-repeat: repeat; 
-  /*changed for reset the proportion 8-30-11:30*/
-  /*height:100%;*/
+  background-repeat: repeat;
+}
+.error {
+  border: solid 2px red;
 }
 </style>
-
 </head>
 <!--/head-->
 
@@ -95,20 +95,20 @@ body,html {
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" name="email" id="newemail" placeholder="Email">
+            <input type="text" class="form-control" name="email" id="newemail" placeholder="Email">
           </div>
         </div>
         <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Password</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" name="password" id="newpassword" placeholder="Password">
+            <input type="text" class="form-control" name="password" id="newpassword" placeholder="Password">
           </div>
         </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
-          <button type="button" id="signup-button" name="signup" class="btn btn-success btn-sm">Register</button>
-          <span id="warning-register"></span>
+        	<span id="warning-register" style="text-align: center; display:inline;"></span>
+          	<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+          	<button type="button" id="signup-button" name="signup" class="btn btn-success btn-sm">Register</button>          
         </div>
       </div>
       <!-- End of form -->
@@ -129,7 +129,7 @@ body,html {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span> 
         </button>
-        <a id="brand-id" class="navbar-brand" href="index.html"><img src="images/activity-logo.png" alt="logo"></a>
+        <a id="brand-id" class="navbar-brand" href="index.html" ><img src="images/activity-logo.png" alt="logo"><span style="margin-left:70px">Evaluation server<span></a>
      </div>
       <div id="login-nav" class="navbar-form navbar-right">              
           <form action="" method="post" class="navbar-form navbar-right" role="form">
@@ -140,8 +140,10 @@ body,html {
               <div class="form-group">          
               	<input type="password" class="form-control" name="password" id="password"  required="required" placeholder="Password">
               </div>
-              <button type="button" id="login-button" name="login" class="btn btn-primary btn-sm" > <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
-              <span id="warning-message"></span>
+              <div class="form-group">              	
+              	<button type="button" id="login-button" name="login" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button> 
+                <span id="warning-message" ></span>          
+              </div>
           </form>              
 		</div>
     </div>
@@ -152,7 +154,7 @@ body,html {
 <!--/header--> 
 
 <!-- HOME PAGE -->
-<div class="container" id="evaluation-page" style="margin-top:68px">
+<div class="container" id="evaluation-page" style="margin-top:100px;padding-top:68px">
 	<div class="section-header section-header-version">
       <h2 class="section-title text-center wow fadeInDown animated">Evaluation server</h2>
    	</div>
