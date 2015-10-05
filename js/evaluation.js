@@ -76,43 +76,7 @@ $(function() {
 			}
       	}
     });
-  });
-
-/*  $('#login-button').on('click', function() {
-    var email = $('#email').val();
-    var password = $('#password').val();	
-	var pattern = RegExp("[~'!#$%^&*()-+_=:]");
-	if(pattern.test(email) || pattern.test(password)){
-			$("#email").attr("value","");
-			$("#password").attr("value","");  
-			$("#name").focus(); 
-			alert("unAllowable input!");
-	}else{
-	  $.ajax({
-      	url:serverurl + "/logging.php",
-      	type:"POST",
-      	data:{action: "validate_login", email: email, password: password},
-      	success: function(data) {
-       		login_data = data;
-        	EMAIL = JSON.parse(login_data)[2];
-       		PASSWORD = JSON.parse(login_data)[3];
-        	var firstname = JSON.parse(login_data)[0];
-        	var lastname = JSON.parse(login_data)[1];
-        	if (firstname) {
-          		localStorage.setItem("EMAIL_CACHED", EMAIL);
-          		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
-          		view_as_logged();
-        }
-        else {
-          $("#warning-message").hide();
-          $("#warning-message").html('<span class="help-inline">Invalid username or password</span>');
-          $("#warning-message").fadeIn('slow');
-        }
-      }
-    });
-	}
-  });*/
-  
+  });  
 
   if (localStorage.getItem("EMAIL_CACHED") && localStorage.getItem("PASSWORD_CACHED")) {
     $('#email').val(localStorage.getItem("EMAIL_CACHED"));
@@ -122,6 +86,13 @@ $(function() {
   
 });
 
+function hover_subtab(){
+	$(".navbar-nav >li").hover(function(){
+		$(this).find(".nav-folder").css("display","block");
+		},function(){
+		$(this).find(".nav-folder").css("display","none");
+	});
+}
 
 function view_as_logged() {
   $.ajax({
@@ -134,6 +105,7 @@ function view_as_logged() {
       $('.homepage').html(homepage);
       $(function() {
         fill_logged_content();
+		hover_subtab();
       });
     }
   });
