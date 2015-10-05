@@ -162,9 +162,9 @@ function print_classification_content() {
 function print_leadership_content() {
 	var html = '<div class="container-fluid col-sm-12" style="margin-top:50px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
   			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
-			   '<th class="sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
-			   '<th class="sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
-			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
+			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
+			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
+			   '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
 			   '</tr></thead><tbody></tbody></table></div>';
