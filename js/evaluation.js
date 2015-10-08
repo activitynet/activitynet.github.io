@@ -13,11 +13,22 @@ $(function() {
     var newlastname = $("#newlastname").val();
 	var organization = $("#organization").val();
 	var emailreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-	if($('input:text[value=""]'))
-	{		
-		$("#warning-register").hide();
-		$("#warning-register").html('</br><span class="help-inline text-danger "><i class="glyphicon glyphicon-warning-sign"></i>Please type all necessary information</span>');
-		$("#warning-register").fadeIn('slow');
+	var isFormValid = true;
+	var errormsg = "";
+	var inputcon = $('input.form-control');
+	$('input.form-control').each(function() {
+        if($.trim($(this).val()).length == 0 && $(this).attr('placeholder') != 'Organization')
+		{
+			isFormValid = false;
+			errormsg += $(this).attr('placeholder') + ',';
+		}
+    });
+	
+	if(!isFormValid)
+	{	
+		var message = errormsg + 'can not be empty';
+		print_msg(message);	
+		
 	}else{
 		if(emailreg.test(newemail)){
 			$.ajax({
@@ -29,26 +40,23 @@ $(function() {
 				  var email = JSON.parse(data)[0];
 				  var password = JSON.parse(data)[1];
 				  
-				  if (email) { 
+				  if (email) {
 					$('#email').val(email);
 					$('#password').val(password);
 					$('#login-button').click();
 				  }
 				  else {
-					$("#warning-register").hide();
-					$("#warning-register").html('</br><span class="help-inline text-danger">Email address already taken</span>');
-					$("#warning-register").fadeIn('slow');
+					var message = 'Email address already taken';
+					print_msg(message);
 				  }
 				}
 			  });
 		}else{
-			  $("#warning-register").hide();
-			  $("#warning-register").html('</br><span class="help-inline text-danger">Please type correct email</span>');
-			  $("#warning-register").fadeIn('slow');
+			var message = 'Please type correct email';
+			print_msg(message);
 		}  
 	}
 	});
-
 
 
   $('#login-button').on('click', function() {
@@ -76,15 +84,22 @@ $(function() {
 			}
       	}
     });
-  });  
+  });
+  
 
   if (localStorage.getItem("EMAIL_CACHED") && localStorage.getItem("PASSWORD_CACHED")) {
     $('#email').val(localStorage.getItem("EMAIL_CACHED"));
     $('#password').val(localStorage.getItem("PASSWORD_CACHED"));
     $('#login-button').click();
-  }  
+  } 
   
 });
+
+function print_msg(msg){
+	$("#warning-register").hide();
+	$("#warning-register").html('</br><span class="help-inline text-danger "><i class="glyphicon glyphicon-warning-sign"></i>' + msg + '</span>');
+	$("#warning-register").fadeIn('slow');
+}
 
 function hover_subtab(){
 	$(".navbar-nav >li").hover(function(){
@@ -113,16 +128,17 @@ function view_as_logged() {
 
 function print_home_content() {
   var html = "<h1>Home</h1> Fill your content here... ";
-  $("#evaluation-page").html(html).st;
+  $("#evaluation-page").html(html);
 }
 
 function print_classification_content() {
   TASKID = 1;
-  var html = "<h2>Classification</h2> Classification task description... ";
-  html += "<div> <h4>Upload your results</h4>" +
-'<label class="control-label">Select File</label>' + 
-'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
-'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div><div>';
+  var html = '<div style="margin-top:100px;padding-bottom:500px"><h2>Classification</h2> Classification task description... ';
+  html += '<h4>Upload your results</h4>' +
+		'<label class="control-label">Select File</label>' + 
+		'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
+		'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div><div>' +
+		'<section id="detection"><div style="margin:300px 0; padding-top:200px"><h2>Detection</h2> Cooming soon</div></section>';
   $("#evaluation-page").html(html);
     $("#file_to_upload").fileinput({
         maxFileCount: 1,
@@ -178,7 +194,7 @@ function print_leadership_content() {
 			var leadership_data = jQuery.parseJSON(data);
 			 $.each(leadership_data, function(i, ls){
 				 var rank = i + 1;
-				$('#myTable').append('<tr><td>'+ rank +'</td><td>'+ ls[0] +'</td><td>'+ ls[1] +'</td><td>'+ ls[2] +'</td><td>'+ ls[3] +'</td><td>'+ ls[4] +'</td></tr>');
+				$('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
 		  	});
 			$("table.sort_table").sort_table({ "action" : "init" });		
     	}
