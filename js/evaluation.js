@@ -17,7 +17,7 @@ $(function() {
 	var errormsg = "";
 	var inputcon = $('input.form-control');
 	$('input.form-control').each(function() {
-        if($.trim($(this).val()).length == '' && $(this).attr('placeholder') != 'Organization')
+        if($.trim($(this).val()) == '' && $(this).attr('placeholder') != 'Organization')
 		{
 			isFormValid = false;
 			errormsg += $(this).attr('placeholder') + ',';
