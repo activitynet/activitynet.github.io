@@ -283,7 +283,6 @@ function fill_logged_content() {
   });
   $("#classification-btn").on("click", function() {
     print_classification_content();
-	print_detection_content();
   });
   $("#leadership-btn").on("click", function() {
     print_classification_result();
