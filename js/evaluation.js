@@ -138,7 +138,7 @@ function print_classification_content() {
   html += '<h4>Upload your results</h4>' +
 		'<label class="control-label">Select File</label>' + 
 		'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
-		'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div><div></section>'+
+		'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div></div></section>'+
 		'<section id="detection"></section>';
   $("#evaluation-page").html(html);
   print_detection_content();
@@ -183,7 +183,7 @@ function print_detection_content(){
   html += '<h4>Upload your results</h4>' +
 		'<label class="control-label">Select File</label>' + 
 		'<input id="detection_upload" name="detection_upload" type="file" multiple=false class="file-loading">' +
-		'<div id="kv-success" class="alert alert-success fade in" style="margin-top:10px;display:none"></div><div>';
+		'<div id="kv-success" class="alert alert-success fade in" style="margin-top:10px;display:none"></div></div>';
 				
   $("#detection").html(html);
     $("#detection_upload").fileinput({
@@ -223,14 +223,16 @@ function print_detection_content(){
 
 
 function print_classification_result() {
-	var html = '<div class="container-fluid col-sm-12" style="margin-top:100px;margin-bottom:500px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+	var html = '<section id="classification-rst">'+
+			   '<div class="container-fluid col-sm-12" style="margin-top:100px;margin-bottom:500px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+
   			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
 			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
 			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
 			   '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
-			   '</tr></thead><tbody></tbody></table></div>'+ '<div id="detection-result-page"></div>';
+			   '</tr></thead><tbody></tbody></table></div></section>'+ '<section id="detection-rst"> <div id="detection-result"></div></section>';
   	$("#evaluation-page").html(html);
 	print_detection_result();	
 	$.ajax({
@@ -244,22 +246,21 @@ function print_classification_result() {
 				 var rank = i + 1;
 				$('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
 		  	});
-			$("table.sort_table").sort_table({ "action" : "init" });		
+			$("table.sort_table").sort_table({ "action" : "init" });	
     	}
 	});
 }
 
 function print_detection_result() {
-	var html = '<section id="task2">' +
-			   '<div class="container-fluid col-sm-12" style="margin-top:200px;margin-bottom:500px"><table id="detectionTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+	var html = '<div class="container-fluid col-sm-12" style="margin-top:200px;margin-bottom:500px"><table id="detectionTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
   			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
 			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
 			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
 			   '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
-			   '</tr></thead><tbody></tbody></table></div>' + '</section>';
-  	$("#detection-result-page").html(html);	
+			   '</tr></thead><tbody></tbody></table></div>';
+  	$("#detection-result").html(html);
 	$.ajax({
 		url:serverurl + "/leadership.php",
 		type:"POST",
@@ -271,24 +272,55 @@ function print_detection_result() {
 				 var rank = i + 1;
 				$('#detectionTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
 		  	});
-			$("table.sort_table").sort_table({ "action" : "init" });		
+			$("table.sort_table").sort_table({ "action" : "init" });	
     	}
 	});
 }
 
 function fill_logged_content() {
   print_home_content();
+  $("#home-btn").addClass("active");
   $("#home-btn").on("click", function() {
+	$(this).closest('li').addClass("active").siblings().removeClass("active");
     print_home_content();
   });
   $("#classification-btn").on("click", function() {
+	$(this).closest('li').addClass("active").siblings().removeClass("active");
     print_classification_content();
   });
   $("#leadership-btn").on("click", function() {
+	$(this).closest('li').addClass("active").siblings().removeClass("active");
     print_classification_result();
   });
   $("#signout-btn").on("click", function() {
     localStorage.clear();
     location.reload();
   });
+  subtab_content();
 }
+
+function subtab_content(){	
+	$(".inner-nav a").on('click',function(){
+		var cs = $(this).closest('ul').closest('li').attr('class');
+		var id = $(this).closest('ul').closest('li').children().first().attr('id');
+		
+		if( id == 'classification-btn' &&  cs != 'active'){			
+			$(this).closest('li').addClass("active").siblings().removeClass("active");
+    		print_classification_content();
+		}else if(id == 'leadership-btn' && cs == ''){
+			$(this).closest('ul').closest('li').addClass('active').siblings().removeClass("active");
+   			 print_classification_result();
+		}
+		//$(this).closest('li').addClass("active").siblings().removeClass("active");
+		//$($(this).attr('href')).show().siblings('.tab-content').hide();
+        //$($(this).attr('href')).find('a').eq(0).trigger('click');
+	});	
+	var hash = $.trim(window.location.hash);
+   // if (hash) $('.inner-nav a[href$="' + hash + '"]').trigger('click');
+    if (location.hash) {
+        setTimeout(function () {
+            window.scrollTo(0, 0);
+        }, 1);
+    }
+}
+
