@@ -131,17 +131,16 @@ function print_home_content() {
   $("#evaluation-page").html(html);
 }
 
-function print_classification_content() {
-  //TASKID = 1;
-  var html = '<section id="classification">'+
-  		'<div style="margin-top:100px;padding-bottom:300px"><h2>Classification</h2> Classification task description... ';
-  html += '<h4>Upload your results</h4>' +
-		'<label class="control-label">Select File</label>' + 
-		'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
-		'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div></div></section>'+
-		'<section id="detection"></section>';
-  $("#evaluation-page").html(html);
-  print_detection_content();
+function print_classification_content() {	
+ 	var TASKID = 1;  
+  	var html = '<div id="evaluate" style="margin-top:100px;padding-bottom:300px">'+
+				'<ul class="nav nav-tabs nav-justified"><li id="subclassification" role="presentation" class="active"><a href="#">Classification</a></li><li id="subdetection" role="presentation"><a href="#">Detection</a></li></ul>'+
+				'Classification task description... ';
+  	html += '<h4>Upload your results</h4>' +
+			'<label class="control-label">Select File</label>' + 
+			'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
+			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div></div>';
+  	$("#evaluation-page").html(html);
     $("#file_to_upload").fileinput({
         maxFileCount: 1,
         uploadAsync: false,
@@ -151,7 +150,7 @@ function print_classification_content() {
         uploadExtraData: function() {
             return {
                 email: EMAIL,
-                taskid: 1
+                taskid: TASKID
             };
         }
     }).on('filebatchpreupload', function(event, data, id, index) {
@@ -175,70 +174,44 @@ function print_classification_content() {
     $('#file_to_upload').on('fileclear', function(event) {
       $('#kv-success-2').hide();
     });
+	
+	$('#evaluate li').on('click', function(){
+		var currid = $(this).attr('id');		
+		if(currid == 'subclassification'){
+			$(this).addClass("active").siblings().removeClass("active");
+			TASKID = 1;
+		}else if(currid == 'subdetection'){
+			$(this).addClass("active").siblings().removeClass("active");
+			TASKID = 2;
+		}
+	});
 }
 
-function print_detection_content(){
-  //TASKID = 2;
-  var html ='<div style="margin-top:400px;padding-bottom:100px"><h2>Detection</h2> Detection task description... ';
-  html += '<h4>Upload your results</h4>' +
-		'<label class="control-label">Select File</label>' + 
-		'<input id="detection_upload" name="detection_upload" type="file" multiple=false class="file-loading">' +
-		'<div id="kv-success" class="alert alert-success fade in" style="margin-top:10px;display:none"></div></div>';
-				
-  $("#detection").html(html);
-    $("#detection_upload").fileinput({
-        maxFileCount: 1,
-        uploadAsync: false,
-        uploadUrl:serverurl + "/upload.php",
-        mainClass: "input-group-lg",
-        allowedFileExtensions: ["json"],
-        uploadExtraData: function() {
-            return {
-                email: EMAIL,
-                taskid: 2
-            };
-        }
-    }).on('filebatchpreupload', function(event, data, id, index) {
-      $('#kv-success').html('<h4>Upload Status</h4><ul></ul>').hide();
-    }).on('filebatchuploadsuccess', function(event, data) {
-      var out = '';
-      var result_url = data.response[0];
-      var accuracy = data.response[1];
-      $.each(data.files, function(key, file) {
-        var fname = file.name;
-        out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
-       });
-      $('#kv-success ul').append(out);
-      $('#kv-success').fadeIn('slow');
-    });
-
-    $('#detection_upload').on('filebrowse', function(event) {
-      $('#kv-success').hide();
-    });
-
-    $('#detection_upload').on('fileclear', function(event) {
-      $('#kv-success').hide();
-    });
-}
-
-
-function print_classification_result() {
-	var html = '<section id="classification-rst">'+
-			   '<div class="container-fluid col-sm-12" style="margin-top:100px;margin-bottom:500px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
-
+function print_classification_result(action_status) {
+	var html = '<div id="evaluate" style="margin-top:100px;padding-bottom:300px">'+
+			   '<ul class="nav nav-tabs nav-justified"><li id="subclassification" role="presentation"><a href="#">Classification</a></li><li id="subdetection" role="presentation"><a href="#">Detection</a></li></ul>'+
+			   '<div class="container-fluid col-sm-12" style="margin-top:100px;margin-bottom:400px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
   			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
 			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
 			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
 			   '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
 			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
-			   '</tr></thead><tbody></tbody></table></div></section>'+ '<section id="detection-rst"> <div id="detection-result"></div></section>';
-  	$("#evaluation-page").html(html);
-	print_detection_result();	
+			   '</tr></thead><tbody></tbody></table></div>';
+  	$("#evaluation-page").html(html);	
+	if(action_status == "classification_action")
+	{
+		$("#subclassification").addClass('active').siblings().removeClass('active');
+	}else if(action_status == "detection_action")
+	{
+		$("#subdetection").addClass('active').siblings().removeClass('active');
+	}
+	
+	//Insert result into leadership table according to different action
 	$.ajax({
 		url:serverurl + "/leadership.php",
 		type:"POST",
-   		data:{action: "classification_action"},
+   		data:{action: action_status},
       	success: function(data) {
 			//Take all records from JSON 
 			var leadership_data = jQuery.parseJSON(data);
@@ -249,78 +222,36 @@ function print_classification_result() {
 			$("table.sort_table").sort_table({ "action" : "init" });	
     	}
 	});
-}
-
-function print_detection_result() {
-	var html = '<div class="container-fluid col-sm-12" style="margin-top:200px;margin-bottom:500px"><table id="detectionTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
-  			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
-			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
-			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
-			   '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
-			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
-			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
-			   '</tr></thead><tbody></tbody></table></div>';
-  	$("#detection-result").html(html);
-	$.ajax({
-		url:serverurl + "/leadership.php",
-		type:"POST",
-   		data:{action: "detection_action"},
-      	success: function(data) {
-			//Take all records from JSON 
-			var leadership_data = jQuery.parseJSON(data);
-			 $.each(leadership_data, function(i, ls){
-				 var rank = i + 1;
-				$('#detectionTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
-		  	});
-			$("table.sort_table").sort_table({ "action" : "init" });	
-    	}
+		
+	//Switch leaderboard table accoding to different task
+	$('#evaluate li').on('click', function(){
+		var currid = $(this).attr('id');
+		var STATUS;		
+		if(currid == 'subclassification'){
+			$(this).addClass("active").siblings().removeClass("active");
+			STATUS = "classification_action";
+		}else if(currid == 'subdetection'){
+			$(this).addClass("active").siblings().removeClass("active");
+			STATUS = "detection_action";
+		}
+		print_classification_result(STATUS);
 	});
 }
 
 function fill_logged_content() {
   print_home_content();
-  $("#home-btn").addClass("active");
   $("#home-btn").on("click", function() {
-	$(this).closest('li').addClass("active").siblings().removeClass("active");
     print_home_content();
   });
   $("#classification-btn").on("click", function() {
-	$(this).closest('li').addClass("active").siblings().removeClass("active");
     print_classification_content();
   });
   $("#leadership-btn").on("click", function() {
-	$(this).closest('li').addClass("active").siblings().removeClass("active");
-    print_classification_result();
+	var action = "classification_action";
+    print_classification_result(action);
   });
   $("#signout-btn").on("click", function() {
     localStorage.clear();
     location.reload();
   });
-  subtab_content();
 }
-
-function subtab_content(){	
-	$(".inner-nav a").on('click',function(){
-		var cs = $(this).closest('ul').closest('li').attr('class');
-		var id = $(this).closest('ul').closest('li').children().first().attr('id');
-		
-		if( id == 'classification-btn' &&  cs != 'active'){			
-			$(this).closest('li').addClass("active").siblings().removeClass("active");
-    		print_classification_content();
-		}else if(id == 'leadership-btn' && cs == ''){
-			$(this).closest('ul').closest('li').addClass('active').siblings().removeClass("active");
-   			 print_classification_result();
-		}
-		//$(this).closest('li').addClass("active").siblings().removeClass("active");
-		//$($(this).attr('href')).show().siblings('.tab-content').hide();
-        //$($(this).attr('href')).find('a').eq(0).trigger('click');
-	});	
-	var hash = $.trim(window.location.hash);
-   // if (hash) $('.inner-nav a[href$="' + hash + '"]').trigger('click');
-    if (location.hash) {
-        setTimeout(function () {
-            window.scrollTo(0, 0);
-        }, 1);
-    }
-}
-
