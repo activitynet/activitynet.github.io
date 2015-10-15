@@ -158,10 +158,11 @@ function print_classification_content() {
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
       var result_url = data.response[0];
-      var accuracy = data.response[1];
+      var metric1 = data.response[1];
+	  var metric2 = data.response[2];
       $.each(data.files, function(key, file) {
         var fname = file.name;
-        out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
+        out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
        });
       $('#kv-success-2 ul').append(out);
       $('#kv-success-2').fadeIn('slow');
