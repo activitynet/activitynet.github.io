@@ -145,6 +145,7 @@ function print_classification_content() {
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div>'+
 			'</div></div></div></div>';
+	$("#evaluation-page").html(html);
     $("#file_to_upload").fileinput({
         maxFileCount: 1,
         uploadAsync: false,
