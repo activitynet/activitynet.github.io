@@ -133,14 +133,18 @@ function print_home_content() {
 
 function print_classification_content() {	
  	var TASKID = 1;  
-  	var html = '<div id="evaluate" style="margin-top:100px;padding-bottom:300px">'+
-				'<ul class="nav nav-tabs nav-justified"><li id="subclassification" role="presentation" class="active"><a href="#">Classification</a></li><li id="subdetection" role="presentation"><a href="#">Detection</a></li></ul>'+
-				'Classification task description... ';
-  	html += '<h4>Upload your results</h4>' +
-			'<label class="control-label">Select File</label>' + 
-			'<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
-			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div></div>';
-  	$("#evaluation-page").html(html);
+  	var html = '<div id="evaluate" style="margin-top:100px;padding-bottom:300px;">'+
+				  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
+					  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results</span>'+
+					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab">Classification</a></li>'+
+					  '<li><a href="#detection" data-toggle="tab">Detection</a></li></ul></div>'+
+					  '<div class="panel-body"><div class="tab-content">'+
+						  '<div class="tab-pane active" id="classification">Classification task description... </div>'+
+						  '<div class="tab-pane" id="detection">Detection task description... </div>'+
+				  	  '</div></div>';
+  	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
+			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div>'+
+			'</div></div></div></div>';
     $("#file_to_upload").fileinput({
         maxFileCount: 1,
         uploadAsync: false,
