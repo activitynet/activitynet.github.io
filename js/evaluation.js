@@ -181,11 +181,11 @@ function print_classification_content() {
     });
 	
 	$('#evaluate li').on('click', function(){
-		var currid = $(this).attr('id');		
-		if(currid == 'subclassification'){
+		var currid = $(this).children(":first").text();		
+		if(currid == 'Classification'){
 			$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 1;
-		}else if(currid == 'subdetection'){
+		}else if(currid == 'Detection'){
 			$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 2;
 		}
