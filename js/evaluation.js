@@ -185,38 +185,61 @@ function print_classification_content() {
 		var currid = $(this).children(":first").text();		
 		if(currid == 'Classification'){
 			TASKID = 1;
+			$('#kv-success-2').hide();
 		}else if(currid == 'Detection'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 2;
+			$('#kv-success-2').hide();
 		}
 	});
 }
 
-function print_classification_result(action_status) {
-	var html = '<div id="evaluate" style="margin-top:100px;padding-bottom:300px">'+
-			   '<ul class="nav nav-tabs nav-justified"><li id="subclassification" role="presentation"><a href="#">Classification</a></li><li id="subdetection" role="presentation"><a href="#">Detection</a></li></ul>'+
-			   '<div class="container-fluid col-sm-12" style="margin-top:100px;margin-bottom:400px"><table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
-  			   '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
-			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
-			   '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
-			   '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
-			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
-			   '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
-			   '</tr></thead><tbody></tbody></table></div>';
-  	$("#evaluation-page").html(html);	
-	if(action_status == "classification_action")
-	{
-		$("#subclassification").addClass('active').siblings().removeClass('active');
-	}else if(action_status == "detection_action")
-	{
-		$("#subdetection").addClass('active').siblings().removeClass('active');
+function print_classification_result() {
+	var actionstatus= "classification_action";
+	var html = '<div id="evaluate" style="margin-top:60px;padding-bottom:300px">'+
+			      '<div class="col-md-12"><div class="panel panel-default panel-fade">'+
+			          '<div class="panel-heading"><span class="panel-title pull-right"> Download your results</span>'+
+					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
+					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+			   
+			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
+			   '</div></div></div>';
+  	$("#evaluation-page").html(html);
+	load_leaderboard(actionstatus);
+	$('#evaluate li').on('click', function(){
+		var currid = $(this).children(':first').attr('href');
+		if(currid == "#classification"){
+			$('#myTable tbody>tr').empty();
+			actionstatus = "classification_action";
+			load_leaderboard(actionstatus);
+		}else if(currid == "#detection"){
+			$('#myTable tbody>tr').empty();
+			actionstatus = "detection_action";
+			load_leaderboard(actionstatus);
+		}
+	});
+}
+
+function load_leaderboard(STATUS){
+	var typecontent;
+	if(STATUS == "classification_action"){
+		typecontent = "Classification Result";
+	}else if(STATUS == "detection_action"){
+		typecontent = "Detection Result";
 	}
-	
-	//Insert result into leadership table according to different action
-	$.ajax({
+	var html = '<h3>' + typecontent + '</h3>'+
+			   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+  			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
+			   	  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
+			      '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
+			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
+			   '</tr></thead><tbody></tbody></table>';
+	$("#table-content").html(html);
+		$.ajax({
 		url:serverurl + "/leadership.php",
 		type:"POST",
-   		data:{action: action_status},
+   		data:{action: STATUS},
       	success: function(data) {
 			//Take all records from JSON 
 			var leadership_data = jQuery.parseJSON(data);
@@ -226,20 +249,6 @@ function print_classification_result(action_status) {
 		  	});
 			$("table.sort_table").sort_table({ "action" : "init" });	
     	}
-	});
-		
-	//Switch leaderboard table accoding to different task
-	$('#evaluate li').on('click', function(){
-		var currid = $(this).attr('id');
-		var STATUS;		
-		if(currid == 'subclassification'){
-			$(this).addClass("active").siblings().removeClass("active");
-			STATUS = "classification_action";
-		}else if(currid == 'subdetection'){
-			$(this).addClass("active").siblings().removeClass("active");
-			STATUS = "detection_action";
-		}
-		print_classification_result(STATUS);
 	});
 }
 
@@ -252,8 +261,7 @@ function fill_logged_content() {
     print_classification_content();
   });
   $("#leadership-btn").on("click", function() {
-	var action = "classification_action";
-    print_classification_result(action);
+    print_classification_result();
   });
   $("#signout-btn").on("click", function() {
     localStorage.clear();
