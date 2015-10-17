@@ -174,6 +174,7 @@ function print_classification_content() {
     });
 
     $('#file_to_upload').on('filebrowse', function(event) {
+	  $('#file_to_upload').fileinput('clear');
       $('#kv-success-2').hide();
     });
 
@@ -184,12 +185,15 @@ function print_classification_content() {
 	$('#evaluate li').on('click', function(){
 		var currid = $(this).children(":first").text();		
 		if(currid == 'Classification'){
+			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 1;
-			$('#kv-success-2').hide();
+			$('#file_to_upload').fileinput('clear');
+      		$('#kv-success-2').hide();
 		}else if(currid == 'Detection'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 2;
-			$('#kv-success-2').hide();
+			$('#file_to_upload').fileinput('clear');
+     		$('#kv-success-2').hide();
 		}
 	});
 }
