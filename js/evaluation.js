@@ -165,8 +165,8 @@ function print_classification_content() {
       var result_url = data.response[0];
       var data1 = data.response[1];
 	  var data2 = data.response[2];
-	  var metric1 = data1.substring(-1,(data1-1));
-	  var metric2 = data2.substring(-1,(data2-1));
+	  var metric1 = data1.substring(1,(data1-1));
+	  var metric2 = data2.substring(1,(data2-1));
       $.each(data.files, function(key, file) {
         var fname = file.name;
         out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
