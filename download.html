@@ -21,6 +21,27 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 <link rel="shortcut icon" href="images/favicon.png">
+
+<style>
+
+pre {
+   background-color: ghostwhite;
+   border: 1px solid #CCCCCC;
+   padding: 10px 20px;
+   margin: 20px;
+   }
+.json-key {
+   color: #F54E4E;
+   }
+.json-value {
+   color: #666666;
+   }
+.json-string {
+   color: #666666;
+   }
+
+</style>
+
 </head>
 
 <body>
@@ -53,30 +74,56 @@
 <!-- ABOUT -->
 <section id="download">
   <div class="container tools-container">
-    <div class="section-header section-header-version">
-      <h2 class="section-title text-center wow fadeInDown animated">Release</h2>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 col-md-offset-2 fadeInUp animated">
-         	<h4><a href="#" class="section-title"><i class="fa fa-download"></i> Release 1.2(Coming soon)</a></h4>
-          	<div class="col-sm-12 fadeInUp animated" style="border:1px solid gray; border-radius: 0 15px; box-shadow:0.5px  0.5px 0 1px #999;">
+    <div class="col-sm-12 wow fadeInUp animated">
+      <h2 class="section-title text-left">Annotations</h2>
+        <div class="col-sm-6">
+         	<h4><a href="http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/activity_net.v1-2.json" class="section-title" download><i class="fa fa-download"></i> Release 1.2(10-2015)</a></h4>
+          	<div style="border:0px">
             	<h4> Inhouse Curated ActivityNet </h4>
-         		<p class="text-left wow fadeInUp animated">In this release, we include manually curated annotations for over 100 activity classes.</p>
+         		<p class="text-left wow fadeInUp animated">In this release, we include inhouse curated annotations:</p>
+                <ul>
+                  <li> 100 activity categories. </li>
+                  <li> > 10K segment annotations. </li>
+                  <li> > 300 hours of video. </li>
+                </ul>
 			</div>
         </div>
-        <div class="col-sm-8 col-md-offset-2 fadeInUp animated" style="margin-top:50px">
+        <div class="col-sm-6">
           	<h4><a class="section-title" href="http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/activity_net.v1-1.min.json" download><i class="fa fa-download"></i> Release 1.1(06-2015)</a></h4>
-          	<div class="col-sm-12 fadeInUp animated" style="border: 1px solid gray;border-radius: 0 15px;box-shadow:0.5px  0.5px 0 1px #999;,">
+                <div style="border:0px">
             	<h4> Raw ActivityNet </h4>
-          		<p class="text-left wow fadeInUp animated" >Initial release containing post-processed crowdsourced annotations:</p>
+          		<p class="text-left wow fadeInUp animated" >Initial release including post-processed crowdsourced annotations:</p>
                 <ul>
                   <li> 203 activity classes </li>
                   <li> 20,565 training videos </li>
                   <li> 6,862 validation videos </li>
                 </ul>
         	</div>
-        </div><!--/.col-sm-8-->
+        </div><!--/.col-sm-12-->
   	</div><!--/.row-->
+    <div class="col-sm-12 fadeInUp animated">
+      <h2 class="section-title text-left">How to read the annotation files?</h2>
+      <p> The annotation files are stored in <a href="http://json.org/" target="_blank">JSON</a> format. Each annotation file contains three different key fields: "database", "taxonomy", and "version". The key field "database" contains information about the videos in the dataset and all the available annotations.
+        In the key field "taxonomy", we include a parent-child relationship for every activity in the dataset. Finally, we add the key field "version" to keep track over different releases of ActivityNet. Below we present a detailed
+        explanation of each key field. </p>
+        <h4> database </h4>
+        <p> Below, we show an example entry from the key field "database":</p>
+        <pre><code id=sample-annotation></code></pre>
+        <p> The example shows the information and annotations related to <a href="https://www.youtube.com/watch?v=5n7NCViB5TU" target="_blank">this video</a>. As noted, we assign the unique identifier "5n7NCViB5TU" to that video.
+          From the entry, we can retrieve the duration, resolution, url, and the subset where the video belongs. Additionaly, the key field "annotations" includes a list of all annotated activity instances in the video (segments).
+          Each item in the list contains the key fields: "label" and "segment". The key field "label" refers to the activity class, and the key field "segment" contains the starting and ending time of the activity instance.
+          For example, the example above contains three different instances of the activity Discus throw: <a href="https://www.youtube.com/v/5n7NCViB5TU?start=24.25018&end=38.08036&autoplay=1" target="_blank">Instance 1</a>,
+          <a href="https://www.youtube.com/v/5n7NCViB5TU?start=62.14109&end=71.61382&autoplay=1" target="_blank">Instance 2</a>,
+          <a href="https://www.youtube.com/v/5n7NCViB5TU?start=97.00073&end=106.284&autoplay=1" target="_blank">Instance 3</a>.
+        </p>
+        <h4> taxonomy </h4>
+        <p> The key field "taxonomy" contains information about all the nodes in the ActivityNet hierarchy. Below, we show an example that contains all the leaf-to-root path of the activity Brushing teeth:</p>
+        <pre><code id=sample-taxonomy></code></pre>
+        <p> Each entry contains information about a node in the ActivitNet hierarchy. As noted, the leaf-to-root path can be recovered <b> walking the tree </b> (using the "parentId" field).
+        </p>
+        <h4> version </h4>
+        <p> The key field "version" allows to identify which version of ActivityNet is contained in the annotation file. It is intended to keep track over different releases.</p>
+    </div>
   </div><!--/.container-->
 </section><!--/#download-->
 
@@ -106,6 +153,7 @@
 <script src="js/jquery.inview.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/prettyjson.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
