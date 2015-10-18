@@ -98,7 +98,7 @@ body, html {
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th {
-	background-color: #000000;
+	background-color: #333333;
 	color: #ffffff;
 	border-bottom: 1px solid #F3F3F3;
 	border-top: 1px solid #F3F3F3 !important;

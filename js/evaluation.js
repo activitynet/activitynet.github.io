@@ -133,11 +133,11 @@ function print_home_content() {
 
 function print_classification_content() {	
  	var TASKID = 1;  
-  	var html = '<div id="evaluate" style="margin-top:100px;padding-bottom:300px;">'+
+  	var html = '<div id="evaluate" style="margin-top:60px;padding-bottom:300px;">'+
 				  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
 					  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results</span>'+
-					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab">Classification</a></li>'+
-					  '<li><a href="#detection" data-toggle="tab">Detection</a></li></ul></div>'+
+					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
+					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+
 					  '<div class="panel-body"><div class="tab-content">'+
 						  '<div class="tab-pane active" id="classification">Classification task description... </div>'+
 						  '<div class="tab-pane" id="detection">Detection task description... </div>'+
@@ -202,7 +202,7 @@ function print_classification_result() {
 	var actionstatus= "classification_action";
 	var html = '<div id="evaluate" style="margin-top:60px;padding-bottom:300px">'+
 			      '<div class="col-md-12"><div class="panel panel-default panel-fade">'+
-			          '<div class="panel-heading"><span class="panel-title pull-right"> Download your results</span>'+
+			          '<div class="panel-heading"><span class="nav-tab-title pull-right"> See your results</span>'+
 					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
 					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+			   
 			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
@@ -232,12 +232,12 @@ function load_leaderboard(STATUS){
 	}
 	var html = '<h3>' + typecontent + '</h3>'+
 			   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
-  			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">RANK</th>'+
-			   	  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">USERNAME</th>'+
-			      '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">ORGANIZATION</th>'+
-			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">UPLOADTIME</th>'+
-			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC1</th>'+
-			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">METRIC2</th>'+
+  			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
+			   	  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
+			      '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
+			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-k</th>'+
 			   '</tr></thead><tbody></tbody></table>';
 	$("#table-content").html(html);
 		$.ajax({
