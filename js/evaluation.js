@@ -131,6 +131,24 @@ function print_home_content() {
   $("#evaluation-page").html(html);
 }
 
+json_file_classification = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_classification.json";
+json_file_detection = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_detection.json";
+function load_example_formats() {
+  $.getJSON(json_file_classification, function(json){
+    $('#example-classification').html(library.json.prettyPrint(json));
+      $.getJSON(json_file_detection, function(json){
+        $('#example-detection').html(library.json.prettyPrint(json));
+      });
+  });
+}
+
+function print_results_format(html) {
+  var classification_ = "<h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below:</p><pre><code id=example-classification></code></pre>"
+  var detection_ = "<h4>Activity detection</h4><p>Please format your results as illustrated in the example below:</p><pre><code id=example-detection></code></pre>"
+  html = sprintf(html, classification_, detection_);
+  return html;
+}
+
 function print_classification_content() {	
  	var TASKID = 1;  
   	var html = '<div id="evaluate" style="margin-top:60px;padding-bottom:300px;">'+
@@ -139,13 +157,15 @@ function print_classification_content() {
 					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
 					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+
 					  '<div class="panel-body"><div class="tab-content">'+
-						  '<div class="tab-pane active" id="classification">Classification task description... </div>'+
-						  '<div class="tab-pane" id="detection">Detection task description... </div>'+
+						  '<div class="tab-pane active" id="classification">%s</div>'+
+						  '<div class="tab-pane" id="detection">%s</div>'+
 				  	  '</div></div>';
+        html = print_results_format(html);
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div>'+
 			'</div></div></div></div>';
 	$("#evaluation-page").html(html);
+        load_example_formats();
     $("#file_to_upload").fileinput({
         maxFileCount: 1,
         uploadAsync: false,
