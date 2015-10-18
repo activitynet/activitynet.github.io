@@ -183,13 +183,13 @@ function print_classification_content() {
     });
 	
 	$('#evaluate li').on('click', function(){
-		var currid = $(this).children(":first").text();		
-		if(currid == 'Classification'){
+		var currid = $(this).children(":first").attr('href');		
+		if(currid == '#classification'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 1;
 			$('#file_to_upload').fileinput('clear');
       		$('#kv-success-2').hide();
-		}else if(currid == 'Detection'){
+		}else if(currid == '#detection'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 2;
 			$('#file_to_upload').fileinput('clear');
