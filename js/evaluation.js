@@ -201,12 +201,12 @@ function print_classification_content() {
 function print_classification_result() {
 	var actionstatus= "classification_action";
 	var html = '<div id="evaluate" style="margin-top:60px;padding-bottom:300px">'+
-			      '<div class="col-md-12"><div class="panel panel-default panel-fade">'+
+			      '<div class="row"><div class="col-md-12"><div class="panel panel-default panel-fade">'+
 			          '<div class="panel-heading"><span class="nav-tab-title pull-right"> See your results</span>'+
 					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
 					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+			   
 			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
-			   '</div></div></div>';
+			   '</div></div></div></div>';
   	$("#evaluation-page").html(html);
 	load_leaderboard(actionstatus);
 	$('#evaluate li').on('click', function(){
