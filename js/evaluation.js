@@ -5,18 +5,8 @@ var EMAIL;
 var PASSWORD;
 var TASKID;
 
-paceOptions  = {
-	ajax: false, // disabled
-	document: false, // disabled
-	eventLag: false, // disabled
-	restartOnRequestAfter: false
-	//  		elements: {
-	//    		selectors: ['.kv-success-2']
-	//  		}	
-};
-
 $(function() {
-
+	
   $('#signup-button').on('click', function() {
     var newemail = $("#newemail").val();
     var newpassword = $("#newpassword").val();
@@ -176,7 +166,16 @@ function print_classification_content() {
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div>'+
 			'</div></div></div></div>';
 	$("#evaluation-page").html(html);
-        load_example_formats();
+    load_example_formats();
+	paceOptions  = {
+		//ajax: false, // disabled
+		document: false, // disabled
+		eventLag: false, // disabled
+		restartOnRequestAfter: false,
+	  		elements: {
+	    		selectors: ['#file_to_upload']
+	  		}
+	};
     $("#file_to_upload").fileinput({
         maxFileCount: 1,
         uploadAsync: false,
@@ -189,14 +188,14 @@ function print_classification_content() {
                 taskid: TASKID
             };
         }
-    }).on('filebatchpreupload', function(event, data, id, index) {
-		Pace.restart();
+    }).on('filebatchpreupload', function(event, data, id, index) {	
       $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>').hide();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
       var result_url = data.response[0];
       var metric1 = data.response[1];
 	  var metric2 = data.response[2];
+	  Pace.restart();
       $.each(data.files, function(key, file) {
         var fname = file.name;
         out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
