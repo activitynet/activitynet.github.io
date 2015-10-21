@@ -4,6 +4,17 @@ var leadership_data
 var EMAIL;
 var PASSWORD;
 var TASKID;
+
+paceOptions  = {
+	ajax: false, // disabled
+	document: false, // disabled
+	eventLag: false, // disabled
+	restartOnRequestAfter: false
+	//  		elements: {
+	//    		selectors: ['.kv-success-2']
+	//  		}	
+};
+
 $(function() {
 
   $('#signup-button').on('click', function() {
@@ -179,6 +190,7 @@ function print_classification_content() {
             };
         }
     }).on('filebatchpreupload', function(event, data, id, index) {
+		Pace.restart();
       $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>').hide();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
