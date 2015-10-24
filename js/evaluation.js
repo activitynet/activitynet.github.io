@@ -128,8 +128,13 @@ function view_as_logged() {
 }
 
 function print_home_content() {
-  var html = "<h1>Home</h1> Fill your content here... ";
-  $("#evaluation-page").html(html);
+  $.ajax({
+    url:serverurl + "/home.html",
+    type:"POST",
+    success: function(html) {
+      $("#evaluation-page").html(html);
+    }
+  });
 }
 
 json_file_classification = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_classification.json";
