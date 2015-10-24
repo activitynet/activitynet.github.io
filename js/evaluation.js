@@ -189,15 +189,6 @@ function print_classification_content() {
 			'</div></div></div></div>';
 	$("#evaluation-page").html(html);
     load_example_formats();
-	paceOptions  = {
-		//ajax: false, // disabled
-		document: false, // disabled
-		eventLag: false, // disabled
-		restartOnRequestAfter: false,
-	  		elements: {
-	    		selectors: ['#file_to_upload']
-	  		}
-	   };
 	
     $("#file_to_upload").fileinput({
 		showPreview:false,
@@ -213,17 +204,17 @@ function print_classification_content() {
             };
         }
     }).on('filebatchpreupload', function(event, data, id, index) {	
-      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>').hide();
+      $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"></div>').show();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
       var result_url = data.response[0];
       var metric1 = data.response[1];
 	  var metric2 = data.response[2];
-	  Pace.restart();
       $.each(data.files, function(key, file) {
         var fname = file.name;
         out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
        });
+      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');	   
       $('#kv-success-2 ul').append(out);
       $('#kv-success-2').fadeIn('slow');
     });
