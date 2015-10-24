@@ -39,7 +39,8 @@ $(document).ready(function(){
 		console.log("totalvideo= " + totalvideo);
 		
 		/*var rootStr = $('#categories').find('>span').get(0).lastChild.text;*/
-		var rootName = "Video Collection(" + totalvideo + ")";
+		//var rootName = "Video Collection(" + totalvideo + ")";
+		var rootName = "Release 1.1 (06-2015)";
 		$('#categories').find('>span').get(0).lastChild.nodeValue = rootName;
     },	
     error:function(data){
