@@ -175,8 +175,10 @@ function print_classification_content() {
 	  		elements: {
 	    		selectors: ['#file_to_upload']
 	  		}
-	};
+	   };
+	
     $("#file_to_upload").fileinput({
+		showPreview:false,
         maxFileCount: 1,
         uploadAsync: false,
         uploadUrl:serverurl + "/upload.php",
