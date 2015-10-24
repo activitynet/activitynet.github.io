@@ -24,12 +24,17 @@ library.json = {
 
 json_file_annotation = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_entry.json";
 json_file_taxonomy = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_taxonomy.json";
+serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server"
 $( document ).ready(function() {
-  $.getJSON(json_file_annotation, function(json){
-    console.log(json);
-    $('#sample-annotation').html(library.json.prettyPrint(json));
+    $.ajax({
+    url:serverurl + "/submission_formats/example_entry.html",
+    type:"POST",
+    success: function(html) {
+      $("#sample-annotation").html(html);
+    }
+  });
+ 
     $.getJSON(json_file_taxonomy, function(json){
       $('#sample-taxonomy').html(library.json.prettyPrint(json));
     });
-  });
 });
