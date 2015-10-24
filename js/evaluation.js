@@ -140,12 +140,29 @@ function print_home_content() {
 json_file_classification = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_classification.json";
 json_file_detection = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_detection.json";
 function load_example_formats() {
+  /*
   $.getJSON(json_file_classification, function(json){
     $('#example-classification').html(library.json.prettyPrint(json));
       $.getJSON(json_file_detection, function(json){
         $('#example-detection').html(library.json.prettyPrint(json));
       });
   });
+  */
+    $.ajax({
+    url:serverurl + "/submission_formats/example_classification.html",
+    type:"POST",
+    success: function(html) {
+      $("#example-classification").html(html);
+    }
+  });
+    $.ajax({
+    url:serverurl + "/submission_formats/example_detection.html",
+    type:"POST",
+    success: function(html) {
+      $("#example-detection").html(html);
+    }
+  });
+
 }
 
 function print_results_format(html) {
