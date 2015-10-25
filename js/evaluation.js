@@ -317,6 +317,7 @@ function fill_logged_content() {
   });
   $("#signout-btn").on("click", function() {
     localStorage.clear();
-    location.reload();
+	location.href="http://activity-net.org/evaluation.html";
+    //location.reload();
   });
 }
