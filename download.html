@@ -83,9 +83,9 @@ pre {
          		<p class="text-left wow fadeInUp animated">In this release, we include inhouse curated annotations:</p>
                 <ul>
                   <li> 100 activity classes </li>
-                  <li> 4819 training videos (7151 instances) </li>
-                  <li> 2383 validation videos (3582 instances) </li>
-                  <li> 2480 testing videos (Withhold labels) </li>
+                  <li> 4,819 training videos (7151 instances) </li>
+                  <li> 2,383 validation videos (3582 instances) </li>
+                  <li> 2,480 testing videos (labels witheld) </li>
                   <!--<li> <a href="http://activitynet.github.io/evaluation.html" target="_blank">Evaluation server</a></li>-->
                 </ul>
 			</div>
@@ -106,25 +106,25 @@ pre {
     <div class="col-sm-12 fadeInUp animated">
       <h2 class="section-title text-left">How to read the annotation files?</h2>
       <p> The annotation files are stored in <a href="http://json.org/" target="_blank">JSON</a> format. Each annotation file contains three different key fields: "database", "taxonomy", and "version". The key field "database" contains information about the videos in the dataset and all the available annotations.
-        In the key field "taxonomy", we include a parent-child relationship for every activity in the dataset. Finally, we add the key field "version" to keep track over different releases of ActivityNet. Below we present a detailed
+        In the key field "taxonomy", we include a parent-child relationship for every activity in the dataset. Finally, we add the key field "version" to keep track over different releases of ActivityNet. Below, we present a detailed
         explanation of each key field. </p>
         <h4> database </h4>
         <p> Below, we show an example entry from the key field "database":</p>
         <pre><code id=sample-annotation></code></pre>
         <p> The example shows the information and annotations related to <a href="https://www.youtube.com/watch?v=5n7NCViB5TU" target="_blank">this video</a>. As noted, we assign the unique identifier "5n7NCViB5TU" to that video.
           From the entry, we can retrieve the duration, resolution, url, and the subset where the video belongs. Additionaly, the key field "annotations" includes a list of all annotated activity instances in the video (segments).
-          Each item in the list contains the key fields: "label" and "segment". The key field "label" refers to the activity class, and the key field "segment" contains the starting and ending time of the activity instance.
+          Each item in the list contains the key fields: "label" and "segment". The key field "label" refers to the activity class, and the key field "segment" contains the starting and ending time of the activity instance (in seconds).
           For example, the example above contains three different instances of the activity Discus throw: <a href="https://www.youtube.com/v/5n7NCViB5TU?start=24.25018&end=38.08036&autoplay=1" target="_blank">Instance 1</a>,
           <a href="https://www.youtube.com/v/5n7NCViB5TU?start=62.14109&end=71.61382&autoplay=1" target="_blank">Instance 2</a>,
           <a href="https://www.youtube.com/v/5n7NCViB5TU?start=97.00073&end=106.284&autoplay=1" target="_blank">Instance 3</a>.
         </p>
         <h4> taxonomy </h4>
-        <p> The key field "taxonomy" contains information about all the nodes in the ActivityNet hierarchy. Below, we show an example that contains all the leaf-to-root path of the activity Brushing teeth:</p>
+        <p> The key field "taxonomy" contains information about all the nodes in the ActivityNet hierarchy. Below, we show an example that contains the leaf-to-root path of the activity Discus throw:</p>
         <pre><code id=sample-taxonomy></code></pre>
-        <p> Each entry contains information about a node in the ActivitNet hierarchy. As noted, the leaf-to-root path can be recovered <b> walking the tree </b> (using the "parentId" field).
+        <p> Each entry contains information about a node in the ActivitNet hierarchy. As noted, the leaf-to-root path can be recovered by <b> walking the hierarchy </b> (using the "parentId" field).
         </p>
         <h4> version </h4>
-        <p> The key field "version" allows to identify which version of ActivityNet is contained in the annotation file. It is intended to keep track over different releases.</p>
+        <p> The key field "version" identifies which version of ActivityNet is contained in the annotation file. It is intended to keep track over different releases.</p>
     </div>
   </div><!--/.container-->
 </section><!--/#download-->
