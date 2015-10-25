@@ -1,4 +1,4 @@
-var serverurl = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/evaluation_server";
+var serverurl = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/evaluation_server";
 var login_data;
 var leadership_data
 var EMAIL;

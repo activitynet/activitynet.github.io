@@ -3,7 +3,7 @@ var nodeId = 1;
 $(document).ready(function(){
   $('iframe').hide();
   $.ajax({
-    url: "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/generate_treeview.php",
+    url: "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/generate_treeview.php",
     type: "POST",
     success: function(data)
     {
@@ -84,7 +84,7 @@ $('body').on('click', '.nextpage',function(e){
   var thispage = $(this).attr('href');
 
   $.ajax({
-    url:"http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/getvideos.php",
+    url:"http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/getvideos.php",
     type:"POST",
     data:{nodeId : nodeId, page : thispage},
     success:function(data) {
@@ -160,7 +160,7 @@ var VIDEO_TIME = new Array();
 function getVideos(nodeId, page)
 {
   $.ajax({
-    url:"http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/getvideos.php",
+    url:"http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/getvideos.php",
     type:"POST",
     data:{nodeId : nodeId},
     success:function(data) {
