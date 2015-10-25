@@ -185,12 +185,13 @@ function print_classification_content() {
 				  	  '</div></div>';
         html = print_results_format(html);
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
-			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:10px;display:none"></div>'+
+			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
 			'</div></div></div></div>';
 	$("#evaluation-page").html(html);
     load_example_formats();
 	
     $("#file_to_upload").fileinput({
+		process:false,
 		showPreview:false,
         maxFileCount: 1,
         uploadAsync: false,
@@ -203,7 +204,8 @@ function print_classification_content() {
                 taskid: TASKID
             };
         }
-    }).on('filebatchpreupload', function(event, data, id, index) {	
+    }).on('filebatchpreupload', function(event, data, id, index) {
+	  $('.kv-upload-progress').remove();	
       $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"></div>').show();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
