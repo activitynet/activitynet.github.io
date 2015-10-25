@@ -137,8 +137,8 @@ function print_home_content() {
   });
 }
 
-json_file_classification = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_classification.json";
-json_file_detection = "http://ec2-52-11-203-1.us-west-2.compute.amazonaws.com/files/example_detection.json";
+json_file_classification = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_classification.json";
+json_file_detection = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_detection.json";
 function load_example_formats() {
   /*
   $.getJSON(json_file_classification, function(json){
