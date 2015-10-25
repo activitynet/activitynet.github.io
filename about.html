@@ -12,9 +12,6 @@
 <link href="css/prettyPhoto.css" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
-<link href="css/tree.css" rel="stylesheet">
-<link href="css/videogallery.css" rel="stylesheet">
-<link href="css/popover-mask.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 <!--[if lt IE 9]>
@@ -36,23 +33,8 @@
           <li class="scroll"><a href="index.html">Home</a></li>
           <li class="scroll"><a href="explore.html">Explore</a></li>
           <li class="scroll"><a href="people.html">People</a></li>
-           <li class="scroll"><a href="download.html">Download</a>
-          	<!--<div class="nav-folder" style="padding:0px">
-          		<ul class="nav-menu">
-					<li class="nav nav-item" style="border:1px solid #ddd; border-bottom:none;text-align:center"><a href="download.html" style="color:#666">Release</a></li>
-                	<li class="nav nav-item" style="border:1px solid #ddd; text-align:center"><a href="download.html" style="color:#666">API</a></li>
-            	</ul>
-           	</div>-->
-          </li>
-          <li class="scroll active"><a href="about.html">About</a>
-          	<!--<div class="nav-folder" style="padding:0px">
-          		<ul class="nav-menu">
-					<li class="nav nav-item" style="border:1px solid #ddd; border-bottom:none;text-align:center"><a href="#about" style="color:#666">History</a></li>
-                	<li class="nav nav-item" style="border:1px solid #ddd; text-align:center"><a href="#papers" style="color:#666">Papers</a></li>
-            	</ul>
-           	</div>-->
-          </li>
-
+           <li class="scroll"><a href="download.html">Download</a></li>
+          <li class="scroll active"><a href="about.html">About</a></li>
         </ul>
       </div>
     </div>
@@ -64,24 +46,17 @@
 <!-- ABOUT -->
 
 <section id="about">
-        <div class="container">
-
-            <!--<div class="section-header">
-                <h2 class="section-title text-center wow fadeInDown">Papers</h2>
-            </div>-->
-
-            <div class="row">
+        <div class="container tools-container">           
                 <div class="features">
-
-                     <div class="col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
-                        <h2 class="section-title text-left wow fadeInUp animated">Papers</h2>
-                        <div class="media service-box wow fadeInUp animated">
+                     <div class="col-sm-12 wow fadeInUp animated" data-wow-duration="300ms" data-wow-delay="0ms">
+                        <h2 class="section-title text-left">Papers</h2>
+                        <div class="media service-box">
                           <div class="media-body">
                             <h4 class="media-heading">ActivityNet: A Large-Scale Video Benchmark for Human Activity Understanding</h4>
                             <p>Fabian Caba Heilbron, Victor Escorcia, Bernard Ghanem and Juan Carlos Niebles. In CVPR, 2015.</p>
                             <a class="btn btn-default btn-primary btn-sm" target="_blank" href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Heilbron_ActivityNet_A_Large-Scale_2015_CVPR_paper.html">PDF</a> <a class="btn btn-default btn-primary btn-sm" href="tex/activity-net.tex">BibTex</a> </div>
                         </div>
-                        <div class="media service-box wow fadeInUp animated">
+                        <div class="media service-box">
                           <div class="media-body">
                             <h4 class="media-heading">Collecting and Annotating Human Activities in Web Videos.</h4>
                             <p>Fabian Caba Heilbron and Juan Carlos Niebles. In ICMR, 2014.</p>
@@ -89,21 +64,21 @@
                         </div>
                      </div>
 
-                    <div class="col-sm-8 col-md-offset-2 fadeInUp animated">
-                        <h2 class="section-title text-left wow fadeInUp animated">What is ActivityNet?</h2>
-                        <p class="text-left wow fadeInUp animated">
+                    <div class="col-sm-12 wow fadeInUp animated">
+                        <h2 class="section-title text-left">What is ActivityNet?</h2>
+                        <p class="text-left">
                         ActivityNet is a new large-scale video benchmark for human activity understanding. ActivityNet aims at covering a wide range of complex human activities that are of interest to people in their daily living. In its current version, ActivityNet provides samples from 203 activity classes with an average of 137 untrimmed videos per class and 1.41 activity instances per video, for a total of 849 video hours.</p>
                     </div>
 
-                    <div id="made" class="col-sm-8 col-md-offset-2">
+                    <div id="made" class="col-sm-12 wow fadeInUp animated">
 
-                        <h2 class="section-title text-left wow fadeInUp animated">How was ActivityNet made?</h2>
-                        <p class="text-left wow fadeInUp animated">
+                        <h2 class="section-title text-left">How was ActivityNet made?</h2>
+                        <p class="text-left">
                         We heavily rely on the crowd and specifically, Amazon Mechanical Turk, to help acquire and annotate ActivityNet. Our acquisition pipeline has three main steps: Collection, Filtering, and Temporal Localization.</p>
 
                         <a href="http://yamdrok.stanford.edu/crowd/icmr.pdf" _target="blank"><img width="92%" class="img-responsive center-block wow fadeInUp animated" src="images/flow.png" /></a>
 
-                        <ul class="wow fadeInUp animated">
+                        <ul>
                         <li>Collecting candidate videos:</li>
                         We search candidate videos in the web for each ActivityNet category (including expanded queries)
 
@@ -114,10 +89,10 @@
                         Temporal localization provides starting and ending times in which the activity is performed (multiple Amazon Mechanical Turk workers annotate a single video)
 
                         </ul>
-                        <p class="text-left wow fadeInUp animated"> See our ICMR 2014 paper for detailed information. Fabian Caba Heilbron and Juan Carlos Niebles. <a target="_blank" href="http://yamdrok.stanford.edu/crowd/icmr.pdf">Collecting and Annotating Human Activities in Web Videos. </a>In ICMR, 2014.</p>
+                        <p class="text-left"> See our ICMR 2014 paper for detailed information. Fabian Caba Heilbron and Juan Carlos Niebles. <a target="_blank" href="http://yamdrok.stanford.edu/crowd/icmr.pdf">Collecting and Annotating Human Activities in Web Videos. </a>In ICMR, 2014.</p>
                     </div>
                 </div><!--/.features-->
-            </div><!--/.row-->
+            <!--/.row-->
         </div><!--/.container-->
     </section><!--/#about-->
 
@@ -141,14 +116,6 @@
 <script src="js/jquery.inview.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/tree.js"> </script>
-<script src="js/videoplay.js"> </script>
-<!--<script>
-  $(function(){
-	var windowH = $(window).height();
-	$('.tools-paper-container').css("height",windowH);
-	});
-</script>-->
 
 </body>
 </html>
