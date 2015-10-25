@@ -206,7 +206,7 @@ function print_classification_content() {
         }
     }).on('filebatchpreupload', function(event, data, id, index) {
 	  $('.kv-upload-progress').remove();	
-      $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"></div>').show();
+      $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
       var result_url = data.response[0];
