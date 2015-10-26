@@ -244,10 +244,12 @@ function print_classification_content() {
     $('#file_to_upload').on('filebrowse', function(event) {
 		$('#file_to_upload').fileinput('clear');
 		$('#kv-success-2').hide();
+		$('#kv-error-2').hide();
     });
 
     $('#file_to_upload').on('fileclear', function(event) {
 		$('#kv-success-2').hide();
+		$('#kv-error-2').hide();
     });
 	
 	$('#evaluate li').on('click', function(){
@@ -257,11 +259,13 @@ function print_classification_content() {
 			TASKID = 1;
 			$('#file_to_upload').fileinput('clear');
       		$('#kv-success-2').hide();
+			$('#kv-error-2').hide();
 		}else if(currid == '#detection'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 2;
 			$('#file_to_upload').fileinput('clear');
      		$('#kv-success-2').hide();
+			$('#kv-error-2').hide();
 		}
 	});
 }
