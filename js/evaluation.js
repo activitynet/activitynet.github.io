@@ -188,14 +188,11 @@ function print_classification_content() {
 						  '<div class="tab-pane active" id="classification">%s</div>'+
 						  '<div class="tab-pane" id="detection">%s</div>'+
 				  	  '</div></div>';
-        html = print_results_format(html);
+    html = print_results_format(html);
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
 			'<div id="kv-error-2" class="alert alert-danger fade in" style="margin-top:20px;display:none"></div>'+
 			'</div></div></div></div>';
-	
-	// added error box
-	html += ''
 
 	$("#evaluation-page").html(html);
     load_example_formats();
@@ -238,6 +235,7 @@ function print_classification_content() {
     });
 	
 	$('#file_to_upload').on('filebatchuploaderror', function(event,data) {
+		$('#kv-success-2').hide();
 		$('#kv-error-2').html('<div class="section-title text-center" style="padding-top:60px"><span >' + data.jqXHR.responseText + '</span></div>').show();
 		$('#kv-error-2').fadeIn('slow');	   
 	});
