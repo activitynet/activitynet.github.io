@@ -1,4 +1,5 @@
 var serverurl = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/evaluation_server";
+var files = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files";
 var login_data;
 var leadership_data
 var EMAIL;
@@ -167,8 +168,10 @@ function load_example_formats() {
 }
 
 function print_results_format(html) {
-  var classification_ = "<h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below:</p><pre><code id=example-classification></code></pre>"
-  var detection_ = "<h4>Activity detection</h4><p>Please format your results as illustrated in the example below:</p><pre><code id=example-detection></code></pre>"
+  var classification_ = "<h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example classification submission file</a>.</p><pre><code id=example-classification></code></pre>"
+  classification_ = sprintf(classification_, files + '/example_submission_classification.json');
+  var detection_ = "<h4>Activity detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example detection submission file</a></p><pre><code id=example-detection></code></pre>"
+  detection_ = sprintf(detection_, files + '/example_submission_detection.json');
   html = sprintf(html, classification_, detection_);
   return html;
 }
