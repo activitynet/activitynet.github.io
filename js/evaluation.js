@@ -195,7 +195,7 @@ function print_classification_content() {
     load_example_formats();
 	
     $("#file_to_upload").fileinput({
-		//showPreview:false,
+		showPreview:false,
         maxFileCount: 1,
         uploadAsync: false,
         uploadUrl:serverurl + "/upload.php",
