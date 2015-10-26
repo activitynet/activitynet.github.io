@@ -195,7 +195,6 @@ function print_classification_content() {
     load_example_formats();
 	
     $("#file_to_upload").fileinput({
-		process:false,
 		showPreview:false,
         maxFileCount: 1,
         uploadAsync: false,
