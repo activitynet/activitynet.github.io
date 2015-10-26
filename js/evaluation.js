@@ -223,7 +223,8 @@ function print_classification_content() {
         var fname = file.name;
         out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
        });
-      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>').show();
+	  $('#kv-success-2').empty();
+      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
 	  $('#kv-success-2').fadeIn('slow');	   
       $('#kv-success-2 ul').append(out);     
     });
