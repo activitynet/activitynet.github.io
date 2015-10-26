@@ -209,8 +209,10 @@ function print_classification_content() {
             };
         }
     }).on('filebatchpreupload', function(event, data, id, index) {
-	  $('.kv-upload-progress').remove();	
-      $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>');
+	  $('.kv-upload-progress').remove();
+	  var file_extension = data.filenames[0].split('.').pop();
+	  if(file_extension=="json")
+      $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
     }).on('filebatchuploadsuccess', function(event, data) {
       var out = '';
       var result_url = data.response[0];
@@ -220,9 +222,9 @@ function print_classification_content() {
         var fname = file.name;
         out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
        });
-      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');	   
-      $('#kv-success-2 ul').append(out);
-      $('#kv-success-2').fadeIn('slow');
+      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
+	  $('#kv-success-2').fadeIn('slow');	   
+      $('#kv-success-2 ul').append(out);     
     });
 
     $('#file_to_upload').on('filebrowse', function(event) {
