@@ -191,6 +191,10 @@ function print_classification_content() {
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
 			'</div></div></div></div>';
+	
+	// added error box
+	html += '<div id="kv-success-3" class="alert alert-danger fade in" style="margin-top:20px;display:none"></div>'
+
 	$("#evaluation-page").html(html);
     load_example_formats();
 	
@@ -207,39 +211,42 @@ function print_classification_content() {
                 taskid: TASKID
             };
         }
-    }).on('filebatchpreupload', function(event, data, id, index) {
-	  $('.kv-upload-progress').remove();
-	  var file_extension = data.filenames[0].split('.').pop();
-	  if(file_extension=="json")
-	  {
-      $('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
-	  }
-    }).on('filebatchuploadsuccess', function(event, data) {
-      var out = '';
-      var result_url = data.response[0];
-      var metric1 = data.response[1];
-	  var metric2 = data.response[2];
-      $.each(data.files, function(key, file) {
-        var fname = file.name;
-        out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
-       });
-      $('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
-	  $('#kv-success-2').fadeIn('slow');	   
-      $('#kv-success-2 ul').append(out);     
+    });
+	
+	$("#file_to_upload").on('filebatchpreupload', function(event, data, id, index) {
+		$('.kv-upload-progress').remove();
+		var file_extension = data.filenames[0].split('.').pop();
+		if(file_extension=="json"){
+		$('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
+		}
+    });
+	
+	$("#file_to_upload").on('filebatchuploadsuccess', function(event, data) {
+		var out = '';
+		var result_url = data.response[0];
+		var metric1 = data.response[1];
+		var metric2 = data.response[2];
+		$.each(data.files, function(key, file) {
+		  var fname = file.name;
+		  out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
+		 });
+		$('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
+		$('#kv-success-2').fadeIn('slow');	   
+		$('#kv-success-2 ul').append(out);     
     });
 	
 	$('#file_to_upload').on('filebatchuploaderror', function(event,data) {
-		$('#kv-success-2').empty();
-		var result = data;
+		$('#kv-success-3').html('<div class="section-title text-center" style="padding-top:60px"><span >' + data.jqXHR.responseText + '</span></div>').show();
+		$('#kv-success-3').fadeIn('slow');	   
 	});
 	
     $('#file_to_upload').on('filebrowse', function(event) {
-	  $('#file_to_upload').fileinput('clear');
-      $('#kv-success-2').hide();
+		$('#file_to_upload').fileinput('clear');
+		$('#kv-success-2').hide();
     });
 
     $('#file_to_upload').on('fileclear', function(event) {
-      $('#kv-success-2').hide();
+		$('#kv-success-2').hide();
     });
 	
 	$('#evaluate li').on('click', function(){
