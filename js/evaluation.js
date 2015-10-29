@@ -308,7 +308,7 @@ function load_leaderboard(STATUS){
 			      '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
 			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
-			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-k</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-3</th>'+
 			   '</tr></thead><tbody></tbody></table>';
 	$("#table-content").html(html);
 		$.ajax({
