@@ -5,6 +5,7 @@ var leadership_data
 var EMAIL;
 var PASSWORD;
 var TASKID;
+var fullname;
 
 $(function() {
 	
@@ -77,6 +78,7 @@ $(function() {
        		PASSWORD = JSON.parse(login_data)[3];
         	var firstname = JSON.parse(login_data)[0];
         	var lastname = JSON.parse(login_data)[1];
+			fullname = firstname + " " + lastname;
         	if (firstname) {
           		localStorage.setItem("EMAIL_CACHED", EMAIL);
           		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
@@ -138,6 +140,35 @@ function print_home_content() {
     success: function(html) {
       $("#evaluation-page").html(html);
     }
+  });
+}
+
+function print_myaccount_content(){
+	$.ajax({
+    url:serverurl + "/myaccount.html",
+    type:"POST",
+    success: function(html) {
+      $("#evaluation-page").html(html);
+	  $('#user-name').html(fullname);
+	  $('#user-email').html(EMAIL);	  
+	  get_user_info(EMAIL);
+    }	
+  }); 
+}
+
+function get_user_info(useremail){
+	$.ajax({
+    url:serverurl + "/getuserinfo.php",
+    type:"POST",
+   	data:{email: useremail},
+    success: function(data) {
+		result = jQuery.parseJSON(data);
+		$.each(result, function(i, ls){
+			$('#user-organization').html(ls['org']);			
+			$('#user-evaluate').html(ls['eva']);
+			$('#user-classification').html(ls['cla']);
+		});
+    }	
   });
 }
 
@@ -332,6 +363,9 @@ function fill_logged_content() {
   print_home_content();
   $("#home-btn").on("click", function() {
     print_home_content();
+  });
+  $("#myaccount-btn").on("click", function() {
+    print_myaccount_content();
   });
   $("#classification-btn").on("click", function() {
     print_classification_content();
