@@ -5,6 +5,7 @@ var leadership_data
 var EMAIL;
 var PASSWORD;
 var TASKID;
+var fullname;
 
 $(function() {
 	
@@ -77,6 +78,7 @@ $(function() {
        		PASSWORD = JSON.parse(login_data)[3];
         	var firstname = JSON.parse(login_data)[0];
         	var lastname = JSON.parse(login_data)[1];
+			fullname = firstname + " " + lastname;
         	if (firstname) {
           		localStorage.setItem("EMAIL_CACHED", EMAIL);
           		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
@@ -138,6 +140,83 @@ function print_home_content() {
     success: function(html) {
       $("#evaluation-page").html(html);
     }
+  });
+}
+
+function print_myaccount_content(){
+	$.ajax({
+		url:serverurl + "/myaccount.html",
+		type:"POST",
+		success: function(html) {
+		  	$("#evaluation-page").html(html);
+		  	$('#user-name').html(fullname);
+		  	$('#user-email').html(EMAIL);	  
+		  	get_user_info(EMAIL);
+		 	$('#myaccount li').on('click', function(){
+				var currid = $(this).children(':first').attr('href');
+				if(currid == "#classification"){
+					$('#myTable tbody>tr').empty();
+					var actionstatus = "classification_action";
+					load_history(actionstatus, EMAIL);
+				}else if(currid == "#detection"){
+					$('#myTable tbody>tr').empty();
+					var actionstatus = "detection_action";
+					load_history(actionstatus, EMAIL);
+				}else if(currid == "#myaccount"){
+					$('#myTable tbody>tr').empty();
+					print_myaccount_content();
+				}
+			}); 
+		}	
+  	});
+}
+
+function load_history(STATUS, userEMAIL){
+	var typecontent;
+	if(STATUS == "classification_action"){
+		typecontent = "Classification History";
+	}else if(STATUS == "detection_action"){
+		typecontent = "Detection History";
+	}
+	var html = '<h3>' + typecontent + '</h3>'+
+			   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+  			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
+				  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
+				  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
+			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-k</th>'+
+			   '</tr></thead><tbody></tbody></table>';
+	$("#table-content").html(html);
+		$.ajax({
+		url:serverurl + "/upload_history.php",
+		type:"POST",
+   		data:{action: STATUS, email: userEMAIL},
+      	success: function(data) {
+			//Take all records from JSON 
+			var leadership_data = jQuery.parseJSON(data);
+			 $.each(leadership_data, function(i, ls){
+				 var rank = i + 1;
+				$('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
+		  	});
+			$("table.sort_table").sort_table({ "action" : "init" });	
+    	}
+	});
+}
+
+function get_user_info(useremail){
+	$.ajax({
+    url:serverurl + "/getuserinfo.php",
+    type:"POST",
+   	data:{email: useremail},
+    success: function(data) {
+		result = jQuery.parseJSON(data);
+		$.each(result, function(i, ls){
+			$('#user-organization').html(ls['org']);			
+			$('#user-evaluate').html(ls['eva']);
+			$('#user-classification').html(ls['cla']);
+		});
+    }	
   });
 }
 
@@ -332,6 +411,9 @@ function fill_logged_content() {
   print_home_content();
   $("#home-btn").on("click", function() {
     print_home_content();
+  });
+  $("#myaccount-btn").on("click", function() {
+    print_myaccount_content();
   });
   $("#classification-btn").on("click", function() {
     print_classification_content();
