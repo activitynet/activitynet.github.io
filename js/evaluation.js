@@ -35,8 +35,7 @@ $(function() {
 		print_msg(message);	
 		
 	}else{
-		//if(emailreg.test(newemail)){
-		if (1) {
+		if(emailreg.test(newemail)){
 			$.ajax({
 				url:serverurl + "/logging.php",
 				type:"POST",
