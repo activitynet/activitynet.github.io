@@ -411,9 +411,9 @@ function fill_logged_content() {
   $("#home-btn").on("click", function() {
     print_home_content();
   });
-  $("#myaccount-btn").on("click", function() {
+/*  $("#myaccount-btn").on("click", function() {
     print_myaccount_content();
-  });
+  });*/
   $("#classification-btn").on("click", function() {
     print_classification_content();
   });
