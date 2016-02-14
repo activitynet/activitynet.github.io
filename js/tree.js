@@ -40,7 +40,7 @@ $(document).ready(function(){
 		
 		/*var rootStr = $('#categories').find('>span').get(0).lastChild.text;*/
 		//var rootName = "Video Collection(" + totalvideo + ")";
-		var rootName = "Release 1.1 (06-2015)";
+		var rootName = "Release 1.2 (10-2015)";
 		$('#categories').find('>span').get(0).lastChild.nodeValue = rootName;
     },	
     error:function(data){
