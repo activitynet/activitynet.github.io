@@ -17,7 +17,7 @@ body {
   line-height: 26px;
   width:100%;
   margin:auto;
-  min-width:900px
+  height: auto;
 }
 h1,
 h2,
