@@ -18,6 +18,8 @@ body {
   width:100%;
   margin:auto;
   height:auto;
+  min-width:690px;
+  max-width:2000px
 }
 h1,
 h2,
