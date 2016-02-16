@@ -15,7 +15,7 @@ body {
   font-weight: 400;
   color: #64686d;
   line-height: 26px;
-  width:95%;margin:auto
+  body{width:90%;margin:auto;min-width:600px}
 }
 h1,
 h2,
