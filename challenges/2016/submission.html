@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>ActivityNet Challenge</title>
+<!-- core CSS -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/animate.min.css" rel="stylesheet">
+<link href="../../css/owl.carousel.css" rel="stylesheet">
+<link href="../../css/owl.transitions.css" rel="stylesheet">
+<link href="../../css/prettyPhoto.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+<style>
+pre {
+   background-color: ghostwhite;
+   border: 1px solid #CCCCCC;
+   padding: 10px 20px;
+   margin: 30px;
+   }
+.json-key {
+   color: #F54E4E;
+   }
+.json-value {
+   color: #666666;
+   }
+.json-string {
+   color: #666666;
+   }
+.json-comment {
+   color: #71BC78;
+   }
+</style>
+
+</head><!--/head-->
+<body id="home" class="homepage" onload="print_results_format();">
+  <header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/activity-logo-challenge.png" class="img-responsive" alt="logo"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right" style="font-size:13px">
+          <ul compact class="nav navbar-nav">
+            <li class="scroll"><a href="index.html">Home</a></li>
+            <li class="scroll"><a href="people.html">People</a></li>
+            <li class="scroll"><a href="dates.html">Important Dates</a></li>
+            <li class="scroll"><a href="program.html">Program</a></li>
+            <li class="scroll"><a href="#">Submission</a></li>
+            <li class="scroll"><a href="evaluation.html">Evaluation</a></li>
+            <li class="scroll"><a href="contacus.html">Contact Us</a></li>
+
+
+          </ul>
+          <a class="navbar-brand" href="http://cvpr2016.thecvf.com/" target="_blank"><img src="images/las_vegas.png" alt="logo"></a>
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+  </header><!--/header-->
+
+
+  <!-- SUBMISSION PAGE -->
+
+  <section id="contacus">
+    <div>
+      <div class="container">
+        <div class="row">
+
+          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <h2>Challenge Guideline</h2>
+          </div>
+
+          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+            <p >To enter the competition, first you need to create an account on<a href="evaluation.html"> Evaluation Tab</a>. From your account you will be able to participate in ActivityNet Challenge 2016.
+              We have a limit of  five submissions per each day (maximum). For final results, only ones that were submitted before the challenge deadline and posted to the
+              leaderboard will be considered to be participating in this challenge. Uploading JSON files using an invalid format for either classification or detection will prompt an error from our server.
+              After our server processes your submission, a file with your results will appear for download. Additionally, you will be
+              able to compare your results to the state-of-the-art on the <b>Leaderboard</b> tab.</p>
+            <p >You have to bear in mind the following format for each submission process:</p>
+          </div>
+
+            <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+                <div id="evaluate">
+            			<div class="row"><div class="panel with-nav-tabs panel-default">
+            					  <ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>
+            					  <li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>
+            					  <div class="panel-body"><div class="tab-content" >
+            						<div class="tab-pane active" id="classification">
+                            <h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_submission_classification.json' target='_blank' download> example classification submission file</a>.</p>
+                            <pre style="font-size: small;white-space:normal;text-align:left;">
+                              <code>{
+<span class="json-key">version</span>: <span class="json-string">"VERSION 1.2"</span>,
+    <span class="json-key">results</span>: {
+          <span class="json-key">5n7NCViB5TU</span>: [
+              {
+              <span class="json-key">label</span>: <span class="json-string">"Discus throw",</span><span class="json-comment"> # At least one prediction per video is required.</span>
+              <span class="json-key">score</span>: <span class="json-value">1</span>
+              },
+              {
+              <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>,
+              <span class="json-key">score</span>: <span class="json-value">0.777</span>
+              }
+          ]
+      }
+}</code>
+                          </pre>
+                        </div>
+            						<div class="tab-pane" id="detection" >
+                              <h4>Activity Detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_submission_detection.json' target='_blank' download> example detection submission file.</a></p>
+                                  <pre>
+<code>{
+  <span class="json-key" >version</span>: <span class="json-string">"VERSION 1.2"</span>,
+      <span class="json-key">results</span>: {
+          <span class="json-key">5n7NCViB5TU</span>: [
+            {
+            <span class="json-key">label</span>: [<span class="json-string">"Discus throw"</span>, <span class="json-string">"Shot put"</span>, <span class="json-string">"Brushing teeth"</span>], <span class="json-comment"># Maximum 3 predictions</span>
+            <span class="json-key">score</span>: [<span class="json-value">0.64</span>, <span class="json-value">0.19</span>, <span class="json-value">0.16</span>], <span class="json-comment"># The length of this array must match the length of predicted labels</span>
+            <span class="json-key">segment</span>: [<span class="json-value">24.25</span>,<span class="json-value">38.08</span>]
+            },
+            {
+            <span class="json-key">label</span>: [<span class="json-string">"Shot put"</span>],
+            <span class="json-key">score</span>: [<span class="json-value">0.77</span>],
+            <span class="json-key">segment</span>: [<span class="json-value">11.25</span>, <span class="json-value">19.37</span>]
+            }
+      ]
+ }</code>
+                                  </pre>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+      </div>
+     <div class="row">
+         <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+           <h2> Metrics </h2>
+              <p>
+              Two different metrics are used to evaluate the performance of
+              classification algorithms in this task:
+              <ul>
+              <li><b>Mean Average Precision (mAP):</b> Interpolated Average Precision (AP) is used as one of the metrics for evaluating the results
+              on each activity category. The AP is averaged over all the activity categories. For more information on Interpolated Average Precision,
+              please read: <a href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html" target="_blank">Evaluation of ranked retrieval results</a>. </li>
+              <li><b>Top-k </b>classification accuracy is computed as the fraction of test videos for which the correct label is among the top-k most confident algorithm predictions. Here, the classification accuracy is computed with k=3.</li>
+              </ul>
+              </p>
+         </div>
+    </div>
+
+
+    <div class="row">
+        <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+            <h2 class="text-left">Untrimmed video classification </h2>
+              <p>
+              This task is intended to evaluate the capability of algorithms to predict
+              activities in untrimmed video sequences. Here, videos
+              can contain more than one activity, and typically large time lapses
+              of the video are not related with any activity of interest.
+              </p>
+              <h3> Dataset </h3>
+              <p>
+              The dataset for this task consists of more than 500 hours of untrimmed videos
+              from ActivityNet Release 1.3.
+              There is a total of ~ 20K  videos distributed among 200 activities. The distribution among
+              training, validation and testing is 50%, 25%, and 25% respectively.
+              The annotations for ActivityNet Release 1.3 can be obtained from the <a href="http://activitynet.github.io/download.html" target="_blank">download page</a>.
+              Additionally, you can find a summary of the dataset in this <a href="https://github.com/activitynet/ActivityNet/blob/master/Notebooks/ActivityNet-Release1.2-Classification.ipynb" target="_blank">IPython Notebook.</a>
+              </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+          <h2 class="text-left">Activity Detection </h2>
+              <p>
+              This task is intended to evaluate the capability of algorithms to temporally
+              localize activities in untrimmed video sequences. Here, videos
+              can contain more than one activity instance, and mutiple activity categories
+              can appear in the video.
+              </p>
+              <h3> Dataset </h3>
+              <p>
+              The dataset for this task consists of more than 500 hours of untrimmed videos
+              from ActivityNet Release 1.3.
+              There are more than 30.000 activity instances distributed among 200 activities. The distribution among
+              training, validation and testing is 50%, 25%, and 25% respectively.
+              The annotations for ActivityNet Release 1.3 can be obtained from the <a href="http://activitynet.github.io/download.html" target="_blank">download page</a>.
+              Additionally, you can find a summary of the dataset on this <a href="https://github.com/activitynet/ActivityNet/blob/master/Notebooks/ActivityNet-Release1.2-Detection.ipynb" target="_blank">IPython Notebook.</a>
+              </p>
+        </div>
+    </div>
+
+
+
+
+    </div>
+  </section><!--/#submission-->
+
+  <script src="../../js/jquery.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/mousescroll.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/jquery.inview.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="../../js/main.js"></script>
+
+</body>
+</html>
