@@ -1,4 +1,4 @@
-var serverurl = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/evaluation_server";
+var serverurl = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/evaluation_server/";
 var files = "http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files";
 var login_data;
 var leadership_data
@@ -8,97 +8,100 @@ var TASKID;
 var fullname;
 
 $(function() {
-	
-  $('#signup-button').on('click', function() {
-    var newemail = $("#newemail").val();
-    var newpassword = $("#newpassword").val();
-    var newfirstname = $("#newfirstname").val();
-    var newlastname = $("#newlastname").val();
-	var organization = $("#organization").val();
-	//var emailreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-	//var emailreg = /^[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/;
-	var emailreg = /^[a-z]([a-z0-9]*[-_|\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/;
-	var isFormValid = true;
-	var errormsg = "";
-	var inputcon = $('input.form-control');
-	$('#register-input input.form-control').each(function() {
-    if($.trim($(this).val()).length == 0 && $(this).attr('placeholder') != 'Organization')
-		{
-			isFormValid = false;
-			errormsg += $(this).attr('placeholder') + ',';
-		}
-    });
-	
-	if(!isFormValid)
-	{	
-		var message = errormsg + 'can not be empty';
-		print_msg(message);	
-		
-	}else{
-		if(emailreg.test(newemail)){
-			$.ajax({
-				url:serverurl + "/logging.php",
-				type:"POST",
-				data:{action: "adduser", email: newemail, password: newpassword,
-					  firstname: newfirstname, lastname: newlastname, organization:organization},
-				success: function(data) {
-				  var email = JSON.parse(data)[0];
-				  var password = JSON.parse(data)[1];
-				  
-				  if (email) {
-					$('#email').val(email);
-					$('#password').val(password);
-					$('#login-button').click();
-				  }
-				  else {
-					var message = 'Email address already taken';
-					print_msg(message);
-				  }
-				}
-			  });
-		}else{
-			var message = 'Please type correct email';
-			print_msg(message);
-		}  
-	}
-	});
 
-
-  $('#login-button').on('click', function() {
-	  var email = $('#email').val();
-      var password = $('#password').val();
-	  $.ajax({
-      	url:serverurl + "/logging.php",
-      	type:"POST",
-      	data:{action: "validate_login", email: email, password: password},
-      	success: function(data) {
-       		login_data = data;			
-        	EMAIL = JSON.parse(login_data)[2];
-       		PASSWORD = JSON.parse(login_data)[3];
-        	var firstname = JSON.parse(login_data)[0];
-        	var lastname = JSON.parse(login_data)[1];
-			fullname = firstname + " " + lastname;
-        	if (firstname) {
-          		localStorage.setItem("EMAIL_CACHED", EMAIL);
-          		localStorage.setItem("PASSWORD_CACHED", PASSWORD);
-          		view_as_logged();
-			}
-			else {
-			  $("#warning-message").hide();
-			  $("#warning-message").html('<span class="help-inline text-danger">Invalid username or password</span>');
-			  $("#warning-message").fadeIn('slow');
-			}
-      	}
-    });
+	$('#close-signup').on('click',function () {
+    document.getElementById("signup_eva").reset();
+    $("#warning-register").hide();
   });
-  
+
+  $('#upclose').on('click',function () {
+    document.getElementById("signup_eva").reset();
+    $("#warning-register").hide();
+  });
+
+  $('#signup-button').on('click', function() {
+    var email = document.getElementById("newemail").value;
+    var password = document.getElementById("newpassword").value;
+    var lastname = document.getElementById("newlastname").value;
+    var firstname = document.getElementById("newfirstname").value;
+    var organization = document.getElementById("organization").value;
+    var sw= "";
+    if (email && password && firstname && lastname && organization){
+      $.ajax({
+        url:serverurl+"server.py",
+        type:"POST",
+        data:{action:"register_user_form", email: email, password: password, firstname: firstname,lastname:lastname, organization:organization},
+        success: function(data) {
+          console.log(data);
+          var message = data;
+          print_msg(message);
+        }
+
+      });
+    }
+    else{
+      if (email==''){
+        sw='Email*'+sw;
+      }
+      if (password==''){
+        sw='Password*'+sw;
+      }
+      if (lastname==''){
+        sw='Lastname*'+sw;
+      }
+      if (firstname==''){
+        sw='Firstname*'+sw;
+      }
+      if (organization==''){
+        sw='Organization*'+sw;
+      }
+      var res = sw.split("*");
+      var message = res.slice(0,-1) +" MUST BE non Null";
+      print_msg(message)
+    }
+
+});
+
+	$('#login-button').on('click', function() {
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+
+		$.ajax({
+				url:serverurl+"server.py",
+				type:"POST",
+				data:{action:"user_login", email: email, password: password},
+				success: function(data) {
+					if (data){
+					var login_data = data
+					EMAIL = login_data[2];
+					PASSWORD = login_data[3];
+					FIRSTNAME = login_data[0];
+					LASTNAME = login_data[1];
+					fullname = FIRSTNAME + " " + LASTNAME;
+					localStorage.setItem("EMAIL_CACHED", EMAIL);
+					localStorage.setItem("PASSWORD_CACHED", PASSWORD);
+					localStorage.setItem("FIRSTNAME_CACHED", FIRSTNAME);
+					localStorage.setItem("LASTNAME_CACHED", LASTNAME);
+					view_as_logged();
+					}
+					else {
+						$("#warning-message").hide();
+					  $("#warning-message").html('<span class="help-inline text-danger">Invalid username or password</span>');
+					  $("#warning-message").fadeIn('slow');
+					}
+
+				}
+		});
+
+
+	});
 
   if (localStorage.getItem("EMAIL_CACHED") && localStorage.getItem("PASSWORD_CACHED")) {
     $('#email').val(localStorage.getItem("EMAIL_CACHED"));
     $('#password').val(localStorage.getItem("PASSWORD_CACHED"));
     $('#login-button').click();
-  } 
-  
+  }
+
 });
 
 function print_msg(msg){
@@ -120,8 +123,8 @@ function view_as_logged() {
     url:serverurl + "/logged.html",
     type:"POST",
     success: function(html) {
-      var firstname = JSON.parse(login_data)[0];
-      var lastname = JSON.parse(login_data)[1];
+     	var firstname = localStorage.getItem("FIRSTNAME_CACHED")
+	    var lastname = localStorage.getItem("LASTNAME_CACHED");
       var homepage = sprintf(html, firstname, lastname);
       $('.homepage').html(homepage);
       $(function() {
@@ -149,7 +152,7 @@ function print_myaccount_content(){
 		success: function(html) {
 		  	$("#evaluation-page").html(html);
 		  	$('#user-name').html(fullname);
-		  	$('#user-email').html(EMAIL);	  
+		  	$('#user-email').html(EMAIL);
 		  	get_user_info(EMAIL);
 		 	$('#myaccount li').on('click', function(){
 				var currid = $(this).children(':first').attr('href');
@@ -165,8 +168,8 @@ function print_myaccount_content(){
 					$('#myTable tbody>tr').empty();
 					print_myaccount_content();
 				}
-			}); 
-		}	
+			});
+		}
   	});
 }
 
@@ -192,13 +195,13 @@ function load_history(STATUS, userEMAIL){
 		type:"POST",
    		data:{action: STATUS, email: userEMAIL},
       	success: function(data) {
-			//Take all records from JSON 
+			//Take all records from JSON
 			var leadership_data = jQuery.parseJSON(data);
 			 $.each(leadership_data, function(i, ls){
 				 var rank = i + 1;
 				$('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
 		  	});
-			$("table.sort_table").sort_table({ "action" : "init" });	
+			$("table.sort_table").sort_table({ "action" : "init" });
     	}
 	});
 }
@@ -211,11 +214,11 @@ function get_user_info(useremail){
     success: function(data) {
 		result = jQuery.parseJSON(data);
 		$.each(result, function(i, ls){
-			$('#user-organization').html(ls['org']);			
+			$('#user-organization').html(ls['org']);
 			$('#user-evaluate').html(ls['eva']);
 			$('#user-classification').html(ls['cla']);
 		});
-    }	
+    }
   });
 }
 
@@ -256,8 +259,8 @@ function print_results_format(html) {
   return html;
 }
 
-function print_classification_content() {	
- 	var TASKID = 1;  
+function print_classification_content() {
+ 	var TASKID = 1;
   	var html = '<div id="evaluate" style="margin-top:60px;padding-bottom:300px;">'+
 				  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
 					  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results</span>'+
@@ -275,7 +278,7 @@ function print_classification_content() {
 
 	$("#evaluation-page").html(html);
     load_example_formats();
-	
+
     $("#file_to_upload").fileinput({
 		showPreview:false,
         maxFileCount: 1,
@@ -290,7 +293,7 @@ function print_classification_content() {
             };
         }
     });
-	
+
 	$("#file_to_upload").on('filebatchpreupload', function(event, data, id, index) {
 		$('.kv-upload-progress').remove();
 		var file_extension = data.filenames[0].split('.').pop();
@@ -298,7 +301,7 @@ function print_classification_content() {
 		$('#kv-success-2').html('<div style="background:url(images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
 		}
     });
-	
+
 	$("#file_to_upload").on('filebatchuploadsuccess', function(event, data) {
 		var out = '';
 		var result_url = data.response[0];
@@ -309,16 +312,16 @@ function print_classification_content() {
 		  out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
 		 });
 		$('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
-		$('#kv-success-2').fadeIn('slow');	   
-		$('#kv-success-2 ul').append(out);     
+		$('#kv-success-2').fadeIn('slow');
+		$('#kv-success-2 ul').append(out);
     });
-	
+
 	$('#file_to_upload').on('filebatchuploaderror', function(event,data) {
 		$('#kv-success-2').hide();
 		$('#kv-error-2').html('<div class="section-title text-center" style="padding-top:60px"><span >' + data.jqXHR.responseText + '</span></div>').show();
-		$('#kv-error-2').fadeIn('slow');	   
+		$('#kv-error-2').fadeIn('slow');
 	});
-	
+
     $('#file_to_upload').on('filebrowse', function(event) {
 		$('#file_to_upload').fileinput('clear');
 		$('#kv-success-2').hide();
@@ -329,9 +332,9 @@ function print_classification_content() {
 		$('#kv-success-2').hide();
 		$('#kv-error-2').hide();
     });
-	
+
 	$('#evaluate li').on('click', function(){
-		var currid = $(this).children(":first").attr('href');		
+		var currid = $(this).children(":first").attr('href');
 		if(currid == '#classification'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 1;
@@ -354,7 +357,7 @@ function print_classification_result() {
 			      '<div class="row"><div class="col-md-12"><div class="panel panel-default panel-fade">'+
 			          '<div class="panel-heading"><span class="nav-tab-title pull-right"> See your results</span>'+
 					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
-					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+			   
+					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+
 			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
 			   '</div></div></div></div>';
   	$("#evaluation-page").html(html);
@@ -395,13 +398,13 @@ function load_leaderboard(STATUS){
 		type:"POST",
    		data:{action: STATUS},
       	success: function(data) {
-			//Take all records from JSON 
+			//Take all records from JSON
 			var leadership_data = jQuery.parseJSON(data);
 			 $.each(leadership_data, function(i, ls){
 				 var rank = i + 1;
 				$('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
 		  	});
-			$("table.sort_table").sort_table({ "action" : "init" });	
+			$("table.sort_table").sort_table({ "action" : "init" });
     	}
 	});
 }
