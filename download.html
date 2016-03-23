@@ -76,20 +76,39 @@ pre {
   <div class="container tools-container">
     <div class="col-sm-12 wow fadeInUp animated">
       <h2 class="section-title text-left">Annotations</h2>
+
+        <div class="col-sm-6">
+                <h4><a href="http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" class="section-title" download><i class="fa fa-download"></i> Release 1.3(03-2016)</a></h4>
+                <div style="border:0px">
+                <h4> ActivityNet 200 </h4>
+                        <p class="text-left wow fadeInUp animated">In this release, we include:</p>
+                <ul>
+                  <li> 200 activity classes </li>
+                  <li> 10,024 training videos (15,410 instances) </li>
+                  <li> 4,926 validation videos (7,654 instances) </li>
+                  <li> 5,044 testing videos (labels witheld) </li>
+                  <li> <b> Evaluation server will be available on April 15 </b></li>
+                </ul>
+                        </div>
+        </div>
+
+
         <div class="col-sm-6">
          	<h4><a href="http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/activity_net.v1-2.min.json" class="section-title" download><i class="fa fa-download"></i> Release 1.2(10-2015)</a></h4>
           	<div style="border:0px">
-            	<h4> Inhouse Curated ActivityNet </h4>
+            	<h4> ActivityNet 100 </h4>
          		<p class="text-left wow fadeInUp animated">In this release, we include inhouse curated annotations:</p>
                 <ul>
                   <li> 100 activity classes </li>
-                  <li> 4,819 training videos (7151 instances) </li>
-                  <li> 2,383 validation videos (3582 instances) </li>
+                  <li> 4,819 training videos (7,151 instances) </li>
+                  <li> 2,383 validation videos (3,582 instances) </li>
                   <li> 2,480 testing videos (labels witheld) </li>
                   <li> <a href="http://activity-net.org/evaluation.html" target="_blank">Evaluation server</a></li>
                 </ul>
 			</div>
         </div>
+
+        <!--
         <div class="col-sm-6">
           	<h4><a class="section-title" href="http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/activity_net.v1-1.min.json" download><i class="fa fa-download"></i> Release 1.1(06-2015)</a></h4>
                 <div style="border:0px">
@@ -103,6 +122,8 @@ pre {
         	</div>
         </div><!--/.col-sm-12-->
   	</div><!--/.row-->
+        -->
+
     <div class="col-sm-12 fadeInUp animated">
       <h2 class="section-title text-left">How to read the annotation files?</h2>
       <p> The annotation files are stored in <a href="http://json.org/" target="_blank">JSON</a> format. Each annotation file contains three different key fields: "database", "taxonomy", and "version". The key field "database" contains information about the videos in the dataset and all the available annotations.
