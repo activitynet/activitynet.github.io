@@ -166,18 +166,22 @@ pre {
                             <pre style="font-size: small;white-space:normal;text-align:left;">
                               <code>{
 <span class="json-key">version</span>: <span class="json-string">"VERSION 1.3"</span>,
-    <span class="json-key">results</span>: {
-          <span class="json-key">5n7NCViB5TU</span>: [
-              {
-              <span class="json-key">label</span>: <span class="json-string">"Discus throw",</span><span class="json-comment"> # At least one prediction per video is required.</span>
-              <span class="json-key">score</span>: <span class="json-value">1</span>
-              },
-              {
-              <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>,
-              <span class="json-key">score</span>: <span class="json-value">0.777</span>
-              }
-          ]
+<span class="json-key">results</span>: {
+  <span class="json-key"><q>5n7NCViB5TU</q></span>: [
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Discus throw",</span><span class="json-comment"> # At least one prediction per video is required.</span>
+      <span class="json-key">score</span>: <span class="json-value">1</span>
+      },
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>,
+      <span class="json-key">score</span>: <span class="json-value">0.777</span>
       }
+  ]
+},
+<span class="json-key">external_data</span>: {
+  <span class="json-key">used</span>: <span class="json-bool">true,</span><span class="json-comment"> # Boolean flag. True indicates used of external data.</span>
+  <span class="json-key">details</span>: <span class="json-string">"First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set",</span><span class="json-comment"> # String with details of your external data.</span>
+}
 }</code>
                           </pre>
                         </div>
@@ -185,29 +189,34 @@ pre {
                               <h4>Activity Detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_submission_detection_16.json' target='_blank' download> example detection submission file.</a></p>
                                   <pre>
 <code>{
-  <span class="json-key" >version</span>: <span class="json-string">"VERSION 1.3"</span>,
-      <span class="json-key">results</span>: {
-          <span class="json-key">5n7NCViB5TU</span>: [
-            {
-            <span class="json-key">label</span>: [<span class="json-string">"Discus throw"</span>, <span class="json-string">"Shot put"</span>, <span class="json-string">"Brushing teeth"</span>], <span class="json-comment"># Maximum 3 predictions</span>
-            <span class="json-key">score</span>: [<span class="json-value">0.64</span>, <span class="json-value">0.19</span>, <span class="json-value">0.16</span>], <span class="json-comment">#Length of this array must match the length of predicted labels</span>
-            <span class="json-key">segment</span>: [<span class="json-value">24.25</span>,<span class="json-value">38.08</span>]
-            },
-            {
-            <span class="json-key">label</span>: [<span class="json-string">"Shot put"</span>],
-            <span class="json-key">score</span>: [<span class="json-value">0.77</span>],
-            <span class="json-key">segment</span>: [<span class="json-value">11.25</span>, <span class="json-value">19.37</span>]
-            }
-      ]
- }</code>
+<span class="json-key" >version</span>: <span class="json-string">"VERSION 1.3"</span>,
+<span class="json-key">results</span>: {
+  <span class="json-key"><q>5n7NCViB5TU</q></span>: [
+    {
+    <span class="json-key">label</span>: [<span class="json-string">"Discus throw"</span>, <span class="json-string">"Shot put"</span>, <span class="json-string">"Brushing teeth"</span>], <span class="json-comment"># Maximum 3 predictions</span>
+    <span class="json-key">score</span>: [<span class="json-value">0.64</span>, <span class="json-value">0.19</span>, <span class="json-value">0.16</span>], <span class="json-comment">#Length of this array must match the length of predicted labels</span>
+    <span class="json-key">segment</span>: [<span class="json-value">24.25</span>,<span class="json-value">38.08</span>]
+    },
+    {
+    <span class="json-key">label</span>: [<span class="json-string">"Shot put"</span>],
+    <span class="json-key">score</span>: [<span class="json-value">0.77</span>],
+    <span class="json-key">segment</span>: [<span class="json-value">11.25</span>, <span class="json-value">19.37</span>]
+    }
+]
+}
+<span class="json-key">external_data</span>: {
+  <span class="json-key">used</span>: <span class="json-bool">true,</span><span class="json-comment"> # Boolean flag. True indicates used of external data.</span>
+  <span class="json-key">details</span>: <span class="json-string">"First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set",</span><span class="json-comment"> # String with details of your external data.</span>
+}
+}</code>
                                   </pre>
                             </div>
                         </div>
                       </div>
                 </div>
+                <b> Note </b>: Green comments above are illustrative and help us to provide inline detailed explanations. Please avoid them in your submissions.
             </div>
         </div>
-
     </div>
      <div class="row">
          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
@@ -232,21 +241,35 @@ pre {
               modules of your system benefit from it.
               This information must be available in the Notebook paper and the
               <a href="#submission_json" >JSON File</a>.<br>
-              In short and not exhaustively, the use of extra data consists on:
+              In short and not exhaustively, the use of external data consists on:
               <ul>
                 <li> Using additional videos or images to tuned parameters of your algorithm.
                 </li>
                 <li> Using external modules like CNN or poselets models trained with other datasets.
                 </li>
               </ul>
-              Please contact us as soon as possible, if your case is not reported above.
-            </p>
+              Please contact us as soon as possible, if your case is not reported above.<br>
+
+              </p>
         </div>
     </div>
-
-
-
-
+    <div class="row">
+         <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+           <h3 id='honor_code'> Honor Code</h3>
+              <p>
+              This academic competition aims to highlight algorithms that understand the audio-visual content of videos.
+              To serve for this purpose, we invite all participants to:
+              <ul>
+                <li> Generate results on videos of the testing set by analyzing their audio-visual data.
+                </li>
+                <li> Ensure that none of the URLs provided for the testing set is used to train or tune parameters
+                     of your algorithm.
+                </li>
+                <li> Disregard human annotations on testing videos.
+                </li>
+              </p>
+        </div>
+    </div>
     </div>
   </section><!--/#guidelines-->
 
