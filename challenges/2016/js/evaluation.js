@@ -1,6 +1,6 @@
 SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge16/'
 var login_data;
-var leadership_data
+var leadership_data;
 var EMAIL;
 var PASSWORD;
 var fullname;
