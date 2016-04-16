@@ -123,9 +123,9 @@ pre {
                  The dataset for the challenge consists of more than 648 hours of untrimmed
                  videos from ActivityNet Release 1.3. There is a total of ~20K videos
                  distributed among 200 activity categories. The distribution among training,
-                 validation and testing is ~50%, ~25%, and ~25% respectively. 
-                 ActivityNet Release 1.3 can be downloaded from the <a href="http://activity-net.org/download.html"> download page</a> or 
-                 from its direct download link: <a href="http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" download> ActivityNet Release 1.3</a>.
+                 validation and testing is ~50%, ~25%, and ~25% respectively.
+                 ActivityNet Release 1.3 can be downloaded from the <a href="http://activity-net.org/download.html"> download page</a> or
+                 from its direct download link: <a href="http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" download> ActivityNet Release 1.3</a>.
               </p>
               <h3>Challenge Tasks</h3>
               <p> Our challenge includes two types of tasks as described below:</p>
@@ -154,7 +154,7 @@ pre {
             					  <li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>
             					  <div class="panel-body"  ><div class="tab-content" >
             						<div class="tab-pane active" id="classification" style="border:thin">
-                            <h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_submission_classification_16.json' target='_blank' download> example classification submission file</a>.</p>
+                            <h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_submission_classification_16.json' target='_blank' download> example classification submission file</a>.</p>
                             <pre style="font-size: small;white-space:normal;text-align:left;">
                               <code>{
 <span class="json-key">version</span>: <span class="json-string">"VERSION 1.3"</span>,
@@ -178,23 +178,23 @@ pre {
                           </pre>
                         </div>
             						<div class="tab-pane" id="detection" >
-                              <h4>Activity Detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-10-5-222.us-west-2.compute.amazonaws.com/files/example_submission_detection_16.json' target='_blank' download> example detection submission file.</a></p>
+                              <h4>Activity Detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_submission_detection_16.json' target='_blank' download> example detection submission file.</a></p>
                                   <pre>
 <code>{
 <span class="json-key" >version</span>: <span class="json-string">"VERSION 1.3"</span>,
 <span class="json-key">results</span>: {
   <span class="json-key"><q>5n7NCViB5TU</q></span>: [
-    {
-    <span class="json-key">label</span>: [<span class="json-string">"Discus throw"</span>, <span class="json-string">"Shot put"</span>, <span class="json-string">"Brushing teeth"</span>], <span class="json-comment"># Maximum 3 predictions</span>
-    <span class="json-key">score</span>: [<span class="json-value">0.64</span>, <span class="json-value">0.19</span>, <span class="json-value">0.16</span>], <span class="json-comment">#Length of this array must match the length of predicted labels</span>
-    <span class="json-key">segment</span>: [<span class="json-value">24.25</span>,<span class="json-value">38.08</span>]
-    },
-    {
-    <span class="json-key">label</span>: [<span class="json-string">"Shot put"</span>],
-    <span class="json-key">score</span>: [<span class="json-value">0.77</span>],
-    <span class="json-key">segment</span>: [<span class="json-value">11.25</span>, <span class="json-value">19.37</span>]
-    }
-]
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Discus throw"</span>,
+      <span class="json-key">score</span>: <span class="json-value">0.64</span>,
+      <span class="json-key">segment</span>: [<span class="json-value">24.25</span>,<span class="json-value">38.08</span>]
+      },
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>.
+      <span class="json-key">score</span>: <span class="json-value">0.77</span>,
+      <span class="json-key">segment</span>: [<span class="json-value">11.25</span>, <span class="json-value">19.37</span>]
+      }
+  ]
 }
 <span class="json-key">external_data</span>: {
   <span class="json-key">used</span>: <span class="json-bool">true,</span><span class="json-comment"> # Boolean flag. True indicates used of external data.</span>

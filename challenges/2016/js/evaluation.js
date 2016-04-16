@@ -312,7 +312,8 @@ function load_leaderboard(STATUS){
 	}else if(STATUS == "detection_action"){
 		typecontent = "Detection Result";
 	}
-	var html = '<h3>' + typecontent + '</h3>'+
+  if (STATUS == "classification_action") {
+	   var html = '<h3>' + typecontent + '</h3>'+
 			   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
   			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
 			   	  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
@@ -321,6 +322,17 @@ function load_leaderboard(STATUS){
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-3</th>'+
 			   '</tr></thead><tbody></tbody></table>';
+  }
+  else if (STATUS == "detection_action") {
+    var html = '<h3>' + typecontent + '</h3>'+
+        '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+             '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
+           '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
+           '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
+           '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
+           '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
+        '</tr></thead><tbody></tbody></table>';
+  }
 	$("#table-content").html(html);
 		$.ajax({
 		url:SERVERURL + "leadership.php",
@@ -331,7 +343,12 @@ function load_leaderboard(STATUS){
 			var leadership_data = jQuery.parseJSON(data);
 			 $.each(leadership_data, function(i, ls){
 				 var rank = i + 1;
-				$('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
+         if (STATUS == "classification_action") {
+				    $('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
+         }
+         else if (STATUS == "detection_action") {
+           $('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td></tr>');
+         }
 		  	});
 			$("table.sort_table").sort_table({ "action" : "init" });
     	}
