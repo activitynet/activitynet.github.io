@@ -22,7 +22,16 @@
 <script src="js/respond.min.js"></script>
 <![endif]-->
 <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
-
+<style>
+div.picwrapper {
+    width:100%;
+    text-align:center;
+}
+div.pic {
+    /* remove float:left here */
+    display:inline-block;
+}
+</style>
 </head><!--/head-->
 
 <body id="home" class="homepage">
@@ -154,17 +163,24 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-1 wow fadeInUp animated">
+          <div class="col-sm-12 col-sm-offset-1 wow fadeInUp animated">
           <h2 class="section-title text-justify ">Sponsors</h2>
-              <div class="col-sm-4" >
-              <a href="http://research.google.com/" target="_blank" ><img class="img-responsive" src="images/google.png" alt="img"></a>
-              </div>
-              <div class="col-sm-4" >
-              <a href="http://www.kaust.edu.sa/" target="_blank" ><img class="img-responsive" src="images/kaust-logo.png" alt="img"></a>
-              </div>
-              <div class="col-sm-4" >
-              <a href="https://research.nvidia.com/" target="_blank" ><img class="img-responsive" src="images/nvidia-logo.png" alt="img"></a>
-              </div>
+          <div class="picwrapper">
+
+
+            <div class="col-sm-2" >
+            <a href="http://www.kaust.edu.sa/" target="_blank" ><img class="img-responsive" src="images/KAUST_Logo.svg" alt="img"></a>
+            </div>
+            <div class="col-sm-2" >
+            <a href="https://research.nvidia.com/" target="_blank" ><img class="img-responsive" src="images/Nvidia_logo.svg" alt="img"></a>
+            </div>
+
+            <div class="col-sm-2" style="margin-top:20px;" >
+            <a href="http://research.google.com/" target="_blank" ><img class="img-responsive" src="images/Google_2015_logo.svg" alt="img" align=bottom></a>
+            </div>
+
+
+          </div>
           </div>
         </div>
 
