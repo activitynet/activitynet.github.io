@@ -13,7 +13,6 @@ var USERID;
 var fullname;
 $(function() {
 
-  print_classification_result();
 
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
@@ -38,7 +37,8 @@ $(function() {
           localStorage.setItem("LASTNAME_CACHED", LASTNAME);
           localStorage.setItem("USERID_CACHED", USERID);
           $('#login-content').remove();
-          fill_logged_content()
+          fill_logged_content();
+          print_classification_result();
           }
           else {
             var message = 'Invalid Username or Password';
@@ -231,9 +231,10 @@ function print_classification_content() {
 		var result_url = data.response[0];
 		var metric1 = data.response[1];
 		var metric2 = data.response[2];
+    var metric3 = data.response[3];
 		$.each(data.files, function(key, file) {
 		  var fname = file.name;
-		  out = out + '<li>' + 'Uploaded file: ' +  fname + ' successfully.' + '</li><li>mAP&nbsp=&nbsp[' + metric1 + '];&nbsp;top-k=[' + metric2 + '] </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
+		  out = out + '<li>' + fname + ' successfully uploaded.' + '</li><li>mAP=' + metric1 + ';&nbsp;Top-1=' + metric3 + ';&nbsp;Top-3=' + metric2 + ' </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
 		 });
 		$('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
 		$('#kv-success-2').fadeIn('slow');
@@ -290,6 +291,7 @@ function print_classification_result() {
 			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
 			   '</div></div></div></div>';
   	$("#leader_div").html(html);
+    $("#leader_div").show();
 	load_leaderboard(actionstatus);
 	$('#evaluate li').on('click', function(){
 		var currid = $(this).children(':first').attr('href');
@@ -308,9 +310,9 @@ function print_classification_result() {
 function load_leaderboard(STATUS){
 	var typecontent;
 	if(STATUS == "classification_action"){
-		typecontent = "Classification Result";
+		typecontent = "Best Classification Result";
 	}else if(STATUS == "detection_action"){
-		typecontent = "Detection Result";
+		typecontent = "Best Detection Result";
 	}
   if (STATUS == "classification_action") {
 	   var html = '<h3>' + typecontent + '</h3>'+
@@ -320,6 +322,7 @@ function load_leaderboard(STATUS){
 			      '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
 			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
+            '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-1</th>' +
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-3</th>'+
 			   '</tr></thead><tbody></tbody></table>';
   }
@@ -334,8 +337,17 @@ function load_leaderboard(STATUS){
         '</tr></thead><tbody></tbody></table>';
   }
 	$("#table-content").html(html);
+
+  if (STATUS == "classification_action") {
+    get_best_result(USERID, 1)
+  }
+  else if (STATUS == "detection_action") {
+    get_best_result(USERID, 2)
+  }
+  /*
 		$.ajax({
 		url:SERVERURL + "leadership.php",
+    //url:SERVERURL + "Server/backend/api_leaderboard.py"
 		type:"POST",
    		data:{action: STATUS},
       	success: function(data) {
@@ -352,7 +364,29 @@ function load_leaderboard(STATUS){
 		  	});
 			$("table.sort_table").sort_table({ "action" : "init" });
     	}
-	});
+	});*/
+}
+
+function get_best_result(userid, taskid) {
+  /*
+  This function prints the best result for the user in the
+  leaderboard table (#myTable).
+  */
+  var result_rank = 0 //Needs to be changed after challenge deadline.
+  $.ajax({
+    url: SERVERURL + 'Server/backend/api_leaderboard.py',
+    type: 'POST',
+    data: {'userid': userid, 'taskid': taskid},
+    success: function(data) {
+      if (taskid == 1) {
+        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ data['top1'] +'</td><td>'+ data['top3'] +'</td></tr>');
+      }
+      else if (taskid == 2) {
+        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td></tr>');
+      }
+      $("table.sort_table").sort_table({ "action" : "init" });
+    }
+  });
 }
 
 
