@@ -372,17 +372,20 @@ function get_best_result(userid, taskid) {
   This function prints the best result for the user in the
   leaderboard table (#myTable).
   */
-  var result_rank = 0 //Needs to be changed after challenge deadline.
   $.ajax({
     url: SERVERURL + 'Server/backend/api_leaderboard.py',
     type: 'POST',
     data: {'userid': userid, 'taskid': taskid},
-    success: function(data) {
+    success: function(data_lst) {
+      for (var i=0; i<data_lst.length; i++) {
+      var data = data_lst[i];
+      var result_rank = i+1;
       if (taskid == 1) {
         $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ data['top1'] +'</td><td>'+ data['top3'] +'</td></tr>');
       }
       else if (taskid == 2) {
         $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td></tr>');
+      }
       }
       $("table.sort_table").sort_table({ "action" : "init" });
     }
