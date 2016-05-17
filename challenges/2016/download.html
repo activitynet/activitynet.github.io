@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>ActivityNet Challenge</title>
+<!-- core CSS -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/animate.min.css" rel="stylesheet">
+<link href="../../css/owl.carousel.css" rel="stylesheet">
+<link href="../../css/owl.transitions.css" rel="stylesheet">
+<link href="../../css/prettyPhoto.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+  <header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/activity-logo-challenge.png" alt="logo"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right"  style="font-size:13px">
+          <ul class="nav navbar-nav">
+            <li class="scroll"><a href="index.html">Home</a></li>
+            <li class="scroll"><a href="people.html">People</a></li>
+            <li class="scroll"><a href="#">Important Dates</a></li>
+            <li class="scroll"><a href="program.html">Program</a></li>
+              <li class="scroll"><a href="guidelines.html">Guidelines</a></li>
+            <li class="scroll"><a href="evaluation.html">Evaluation</a></li>
+            <li class="scroll"><a href="contacus.html">Contact Us</a></li>
+
+          </ul>
+            <a class="navbar-brand" href="http://cvpr2016.thecvf.com/" target="_blank"><img src="images/las_vegas.png" align="top"  width="125" height="40" alt="logo"></a>
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+  </header><!--/header-->
+
+
+  <!-- DATE PAGE -->
+
+  <section id="download">
+    <div>
+      <div class="container">
+        <div class="row">
+
+          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <h2>Download</h2>
+          </div>
+
+          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <h2> Features </h2>
+            <section id='c3d'>
+            <h3> C3D </h3>
+            The publicly available pre-trained C3D model which has a temporal
+            resolution of 16 frames was used to extract frame based features.
+            This network was not fine-tuned on our data. We reduce the
+            dimensionality of the activations from the second fully-connected
+            layer (fc7) of our visual encoder from 4096 to 500 dimensions using PCA.
+            The C3D features were extracted every 8 frames.
+            The C3D Features were stacked in an HDF5 file, zipped and then
+            splitted into six different files:
+            <!--For further information on how to
+            parse and use the features, we provide a python interface
+            that allows reading and pooling of the C3D features [url].-->
+            <li><a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/data/challenge16/features/activitynet_v1-3.part-00'>activitynet_v1-3.part-00</a></li>
+            <li><a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/data/challenge16/features/activitynet_v1-3.part-01'>activitynet_v1-3.part-01</a></li>
+            <li><a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/data/challenge16/features/activitynet_v1-3.part-02'>activitynet_v1-3.part-02</a></li>
+            <li><a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/data/challenge16/features/activitynet_v1-3.part-03'>activitynet_v1-3.part-03</a></li>
+            <li><a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/data/challenge16/features/activitynet_v1-3.part-04'>activitynet_v1-3.part-04</a></li>
+            <li><a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/data/challenge16/features/activitynet_v1-3.part-05'>activitynet_v1-3.part-05</a></li>
+          </section>
+
+          <section id='imshuffle'>
+          <h3> ImagenetShuffle </h3>
+          CNN features based on the pool5 layer of a
+          Google inception net (GoogLeNet) on two frames per second.
+          Features were mean-pooled across the frames followed by L1-normalization.
+          <!--For further information on how to
+          parse and use the features, we provide a python interface
+          that allows reading and pooling of the C3D features [url].-->
+          <li><a href='http://isis-data.science.uva.nl/koelma/ActivityNet/ImageNetShuffle2016_features.h5'>Features</a></li>
+          <li><a href='http://isis-data.science.uva.nl/koelma/ActivityNet/ImageNetShuffle2016_quids.txt'>Video index</a></li>
+          <li><a href='http://isis-data.science.uva.nl/koelma/ActivityNet/README'>README</a></li>
+        </section>
+
+        <section id='mbh'>
+        <h3> MBH Features </h3>
+        The MBH features were generated with the aid of the Improved
+        Trajectories executable from this page:
+        <a href='http://lear.inrialpes.fr/people/wang/improved_trajectories'>IDT</a>.
+        <!--For further information on how to
+        parse and use the features, we provide a python interface
+        that allows reading and pooling of the C3D features [url].-->
+        <li><a href='http://isis-data.science.uva.nl/koelma/ActivityNet/MBH_Videos_features.h5'>Features</a></li>
+        <li><a href='http://isis-data.science.uva.nl/koelma/ActivityNet/MBH_Videos_quids.txt'>Video index</a></li>
+      </section>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section><!--/#dates-->
+
+  <script src="../../js/jquery.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/mousescroll.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/jquery.inview.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="../../js/main.js"></script>
+
+</body>
+</html>

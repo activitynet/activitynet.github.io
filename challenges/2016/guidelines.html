@@ -149,13 +149,39 @@ pre {
                      one activity, and typically large time lapses of the video are not related
                      with any activity of interest.
                   </p>
-                  <h4 class="text-left">Activity Detection </h4>
+                  <h4 class="text-left">Activity detection </h4>
                   <p>
                      This task is intended to evaluate the ability of algorithms to temporally
                      localize activities in untrimmed video sequences. Here, videos can contain
                      more than one activity instance, and mutiple activity categories can appear
                      in the video.
                   </p>
+            <h3>Features</h3>
+            <h4> Global features </h4>
+            <li>
+              <b>ImagenetShuffle</b> CNN features based on the pool5 layer of a
+              Google inception net (GoogLeNet) on two frames per second.
+              Features were mean-pooled across the frames followed by L1-normalization.
+              <a href='download.html#imshuffle'>[Download]</a>
+            </li>
+            <li>
+              <b>MBH Features</b>
+              The MBH features were generated with the aid of the Improved
+              Trajectories executable with a provided implementation by the authors.
+              Then, features were encoded using the GMM + Fisher Vectors pipeline.
+              <a href='download.html#mbh'>[Download]</a>
+            </li>
+            <h4> Frame based features </h4>
+
+            <li>
+              <b>C3D</b> The publicly available pre-trained C3D model which has
+              a temporal resolution of 16 frames was used to extract frame based
+              features. This network was not fine-tuned on our data. We reduce the
+              dimensionality of the activations from the second fully-connected
+              layer (fc7) of our visual encoder from 4096 to 500 dimensions using PCA.
+              <a href='download.html#c3d'>[Download]</a>
+            </li>
+
             <h3 id='submission_json'>Structure of Submission Json File </h3>
             <p >You have to bear in mind the following format for each submission process:</p>
           </div>
