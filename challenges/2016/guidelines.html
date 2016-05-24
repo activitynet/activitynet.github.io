@@ -156,7 +156,7 @@ pre {
                      more than one activity instance, and mutiple activity categories can appear
                      in the video.
                   </p>
-            <h3 id='Features'>4. Features</h3>
+            <h3 id='Features'>4. Additional Data</h3>
             <h4>4.1. Global features </h4>
             <li>
               <b>ImagenetShuffle</b> CNN features based on the pool5 layer of a
@@ -180,6 +180,15 @@ pre {
               dimensionality of the activations from the second fully-connected
               layer (fc7) of our visual encoder from 4096 to 500 dimensions using PCA.
               <a href='download.html#c3d'>[Download]</a>
+            </li>
+
+            <h4>4.3. Temporal Activity Proposals </h4>
+            <li>
+              <b>Agnostic Temporal Activity Proposals</b> are provided to encourage the participation
+              in the Activity Detection challenge. This proposals could be applied
+              as a preliminary stage to split the untrimmed videos into high recall
+              trimmed temporal segments.
+              <a href='download.html#proposals'>[Download]</a>
             </li>
 
             <h3 id='submission_json'>5. Structure of Submission Json File </h3>
