@@ -11,9 +11,10 @@ var files = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files";
 var TASKID = 1;
 var USERID;
 var fullname;
+var PUBLIC = 'true';
 $(function() {
 
-
+  print_classification_result();
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -37,6 +38,7 @@ $(function() {
           localStorage.setItem("LASTNAME_CACHED", LASTNAME);
           localStorage.setItem("USERID_CACHED", USERID);
           $('#login-content').remove();
+          PUBLIC = 'false'
           fill_logged_content();
           print_classification_result();
           }
@@ -310,17 +312,17 @@ function print_classification_result() {
 function load_leaderboard(STATUS){
 	var typecontent;
 	if(STATUS == "classification_action"){
-		typecontent = "Best Classification Result";
+		typecontent = "Leaderboard - Untrimmed Video Classification ";
 	}else if(STATUS == "detection_action"){
-		typecontent = "Best Detection Result";
+		typecontent = "Leaderboard - Activity Detection";
 	}
   if (STATUS == "classification_action") {
 	   var html = '<h3>' + typecontent + '</h3>'+
 			   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
   			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
-			   	  '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
-			      '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
-			      '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
+			   	  '<th class="sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
+			      '<th class="sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
+			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
             '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-1</th>' +
 			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-3</th>'+
@@ -372,10 +374,11 @@ function get_best_result(userid, taskid) {
   This function prints the best result for the user in the
   leaderboard table (#myTable).
   */
+  console.log(PUBLIC)
   $.ajax({
     url: SERVERURL + 'Server/backend/api_leaderboard.py',
     type: 'POST',
-    data: {'userid': userid, 'taskid': taskid},
+    data: {'userid': userid, 'taskid': taskid, 'public': PUBLIC},
     success: function(data_lst) {
       for (var i=0; i<data_lst.length; i++) {
       var data = data_lst[i];
