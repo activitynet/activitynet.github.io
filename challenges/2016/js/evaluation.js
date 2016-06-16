@@ -14,7 +14,7 @@ var fullname;
 var PUBLIC = 'true';
 $(function() {
 
-  //print_classification_result();
+  print_classification_result();
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
