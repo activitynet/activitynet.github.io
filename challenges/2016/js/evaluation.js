@@ -284,12 +284,12 @@ function print_classification_content() {
 
 
 function print_classification_result() {
-	var actionstatus= "classification_action";
+	var actionstatus= "detection_action";
 	var html = '<div id="evaluate" >'+
 			      '<div class="row"><div class="col-md-12"><div class="panel panel-default panel-fade">'+
 			          '<div class="panel-heading"><span class="nav-tab-title pull-right"> </span>'+
-					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification2" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
-					  '<li><a href="#detection2" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+
+					  '<ul class="nav nav-tabs"><li class="active"><a href="#detection2" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;&nbsp;Detection</a></li>'+
+					  '<li><a href="#classification2" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;Classification</a></li></ul></div>'+
 			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
 			   '</div></div></div></div>';
   	$("#leader_div").html(html);
