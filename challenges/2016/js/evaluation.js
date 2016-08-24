@@ -335,7 +335,9 @@ function load_leaderboard(STATUS){
            '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
            '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
            '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
-           '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
+           '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP-50</th>'+
+'<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP-75</th>'+
+'<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP-95</th>'+
            '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Average-mAP</th>' +
         '</tr></thead><tbody></tbody></table>';
   }
@@ -381,7 +383,9 @@ function get_best_result(userid, taskid) {
     type: 'POST',
     data: {'userid': userid, 'taskid': taskid, 'public': PUBLIC},
     success: function(data_lst) {
-      var avg_mAP = [0.146,  0.178,  0.176,  0.162,  0.155,  0.148];
+      var avg_mAP = [0.1462,  0.1783,  0.1768,  0.1624,  0.1557,  0.1481];
+      var mAP75 = [0.0288, 0.1105, 0.1778, 0.1580, 0.1593, 0.1488];
+      var mAP95 = [0.0006, 0.0014, 0.0288, 0.0361, 0.0484, 0.0445];
       for (var i=0; i<data_lst.length; i++) {
       var data = data_lst[i];
       var result_rank = i+1;
@@ -389,7 +393,7 @@ function get_best_result(userid, taskid) {
         $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ data['top1'] +'</td><td>'+ data['top3'] +'</td></tr>');
       }
       else if (taskid == 2) {
-        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ avg_mAP[i] +'</td></tr>');
+        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ mAP75[i] +'</td><td>'+ mAP95[i] +'</td><td>' + avg_mAP[i] +'</td></tr>');
       }
       }
       $("table.sort_table").sort_table({ "action" : "init" });
