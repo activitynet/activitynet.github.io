@@ -383,17 +383,14 @@ function get_best_result(userid, taskid) {
     type: 'POST',
     data: {'userid': userid, 'taskid': taskid, 'public': PUBLIC},
     success: function(data_lst) {
-      var avg_mAP = [0.1462,  0.1783,  0.1768,  0.1624,  0.1557,  0.1481];
-      var mAP75 = [0.0288, 0.1105, 0.1778, 0.1580, 0.1593, 0.1488];
-      var mAP95 = [0.0006, 0.0014, 0.0288, 0.0361, 0.0484, 0.0445];
       for (var i=0; i<data_lst.length; i++) {
       var data = data_lst[i];
       var result_rank = i+1;
       if (taskid == 1) {
-        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ data['top1'] +'</td><td>'+ data['top3'] +'</td></tr>');
+        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric1'] +'</td><td>'+ data['metric3'] +'</td><td>'+ data['metric2'] +'</td></tr>');
       }
       else if (taskid == 2) {
-        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['map'] +'</td><td>'+ mAP75[i] +'</td><td>'+ mAP95[i] +'</td><td>' + avg_mAP[i] +'</td></tr>');
+        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric1'] +'</td><td>'+ data['metric2'] +'</td><td>'+ data['metric3'] +'</td><td>' + data['metric4'] +'</td></tr>');
       }
       }
       $("table.sort_table").sort_table({ "action" : "init" });
