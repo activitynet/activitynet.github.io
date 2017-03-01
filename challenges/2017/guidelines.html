@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>ActivityNet Challenge</title>
+<!-- core CSS -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/animate.min.css" rel="stylesheet">
+<link href="../../css/owl.carousel.css" rel="stylesheet">
+<link href="../../css/owl.transitions.css" rel="stylesheet">
+<link href="../../css/prettyPhoto.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76841323-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style>
+pre {
+   background-color: ghostwhite;
+   border: 1px solid #CCCCCC;
+   padding: 10px 20px;
+   margin: 30px;
+   }
+.json-key {
+   color: #F54E4E;
+   }
+.json-value {
+   color: #666666;
+   }
+.json-string {
+   color: #666666;
+   }
+.json-comment {
+   color: #71BC78;
+   }
+
+  #rcorners2 {
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border: 1px solid #CCCCCC;
+   }
+
+
+
+</style>
+
+</head><!--/head-->
+<body id="home" class="homepage">
+  <header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/activity-logo-challenge.png" class="img-responsive" alt="logo"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right" style="font-size:13px">
+          <ul compact class="nav navbar-nav">
+            <li class="scroll"><a href="index.html">Home</a></li>
+            <li class="scroll"><a href="people.html">People</a></li>
+            <li class="scroll"><a href="dates.html">Important Dates</a></li>
+            <li class="scroll"><a href="program.html">Program</a></li>
+            <li class="scroll active"><a href="#">Guidelines</a></li>
+            <li class="scroll"><a href="evaluation.html">Evaluation</a></li>
+            <li class="scroll"><a href="contacus.html">Contact Us</a></li>
+
+
+          </ul>
+            <a class="navbar-brand" href="http://cvpr2016.thecvf.com/" target="_blank"><img src="images/las_vegas.png" align="top"  width="125" height="40" alt="logo"></a>
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+  </header><!--/header-->
+
+
+  <!-- GUIDELINES PAGE -->
+
+  <section id="guidelines">
+    <div>
+      <div class="container">
+
+
+
+        <div class="row">
+
+          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <h2>Challenge Guidelines</h2>
+          </div>
+
+          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+            <p>
+                To enter the competition, you need to create an account on <a href="evaluation.html"> Evaluation Tab</a>.
+                This account allows you to upload your results to the evaluation server and participate in the ActivityNet Challenge 2016.
+                <b>A maximum of one (1) submission is allowed per team per week.</b> This limit will be strictly enforced.
+                Only results that are submitted before the challenge deadline and posted to the leaderboard will be considered valid.
+                Uploading JSON files using an invalid format for either classification or detection tasks will prompt an error from the ActivityNet server.
+                You will also need to upload a notebook paper that describes your method in detail.
+                After the server processes your submission, a file with your results will appear for download.
+                Additionally, you will be able to compare your results to the state-of-the-art on the Leaderboard tab.<br>
+                This challenge allows to use external data to train and tune parameters of algorithms.
+                We are committed to keeping track of this practice. Therefore, each submission must explicitly cite the kind of external data used and which modules benefit from it.
+
+              <h3> 1. Requirements </h3>
+              <p> For each submission to the server, you have to attach the following files:
+                <ul>
+                  <li><a href="#submission_json">Submission Json File</a> for either classification or detection task. </li>
+                  <li>Notebook Paper or document that describes your method in detail. <b>This document MUST be in PDF format.</b></li>
+                </ul>
+
+              <h3>2. Database</h3>
+              <p>
+                 The dataset for the challenge consists of more than 648 hours of untrimmed
+                 videos from ActivityNet Release 1.3. There is a total of ~20K videos
+                 distributed among 200 activity categories. The distribution among training,
+                 validation and testing is ~50%, ~25%, and ~25% respectively.
+                 ActivityNet Release 1.3 can be downloaded from the <a onclick="ga('send', 'event', 'Download', 'Click', 'json_file', '0');" href="http://activity-net.org/download.html"> download page</a> or
+                 from its direct download link: <a onclick="ga('send', 'event', 'Download', 'Click', 'json_file', '0');" href="http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" download> ActivityNet Release 1.3</a>.
+              </p>
+              <h3>3. Challenge Tasks</h3>
+              <p> Our challenge includes two types of tasks as described below:</p>
+                  <h4 class="text-left">3.1. Untrimmed video classification </h4>
+                  <p>
+                     This task is intended to evaluate the ability of algorithms to predict
+                     activities in untrimmed video sequences. Here, videos can contain more than
+                     one activity, and typically large time lapses of the video are not related
+                     with any activity of interest.
+                  </p>
+                  <h4 class="text-left">3.2. Activity detection </h4>
+                  <p>
+                     This task is intended to evaluate the ability of algorithms to temporally
+                     localize activities in untrimmed video sequences. Here, videos can contain
+                     more than one activity instance, and mutiple activity categories can appear
+                     in the video.
+                  </p>
+            <h3 id='Features'>4. Additional Data</h3>
+            <h4>4.1. Global features </h4>
+            <li>
+              <b>ImagenetShuffle</b> CNN features based on the pool5 layer of a
+              Google inception net (GoogLeNet) on two frames per second.
+              Features were mean-pooled across the frames followed by L1-normalization.
+              <a href='download.html#imshuffle'>[Download]</a>
+            </li>
+            <li>
+              <b>MBH Features</b>
+              The MBH features were generated with the aid of the Improved
+              Trajectories executable with a provided implementation by the authors.
+              Then, features were encoded using the GMM + Fisher Vectors pipeline.
+              <a href='download.html#mbh'>[Download]</a>
+            </li>
+            <h4>4.2. Frame based features </h4>
+
+            <li>
+              <b>C3D</b> The publicly available pre-trained C3D model which has
+              a temporal resolution of 16 frames was used to extract frame based
+              features. This network was not fine-tuned on our data. We reduce the
+              dimensionality of the activations from the second fully-connected
+              layer (fc7) of our visual encoder from 4096 to 500 dimensions using PCA.
+              <a href='download.html#c3d'>[Download]</a>
+            </li>
+
+            <h4>4.3. Temporal Activity Proposals </h4>
+            <li>
+              <b>Agnostic Temporal Activity Proposals</b> are provided to encourage the participation
+              in the Activity Detection challenge. This proposals could be applied
+              as a preliminary stage to split the untrimmed videos into high recall
+              trimmed temporal segments.
+              <a href='download.html#proposals'>[Download]</a>
+            </li>
+
+            <h3 id='submission_json'>5. Structure of Submission Json File </h3>
+            <p >You have to bear in mind the following format for each submission process:</p>
+          </div>
+
+            <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" id="rcorners2">
+                <div id='evaluate'>
+            			<div class="row"><div class="panel with-nav-tabs panel-default">
+            					  <ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>
+            					  <li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>
+            					  <div class="panel-body"  ><div class="tab-content" >
+            						<div class="tab-pane active" id="classification" style="border:thin">
+                            <h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_submission_classification_16.json' target='_blank' download> example classification submission file</a>.</p>
+                            <pre style="font-size: small;white-space:normal;text-align:left;">
+                              <code>{
+<span class="json-key">version</span>: <span class="json-string">"VERSION 1.3"</span>,
+<span class="json-key">results</span>: {
+  <span class="json-key"><q>5n7NCViB5TU</q></span>: [
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Discus throw",</span><span class="json-comment"> # At least one prediction per video is required.</span>
+      <span class="json-key">score</span>: <span class="json-value">1</span>
+      },
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>,
+      <span class="json-key">score</span>: <span class="json-value">0.777</span>
+      }
+  ]
+},
+<span class="json-key">external_data</span>: {
+  <span class="json-key">used</span>: <span class="json-bool">true,</span><span class="json-comment"> # Boolean flag. True indicates used of external data.</span>
+  <span class="json-key">details</span>: <span class="json-string">"First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set",</span><span class="json-comment"> # String with details of your external data.</span>
+}
+}</code>
+                          </pre>
+                        </div>
+            						<div class="tab-pane" id="detection" >
+                              <h4>Activity Detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_submission_detection_16.json' target='_blank' download> example detection submission file.</a></p>
+                                  <pre>
+<code>{
+<span class="json-key" >version</span>: <span class="json-string">"VERSION 1.3"</span>,
+<span class="json-key">results</span>: {
+  <span class="json-key"><q>5n7NCViB5TU</q></span>: [
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Discus throw"</span>,
+      <span class="json-key">score</span>: <span class="json-value">0.64</span>,
+      <span class="json-key">segment</span>: [<span class="json-value">24.25</span>,<span class="json-value">38.08</span>]
+      },
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>.
+      <span class="json-key">score</span>: <span class="json-value">0.77</span>,
+      <span class="json-key">segment</span>: [<span class="json-value">11.25</span>, <span class="json-value">19.37</span>]
+      }
+  ]
+}
+<span class="json-key">external_data</span>: {
+  <span class="json-key">used</span>: <span class="json-bool">true,</span><span class="json-comment"> # Boolean flag. True indicates used of external data.</span>
+  <span class="json-key">details</span>: <span class="json-string">"First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set",</span><span class="json-comment"> # String with details of your external data.</span>
+}
+}</code>
+                                  </pre>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <b> Note </b>: Green comments above are illustrative and help us to provide inline detailed explanations. Please avoid them in your submissions.
+            </div>
+        </div>
+    </div>
+     <div class="row">
+         <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+           <h3>6. Metrics </h3>
+              <p>
+              Two different metrics are used to evaluate perfomance in this challenge:
+              <ul>
+              <li><b>Mean Average Precision (mAP):</b> Interpolated Average Precision (AP) is used as one of the metrics for evaluating the results
+              on each activity category. The AP is averaged over all the activity categories. For more information on Interpolated Average Precision,
+              please read: <a href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html" target="_blank">Evaluation of ranked retrieval results</a>. </li>
+              <li><b>Top-k classification accuracy:</b> This metric is computed as the fraction of test videos for which the correct label is among the top-k most confident predictions. <b>In this challenge, we set k=3.</b></li>
+              </ul>
+              </p>
+         </div>
+    </div>
+    <div class="row">
+         <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+           <h3 id='use_external_data_policy'>7. Use of External Data Policy</h3>
+              <p>
+              This challenge allows participants to use external data to train their algorithms or tune parameters.
+              Each submission should explicitly cite the kind of external data used and which modules of the system benefit from it.
+              This information must be available in the Notebook paper and the <a href="#submission_json" >JSON File</a>.<br>
+              Some popular forms of external data usage include (but not confined to):
+              <ul>
+                <li> using additional videos or images to tuned parameters, and
+                </li>
+                <li> using external modules like CNN or DPM trained with other datasets.
+                </li>
+              </ul>
+              If your case is not listed above, please contact us as soon as possible.
+              </p>
+        </div>
+    </div>
+    <div class="row">
+         <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+           <h3 id='honor_code'>8. Honor Code</h3>
+              <p>
+              This academic challenge aims to highlight automated algorithms that understand the audio-visual content of videos.
+              To serve this purpose and to allow for fair competition, we request that ALL participants:
+              <ul>
+                <li> generate results on the testing set by analyzing audio-visual content <b>only</b>,
+                </li>
+                <li> <b>not</b> use the testing set for training or parameter tuning, and
+                </li>
+                <li> refrain from using <b>any</b> auxiliary information of the testing set (e.g. human annotations, URL metadata, etc.) other than the provided videos themselves.
+                </li>
+              </ul>
+                If a submission is found to violate any of the above guidelines, the organizers of the challenge reserve the right to disqualify the corresponding participating team.
+              </p>
+        </div>
+    </div>
+    <div class="row">
+         <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown" align="justify">
+           <h3 id='Awards'>9. Awards</h3>
+              <p>
+              Each winner per challenge task will be rewarded with a GPU card sponsored by Nvidia Corp.
+              </p>
+        </div>
+    </div>
+    </div>
+  </section><!--/#guidelines-->
+
+
+  <script src="../../js/jquery.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/mousescroll.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/jquery.inview.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="../../js/main.js"></script>
+
+</body>
+</html>
