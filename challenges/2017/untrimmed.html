@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>ActivityNet Challenge</title>
+<!-- core CSS -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/animate.min.css" rel="stylesheet">
+<link href="../../css/owl.carousel.css" rel="stylesheet">
+<link href="../../css/owl.transitions.css" rel="stylesheet">
+<link href="../../css/prettyPhoto.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+<style>
+pre {
+   background-color: ghostwhite;
+   border: 1px solid #CCCCCC;
+   padding: 10px 20px;
+   margin: 30px;
+   }
+.json-key {
+   color: #F54E4E;
+   }
+.json-value {
+   color: #666666;
+   }
+.json-string {
+   color: #666666;
+   }
+.json-comment {
+   color: #71BC78;
+   }
+
+  #rcorners2 {
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border: 1px solid #CCCCCC;
+   }
+
+
+
+</style>
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+  <header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/activity-logo-challenge.png" alt="logo"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right"  style="font-size:13px">
+          <ul class="nav navbar-nav">
+            <li class="scroll"><a href="index.html">Home</a></li>
+            <li class="scroll"><a href="people.html">People</a></li>
+            <li class="scroll"><a href="dates.html">Important Dates</a></li>
+            <!--<li class="scroll"><a href="program.html">Program</a></li>-->
+            <li class="scroll active"><a href="guidelines.html">Challenge Description</a></li>
+            <!--<li class="scroll"><a href="evaluation.html">Evaluation</a></li>-->
+            <li class="scroll"><a href="contacus.html">Contact Us</a></li>
+
+          </ul>
+          <!--<a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/CVPRLogo.png" style="margin:15px 0px" align="bottom"  width="200" height="30" alt="logo"></a>-->
+          <a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/cvpr17.png" align="top"  width="188" height="65" alt="logo"></a>
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+  </header><!--/header-->
+
+
+  <!-- DATE PAGE -->
+
+  <section id="untrimmed">
+    <div>
+      <div class="container">
+
+          <div class="col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <h2>Task 1: Untrimmed Video Classification</h2>
+            <p>
+            Video data is naturally untrimmed. For example, it is extremely difficult to find YouTube videos containing only
+            a single activity, such as walking the dog. The videos usually contain a large amount of background/context information.
+            It has been a motivation for computer vision researchers to develop algorithms that are able to globally analyze
+            a video and generate its global classification. In this task, we evaluate the capability of such methods on
+            recognizing activities in untrimmed video sequences. Here, videos can contain more than one activity, and typically
+            large time lapses of the video are not related with any activity of interest.
+          </br><b>For information related to this task, please contact: </b> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge" target="_top">fabian.caba@kaust.edu.sa</a>,
+            <a href="mailto:humam.alwassel@kaust.edu.sa?Subject=ActivityNet Challenge" target="_top">humam.alwassel@kaust.edu.sa</a>,
+            <a href="mailto:victor.escorcia@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">victor.escorcia@kaust.edu.sa</a>
+
+            </p>
+
+            <h3> Dataset </h3>
+            <p>
+            The <a target="_blank" href="http://activity-net.org/download.html">ActivityNet Version 1.3 dataset</a> will be used for this challenge. The dataset consists of more than 648 hours of untrimmed videos from a total of ~20K videos with ~1.5 annotations per video.
+            It contains 200 different daily activities such as: 'walking the dog', 'long jump', and 'vacuuming floor'. The distribution among training, validation, and testing is ~50%, ~25%, and
+            25% of the total videos respectively. The dataset annotations can be downloaded directly from <a target="_blank" href="http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" download> here </a>.
+
+            </p>
+
+            <h3> Evaluation Metric </h3>
+            <p>
+            The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_classification_performance.py">found here</a>.
+
+            We will use the <b>top-1 error</b> ($e$) as the official metric for this task. Given $m$ videos containing $n$ different $g_{ij}$ ground truth annotations each, where $i = 1,...,m$ and $j = 1, ...,n$, the top-1 error for a set of $m$ predictions $p_i$ is computed as:
+
+            <center>$e = \frac{1}{m} \sum_{i=1}^{m} f(i)$</center>
+
+            where,
+
+            <center>$f(i) = \frac{1}{n} \sum_{j=1}^{n} d(p_i, g_{ij})$</center>
+
+            with $d(p_i, g_{ij})=1$ if $p_i=g_{ij}$. Note that this metric takes into account that multiple labels can exist in a video.
+
+
+            </p>
+
+
+            <h3> Baselines </h3>
+            <p> Please refer to <a target="_blank" href="http://activity-net.org/challenges/2016/data/anet_challenge_summary.pdf"> last challenge summary</a> for information about baselines and state-of-the-art methods. </p>
+
+            <h3> Submission Format </h3>
+            <p>
+            Please follow the following JSON format when submitting your results for the challenge:
+            </p>
+
+
+          <pre>
+<code>{
+<span class="json-key" >version</span>: <span class="json-string">"VERSION 1.3"</span>,
+<span class="json-key">results</span>: {
+  <span class="json-key"><q>5n7NCViB5TU</q></span>: [
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Discus throw"</span>,
+      <span class="json-key">score</span>: <span class="json-value">0.95</span>
+      },
+      {
+      <span class="json-key">label</span>: <span class="json-string">"Shot put"</span>,
+      <span class="json-key">score</span>: <span class="json-value">0.77</span>
+      }
+  ]
+}
+<span class="json-key">external_data</span>: {
+  <span class="json-key">used</span>: <span class="json-bool">true,</span><span class="json-comment"> # Boolean flag. True indicates the use of external data.</span>
+  <span class="json-key">details</span>: <span class="json-string">"First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set",</span><span class="json-comment"> # This string details what kind of external data you used and how you used it.</span>
+}
+}</code>
+            </pre>
+
+
+          <p>
+          The example above is illustrative. Comments must be removed in your submission. You can <a target="_blank" href="http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_submission_classification_16.json" download> download here </a> a sample submission file.
+          </p>
+
+          </div>
+
+      </div>
+    </div>
+  </section><!--/#dates-->
+
+  <script src="../../js/jquery.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/mousescroll.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/jquery.inview.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="../../js/main.js"></script>
+
+</body>
+</html>

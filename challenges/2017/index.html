@@ -18,8 +18,8 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 <!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
-<script src="js/respond.min.js"></script>
+<script src="../../js/html5shiv.js"></script>
+<script src="../../js/respond.min.js"></script>
 <![endif]-->
 <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
 
@@ -54,19 +54,19 @@
 
         <div class="collapse navbar-collapse navbar-right"  style="font-size:13px" >
           <ul class="nav navbar-nav">
-            <!--
+
             <li class="scroll active"><a href="#">Home</a></li>
-            
+
             <li class="scroll"><a href="people.html">People</a></li>
             <li class="scroll"><a href="dates.html">Important Dates</a></li>
-            <li class="scroll"><a href="program.html">Program</a></li>
-            <li class="scroll"><a href="guidelines.html">Guidelines</a></li>
-            <li class="scroll"><a href="evaluation.html">Evaluation</a></li>
+            <!--<li class="scroll"><a href="program.html">Program</a></li>-->
+            <li class="scroll"><a href="guidelines.html">Challenge Description</a></li>
+            <!--<li class="scroll"><a href="evaluation.html">Evaluation</a></li>-->
             <li class="scroll"><a href="contacus.html">Contact Us</a></li>
-            -->
 
           </ul>
-          <a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/CVPRLogo.png" style="margin:15px 0px" align="bottom"  width="200" height="30" alt="logo"></a>
+          <!--<a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/CVPRLogo.png" style="margin:15px 0px" align="bottom"  width="125" height="40" alt="logo"></a>-->
+          <a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/cvpr17.png" align="top"  width="188" height="65" alt="logo"></a>
         </div>
       </div><!--/.container-->
     </nav><!--/nav-->
@@ -76,54 +76,30 @@
   <!-- HOME PAGE -->
 
   <section id="home-page">
-    <div>
+  <div>
       <div class="container">
-        <div class="row">
 
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          <div class="col-sm-10 col-sm-offset-1 wow fadeInDown">
             <center><a href="http://activity-net.org/" target="_blank"><img src="images/logo_activitynet.gif" class="img-responsive" /></a></center>
           </div>
 
-            <!--
-            <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 wow fadeInDown">
-            <a href='data/anet_challenge_summary.pdf' target='_blank'>
-                <img src='images/challenge_summary_banner.png' class="img-responsive img-rounded">
-            </a>
-            </div>
-            </div>
-            -->
-
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          <div class="col-sm-10 col-sm-offset-1 wow fadeInDown">
             <h2>Introduction</h2>
-          </div>
-
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
             <p>
-                The ActivityNet Large Scale Activity Recognition Challenge
-                is a half-day workshop to be held on July 26 in conjuction
-                with CVPR 2017, in Honolulu, Hawaii. In this workshop, we want to 
-                stimulate the computer vision community to develop new algorithms 
-                and techinques that improve the state-of-the-art in human activity 
-                understanding. The data of this challenge is based on the publicily 
-                available <a href="http://activity-net.org/">ActivityNet</a>  benchmark.
-            </p>
-
-            <p>
-                The challenge focuses on recognizing high-level and goal oriented
-                activities from user generated videos, similar to those found in
-                internet portals. 
-                <!--
-                This challenge is tailored to 200 activity categories
-                in two different tasks. <b>(a) Untrimmed Classification Challenge:</b>
-                Given a long video, predict the labels of the activities present in the video;
-                <b>(b) Detection Challenge:</b> Given a long video, predict the labels and
-                temporal extents of the activities present in the video.
-                -->
+            The ActivityNet Large Scale Activity Recognition Challenge
+            is a half-day workshop to be held on July 26 in conjuction
+            with CVPR 2017, in Honolulu, Hawaii. In this workshop, we want to
+            stimulate the computer vision community to develop new algorithms
+            and techinques that improve the state-of-the-art in human activity
+            understanding. The data of this challenge is based on three different publicily
+            available datasets: <a href="http://activity-net.org/">ActivityNet</a>,
+            <a href="http://cs.stanford.edu/people/ranjaykrishna/densevid/">ActivityNet Captions</a>, and <a href="#">Kinetics</a>. The challenge focuses on recognizing high-level and goal oriented
+            activities from user generated videos, similar to those found in
+            internet portals. 
             </p>
           </div>
 
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          <div class="col-sm-10 col-sm-offset-1 wow fadeInDown">
             <h2>Keynote Speakers</h2>
 
             <div class="wow fadeInUp animated">
@@ -151,113 +127,16 @@
 
           </div>
 
-            <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
-            <h2>Organizers</h2>
-
-            <div class="wow fadeInUp animated">
-                 <div class="media-body col-sm-3">
-                   <a href="http://www.cabaf.net/" target="_blank">
-                     <img src="http://www.cabaf.net/img/fabian.png" class="img-circle" />
-                   </a>
-                   <div id="profiles">
-                    <h4 class="heading">   <a href="http://www.cabaf.net/" style="color:black;"  target="_blank">Fabian Caba Heilbron</a></h4>
-                    <p><small>King Abdullah Universisty </br> of Science and Technology</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wow fadeInUp animated">
-                <div class="media-body col-sm-3">
-                    <a href="http://www.ceessnoek.info/" target="_blank">
-                      <img src="images/Cees.jpg" class="img-circle" />
-                    </a>
-                    <div id="profiles">
-                    <h4 class="heading">  <a href="http://www.ceessnoek.info/" style="color:black;" target="_blank">Cees Snoek</a></h4>
-                    <p>Universiteit </br> van Amsterdam</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wow fadeInUp animated">
-                 <div class="media-body col-sm-3">
-                   <a href="http://www.niebles.net/" target="_blank">
-                     <img src="../../images/juan.png" class="img-circle" />
-                   </a>
-                   <div id="profiles">
-                    <h4 class="heading">   <a href="http://www.niebles.net/" style="color:black;"  target="_blank">Juan Carlos Niebles</a></h4>
-                    <p>Stanford University</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="wow fadeInUp animated">
-                <div class="media-body col-sm-3">
-                    <a href="http://www.bernardghanem.com/" target="_blank">
-                      <img src="../../images/bernard.png" class="img-circle" />
-                    </a>
-                    <div id="profiles">
-                    <h4 class="heading">  <a href="http://www.bernardghanem.com/" style="color:black;" target="_blank">Bernard Ghanem</a></h4>
-                    <p><small>King Abdullah Universisty </br> of Science and Technology</small></p>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-
-            <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
-              <h2>Important Dates</h2>
-              <!--
-              <ul class="wow fadeInUp animated">
-                <li><b>April (TBD), 2017:</b> Development kit, training and validation subsets, Testing data without
-                ground-truth annotations will be available.</li>
-                <li><b>June 23, 2017:</b> Challenge submission deadline </li>
-                <li><b>June 30, 2017:</b> Paper submission deadline </li>
-                <li><b>July 7, 2017:</b> Winners announcement </li>
-                <li><b>July 26, 2017:</b> Workshop day </li>
-              </ul>
-              -->
-                <b>April (TBD), 2017:</b> Development kit and data will be available.</br>
-                <b>June (TBD), 2017:</b> Challenge submission deadline</br>
-                <b>June (TBD), 2017:</b> Paper submission deadline </br>
-                <b>July (TBD), 2017:</b> Winners announcement </br>
-                <b>July 26, 2017:</b> Workshop day </br>
-            </div>
-
-          <!--
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
-            <img src="images/anet_cover.png" class="img-responsive" />
-          </div>
-
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          <div class="col-sm-10 col-sm-offset-1 wow fadeInDown">
             <h2>News</h2>
-          </div>
-          -->
-
-
-          <!--
-          <div class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
-            <ul class="wow fadeInUp animated" style="color:red">
-              <li ><b>[10-13-2016]:</b> <a href="https://github.com/yjxiong/temporal-segment-networks"> CUHK team (classification winners) released their code.</a></li>
-              <li ><b>[06-16-2016]:</b> <a href="program.html#leaderboard">Leaderboard is released.</a></li>
-              <li ><b>[05-25-2016]:</b> <a href="dates.html">We will change the submission limit policy to three submission per week on 1st June at 11:59 PM PT.</a></li>
-              <li ><b>[05-25-2016]:</b> <a href="dates.html"> The leader-board will be publicly available on 1st June at 11:59 PM PT.</a></li>
-              <li ><b>[05-25-2016]:</b> <a href="dates.html"> We have decided to extend the challenge submission deadline till June 8th 11:59 PM PT.</a></li>
-              <li ><b>[05-24-2016]:</b> <a href="guidelines.html#Features">Temporal activity proposals are released.</a></li>
-              <li ><b>[05-17-2016]:</b> <a href="guidelines.html#Features">Global and frame based features are released.</a></li>
-              <li ><b>[05-12-2016]:</b> <a href="guidelines.html#Awards">Top performers of each challenge task will receive a GPU card sponsored by NVIDIA. </a></li>
-              <li ><b>[04-15-2016]:</b> <a href="evaluation.html">Evaluation server</a> is released. </li>
-              <li ><b>[04-05-2016]:</b> Update <a href="guidelines.html#use_external_data_policy">guidelines</a>. Please update your JSON-files accordingly.
-              <li ><b>[03-23-2016]:</b> Training/Validation subsets and Testing data without ground truth are released. </li>
-              <li ><b>[02-18-2016]:</b> ActivityNet Challenge 2016 Website is released. </li>
-
-
+            <ul  style="color:red">
+              <li ><b>[05-01-2016]:</b> The challenge started! Training and validation subsets are released. </li>
+              <li ><b>[03-01-2016]:</b> Hi there! ActivityNet Challenge 2017 website is released. </li>
             </ul>
           </div>
-          -->
 
-        </div>
       </div>
-    </div>
+  </div>
   </section><!--/#home-->
 
   <script src="../../js/jquery.js"></script>
