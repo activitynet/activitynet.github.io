@@ -136,6 +136,8 @@ pre {
             <p>
             The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_kinetics_performance.py">found here</a>.</br>
 
+            <!--
+
             We will use the <b>top-k accuracy</b> ($e(k)$) with $k\in\{1,5\}$ as the official metrics for this task. Given $m$ videos containing $n$ different $g_{ij}$ ground truth annotations each, where $i = 1,...,m$ and $j = 1, ...,n$, the top-k error for a set of $m$ predictions $p_i$ is computed as:
 
             <center>$e(k) = \frac{1}{m} \sum_{i=1}^{m} f(i, k)$</center>
@@ -146,6 +148,14 @@ pre {
 
             with $d(p_i, g_{ij})=1$ if $p_i=g_{ij}$. Note that this metric takes into account the fact that multiple labels can exist in a video. The winner of the challenge will be selected
             based on the average between <b>top-1 and top-5 accuracy</b> scores.
+
+            -->
+
+            For each video, an algorithm will produce $k$ labels $l_{j}$, $j = 1,..,k$. The ground truth label for the video is $g$. The error of the algorithm for that video would be:
+
+            <center>$e = \min_{j} d(l_{j}, g)$,</center>
+
+            with $d(x,y) = 0$ if $x=y$ and $1$ otherwise. The overall error score for an algorithm is the average error over all videos. We will use $k=1$ and $k=5$ and the winner of the challenge will be selected based on the average of these two errors.
 
 
             </p>
