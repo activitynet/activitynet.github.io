@@ -1,4 +1,4 @@
-SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge16/'
+SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge17/'
 var login_data;
 var leadership_data;
 var EMAIL;
@@ -14,7 +14,6 @@ var fullname;
 var PUBLIC = 'true';
 $(function() {
 
-  print_classification_result();
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -40,7 +39,7 @@ $(function() {
           $('#login-content').remove();
           PUBLIC = 'false'
           fill_logged_content();
-          print_classification_result();
+          //print_classification_result();
           }
           else {
             var message = 'Invalid Username or Password';
@@ -127,7 +126,7 @@ function print_msg(msg){
 function fill_logged_content() {
   print_logged();
   print_classification_content();
-  pdf_upload();
+  //pdf_upload();
   check_time();
 
 
@@ -160,28 +159,65 @@ json_file_detection = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/fi
 function load_example_formats() {
 
     $.ajax({
-    url:SERVERURL + "/submission_formats/example_classification.html",
+    url:SERVERURL + "/submission_formats/example_untrimmed.html",
     type:"POST",
     success: function(html) {
-      $("#example-classification").html(html);
+      $("#example-untrimmed").html(html);
     }
   });
+
     $.ajax({
-    url:SERVERURL + "/submission_formats/example_detection.html",
+    url:SERVERURL + "/submission_formats/example_trimmed.html",
     type:"POST",
     success: function(html) {
-      $("#example-detection").html(html);
+      $("#example-trimmed").html(html);
+    }
+  });
+
+    $.ajax({
+    url:SERVERURL + "/submission_formats/example_proposals.html",
+    type:"POST",
+    success: function(html) {
+      $("#example-proposals").html(html);
+    }
+  });
+
+    $.ajax({
+    url:SERVERURL + "/submission_formats/example_localization.html",
+    type:"POST",
+    success: function(html) {
+      $("#example-localization").html(html);
+    }
+  });
+
+    $.ajax({
+    url:SERVERURL + "/submission_formats/example_captioning.html",
+    type:"POST",
+    success: function(html) {
+      $("#example-captioning").html(html);
     }
   });
 
 }
 
 function print_results_format(html) {
-  var classification_ = "<h4>Untrimmed video classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example classification submission file</a>.</p><pre><code id=example-classification></code></pre>"
-  classification_ = sprintf(classification_, files + '/example_submission_classification_16.json');
-  var detection_ = "<h4>Activity detection</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example detection submission file</a></p><pre><code id=example-detection></code></pre>"
-  detection_ = sprintf(detection_, files + '/example_submission_detection_16.json');
-  html = sprintf(html, classification_, detection_);
+  var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-untrimmed></code></pre>"
+  untrimmed_ = sprintf(untrimmed_, SERVERURL + "/submission_formats/example_untrimmed.json");
+
+  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Action Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-trimmed></code></pre>"
+  trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
+
+  var proposals_ = "<h3>Submit Your Results</h3><h4>Temporal Action Proposals</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-proposals></code></pre>"
+  proposals_ = sprintf(proposals_, SERVERURL + "/submission_formats/example_proposals.json");
+
+  var localization_ = "<h3>Submit Your Results</h3><h4>Temporal Action Localization</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a></p><pre><code id=example-localization></code></pre>"
+  localization_ = sprintf(localization_, SERVERURL + "/submission_formats/example_localization.json");
+
+  //var captioning_ = "<h3>Submit Your Results</h3><h4>Dense-Captioning Events in Videos</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-captioning></code></pre>"
+  //captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
+  var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
+
+  html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
   return html;
 }
 
@@ -190,12 +226,18 @@ function print_classification_content() {
   	var html = '<div id="evaluate" >'+
 				  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
 					  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results </span>'+
-					  '<ul class="nav nav-tabs"><li class="active"><a href="#classification" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Classification</a></li>'+
-					  '<li><a href="#detection" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detection</a></li></ul></div>'+
+					  '<ul class="nav nav-tabs"><li class="active"><a href="#untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
+            '<li><a href="#trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
+            '<li><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+            '<li><a href="#localization" data-toggle="tab">&nbsp;Localization</a></li>'+
+					  '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
 					  '<div class="panel-body"><div class="tab-content">'+
-						  '<div class="tab-pane active" id="classification">%s</div>'+
-						  '<div class="tab-pane" id="detection">%s</div>'+
-				  	  '</div></div>';
+						  '<div class="tab-pane active" id="untrimmed">%s</div>'+
+						  '<div class="tab-pane" id="trimmed">%s</div>'+
+              '<div class="tab-pane" id="proposals">%s</div>'+
+              '<div class="tab-pane" id="localization">%s</div>'+
+              '<div class="tab-pane" id="captioning">%s</div>'+
+				  	'</div></div>';
     html = print_results_format(html);
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
@@ -230,13 +272,13 @@ function print_classification_content() {
 
 	$("#file_to_upload").on('filebatchuploadsuccess', function(event, data) {
 		var out = '';
-		var result_url = data.response[0];
-		var metric1 = data.response[1];
-		var metric2 = data.response[2];
-    var metric3 = data.response[3];
+		//var result_url = data.response[0];
+		var metric1 = data.response;
+		//var metric2 = data.response[2];
+    //var metric3 = data.response[3];
 		$.each(data.files, function(key, file) {
 		  var fname = file.name;
-		  out = out + '<li>' + fname + ' successfully uploaded.' + '</li><li>mAP=' + metric1 + ';&nbsp;Top-1=' + metric3 + ';&nbsp;Top-3=' + metric2 + ' </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
+		  out = out + '<li>' + fname + ' successfully uploaded.' + '</li><li>Performance = ' + metric1; //+ ';&nbsp;Top-1=' + metric3 + ';&nbsp;Top-3=' + metric2 + ' </li><li>Download your results <a href="' + result_url + '" download>click here!&nbsp <i class="fa fa-download"></i></a></li>';
 		 });
 		$('#kv-success-2').html('<h4>Upload Status</h4><ul></ul>');
 		$('#kv-success-2').fadeIn('slow');
@@ -264,19 +306,37 @@ function print_classification_content() {
 
 	$('#evaluate li').on('click', function(){
 		var currid = $(this).children(":first").attr('href');
-		if(currid == '#classification'){
+		if(currid == '#untrimmed'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 1;
 			$('#file_to_upload').fileinput('clear');
       		$('#kv-success-2').hide();
 			$('#kv-error-2').hide();
-		}else if(currid == '#detection'){
+		}else if(currid == '#trimmed'){
 			//$(this).addClass("active").siblings().removeClass("active");
 			TASKID = 2;
 			$('#file_to_upload').fileinput('clear');
      		$('#kv-success-2').hide();
 			$('#kv-error-2').hide();
-		}
+		}else if(currid == '#proposals'){
+      //$(this).addClass("active").siblings().removeClass("active");
+      TASKID = 3;
+      $('#file_to_upload').fileinput('clear');
+        $('#kv-success-2').hide();
+      $('#kv-error-2').hide();
+    }else if(currid == '#localization'){
+      //$(this).addClass("active").siblings().removeClass("active");
+      TASKID = 4;
+      $('#file_to_upload').fileinput('clear');
+        $('#kv-success-2').hide();
+      $('#kv-error-2').hide();
+    }else if(currid == '#captioning'){
+      //$(this).addClass("active").siblings().removeClass("active");
+      TASKID = 5;
+      $('#file_to_upload').fileinput('clear');
+        $('#kv-success-2').hide();
+      $('#kv-error-2').hide();
+    }
     check_time();
 
 	});
@@ -399,6 +459,7 @@ function get_best_result(userid, taskid) {
 }
 
 
+/*
 function pdf_upload() {
     title_explain_pdf()
     var html =  '<div id="loadpdf" >'+'<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'
@@ -427,6 +488,7 @@ function pdf_upload() {
 
 
   }
+  */
 
   function title_explain_pdf(){
 
