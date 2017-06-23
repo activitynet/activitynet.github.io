@@ -213,9 +213,9 @@ function print_results_format(html) {
   var localization_ = "<h3>Submit Your Results</h3><h4>Temporal Action Localization</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a></p><pre><code id=example-localization></code></pre>"
   localization_ = sprintf(localization_, SERVERURL + "/submission_formats/example_localization.json");
 
-  //var captioning_ = "<h3>Submit Your Results</h3><h4>Dense-Captioning Events in Videos</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-captioning></code></pre>"
-  //captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
-  var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
+  var captioning_ = "<h3>Submit Your Results</h3><h4>Dense-Captioning Events in Videos</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-captioning></code></pre>"
+  captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
+  //var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
 
   html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
   return html;
