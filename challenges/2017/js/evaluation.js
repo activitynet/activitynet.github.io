@@ -14,6 +14,8 @@ var fullname;
 var PUBLIC = 'true';
 $(function() {
 
+  print_results()
+
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -37,7 +39,6 @@ $(function() {
           localStorage.setItem("LASTNAME_CACHED", LASTNAME);
           localStorage.setItem("USERID_CACHED", USERID);
           $('#login-content').remove();
-          PUBLIC = 'false'
           fill_logged_content();
           //print_classification_result();
           }
@@ -342,7 +343,7 @@ function print_classification_content() {
 	});
 }
 
-
+/*
 function print_classification_result() {
 	var actionstatus= "detection_action";
 	var html = '<div id="evaluate" >'+
@@ -368,47 +369,91 @@ function print_classification_result() {
 		}
 	});
 }
+*/
+
+function print_results() {
+    var html = '<div id="leaderboard" >'+
+          '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
+            '<div class="panel-heading"><span class="nav-tab-title pull-right">Leadership board </span>'+
+            '<ul class="nav nav-tabs"><li class="active"><a href="#leaderboard_untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
+            '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
+            '<li><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+            '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Localization</a></li>'+
+            '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
+            '<div class="panel-body"><div class="tab-content">'+
+              '<div class="tab-pane active" id="leaderboard_untrimmed"></div>'+
+              '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
+              '<div class="tab-pane" id="leaderboard_proposals"></div>'+
+              '<div class="tab-pane" id="leaderboard_localization"></div>'+
+              '<div class="tab-pane" id="leaderboard_captioning"></div>'+
+            '</div><div id="table-content" class="container-fluid" style="margin-top:30px;"></div></div>';
+    $("#leader_div").append(html);
+    $("#leader_div").show();
+  load_leaderboard(actionstatus='untrimmed');
+  $('#leaderboard li').on('click', function(){
+    var currid = $(this).children(':first').attr('href');
+    if(currid == "#leaderboard_untrimmed"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "untrimmed";
+      load_leaderboard(actionstatus);
+    }else if(currid == "#leaderboard_trimmed"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "trimmed";
+      load_leaderboard(actionstatus);
+    }
+    else if(currid == "#leaderboard_proposals"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "proposals";
+      load_leaderboard(actionstatus);
+    }
+    else if(currid == "#leaderboard_localization"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "localization";
+      load_leaderboard(actionstatus);
+    }
+    else if (currid == "#leaderboard_captioning"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "captioning";
+      load_leaderboard(actionstatus);
+    }
+  });
+}
 
 function load_leaderboard(STATUS){
 	var typecontent;
-	if(STATUS == "classification_action"){
-		typecontent = "Leaderboard - Untrimmed Video Classification ";
-	}else if(STATUS == "detection_action"){
-		typecontent = "Leaderboard - Activity Detection";
+	if(STATUS == "untrimmed"){
+		typecontent = "Untrimmed Video Classification ";
+    var performance = 'Top-1 Error'
+	}else if(STATUS == "trimmed"){
+		typecontent = "Trimmed Action Recognition";
+    var performance = 'Avg. Error'
 	}
-  if (STATUS == "classification_action") {
-	   var html = '<h3>' + typecontent + '</h3>'+
-			   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
-  			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
-			   	  '<th class="sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
-			      '<th class="sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
-			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
-			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP</th>'+
-            '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-1</th>' +
-			      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Top-3</th>'+
-			   '</tr></thead><tbody></tbody></table>';
+  else if(STATUS == "proposals"){
+    typecontent = "Temporal Action Proposals";
+    var performance = 'AUC'
   }
-  else if (STATUS == "detection_action") {
-    var html = '<h3>' + typecontent + '</h3>'+
-        '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
-             '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
-           '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
-           '<th class="no-sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
-           '<th class="no-sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
-           '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP-50</th>'+
-'<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP-75</th>'+
-'<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">mAP-95</th>'+
-           '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Average-mAP</th>' +
-        '</tr></thead><tbody></tbody></table>';
+  else if(STATUS == "localization"){
+    typecontent = "Temporal Action Localization";
+    var performance = 'Avg. mAP'
   }
+  else if(STATUS == "captioning"){
+    typecontent = "Dense-Captioning Events in Videos";
+    var performance = 'Avg. Meteor'
+  }
+   var html = '<h3>' + typecontent + '</h3>'+
+		   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
+		   	  '<th class="sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
+		      '<th class="sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
+		      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
+		      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">' + performance + '</th>'+
+		   '</tr></thead><tbody></tbody></table>';
+
 	$("#table-content").html(html);
 
-  if (STATUS == "classification_action") {
-    get_best_result(USERID, 1)
-  }
-  else if (STATUS == "detection_action") {
-    get_best_result(USERID, 2)
-  }
+  var task_mapping = {'untrimmed': 1, 'trimmed': 2, 'proposals': 3, 'localization': 4, 'captioning': 5}
+  get_best_result(USERID, task_mapping[STATUS])
+
   /*
 		$.ajax({
 		url:SERVERURL + "leadership.php",
@@ -446,12 +491,15 @@ function get_best_result(userid, taskid) {
       for (var i=0; i<data_lst.length; i++) {
       var data = data_lst[i];
       var result_rank = i+1;
+      console.log(data)
+      $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric'] +'</td></tr>');
+      /*
       if (taskid == 1) {
         $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric1'] +'</td><td>'+ data['metric3'] +'</td><td>'+ data['metric2'] +'</td></tr>');
       }
       else if (taskid == 2) {
         $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric1'] +'</td><td>'+ data['metric2'] +'</td><td>'+ data['metric3'] +'</td><td>' + data['metric4'] +'</td></tr>');
-      }
+      }*/
       }
       $("table.sort_table").sort_table({ "action" : "init" });
     }
