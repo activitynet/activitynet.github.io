@@ -16,6 +16,8 @@ $(function() {
 
   print_results()
 
+  print_classification_result();
+
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
