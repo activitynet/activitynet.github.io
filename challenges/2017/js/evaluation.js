@@ -16,8 +16,6 @@ $(function() {
 
   print_results()
 
-  print_classification_result();
-
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -204,19 +202,19 @@ function load_example_formats() {
 }
 
 function print_results_format(html) {
-  var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-untrimmed></code></pre>"
+  var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-untrimmed></code></pre>"
   untrimmed_ = sprintf(untrimmed_, SERVERURL + "/submission_formats/example_untrimmed.json");
 
-  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Action Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-trimmed></code></pre>"
+  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Action Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
   trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
 
-  var proposals_ = "<h3>Submit Your Results</h3><h4>Temporal Action Proposals</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-proposals></code></pre>"
+  var proposals_ = "<h3>Submit Your Results</h3><h4>Temporal Action Proposals</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-proposals></code></pre>"
   proposals_ = sprintf(proposals_, SERVERURL + "/submission_formats/example_proposals.json");
 
-  var localization_ = "<h3>Submit Your Results</h3><h4>Temporal Action Localization</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a></p><pre><code id=example-localization></code></pre>"
+  var localization_ = "<h3>Submit Your Results</h3><h4>Temporal Action Localization</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-localization></code></pre>"
   localization_ = sprintf(localization_, SERVERURL + "/submission_formats/example_localization.json");
 
-  var captioning_ = "<h3>Submit Your Results</h3><h4>Dense-Captioning Events in Videos</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>.</p><pre><code id=example-captioning></code></pre>"
+  var captioning_ = "<h3>Submit Your Results</h3><h4>Dense-Captioning Events in Videos</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-captioning></code></pre>"
   captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
   //var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
 
