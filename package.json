@@ -1,0 +1,13 @@
+{
+  "name": "activitynet.github.io",
+  "version": "1.0.0",
+  "description": "ActivityNet website",
+  "main": "index.js",
+  "repository": "https://github.com/erikdao/activitynet.github.io",
+  "author": "Erik Dao <erikddao@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

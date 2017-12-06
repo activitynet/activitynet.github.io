@@ -1,0 +1,32 @@
+/*
+ * Common styles for all pages
+ */
+body {
+	font-family: $font-family;
+	font-size: $base-font-size;
+	font-weight: $normal-weight;
+	color: $gray5;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+a {
+	color: $red5;
+	text-decoration: none;
+	@include cubic-transition();
+
+	&:hover {
+		cursor: pointer;
+		color: $accent-red;
+		text-decoration: none;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $bold-weight;
+	color: $gray6;
+}
+
+* {
+	outline: none;
+}
