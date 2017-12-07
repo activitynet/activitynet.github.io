@@ -122,7 +122,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.8rem; }
     .challenge-page footer .footer-content .footer-logo {
       width: 70%;
-      height: auto; }
+      height: auto;
+      padding-bottom: 10px; }
     .challenge-page footer .footer-content .footer-nav {
       list-style: none;
       padding-left: 0; }
