@@ -9,7 +9,7 @@
  */
 body {
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: #666666;
   overflow-x: hidden;
@@ -40,7 +40,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   padding: 1.6rem 0.5rem;
   background-color: #FFFFFF;
-  z-index: 10; }
+  z-index: 10;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.22); }
   .challenge-page .navbar .navbar-collapse {
     width: 100%;
     justify-content: flex-end; }
@@ -103,7 +104,8 @@ h1, h2, h3, h4, h5, h6 {
     .challenge-page section .speaker .speaker-meta .speaker-name {
       margin-bottom: 5px; }
     .challenge-page section .speaker .speaker-meta .speaker-affiliate {
-      color: #666666; }
+      color: #666666;
+      margin-bottom: 0; }
   .challenge-page section .aside-list {
     list-style: none;
     padding-left: 0; }
@@ -172,6 +174,24 @@ h1, h2, h3, h4, h5, h6 {
       .challenge-page footer .footer-content .footer-text-section .footer-section-text {
         padding-left: 10px; }
 
+.challenge-page.normal-page .normal-page-title {
+  position: relative;
+  text-align: center;
+  background-repeat: repeat;
+  background-attachment: fixed; }
+  .challenge-page.normal-page .normal-page-title.people-title {
+    background-image: url("../images/people_banner.svg");
+    background-size: 4.38rem auto; }
+  .challenge-page.normal-page .normal-page-title.challenge-title {
+    background-image: url("../images/challenge_banner.svg");
+    background-size: 10rem;
+    background-position: right 0 top 1.8rem; }
+  .challenge-page.normal-page .normal-page-title .title {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 3.2rem;
+    color: #FFFFFF; }
+
 @media (max-width: 575px) {
   .challenge-page section {
     display: block;
@@ -195,7 +215,17 @@ h1, h2, h3, h4, h5, h6 {
       .challenge-page section.page-title .title {
         font-size: 2rem;
         margin: 0 auto;
-        color: #FFFFFF; } }
+        color: #FFFFFF; }
+  .challenge-page.normal-page .normal-page-title {
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    background-repeat: none; }
+    .challenge-page.normal-page .normal-page-title .title {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      font-size: 2.4rem;
+      color: #FFFFFF; } }
 
 @media (min-width: 576px) and (max-width: 767px) {
   .challenge-page section {

@@ -7,6 +7,7 @@
 		padding: 1.6rem 0.5rem;
 		background-color: $accent-white;
 		z-index: 10;
+		box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.22);
 
 		.navbar-collapse {
 			width: 100%;
@@ -100,6 +101,7 @@
 
 				.speaker-affiliate {
 					color: $gray5;
+					margin-bottom: 0;
 				}
 			}
 		}
@@ -202,6 +204,33 @@
 			}
 		}
 	}
+
+	&.normal-page {
+		.normal-page-title {
+			position: relative;
+			text-align: center;
+			background-repeat: repeat;
+			background-attachment: fixed;
+
+			&.people-title {
+				background-image: url('../images/people_banner.svg');
+				background-size: 4.38rem auto;
+			}
+
+			&.challenge-title {
+				background-image: url('../images/challenge_banner.svg');
+				background-size: 10rem;
+				background-position: right 0 top 1.8rem;
+			}
+
+			.title {
+				padding-top: 4rem;
+				padding-bottom: 4rem;
+				font-size: 3.2rem;
+				color: $accent-white;
+			}
+		}
+	}
 }
 
 @media (max-width: 575px) {
@@ -234,6 +263,22 @@
 			.title {
 				font-size: 2rem;
 				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+	}
+
+	&.normal-page {
+		.normal-page-title {
+			position: relative;
+			text-align: center;
+			background-size: cover;
+			background-repeat: none;
+
+			.title {
+				padding-top: 3rem;
+				padding-bottom: 3rem;
+				font-size: 2.4rem;
 				color: $accent-white;
 			}
 		}
