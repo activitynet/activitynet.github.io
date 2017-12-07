@@ -1,0 +1,8 @@
+/**
+ * Utilities
+ **/
+@mixin cubic-transition() {
+	transition: all 0.4s cubic-bezier(.17,.67,.83,.67);
+	-webkit-transition: all 0.4s cubic-bezier(.17,.67,.83,.67);
+	-moz-transition: all 0.4s cubic-bezier(.17,.67,.83,.67);
+}

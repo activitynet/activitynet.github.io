@@ -1,0 +1,421 @@
+/*
+ * Styles for challenge page
+ */
+.challenge-page {
+	.navbar {
+		width: 100%;
+		padding: 1.6rem 0.5rem;
+		background-color: $accent-white;
+		z-index: 10;
+
+		.navbar-collapse {
+			width: 100%;
+			justify-content: flex-end;
+
+			.navbar-nav {
+				.nav-item {
+					padding: 0;
+					display: flex;
+					align-items: center;
+					
+					.nav-link {
+						padding: 1.2rem .8rem;
+						font-size: 1rem;
+						text-transform: uppercase;
+						color: $gray5;
+						@include cubic-transition();
+
+						&:hover {
+							color: $accent-red;
+						}
+					}
+
+					&.active {
+						.nav-link {
+							color: $red5;
+							font-weight: $bold-weight;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 2.2rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 8rem;
+			text-align: center;
+			margin-bottom: 2rem;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 100%;
+				left: 0;
+				top: 0px;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 4.5rem;
+				padding-top: 1.6rem;
+				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+
+		.speaker {
+			text-align: center;
+			.speaker-image {
+				width: 75%;
+				margin: 0 auto;
+				padding: 0.4rem;
+				height: auto;
+				margin-bottom: 10px;
+
+				.speaker-avatar {
+					border-radius: 50%;
+
+					@include cubic-transition();
+
+					&:hover {
+						transform: scale(1.05);
+					}
+				}
+			}
+
+			.speaker-meta {
+				.speaker-name {
+					margin-bottom: 5px;
+				}
+
+				.speaker-affiliate {
+					color: $gray5;
+				}
+			}
+		}
+	}
+
+	footer {
+		position: relative;;
+		overflow-x: hidden;
+
+		.footer-pattern {
+			display: block;
+			margin-left: -1px;
+			margin-right: -1px;
+			margin-bottom: -1px;
+		}
+
+		.footer-content {
+			display: block;
+			padding: 2rem;
+			width: 100%;
+			background-color: $gray6;
+			color: $gray4;
+			font-size: 0.8rem;
+
+			.footer-logo {
+				width: 70%;
+				height: auto;
+			}
+
+			.footer-nav {
+				list-style: none;
+				padding-left: 0;
+
+				a {
+					line-height: 1.4rem;
+					text-transform: uppercase;
+					color: $gray4;
+					@include cubic-transition();
+
+					&:hover {
+						color: $gray3;
+					}
+				}
+			}
+
+			.footer-text-section {
+				display: block;
+				width: 100%;
+				
+				.footer-section-title {
+					font-size: 0.8rem;
+					text-transform: uppercase;
+					color: $gray4;
+				}
+
+				.footer-section-text {
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 575px) {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 0.6rem;
+			text-align: center;
+			margin-bottom: 5rem;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 100%;
+				min-height: 300px;
+				left: 0;
+				top: 10px;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 2rem;
+				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+	}
+}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 1rem;
+			text-align: center;
+			margin-bottom: 5rem;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 100%;
+				min-height: 300px;
+				left: 0;
+				top: 10px;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 2rem;
+				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+	}
+}
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 4rem;
+			text-align: center;
+			margin-bottom: 10rem;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 120%;
+				min-height: 300px;
+				left: -7.05%;
+				top: 10px;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 3rem;
+				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+	}
+}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 6rem;
+			padding-bottom: 6rem;
+			margin-bottom: 6rem;
+			text-align: center;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 126%;
+				left: -12.33%;
+				top: 10px;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 4rem;
+				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+	}
+}
+}
+
+@media (min-width: 1200px)  {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 8%;
+			padding-bottom: 8%;
+			margin-bottom: 6rem;
+			text-align: center;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 100%;
+				left: 0;
+				top: 20px;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 3.5rem;
+				margin: 0 auto;
+				color: $accent-white;
+			}
+		}
+	}
+}
+}
+
+@media (min-width: 1800px)  {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 9.6%;
+			padding-bottom: 9.6%;
+			margin-bottom: 6rem;
+			text-align: center;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 100%;
+				left: 0;
+				top: 0;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 3.5rem;
+			}
+		}
+	}
+}
+}
+
+@media (min-width: 2000px)  {
+.challenge-page {
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 3rem;
+
+		.section-title {
+			margin-bottom: 1.6rem;
+		}
+
+		&.page-title {
+			overflow: hidden;
+			padding-top: 9.6%;
+			padding-bottom: 9.6%;
+			margin-bottom: 6rem;
+			text-align: center;
+
+			.hero-image {
+				position: absolute;
+				z-index: -5;
+				width: 100%;
+				left: 0;
+				top: -8%;
+				margin: 0 auto;
+			}
+
+			.title {
+				font-size: 4.2rem;
+			}
+		}
+	}
+}
+}
