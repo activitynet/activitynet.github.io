@@ -105,6 +105,46 @@ h1, h2, h3, h4, h5, h6 {
     .challenge-page section .speaker .speaker-meta .speaker-affiliate {
       color: #666666; }
 
+.challenge-page footer {
+  position: relative;
+  overflow-x: hidden; }
+  .challenge-page footer .footer-pattern {
+    display: block;
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-bottom: -1px; }
+  .challenge-page footer .footer-content {
+    display: block;
+    padding: 2rem;
+    width: 100%;
+    background-color: #333333;
+    color: #999999;
+    font-size: 0.8rem; }
+    .challenge-page footer .footer-content .footer-logo {
+      width: 70%;
+      height: auto; }
+    .challenge-page footer .footer-content .footer-nav {
+      list-style: none;
+      padding-left: 0; }
+      .challenge-page footer .footer-content .footer-nav a {
+        line-height: 1.4rem;
+        text-transform: uppercase;
+        color: #999999;
+        transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        -webkit-transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        -moz-transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+        .challenge-page footer .footer-content .footer-nav a:hover {
+          color: #CCCCCC; }
+    .challenge-page footer .footer-content .footer-text-section {
+      display: block;
+      width: 100%; }
+      .challenge-page footer .footer-content .footer-text-section .footer-section-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: #999999; }
+      .challenge-page footer .footer-content .footer-text-section .footer-section-text {
+        padding-left: 10px; }
+
 @media (max-width: 575px) {
   .challenge-page section {
     display: block;

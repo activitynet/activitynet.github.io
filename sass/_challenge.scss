@@ -56,7 +56,6 @@
 			text-align: center;
 			margin-bottom: 2rem;
 
-
 			.hero-image {
 				position: absolute;
 				z-index: -5;
@@ -101,6 +100,63 @@
 
 				.speaker-affiliate {
 					color: $gray5;
+				}
+			}
+		}
+	}
+
+	footer {
+		position: relative;;
+		overflow-x: hidden;
+
+		.footer-pattern {
+			display: block;
+			margin-left: -1px;
+			margin-right: -1px;
+			margin-bottom: -1px;
+		}
+
+		.footer-content {
+			display: block;
+			padding: 2rem;
+			width: 100%;
+			background-color: $gray6;
+			color: $gray4;
+			font-size: 0.8rem;
+
+			.footer-logo {
+				width: 70%;
+				height: auto;
+			}
+
+			.footer-nav {
+				list-style: none;
+				padding-left: 0;
+
+				a {
+					line-height: 1.4rem;
+					text-transform: uppercase;
+					color: $gray4;
+					@include cubic-transition();
+
+					&:hover {
+						color: $gray3;
+					}
+				}
+			}
+
+			.footer-text-section {
+				display: block;
+				width: 100%;
+				
+				.footer-section-title {
+					font-size: 0.8rem;
+					text-transform: uppercase;
+					color: $gray4;
+				}
+
+				.footer-section-text {
+					padding-left: 10px;
 				}
 			}
 		}
