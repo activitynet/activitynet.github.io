@@ -103,6 +103,46 @@
 				}
 			}
 		}
+
+		.aside-list {
+			list-style: none;
+			padding-left: 0;
+
+			.list-item {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-items: flex-start;
+				align-content: flex-start;
+				margin-bottom: 8px;
+
+				p {
+					margin-bottom: 0;
+				}
+
+				&.news-item {
+					.date-time {
+						flex-grow: 0;
+						flex-shrink: 0;
+						margin-right: 10px;
+						font-size: 1rem;
+						border: 1px solid $gray4;
+						border-radius: 3px;
+
+						p {
+							text-align: center;
+							padding: 6px 6px;
+
+							&.year {
+								background-color: $gray2;
+								color: $gray5;
+								font-weight: $bold-weight;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	footer {

@@ -104,6 +104,32 @@ h1, h2, h3, h4, h5, h6 {
       margin-bottom: 5px; }
     .challenge-page section .speaker .speaker-meta .speaker-affiliate {
       color: #666666; }
+  .challenge-page section .aside-list {
+    list-style: none;
+    padding-left: 0; }
+    .challenge-page section .aside-list .list-item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      margin-bottom: 8px; }
+      .challenge-page section .aside-list .list-item p {
+        margin-bottom: 0; }
+      .challenge-page section .aside-list .list-item.news-item .date-time {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-right: 10px;
+        font-size: 1rem;
+        border: 1px solid #999999;
+        border-radius: 3px; }
+        .challenge-page section .aside-list .list-item.news-item .date-time p {
+          text-align: center;
+          padding: 6px 6px; }
+          .challenge-page section .aside-list .list-item.news-item .date-time p.year {
+            background-color: #EBEBEB;
+            color: #666666;
+            font-weight: 700; }
 
 .challenge-page footer {
   position: relative;
