@@ -311,6 +311,9 @@
 						z-index: 1;
 
 						img {
+							display: block;
+							width: 100%;
+							height: 100%;
 							transition: 1.2s;
 							transform: scale(1);
 						}
@@ -318,7 +321,7 @@
 					.text {
 						width: 100%;
 						position: absolute;
-						bottom: 0;
+						bottom: -2px;
 						text-transform: uppercase;
 						text-align: center;
 						z-index: 6;
