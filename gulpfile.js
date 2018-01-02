@@ -10,7 +10,7 @@ var sass = require('gulp-sass');
 
 gulp.task('sass', function() {
 	gulp.src('./sass/**/main.scss')
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(gulp.dest('./challenges/2018/css'));
 });
 

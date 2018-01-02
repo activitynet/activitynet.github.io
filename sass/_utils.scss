@@ -1,8 +1,28 @@
 /**
  * Utilities
  **/
+ @mixin default-transition($t) {
+	-webkit-transition: $t;
+	-o-transition: $t;
+	transition: $t;
+ }
+
 @mixin cubic-transition() {
 	transition: all 0.4s cubic-bezier(.17,.67,.83,.67);
 	-webkit-transition: all 0.4s cubic-bezier(.17,.67,.83,.67);
 	-moz-transition: all 0.4s cubic-bezier(.17,.67,.83,.67);
+}
+
+@mixin translate-transform($x, $y) {
+	-webkit-transform: translate($x, $y);
+	-moz-transform: translate($x, $y);
+	-o-transform: translate($x, $y);
+	transform: translate($x, $y);
+}
+
+@mixin scale-transform($x) {
+	-webkit-transform: scale($x);
+	-moz-transform: scale($x);
+	-o-transform: scale($x);
+	transform: scale($x);
 }

@@ -30,3 +30,138 @@ h1, h2, h3, h4, h5, h6 {
 * {
 	outline: none;
 }
+
+*, ::after, ::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+.box-animated-link {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+
+	&::before {
+		content: "";
+		width: 1px;
+		height: 100%;
+		background: $red5;
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include default-transition(0.5s);
+		@include translate-transform(0, -100%);
+	}
+
+	&::after {
+		content: "";
+		width: 1px;
+		height: 100%;
+		background: $red5;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		@include default-transition(0.5s);
+		@include translate-transform(0, 100%);
+	}
+
+	span {
+		&::before {
+			content: "";
+			width: 100%;
+			height: 1px;
+			background: $red5;
+			position: absolute;
+			left: 0;
+			top: 0;
+			@include default-transition(0.5s);
+			@include translate-transform(-100%, 0);
+		}
+
+		&::after {
+			content: "";
+			width: 100%;
+			height: 1px;
+			background: $red5;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			@include default-transition(0.5s);
+			@include translate-transform(100%, 0);
+		}
+	}
+
+	&:hover {
+		&::before {
+			@include translate-transform(0, 0);
+		}
+		&::after {
+			@include translate-transform(0, 0);
+		}
+
+		span {
+			&::before {
+				@include translate-transform(0, 0);
+			}
+			&::after {
+				@include translate-transform(0, 0);
+			}
+		}
+	}
+}
+
+.ivul-btn {
+	display: inline-block;
+	padding: 8px 25px ;
+	color: $accent-white;
+	text-transform: uppercase;
+	background-color: $gray4;
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		color: $accent-white;
+	}
+}
+
+.action-btn {
+	span {
+		z-index: 2;
+		position: relative;
+	}
+
+	&::after {
+		content: "";
+		width: 0;
+		height: 0;
+		-webkit-transform: rotate(360deg);
+		border-style: solid;
+		border-width: 0 0 0 0;
+		border-color: $red5 transparent transparent transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include default-transition(0.8s);
+	}
+
+	&:hover {
+		&::after {
+			border-width: 330px 330px 0 0;
+		}
+	}
+}
+
+.btn-red {
+	background: $red4;
+	color: $accent-white;
+}
+
+.center-block {
+	display: block;
+	margin: 0 auto;
+}
