@@ -87,28 +87,30 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Challenge Guidelines</h2>
-            <p>
+            <h2 class="section-title">Challenge Introduction</h2>
+
+            <p class="para-text">
+              We are proud to announce that this year the challenge will hosts seven diverse tasks which aim to push the limits of semantic visual understanding of videos as well as bridging visual content with human captions. Three out of the seven tasks in the challenge are based on the <a href="http://activity-net.org/">ActivityNet dataset</a>, which was introduced in CVPR 2015 and organized hierarchically in a semantic taxonomy. These tasks focus on trace evidence of activities in time in the form of actionness/proposals, class labels, and <a href="http://cs.stanford.edu/people/ranjaykrishna/densevid/" target="_blank">captions</a>.
+            </p>
+            <p class="para-text">
+              In this installment of the challenge, we will host four guest tasks which enrich the understanding of visual information in videos. These tasks focus on complementary aspects of the activity recognition problem at large scale and involve challenging and recently compiled activity/action datasets, including <a href="https://deepmind.com/kinetics" target="_blank">Kinetics</a> (Google DeepMind), <a href="https://research.google.com/ava/" target="_blank">AVA</a> (Berkeley and Google), SoA (Facebook), and <a href="http://moments.csail.mit.edu/" target="_blank"> Moments in Time </a> (MIT and IBM Research).
+            </p>
+
+<!--             <p>
               To enter the competition, you need to create an account on the <a href="evaluation.html"> Evaluation</a>.
               Using a registered account you will be able to upload your results to the evaluation server and participate in the ActivityNet Challenge 2017. <strong class="line-through">Please be advised that we have changed our submission policy this year: each participant is limited to 1 submission per task per week. The Evaluation Server will enforce a waiting time of 7 days between submissions of the same task. This gives each participant a total of 3 submissions per task before the evaluation server closes.</strong> <strong> Each team is limited to 4 submissions (in total) per task.</strong> Only results that are submitted during the challenge period (before the deadline) and posted to the leaderboard will be considered valid. Additionally, you will also need to upload a notebook paper that describes your method in detail. This challenge allows the use of external data to train and tune algorithm parameters. We are committed to keeping track of this practice. Therefore, each submission must explicitly cite the kind of external data used and which modules benefit from it.
-            </p>
+            </p> -->
 
         </div>
       </div>
     </div>
   </section>
 
-  <section class="tasks flex-list">
+  <section class="tasks flex-list" id="activitynet-tasks">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Challenge Tasks</h2>
-
-            <div class="row">
-              <div class="col-12">
-              <p>Therefore ActivityNet Large Scale Activity Recognition Challenge (ALSARC) 2018 includes five different tasks as described below:</p>
-              </div>
-            </div>
+            <h2 class="section-title">ActivityNet Tasks</h2>
 
             <!-- Task 1 -->
             <div class="row">
@@ -116,20 +118,21 @@
                 <div class="flex-list-item">
                   <div class="flex-item-icon">
                     <div class="image">
-                      <img class="img-responsive" src="images/icon/task_1_thumbnail.png"/>
+                      <img class="img-responsive" src="images/icon/anet_proposals.png"/>
                     </div>
                     <div class="text">
-                      <h4>Task 1</h4>
+                      <h4 class="has-label">Task 1</h4>
+                      <div class="label">2nd trial</div>
                     </div>
                   </div>
                   <div class="flex-item-info">
-                    <h4 class="name">Untrimmed Video Classification (ActivityNet)</h4>
+                    <h4 class="name">Temporal Action Proposals (ActivityNet)</h4>
                     <p class="description">
-                      This task is intended to evaluate the ability of algorithms to predict activities in <strong>untrimmed</strong> video sequences. Here, videos can contain more than one activity, and typically large time lapses of the video are not related with any activity of interest.
+                      This task is intended to evaluate the ability of algorithms to generate high quality <strong>action proposals</strong>. The goal is to produce a set of candidate temporal segments that are likely to contain a human action. 
                     </p>
                     <div class="flex-item-button">
-                      <a href="tasks/1_untrimmed.html" class="box-animated-link">
-                        <span>Details</span>
+                      <a href="#activitynet-tasks" class="box-animated-link">
+                        <span>Details Soon</span>
                       </a>
                     </div>
                   </div>
@@ -143,21 +146,21 @@
                 <div class="flex-list-item">
                   <div class="flex-item-icon">
                     <div class="image">
-                      <img class="img-responsive" src="images/icon/task_2_thumbnail.png"/>
+                      <img class="img-responsive" src="images/icon/anet_localization.png"/>
                     </div>
                     <div class="text">
                       <h4 class="has-label">Task 2</h4>
-                      <div class="label">New</div>
+                      <div class="label">3rd trial</div>
                     </div>
                   </div>
                   <div class="flex-item-info">
-                    <h4 class="name">Trimmed Action Recognition (Kinetics)</h4>
+                    <h4 class="name">Temporal Action Localization (ActivityNet)</h4>
                     <p class="description">
-                      This task is intended to evaluate the ability of algorithms to recognize activities in <strong>trimmed</strong> video sequences. Here, videos contain a single activity, and all the clips have a standard duration of ten seconds. For this task, participants will use the Kinetics dataset, a new large-scale benchmark for trimmed action classification.
+                      This task is intended to evaluate the ability of algorithms to <strong>temporally localize activities in untrimmed video sequences</strong>. Here, videos can contain more than one activity instance, and mutiple activity categories can appear in the video.
                     </p>
                     <div class="flex-item-button">
-                      <a href="tasks/2_trimmed.html" class="box-animated-link">
-                        <span>Details</span>
+                      <a href="#activitynet-tasks" class="box-animated-link">
+                        <span>Details Soon</span>
                       </a>
                     </div>
                   </div>
@@ -171,66 +174,11 @@
                 <div class="flex-list-item">
                   <div class="flex-item-icon">
                     <div class="image">
-                      <img class="img-responsive" src="images/icon/task_3_thumbnail.png"/>
+                      <img class="img-responsive" src="images/icon/anet_captioning.png"/>
                     </div>
                     <div class="text">
                       <h4 class="has-label">Task 3</h4>
-                      <div class="label">New</div>
-                    </div>
-                  </div>
-                  <div class="flex-item-info">
-                    <h4 class="name">Temporal Action Proposals (ActivityNet)</h4>
-                    <p class="description">
-                      This task is intended to evaluate the ability of algorithms to generate high quality <strong>action proposals</strong>. The goal is to produce a set of candidate temporal segments that are likely to contain a human action. 
-                    </p>
-                    <div class="flex-item-button">
-                      <a href="tasks/3_proposals.html" class="box-animated-link">
-                        <span>Details</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Task 4 -->
-            <div class="row">
-              <div class="col-12">
-                <div class="flex-list-item">
-                  <div class="flex-item-icon">
-                    <div class="image">
-                      <img class="img-responsive" src="images/icon/task_4_thumbnail.png"/>
-                    </div>
-                    <div class="text">
-                      <h4>Task 4</h4>
-                    </div>
-                  </div>
-                  <div class="flex-item-info">
-                    <h4 class="name">Temporal Action Localization (ActivityNet)</h4>
-                    <p class="description">
-                      This task is intended to evaluate the ability of algorithms to <strong>temporally localize activities in untrimmed video sequences</strong>. Here, videos can contain more than one activity instance, and mutiple activity categories can appear in the video.
-                    </p>
-                    <div class="flex-item-button">
-                      <a href="tasks/4_localization.html" class="box-animated-link">
-                        <span>Details</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Task 5 -->
-            <div class="row">
-              <div class="col-12">
-                <div class="flex-list-item">
-                  <div class="flex-item-icon">
-                    <div class="image">
-                      <img class="img-responsive" src="images/icon/task_5_thumbnail.png"/>
-                    </div>
-                    <div class="text">
-                      <h4 class="has-label">Task 5</h4>
-                      <div class="label">New</div>
+                      <div class="label">2nd trial</div>
                     </div>
                   </div>
                   <div class="flex-item-info">
@@ -252,155 +200,135 @@
     </div>
   </section>
 
-  <section class="data flex-list flex-list-reverse">
+  <section class="tasks flex-list" id="guest-tasks">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Additional Data</h2>
-            <div class="sub-section" id="globalFeatures">
-              <h3 class="subsection-title">Global features (Task 1, 3&ndash;5)</h3>
 
-              <!-- ImageNet shuffle -->
-              <div class="row">
-                <div class="col-12">
-                  <div class="flex-list-item">
-                    <div class="flex-item-action">
-                      <a href="#" class="ivul-btn action-btn">
-                        <span>Download</span>
-                      </a>
+            <h2 class="section-title">Guest Tasks</h2>
+
+            <!-- Task A: Kinetics -->
+            <div class="row">
+              <div class="col-12">
+                <div class="flex-list-item">
+                  <div class="flex-item-icon">
+                    <div class="image">
+                      <img class="img-responsive" src="images/icon/kinetics.png"/>
                     </div>
-                    <div class="flex-item-info">
-                      <h4 class="name">ImagenetShuffle</h4>
-                      <p class="description">
-                         We provide CNN features based on the <code>pool5</code> layer of a Google inception net (GoogLeNet) at a rate of 2FPS. Features are mean-pooled across the frames followed by L1-normalization.
-                      </p>
+                    <div class="text">
+                      <h4 class="has-label">Task A</h4>
+                      <div class="label">2nd trial</div>
+                    </div>
+                  </div>
+                  <div class="flex-item-info">
+                    <h4 class="name">Trimmed Activity Recognition (Kinetics)</h4>
+                    <p class="description">
+                      This task is intended to evaluate the ability of algorithms to recognize activities in <strong>trimmed</strong> video sequences. Here, videos contain a single activity, and all the clips have a standard duration of ten seconds. For this task, participants will use the Kinetics dataset, a large-scale benchmark for trimmed action classification.
+                    </p>
+                    <div class="flex-item-button">
+                      <a href="#guest-tasks" class="box-animated-link">
+                        <span>Details Soon</span>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- MBH feature -->
-              <div class="row">
-                <div class="col-12">
-                  <div class="flex-list-item">
-                    <div class="flex-item-action">
-                      <a href="#" class="ivul-btn action-btn">
-                        <span>Download</span>
-                      </a>
+            <!-- Task B: AVA -->
+            <div class="row">
+              <div class="col-12">
+                <div class="flex-list-item">
+                  <div class="flex-item-icon">
+                    <div class="image">
+                      <img class="img-responsive" src="images/icon/ava.png"/>
                     </div>
-                    <div class="flex-item-info">
-                      <h4 class="name">MBH Feature</h4>
-                      <p class="description">
-                         The MBH features are generated with the aid of the Improved Trajectories executable with a provided implementation by the authors. Then, features are encoded using the GMM + Fisher Vectors pipeline.
-                      </p>
+                    <div class="text">
+                      <h4 class="has-label">Task B</h4>
+                      <div class="label">New</div>
+                    </div>
+                  </div>
+                  <div class="flex-item-info">
+                    <h4 class="name">Spatio-temporal Action Localization (AVA)</h4>
+                    <p class="description">
+                      This task is intended to evaluate the ability of algorithms to <b>localize human
+                      actions in space and time.</b> Each labeled video segment can contain multiple
+                      subjects, each performing potentially multiple actions. The goal is to identify
+                      these subjects and actions over continuous 15-minute video clips extracted from
+                      movies. For this task, participants will use the new AVA atomic visual actions
+                      dataset.
+                    </p>
+                    <div class="flex-item-button">
+                      <a href="#guest-tasks" class="box-animated-link">
+                        <span>Details Soon</span>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-            </div> <!-- #globalFeatures -->
-
-            <div class="sub-section" id="frameBasedFeatures">
-              <h3 class="subsection-title">Frame Based Features (Task 1, 3&ndash;5)</h3>
-
-              <!-- C3D -->
-              <div class="row">
-                <div class="col-12">
-                  <div class="flex-list-item">
-                    <div class="flex-item-action">
-                      <a href="#" class="ivul-btn action-btn">
-                        <span>Download</span>
-                      </a>
+            <!-- Task C: SOA -->
+            <div class="row">
+              <div class="col-12">
+                <div class="flex-list-item">
+                  <div class="flex-item-icon">
+                    <div class="image">
+                      <img class="img-responsive" src="images/icon/soa.png"/>
                     </div>
-                    <div class="flex-item-info">
-                      <h4 class="name">C3D</h4>
-                      <p class="description">
-                         The publicly available pre-trained C3D model, which has a temporal resolution of 16 frames, is used to extract frame based features. This network is not fine-tuned on the data in the challenge. We reduce the dimensionality of the activations from the second fully-connected layer (<code>fc7</code>) of the visual encoder from 4096 to 500 dimensions using PCA.
-                      </p>
+                    <div class="text">
+                      <h4 class="has-label">Task C</h4>
+                      <div class="label">New</div>
+                    </div>
+                  </div>
+                  <div class="flex-item-info">
+                    <h4 class="name">Multi-label, multi-task video classification (SOA)</h4>
+                    <p class="description">
+                    This task is intended to evaluate the ability of algorithms to classify short video clips (about 10 seconds). Each video is densely annotated with <b>multiple labels covering scene, object and action.</b> For this task, participants will use the SOA dataset, a new large-scale benchmark for multi-label and multi-task video classification.
+                    </p>
+                    <div class="flex-item-button">
+                      <a href="#guest-tasks" class="box-animated-link">
+                        <span>Details Soon</span>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-            </div> <!-- #frameBasedFeatures -->
-
-            <div class="sub-section" id="temporalActionProposals">
-              <h3 class="subsection-title">Temporal Action Proposals (Task 1, 3&ndash;5)</h3>
-
-              <!-- Agnostic Temporal Activity Proposals -->
-              <div class="row">
-                <div class="col-12">
-                  <div class="flex-list-item">
-                    <div class="flex-item-action">
-                      <a href="#" class="ivul-btn action-btn">
-                        <span>Download</span>
-                      </a>
+            <!-- Task D: Moments -->
+            <div class="row">
+              <div class="col-12">
+                <div class="flex-list-item">
+                  <div class="flex-item-icon">
+                    <div class="image">
+                      <img class="img-responsive" src="images/icon/moments.png"/>
                     </div>
-                    <div class="flex-item-info">
-                      <h4 class="name">Agnostic Temporal Activity Proposals</h4>
-                      <p class="description">
-                         We provide these proposals to encourage participation in the Activity Detection task. These proposals could be applied as a preliminary stage to split the untrimmed videos into high recall trimmed temporal segments.
-                      </p>
+                    <div class="text">
+                      <h4 class="has-label">Task D</h4>
+                      <div class="label">New</div>
+                    </div>
+                  </div>
+                  <div class="flex-item-info">
+                    <h4 class="name">Trimmed Event Recognition (Moments in Time)</h4>
+                    <p class="description">
+                    This task is intended to evaluate the ability of algorithms to <b>classify events in trimmed 3-second videos.</b> Here, videos contain a single activity, and all clips have a standard duration of 3 seconds. There will be two tracks. The first track will use the Moments in Time dataset, a new large-scale dataset for video understanding, which has 800K videos in the training set. For the second track, participants will use the Moments in Time Mini dataset, a subset of Moments in Time with 100k videos provided in the training set.
+                    </p>
+                    <div class="flex-item-button">
+                      <a href="http://moments.csail.mit.edu/challenge.html" class="box-animated-link" target="_blank">
+                        <span>Details</span>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-            </div> <!-- #temporalActionProposals -->
         </div>
       </div>
     </div>
   </section>
 
-  <section class="policy">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Use of External Data Policy</h2>
-            <p>
-              This challenge allows participants to use external data to train their algorithms or tune parameters. Each submission should explicitly cite the kind of external data used and which modules of the system benefit from it. Some popular forms of external data usage include (but not confined to): 
-            </p>
-            <ul>
-              <li>additional videos or images for tuning parameters, and</li>
-              <li>external modules like CNNs or DPMs trained with other datasets. </li>
-            </ul>
-            <p>If your case is not listed above, please contact us as soon as possible. </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="honor-code">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Honor Code</h2>
-            <p>
-               This academic challenge aims to highlight automated algorithms that understand the audio-visual content of videos. To serve this purpose and to allow for fair competition, we request that ALL participants: 
-            </p>
-            <ul>
-              <li>generate results on the testing set by analyzing audio-visual content <strong>only</strong>,</li>
-              <li><strong>not</strong> use the testing set for training or parameter tuning, and </li>
-              <li>refrain from using <strong>any</strong> auxiliary information of the testing set (e.g. human annotations, URL metadata, etc.) other than the provided videos themselves. </li>
-            </ul>
-            <p>If a submission is found to violate any of the above guidelines, the challenge organizers reserve the right to disqualify the violating team.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="award">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Most Innovative Solution</h2>
-            <p>
-               This year, we will award a <strong>Panasonic Lumix DC-GH5</strong> camera (+lens) and an <strong>NVidia</strong> graphics card to the participant with the most innovative solution. This solution does not necessarily have to be the winner of any task. A technical committee will make this decision based on the participants' submitted reports. So, please make sure to submit a detailed description of your solution on time.  
-            </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer">
     <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
