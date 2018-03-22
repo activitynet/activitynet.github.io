@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Task 3 &ndash; Dense-Captioning Events in Videos | ActivityNet Large Scale Activity Recognition Challenge 2018</title>
+    <title>Task 2 &ndash; Temporal Action Localization | ActivityNet Large Scale Activity Recognition Challenge 2018</title>
     <!-- core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- Code highlighter -->
@@ -35,7 +35,7 @@
 <body id="challenge" class="challenge-page normal-page">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container"> 
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="#">
       <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
     </a>
 
@@ -55,10 +55,10 @@
           <a class="nav-link" href="../challenge.html">Challenge</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../program.html">Program</a>
+          <a class="nav-link">Program</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../evaluation.html">Evaluation</a>
+          <a class="nav-link">Evaluation</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../contact.html">Contact</a>
@@ -78,7 +78,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12">
-            <h1 class="title">Task 3 &ndash; Dense-Captioning Events in Videos</h1>
+            <h1 class="title">Task 2 &ndash; Temporal Action Localization</h1>
         </div>
       </div>
     </div>
@@ -90,13 +90,13 @@
         <div class="col-md-12 col-sm-12">
             <p class="sub-navigation">
               <a href="../challenge.html">Challenge 2018</a> &rarr;
-              <strong>Task 3 &ndash; Dense-Captioning Events in Videos</strong>
+              <strong>Task 2 &ndash; Temporal Action Localization</strong>
             </p>
             <p>
-             Most natural videos contain numerous events. For example, in a video of a 'man playing a piano', the video might also contain another 'man dancing' or 'a crowd clapping'. This challenge studies the task of dense-captioning events, which involves both detecting and describing events in a video. This challenge uses the ActivityNet Captions dataset, a new large-scale benchmark for dense-captioning events. ActivityNet Captions contains 20K videos amounting to 849 video hours with 100K total descriptions, each with its unique start and end time. 
+             Despite the recent advances in large-scale video analysis, temporal action localization remains as one of the most challenging unsolved problems in computer vision. This search problem hinders various real-world applications ranging from consumer video summarization to surveillance, crowd monitoring, and elderly care. Therefore, we are commited to push forward the development of efficient and accurate automated methods that can search and retrieve events and activities in video collections. This task is intended to encourage computer vision researchers to design high performance action localization systems. 
           </p>
             <p>
-              <strong>For information related to this task, please contact:</strong> <a href="mailto:ranjay.krishna@gmail.com?Subject=CaptivityNet Challenge" target="_top">ranjay.krishna@gmail.com</a>, <a href="mailto:kenjihata@cs.stanford.edu?Subject=ActivityNet Challenge" target="_top">kenjihata@cs.stanford.edu</a>
+              <strong>For information related to this task, please contact:</strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge" target="_top">fabian.caba@kaust.edu.sa</a>, <a href="mailto:humam.alwassel@kaust.edu.sa?Subject=ActivityNet Challenge" target="_top">humam.alwassel@kaust.edu.sa</a>, <a href="mailto:victor.escorcia@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">victor.escorcia@kaust.edu.sa</a>
             </p>
         </div>
       </div>
@@ -109,7 +109,9 @@
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Dataset</h2>
             <p>
-           The <a target="_blank" href="http://cs.stanford.edu/people/ranjaykrishna/densevid/">ActivityNet Captions dataset</a> will be used for this challenge. The dataset connects videos to a series of temporally annotated sentence descriptions. Each sentence covers a unique segment of the video, describing multiple events that occur. These events may occur over very long or short periods of time and are not limited in any capacity, allowing them to co-occur. On average, each of the 20K videos in Captivity Net contains \( 3.65 \) temporally localized sentences, resulting in a total of 100K sentences. We find that the number of sentences per video follows a relatively normal distribution. Furthermore, as the video duration increases, the number of sentences also increases. Each sentence has an average length of \( 13.48 \) words, which is also normally distributed. 
+            The <a target="_blank" href="http://activity-net.org/download.html">ActivityNet Version 1.3 dataset</a> will be used for this challenge. The dataset consists of more than 648 hours of untrimmed videos from a total of ~20K videos.
+            It contains 200 different daily activities such as: <em>'walking the dog', 'long jump', and 'vacuuming floor'</em>. The distribution among training, validation, and testing is <code>~50%</code>, <code>~25%</code>, and
+            <code>25%</code> of the total videos respectively. The dataset annotations can be downloaded directly from <a target="_blank" href="http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" download=""> here </a>.
             </p>
         </div>
       </div>
@@ -122,11 +124,11 @@
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Evaluation Metric</h2>
             <p>
-              The evaluation code used by the evaluation server can be <a target="_blank" href="http://github.com/ranjaykrishna/densevid_eval.git">found here</a>. 
+              The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_detection_performance.py">found here</a>. 
             </p>
 
             <p>
-              nspired by the dense-image captioning metric, we use a similar metric to measure the joint ability of our model to both localize and caption events. This metric computes the average precision (AP) across tIoU thresholds of \( 0.3, 0.5\), and \(0.7 \), when captioning the top <code>1000</code> proposals. We measure precision of our captions using traditional evaluation metrics: <code>BlEU</code>, <code>METEOR</code> and <code>CIDEr</code>.
+              Interpolated Average Precision (AP) is used as the metric for evaluating the results on each activity category. Then, the AP is averaged over all the activity categories (mAP). To determine if a detection is a true positive, we inspect the temporal intersection over union (\(\text{tIoU}\)) with a ground truth segment, and check whether or not it is greater or equal to a given threshold (e.g. \(\text{tIoU} > 0.5\)). The official metric used in this task is the average mAP, which is defined as the mean of all mAP values computed with tIoU thresholds between \( 0.5 \) and \( 0.95 \) (inclusive) with a step size of \( 0.05 \). 
             </p>
         </div>
       </div>
@@ -138,7 +140,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Baselines</h2>
-            <p> Baseline results are available in <a target="_blank" href="http://cs.stanford.edu/people/ranjaykrishna/densevid"> the paper available here </a>.</p>
+            <p> Please refer to <a target="_blank" href="https://arxiv.org/pdf/1710.08011.pdf"> last challenge summary</a> for information about baselines and state-of-the-art methods. </p>
         </div>
       </div>
     </div>
@@ -152,19 +154,21 @@
             <p> Please use the following JSON format when submitting your results for the challenge:</p>
             <pre>
               <code class="json">{
-  version: "VERSION 1.0",
+  version: "VERSION 1.3",
   results: {
-    "v_5n7NCViB5TU": [
-        {
-        sentence: "One player moves all around the net holding the ball", # String description of an event. 
-        timestamp: [1.23,4.53] # The start and end times of the event (in seconds).
-        },
-        {
-        sentence: "A small group of men are seen running around a basketball court playing a game".
-        timestamp: [5.24, 18.23]
-        }
+    "5n7NCViB5TU": [
+      {
+      label: "Discus throw",
+      score: 0.64,
+      segment: [24.25,38.08]
+      },
+      {
+      label: "Shot put",
+      score: 0.77,
+      segment: [11.25, 19.37]
+      }
     ]
-  }
+  },
   external_data: {
     used: true, # Boolean flag. True indicates the use of external data.
     details: "First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set", # This string details what kind of external data you used and how you used it.
@@ -172,24 +176,11 @@
 }
               </code>
             </pre>
-            <p>The example above is illustrative. Comments must be removed in your submission. You can <a target="_blank" href="https://raw.githubusercontent.com/ranjaykrishna/densevid_eval/master/sample_submission.json" download=""> download here </a> a sample submission file.</p>
+            <p>The example above is illustrative. Comments must be removed in your submission. You can <a target="_blank" href="https://raw.githubusercontent.com/activitynet/ActivityNet/master/Evaluation/data/uniform_random_proposals.json" download=""> download here </a> a sample submission file.</p>
         </div>
       </div>
     </div>
   </section>
-
-<!--   <section class="award">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Awards</h2>
-            <p>
-              The winner of Task 3 (dense-captioning events in videos) will receive <strong>2,000 USD</strong>, a <strong>Panasonic Lumix DC-GH5</strong> camera (+lens), an <strong>NVidia</strong> graphics card, and a <strong>Qualcomm</strong> gift. 
-            </p>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <footer class="footer">
     <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
