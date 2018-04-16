@@ -1,148 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Evaluation | ActivityNet Large Scale Activity Recognition Challenge 2018</title>
-    <!-- core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>ActivityNet Challenge</title>
+<!-- core CSS -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/animate.min.css" rel="stylesheet">
+<link href="../../css/owl.carousel.css" rel="stylesheet">
+<link href="../../css/owl.transitions.css" rel="stylesheet">
+<link href="../../css/prettyPhoto.css" rel="stylesheet">
+<link href="../2017/css/main.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link href="../../evaluation/fileinput/css/fileinput.css" rel="stylesheet">
+<link href="../../css/popover-mask.css" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-    <!--[if lt IE 9]>
-    <script src="../../js/html5shiv.js"></script>
-    <script src="../../js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
 
-    <!-- Tracking code -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
 
-      ga('create', 'UA-56208223-2', 'auto');
-      ga('send', 'pageview');
+<style>
+pre {
+   background-color: ghostwhite;
+   border: 1px solid #CCCCCC;
+   padding: 10px 20px;
+   margin: 30px;
+   }
+.json-key {
+   color: #F54E4E;
+   }
+.json-value {
+   color: #666666;
+   }
+.json-string {
+   color: #666666;
+   }
+.json-comment {
+   color: #71BC78;
+   }
 
-    </script>
+  #rcorners2 {
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border: 1px solid #CCCCCC;
+   }
+
+
+
+</style>
+
 </head><!--/head-->
 
-<body id="challenge" class="challenge-page normal-page">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"> 
-    <a class="navbar-brand" href="index.html">
-      <img src="images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
-    </a>
+<body id="home" class="homepage">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="container">
 
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="people.html">People</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="challenge.html">Challenge</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="program.html">Program</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="evaluation.html">Evaluation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link right-logo" href="http://cvpr2018.thecvf.com" target="_black">
-            <img src="images/cvpr18logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
-          </a>
-        </li>
-      </ul>
-    </div> <!-- collapse -->
-    </div>
-  </nav>
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
 
-  <section class="normal-page-title challenge-title">
-    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-12">
-            <h1 class="title">Evaluation</h1>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div id="register-input" class="modal-content">
+          <div class="modal-header">
+            <button type="button" id='upclose'class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">User Registration</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Form goes here -->
 
-  <section class="guidelines">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h2 class="section-title" style="min-height:350px;">Coming soon! Please check back later.</h2>
+          <form id="signup" class="form-horizontal">
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="name" id="newfirstname" placeholder="Name" value="" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">Lastname</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lastname" id="newlastname" placeholder="Lastname" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="organization" class="col-sm-2 control-label">Organization</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lastname" id="organization" placeholder="Organization" value="" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" name="email" id="newemail" placeholder="Email" value="" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="password" id="newpassword" placeholder="Password" value="">
+            </div>
+          </div>
+        </form>
+          <div class="modal-footer">
+            <span id="warning-register" style="text-align: center; display:inline;"></span>
+              <button type="button" id="close-signup" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+              <button type="button" id="signup-button" name="signup" class="btn btn-success btn-sm">Register</button>
+          </div>
 
         </div>
-      </div>
-    </div>
-  </section>
+        <!-- End of form -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+  <!-- regester -->
 
 
-  <footer class="footer">
-    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
-    <div class="footer-content">
+
+
+  <header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-xs-12">
-            <img src="images/ChallengeLogo_White.svg" alt="" class="footer-logo">
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <ul class="footer-nav">
-              <li class="nav-item">
-                <a href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="people.html">People</a>
-              </li>
-              <li class="nav-item">
-                <a href="challenge.html">Challenge</a>
-              </li>
-              <li class="nav-item">
-                <a href="program.html">Program</a>
-              </li>
-              <li class="nav-item">
-                <a href="evaluation.html">Evaluation</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="footer-text-section">
-              <h4 class="footer-section-title">Contact</h4>
-              <p class="footer-section-text">
-                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
-              </p>
-            </div>
-            <div class="footer-text-section">
-              <h4 class="footer-section-title">FAQ</h4>
-              <p class="footer-section-text">
-                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
-              </p>
-            </div>
-          </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="../2017/images/ChallengeLogo.svg" class="d-inline-black-align-top" height="40" width="auto" alt="logo"></a>
         </div>
+
+        <div class="collapse navbar-collapse navbar-right"  style="font-size:13px" >
+          <ul class="nav navbar-nav">
+
+            <li class="scroll"><a href="index.html">Home</a></li>
+
+            <li class="scroll"><a href="people.html">People</a></li>
+            <!-- <li class="scroll"><a href="dates.html">Important Dates</a></li> -->
+            <li class="scroll"><a href="challenge.html">Challenge</a></li>
+            <li class="scroll"><a href="program.html">Program</a></li>
+            <li class="scroll active"><a href="evaluation.html">Evaluation</a></li>
+            <li class="scroll"><a href="contact.html">Contact</a></li>
+
+          </ul>
+          <!--<a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/CVPRLogo.png" style="margin:15px 0px" align="bottom"  width="125" height="40" alt="logo"></a>-->
+          <a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/cvpr18.jpg" align="top"  width="140" height="65" alt="logo"></a>
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+  </header><!--/header-->
+
+
+  <!-- DOWNLOAD  PAGE -->
+
+  <section id="evaluation">
+    <div>
+      <div class="container">
+
+        <div id='main-content' class="row">
+
+          <div id='login-content' class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <form action="" method="post"  class="navbar-form navbar-left" role="form">
+                <a data-toggle="modal" data-target="#signup-modal"  href="#"> <span class="glyphicon glyphicon-user"></span> Register</a>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password"  required="required" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <button type="button" id="login-button" name="login" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
+                  <span id="warning-message_log" ></span>
+                </div>
+            </form>
+          <div>
+          </br></br>
+          </br> 
+          </div>
+          </div>
+          <div id='logged-content'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>
+
+          <div id='leader_div' class="col-sm-10 col-sm-offset-1 wow fadeInDown">            
+            <h3> Our Evaluation Server is open for ActivityNet Challenge 2018 submissions! </h3>
+            <h3>Leadership board</h3>
+          </div>
+
+          <div id='upload_file'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>
+          <div id='title_pdf_explain'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+
+
+          </div>
+          <!--
+          <div id='pdf_div'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>-->
+
+
+        </div>
+
+
       </div>
     </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </section><!--/#Download-->
+
+  <script src="../../js/jquery.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/mousescroll.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/jquery.inview.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="js/evaluation.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="../2017/js/sprintf.min.js"></script>
+  <script src="../2017/js/fileinput.js"></script>
+  <script src="../../js/prettycode.js"></script>
+
+  <script src="../../js/jquery.table-sort.js"></script>
+
 
 </body>
 </html>

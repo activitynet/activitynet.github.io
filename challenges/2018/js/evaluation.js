@@ -1,7 +1,8 @@
-SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge17/'
+SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge18/'
 var login_data;
 var leadership_data;
 var EMAIL;
+var TOSAVE;
 var PASSWORD;
 var fullname;
 var FIRSTNAME;
@@ -14,7 +15,7 @@ var fullname;
 var PUBLIC = 'true';
 $(function() {
 
-  print_results()
+  //print_results()
 
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
@@ -40,7 +41,7 @@ $(function() {
           localStorage.setItem("USERID_CACHED", USERID);
           $('#login-content').remove();
           fill_logged_content();
-          //print_classification_result();
+          
           }
           else {
             var message = 'Invalid Username or Password';
@@ -150,6 +151,8 @@ function print_logged(){
         location.href="evaluation.html";
       });
 
+      print_results();
+
 
     }
   });
@@ -159,21 +162,21 @@ json_file_detection = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/fi
 
 function load_example_formats() {
 
-    $.ajax({
-    url:SERVERURL + "/submission_formats/example_untrimmed.html",
-    type:"POST",
-    success: function(html) {
-      $("#example-untrimmed").html(html);
-    }
-  });
+  //   $.ajax({
+  //   url:SERVERURL + "/submission_formats/example_untrimmed.html",
+  //   type:"POST",
+  //   success: function(html) {
+  //     $("#example-untrimmed").html(html);
+  //   }
+  // });
 
-    $.ajax({
-    url:SERVERURL + "/submission_formats/example_trimmed.html",
-    type:"POST",
-    success: function(html) {
-      $("#example-trimmed").html(html);
-    }
-  });
+  //   $.ajax({
+  //   url:SERVERURL + "/submission_formats/example_trimmed.html",
+  //   type:"POST",
+  //   success: function(html) {
+  //     $("#example-trimmed").html(html);
+  //   }
+  // });
 
     $.ajax({
     url:SERVERURL + "/submission_formats/example_proposals.html",
@@ -202,11 +205,11 @@ function load_example_formats() {
 }
 
 function print_results_format(html) {
-  var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-untrimmed></code></pre>"
-  untrimmed_ = sprintf(untrimmed_, SERVERURL + "/submission_formats/example_untrimmed.json");
+  // var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-untrimmed></code></pre>"
+  // untrimmed_ = sprintf(untrimmed_, SERVERURL + "/submission_formats/example_untrimmed.json");
 
-  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Action Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
-  trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
+  // var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Action Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
+  // trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
 
   var proposals_ = "<h3>Submit Your Results</h3><h4>Temporal Action Proposals</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-proposals></code></pre>"
   proposals_ = sprintf(proposals_, SERVERURL + "/submission_formats/example_proposals.json");
@@ -218,27 +221,41 @@ function print_results_format(html) {
   captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
   //var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
 
-  html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
+  //html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
+  html = sprintf(html, proposals_, localization_, captioning_);
   return html;
 }
 
 function print_classification_content() {
  	TASKID = 1;
-  	var html = '<div id="evaluate" >'+
-				  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
-					  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results </span>'+
-					  '<ul class="nav nav-tabs"><li class="active"><a href="#untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
-            '<li><a href="#trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
-            '<li><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
-            '<li><a href="#localization" data-toggle="tab">&nbsp;Localization</a></li>'+
-					  '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
-					  '<div class="panel-body"><div class="tab-content">'+
-						  '<div class="tab-pane active" id="untrimmed">%s</div>'+
-						  '<div class="tab-pane" id="trimmed">%s</div>'+
-              '<div class="tab-pane" id="proposals">%s</div>'+
+  	// var html = '<div id="evaluate" >'+
+			// 	  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
+			// 		  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results </span>'+
+			// 		  '<ul class="nav nav-tabs"><li class="active"><a href="#untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
+   //          '<li><a href="#trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
+   //          '<li><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+   //          '<li><a href="#localization" data-toggle="tab">&nbsp;Localization</a></li>'+
+			// 		  '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
+			// 		  '<div class="panel-body"><div class="tab-content">'+
+			// 			  '<div class="tab-pane active" id="untrimmed">%s</div>'+
+			// 			  '<div class="tab-pane" id="trimmed">%s</div>'+
+   //            '<div class="tab-pane" id="proposals">%s</div>'+
+   //            '<div class="tab-pane" id="localization">%s</div>'+
+   //            '<div class="tab-pane" id="captioning">%s</div>'+
+			// 	  	'</div></div>';
+
+    var html = '<div id="evaluate" >'+
+          '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
+            '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results </span>'+
+            '<ul class="nav nav-tabs"><li class="active"><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+            '<li><a href="#localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
+            '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
+            '<div class="panel-body"><div class="tab-content">'+
+              '<div class="tab-pane active" id="proposals">%s</div>'+
               '<div class="tab-pane" id="localization">%s</div>'+
               '<div class="tab-pane" id="captioning">%s</div>'+
-				  	'</div></div>';
+            '</div></div>';
+
     html = print_results_format(html);
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
@@ -267,13 +284,14 @@ function print_classification_content() {
 		$('.kv-upload-progress').remove();
 		var file_extension = data.filenames[0].split('.').pop();
 		if(file_extension=="json"){
-		$('#kv-success-2').html('<div style="background:url(../../images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
+		$('#kv-success-2').html('<div style="background:url(../../images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating your JSON file. This might take few minutes. We will send you an email when we are done processing your file.</span></div></div>').show();
 		}
     });
 
 	$("#file_to_upload").on('filebatchuploadsuccess', function(event, data) {
 		var out = '';
 		//var result_url = data.response[0];
+    TOSAVE = data;
 		var metric1 = data.response;
 		//var metric2 = data.response[2];
     //var metric3 = data.response[3];
@@ -307,33 +325,34 @@ function print_classification_content() {
 
 	$('#evaluate li').on('click', function(){
 		var currid = $(this).children(":first").attr('href');
-		if(currid == '#untrimmed'){
-			//$(this).addClass("active").siblings().removeClass("active");
-			TASKID = 1;
-			$('#file_to_upload').fileinput('clear');
-      		$('#kv-success-2').hide();
-			$('#kv-error-2').hide();
-		}else if(currid == '#trimmed'){
-			//$(this).addClass("active").siblings().removeClass("active");
-			TASKID = 2;
-			$('#file_to_upload').fileinput('clear');
-     		$('#kv-success-2').hide();
-			$('#kv-error-2').hide();
-		}else if(currid == '#proposals'){
+		// if(currid == '#untrimmed'){
+		// 	//$(this).addClass("active").siblings().removeClass("active");
+		// 	TASKID = 1;
+		// 	$('#file_to_upload').fileinput('clear');
+  //     		$('#kv-success-2').hide();
+		// 	$('#kv-error-2').hide();
+		// }else if(currid == '#trimmed'){
+		// 	//$(this).addClass("active").siblings().removeClass("active");
+		// 	TASKID = 2;
+		// 	$('#file_to_upload').fileinput('clear');
+  //    		$('#kv-success-2').hide();
+		// 	$('#kv-error-2').hide();
+		// }else 
+    if(currid == '#proposals'){
       //$(this).addClass("active").siblings().removeClass("active");
-      TASKID = 3;
+      TASKID = 1;
       $('#file_to_upload').fileinput('clear');
         $('#kv-success-2').hide();
       $('#kv-error-2').hide();
     }else if(currid == '#localization'){
       //$(this).addClass("active").siblings().removeClass("active");
-      TASKID = 4;
+      TASKID = 2;
       $('#file_to_upload').fileinput('clear');
         $('#kv-success-2').hide();
       $('#kv-error-2').hide();
     }else if(currid == '#captioning'){
       //$(this).addClass("active").siblings().removeClass("active");
-      TASKID = 5;
+      TASKID = 3;
       $('#file_to_upload').fileinput('clear');
         $('#kv-success-2').hide();
       $('#kv-error-2').hide();
@@ -372,36 +391,51 @@ function print_classification_result() {
 */
 
 function print_results() {
+    // var html = '<div id="leaderboard" >'+
+    //       '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
+    //         '<div class="panel-heading"><span class="nav-tab-title pull-right">Leadership board </span>'+
+    //         '<ul class="nav nav-tabs"><li class="active"><a href="#leaderboard_untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
+    //         '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
+    //         '<li><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+    //         '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Localization</a></li>'+
+    //         '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
+    //         '<div class="panel-body"><div class="tab-content">'+
+    //           '<div class="tab-pane active" id="leaderboard_untrimmed"></div>'+
+    //           '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
+    //           '<div class="tab-pane" id="leaderboard_proposals"></div>'+
+    //           '<div class="tab-pane" id="leaderboard_localization"></div>'+
+    //           '<div class="tab-pane" id="leaderboard_captioning"></div>'+
+    //         '</div><div id="table-content" class="container-fluid" style="margin-top:30px;"></div></div>';
+
+
     var html = '<div id="leaderboard" >'+
           '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
             '<div class="panel-heading"><span class="nav-tab-title pull-right">Leadership board </span>'+
-            '<ul class="nav nav-tabs"><li class="active"><a href="#leaderboard_untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
-            '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
-            '<li><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
-            '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Localization</a></li>'+
+            '<ul class="nav nav-tabs"><li class="active"><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+            '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
-              '<div class="tab-pane active" id="leaderboard_untrimmed"></div>'+
-              '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
-              '<div class="tab-pane" id="leaderboard_proposals"></div>'+
+              '<div class="tab-pane active" id="leaderboard_proposals"></div>'+
               '<div class="tab-pane" id="leaderboard_localization"></div>'+
               '<div class="tab-pane" id="leaderboard_captioning"></div>'+
             '</div><div id="table-content" class="container-fluid" style="margin-top:30px;"></div></div>';
+
     $("#leader_div").append(html);
     $("#leader_div").show();
-  load_leaderboard(actionstatus='untrimmed');
+  load_leaderboard(actionstatus='proposals');
   $('#leaderboard li').on('click', function(){
     var currid = $(this).children(':first').attr('href');
-    if(currid == "#leaderboard_untrimmed"){
-      $('#myTable tbody>tr').empty();
-      actionstatus = "untrimmed";
-      load_leaderboard(actionstatus);
-    }else if(currid == "#leaderboard_trimmed"){
-      $('#myTable tbody>tr').empty();
-      actionstatus = "trimmed";
-      load_leaderboard(actionstatus);
-    }
-    else if(currid == "#leaderboard_proposals"){
+    // if(currid == "#leaderboard_untrimmed"){
+    //   $('#myTable tbody>tr').empty();
+    //   actionstatus = "untrimmed";
+    //   load_leaderboard(actionstatus);
+    // }else if(currid == "#leaderboard_trimmed"){
+    //   $('#myTable tbody>tr').empty();
+    //   actionstatus = "trimmed";
+    //   load_leaderboard(actionstatus);
+    // }
+    //else 
+    if(currid == "#leaderboard_proposals"){
       $('#myTable tbody>tr').empty();
       actionstatus = "proposals";
       load_leaderboard(actionstatus);
@@ -421,14 +455,15 @@ function print_results() {
 
 function load_leaderboard(STATUS){
 	var typecontent;
-	if(STATUS == "untrimmed"){
-		typecontent = "Untrimmed Video Classification ";
-    var performance = 'Top-1 Error'
-	}else if(STATUS == "trimmed"){
-		typecontent = "Trimmed Action Recognition";
-    var performance = 'Avg. Error'
-	}
-  else if(STATUS == "proposals"){
+	// if(STATUS == "untrimmed"){
+	// 	typecontent = "Untrimmed Video Classification ";
+ //    var performance = 'Top-1 Error'
+	// }else if(STATUS == "trimmed"){
+	// 	typecontent = "Trimmed Action Recognition";
+ //    var performance = 'Avg. Error'
+	// }
+  //else 
+  if(STATUS == "proposals"){
     typecontent = "Temporal Action Proposals";
     var performance = 'AUC'
   }
@@ -451,7 +486,7 @@ function load_leaderboard(STATUS){
 
 	$("#table-content").html(html);
 
-  var task_mapping = {'untrimmed': 1, 'trimmed': 2, 'proposals': 3, 'localization': 4, 'captioning': 5}
+  var task_mapping = {'proposals': 1, 'localization': 2, 'captioning': 3}
   get_best_result(USERID, task_mapping[STATUS])
 
   /*
