@@ -34,7 +34,7 @@
 
 <body id="challenge" class="challenge-page normal-page">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"> 
+    <div class="container">
     <a class="navbar-brand" href="#">
       <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
     </a>
@@ -93,7 +93,10 @@
               <strong>Task B &ndash; Spatio-temporal Action Localization (AVA)</strong>
             </p>
             <p>
-              This task is intended to evaluate the ability of algorithms to localize human actions in space and time. Each labeled video segment can contain multiple subjects, each performing potentially multiple actions. The goal is to identify these subjects and actions over continuous 15-minute video clips extracted from movies.
+              This task is intended to evaluate the ability of algorithms to localize human actions
+              in space and time. Each labeled video segment can contain multiple subjects, each
+              performing potentially multiple actions. The goal is to identify these subjects and
+              actions over continuous 15-minute video clips extracted from movies.
             </p>
 
             <p>For this task, participants will use the
@@ -121,20 +124,20 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Dataset</h2>
-              <p>The <a href="https://research.google.com/ava/" target="_blank">AVA Dataset</a> will be used
-                for this task. AVA dataset densely annotates 80 atomic visual actions in 351k
-                movie clips with actions localized in space and time, resulting in 1.65M
+              <p>The <a href="https://research.google.com/ava/download.html"
+                target="_blank">AVA Dataset version v2.1</a> will be used
+                for this task. The AVA dataset densely annotates 80 atomic visual actions in 430
+                15-minute movie clips, where actions are localized in space and time, resulting in 1.58M
                 action labels with multiple labels per human occurring frequently. Clips are
-                drawn from 15-minute contiguous segments of movies, to open the door for
-                temporal reasoning about activities. The dataset is split into 242 videos for
-                training, 66 videos for validation, and 144 videos for test. More information
+                drawn from contiguous segments of movies, to open the door for
+                temporal reasoning about activities. The dataset is split into 235 videos for
+                training, 64 videos for validation, and 131 videos for test. More information
                 about how to download the AVA dataset is
                 available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>.</p>
-              <p>The list of test videos will be released approximately one month before the
-                challenge. It will be made available on the AVA website, and announced both
-                here and on ava-dataset-users.</p>
-
-            </p>
+              <p>The list of test videos is now available on
+                the <a href="https://research.google.com/ava/download.html"
+                target="_blank">AVA website</a>, along with details of which
+                timestamps will be used for testing.</p>
         </div>
       </div>
     </div>
@@ -145,11 +148,16 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Evaluation Metric</h2>
-            <p>The evaluation code used by the evaluation server will be made available soon.</p>
+            <p>The evaluation code used by the evaluation server can be found in
+            the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation">ActivityNet
+            Github repository</a>. Please contact the AVA team via
+            <a href="https://groups.google.com/forum/#!forum/activity-net"
+                    target="_blank">this Google Group</a> with any questions or
+                    issues about the code.</p>
             <p>The official metric used in this task is the Frame-mAP at spatial IoU >=
               0.5. Since action frequency in AVA follows the natural distribution, averaged
               across the top 60 most common action classes in AVA,
-              listed <a href="https://research.google.com/ava/download/ava_action_list_v2.0_for_activitynet_2018.pbtxt.txt" target="_blank">here</a>.</p>
+              listed <a href="https://research.google.com/ava/download/ava_action_list_v2.1_for_activitynet_2018.pbtxt" target="_blank">here</a>.</p>
         </div>
       </div>
     </div>
@@ -160,8 +168,11 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Baselines</h2>
-            <p>A pre-trained model will be available soon. Baseline results can be found in
-              the <a href="https://arxiv.org/abs/1705.08421" target="_blank">paper on arXiv.org</a>.</p>
+            <p>A basic pre-trained model will be available on the
+              <a href="https://research.google.com/ava/download.html"
+              target="_blank">AVA website</a>. Baseline results can be found in
+              the <a href="https://arxiv.org/abs/1705.08421"
+              target="_blank">paper on arXiv.org</a>.</p>
         </div>
       </div>
     </div>
@@ -174,22 +185,25 @@
             <h2 class="section-title">Submission Format</h2>
 
             <p>When submitting your results for this task, please use the same CSV format
-              used for the ground truth AVA train/val files.</p>
-            <p>The format of a row is the following: video_id, middle_frame_timestamp, person_box, action_id</p>
+              used for the ground truth AVA train/val files, with the addition
+              of a score column for each box-label.</p>
+            <p>The format of a row is the following: video_id,
+            middle_frame_timestamp, person_box, action_id, score</p>
 
             <ul>
             <li>video_id: YouTube identifier</li>
-            <li>middle_frame_timestamp: in seconds from the start of the YouTube.</li>
-            <li>person_box: top-left (x1, y1) and bottom-right (x2,y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
-            <li>action_id: integer identifier of an action class, from <a href="https://research.google.com/ava/download/ava_action_list_v2.0_for_activitynet_2018.pbtxt.txt" target="_blank">ava_action_list_v2.0_for_activitynet_2018.pbtxt.txt</a>.</li>
+            <li>middle_frame_timestamp: in seconds from the start of the video.</li>
+            <li>person_box: top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
+            <li>action_id: integer identifier of an action class, from <a href="https://research.google.com/ava/download/ava_action_list_v2.1_for_activitynet_2018.pbtxt" target="_blank">ava_action_list_v2.1_for_activitynet_2018.pbtxt</a>.</li>
+            <li>score: a float indicating the score for this labeled box.</li>
             </ul>
 
             <p>An example taken from the validation set is:</p>
             <pre>
-            1j20qq1JyX4,0902,0.002,0.118,0.714,0.977,12
-            1j20qq1JyX4,0905,0.193,0.016,1.000,0.978,11
-            1j20qq1JyX4,0905,0.193,0.016,1.000,0.978,74
-            20TAGRElvfE,0907,0.285,0.559,0.348,0.764,17
+            1j20qq1JyX4,0902,0.002,0.118,0.714,0.977,12,0.9
+            1j20qq1JyX4,0905,0.193,0.016,1.000,0.978,11,0.8
+            1j20qq1JyX4,0905,0.193,0.016,1.000,0.978,74,0.96
+            20TAGRElvfE,0907,0.285,0.559,0.348,0.764,17,0.72
             ...
             </pre>
 
