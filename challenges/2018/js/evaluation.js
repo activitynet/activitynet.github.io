@@ -282,7 +282,7 @@ function print_classification_content() {
 		showPreview:false,
         maxFileCount: 1,
         uploadAsync: false,
-        uploadUrl:SERVERURL + "/upload_branched.php",
+        uploadUrl:SERVERURL + "/upload.php",
         mainClass: "input-group-lg",
         allowedFileExtensions: ["json", "csv"],
         uploadExtraData: function() {
