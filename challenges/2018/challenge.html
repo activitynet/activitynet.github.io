@@ -33,7 +33,7 @@
 
 <body id="challenge" class="challenge-page normal-page">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"> 
+    <div class="container">
     <a class="navbar-brand" href="index.html">
       <img src="images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
     </a>
@@ -93,10 +93,10 @@
             <h2 class="section-title">Challenge Introduction</h2>
 
             <p class="para-text">
-              We are proud to announce that this year the challenge will hosts seven diverse tasks which aim to push the limits of semantic visual understanding of videos as well as bridging visual content with human captions. Three out of the seven tasks in the challenge are based on the <a href="http://activity-net.org/">ActivityNet dataset</a>, which was introduced in CVPR 2015 and organized hierarchically in a semantic taxonomy. These tasks focus on trace evidence of activities in time in the form of actionness/proposals, class labels, and <a href="http://cs.stanford.edu/people/ranjaykrishna/densevid/" target="_blank">captions</a>.
+              We are proud to announce that this year the challenge will host six diverse tasks which aim to push the limits of semantic visual understanding of videos as well as bridging visual content with human captions. Three out of the seven tasks are based on the <a href="http://activity-net.org/">ActivityNet dataset</a>, which was introduced in CVPR 2015 and organized hierarchically in a semantic taxonomy. These tasks focus on trace evidence of activities in time in the form of proposals, class labels, and <a href="http://cs.stanford.edu/people/ranjaykrishna/densevid/" target="_blank">captions</a>.
             </p>
             <p class="para-text">
-              In this installment of the challenge, we will host four guest tasks which enrich the understanding of visual information in videos. These tasks focus on complementary aspects of the activity recognition problem at large scale and involve challenging and recently compiled activity/action datasets, including <a href="https://deepmind.com/kinetics" target="_blank">Kinetics</a> (Google DeepMind), <a href="https://research.google.com/ava/" target="_blank">AVA</a> (Berkeley and Google), SoA (Facebook), and <a href="http://moments.csail.mit.edu/" target="_blank"> Moments in Time </a> (MIT and IBM Research).
+              In this installment of the challenge, we will host three guest tasks which enrich the understanding of visual information in videos. These tasks focus on complementary aspects of the activity recognition problem at large scale and involve challenging and recently compiled activity/action datasets, including <a href="https://deepmind.com/kinetics" target="_blank">Kinetics</a> (Google DeepMind), <a href="https://research.google.com/ava/" target="_blank">AVA</a> (Berkeley and Google), and <a href="http://moments.csail.mit.edu/" target="_blank"> Moments in Time </a> (MIT and IBM Research).
             </p>
 
 <!--             <p>
@@ -119,6 +119,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="flex-list-item">
+                  <a href="tasks/anet_proposals.html">
                   <div class="flex-item-icon">
                     <div class="image">
                       <img class="img-responsive" src="images/icon/anet_proposals.png"/>
@@ -128,14 +129,15 @@
                       <div class="label">2nd trial</div>
                     </div>
                   </div>
+                  </a>
                   <div class="flex-item-info">
                     <h4 class="name">Temporal Action Proposals (ActivityNet)</h4>
                     <p class="description">
-                      This task is intended to evaluate the ability of algorithms to generate high quality <strong>action proposals</strong>. The goal is to produce a set of candidate temporal segments that are likely to contain a human action. 
+                      This task is intended to evaluate the ability of algorithms to generate high quality <strong>action proposals</strong>. The goal is to produce a set of candidate temporal segments that are likely to contain a human action.
                     </p>
                     <div class="flex-item-button">
-                      <a href="#activitynet-tasks" class="box-animated-link">
-                        <span>Details Soon</span>
+                      <a href="tasks/anet_proposals.html" class="box-animated-link">
+                        <span>Details</span>
                       </a>
                     </div>
                   </div>
@@ -147,6 +149,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="flex-list-item">
+                  <a href="tasks/anet_localization.html">
                   <div class="flex-item-icon">
                     <div class="image">
                       <img class="img-responsive" src="images/icon/anet_localization.png"/>
@@ -156,14 +159,15 @@
                       <div class="label">3rd trial</div>
                     </div>
                   </div>
+                  </a>
                   <div class="flex-item-info">
                     <h4 class="name">Temporal Action Localization (ActivityNet)</h4>
                     <p class="description">
                       This task is intended to evaluate the ability of algorithms to <strong>temporally localize activities in untrimmed video sequences</strong>. Here, videos can contain more than one activity instance, and mutiple activity categories can appear in the video.
                     </p>
                     <div class="flex-item-button">
-                      <a href="#activitynet-tasks" class="box-animated-link">
-                        <span>Details Soon</span>
+                      <a href="tasks/anet_localization.html" class="box-animated-link">
+                        <span>Details</span>
                       </a>
                     </div>
                   </div>
@@ -175,6 +179,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="flex-list-item">
+                  <a href="tasks/anet_captioning.html">
                   <div class="flex-item-icon">
                     <div class="image">
                       <img class="img-responsive" src="images/icon/anet_captioning.png"/>
@@ -184,13 +189,14 @@
                       <div class="label">2nd trial</div>
                     </div>
                   </div>
+                  </a>
                   <div class="flex-item-info">
                     <h4 class="name">Dense-Captioning Events in Videos (ActivityNet Captions)</h4>
                     <p class="description">
                       This task involves both <strong>detecting and describing events</strong> in a video. For this task, participants will use the ActivityNet Captions dataset, a new large-scale benchmark for dense-captioning events.
                     </p>
                     <div class="flex-item-button">
-                      <a href="tasks/5_captioning.html" class="box-animated-link">
+                      <a href="tasks/anet_captioning.html" class="box-animated-link">
                         <span>Details</span>
                       </a>
                     </div>
@@ -214,23 +220,25 @@
             <div class="row">
               <div class="col-12">
                 <div class="flex-list-item">
-                  <div class="flex-item-icon">
-                    <div class="image">
-                      <img class="img-responsive" src="images/icon/kinetics.png"/>
+                  <a href="tasks/guest_kinetics.html">
+                    <div class="flex-item-icon">
+                      <div class="image">
+                        <img class="img-responsive" src="images/icon/kinetics.png"/>
+                      </div>
+                      <div class="text">
+                        <h4 class="has-label">Task A</h4>
+                        <div class="label">2nd trial</div>
+                      </div>
                     </div>
-                    <div class="text">
-                      <h4 class="has-label">Task A</h4>
-                      <div class="label">2nd trial</div>
-                    </div>
-                  </div>
+                  </a>
                   <div class="flex-item-info">
                     <h4 class="name">Trimmed Activity Recognition (Kinetics)</h4>
                     <p class="description">
                       This task is intended to evaluate the ability of algorithms to recognize activities in <strong>trimmed</strong> video sequences. Here, videos contain a single activity, and all the clips have a standard duration of ten seconds. For this task, participants will use the Kinetics dataset, a large-scale benchmark for trimmed action classification.
                     </p>
                     <div class="flex-item-button">
-                      <a href="#guest-tasks" class="box-animated-link">
-                        <span>Details Soon</span>
+                      <a href="tasks/guest_kinetics.html" class="box-animated-link">
+                        <span>Details</span>
                       </a>
                     </div>
                   </div>
@@ -242,6 +250,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="flex-list-item">
+                  <a href="tasks/guest_ava.html">
                   <div class="flex-item-icon">
                     <div class="image">
                       <img class="img-responsive" src="images/icon/ava.png"/>
@@ -251,6 +260,7 @@
                       <div class="label">New</div>
                     </div>
                   </div>
+                  </a>
                   <div class="flex-item-info">
                     <h4 class="name">Spatio-temporal Action Localization (AVA)</h4>
                     <p class="description">
@@ -262,8 +272,8 @@
                       dataset.
                     </p>
                     <div class="flex-item-button">
-                      <a href="#guest-tasks" class="box-animated-link">
-                        <span>Details Soon</span>
+                      <a href="tasks/guest_ava.html" class="box-animated-link">
+                        <span>Details</span>
                       </a>
                     </div>
                   </div>
@@ -271,47 +281,21 @@
               </div>
             </div>
 
-            <!-- Task C: SOA -->
+            <!-- Task C: Moments -->
             <div class="row">
               <div class="col-12">
                 <div class="flex-list-item">
+                  <a href="http://moments.csail.mit.edu/challenge.html" target="_blank">
                   <div class="flex-item-icon">
                     <div class="image">
-                      <img class="img-responsive" src="images/icon/soa.png"/>
+                      <img class="img-responsive" src="images/icon/moments.png"/>
                     </div>
                     <div class="text">
                       <h4 class="has-label">Task C</h4>
                       <div class="label">New</div>
                     </div>
                   </div>
-                  <div class="flex-item-info">
-                    <h4 class="name">Multi-label, multi-task video classification (SOA)</h4>
-                    <p class="description">
-                    This task is intended to evaluate the ability of algorithms to classify short video clips (about 10 seconds). Each video is densely annotated with <b>multiple labels covering scene, object and action.</b> For this task, participants will use the SOA dataset, a new large-scale benchmark for multi-label and multi-task video classification.
-                    </p>
-                    <div class="flex-item-button">
-                      <a href="#guest-tasks" class="box-animated-link">
-                        <span>Details Soon</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Task D: Moments -->
-            <div class="row">
-              <div class="col-12">
-                <div class="flex-list-item">
-                  <div class="flex-item-icon">
-                    <div class="image">
-                      <img class="img-responsive" src="images/icon/moments.png"/>
-                    </div>
-                    <div class="text">
-                      <h4 class="has-label">Task D</h4>
-                      <div class="label">New</div>
-                    </div>
-                  </div>
+                  </a>
                   <div class="flex-item-info">
                     <h4 class="name">Trimmed Event Recognition (Moments in Time)</h4>
                     <p class="description">

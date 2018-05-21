@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Task 2 &ndash; Trimmed Action Recognition | ActivityNet Large Scale Activity Recognition Challenge 2018</title>
+    <title>Task A &ndash; Trimmed Action Recognition | ActivityNet Large Scale Activity Recognition Challenge 2018</title>
     <!-- core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
@@ -34,7 +34,7 @@
 
 <body id="challenge" class="challenge-page normal-page">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"> 
+    <div class="container">
     <a class="navbar-brand" href="#">
       <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
     </a>
@@ -55,13 +55,13 @@
           <a class="nav-link" href="../challenge.html">Challenge</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Program</a>
+          <a class="nav-link" href="../program.html">Program</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../dates.html">Dates</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link">Evaluation</a>
+          <a class="nav-link" href="../evaluation.html">Evaluation</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../contact.html">Contact</a>
@@ -81,7 +81,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12">
-            <h1 class="title">Task 2 &ndash; Trimmed Action Recognition</h1>
+            <h1 class="title">Task A &ndash; Trimmed Action Recognition</h1>
         </div>
       </div>
     </div>
@@ -93,14 +93,14 @@
         <div class="col-md-12 col-sm-12">
             <p class="sub-navigation">
               <a href="../challenge.html">Challenge 2018</a> &rarr;
-              <strong>Task 2 &ndash; Trimmed Action Recognition</strong>
+              <strong>Task A &ndash; Trimmed Action Recognition</strong>
             </p>
             <p>
-              The goal of the Kinetics dataset is to help the computer vision and machine learning communities advance models for video understanding. Given this large human action classification dataset, it may be possible to learn powerful video representations that transfer to different video tasks. 
+              The goal of the Kinetics dataset is to help the computer vision and machine learning communities advance models for video understanding. Given this large human action classification dataset, it may be possible to learn powerful video representations that transfer to different video tasks.
             </p>
             <p>
               <strong>For information related to this task, please contact:</strong>
-              <a href="mailto:brianzhang@google.com.com?Subject=Kinetics-ActivityNet Challenge" target="_top">brianzhang@google.com</a>, <a href="mailto:joaoluis@google.com?Subject=Kinetics-ActivityNet Challenge" target="_top">joaoluis@google.com</a>
+              <a href="mailto:enoland@google.com?Subject=Kinetics-ActivityNet Challenge" target="_top">enoland@google.com</a>, <a href="mailto:joaoluis@google.com?Subject=Kinetics-ActivityNet Challenge" target="_top">joaoluis@google.com</a>
             </p>
         </div>
       </div>
@@ -113,7 +113,7 @@
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Dataset</h2>
             <p>
-            The <a target="_blank" href="https://deepmind.com/kinetics">Kinetics dataset</a> will be used for this challenge. Kinetics is a large-scale, high-quality dataset of YouTube video URLs which include a diverse range of human focused actions. The dataset consists of approximately 300K video clips, and covers 400 human action classes with at least 400 video clips for each action class. Each clip lasts around 10s and is labeled with a single class. All of the clips have been through multiple rounds of human annotation, and each is taken from a unique YouTube video. The actions cover a broad range of classes including human-object interactions such as <em>'playing instruments'</em>, as well as human-human interactions such as <em>'shaking hands'</em> and <em>'hugging'</em>. More information about how to download the Kinetics dataset is available <a target="_blank" href="https://github.com/activitynet/ActivityNet/tree/master/Crawler/Kinetics">here</a>.
+            The <a target="_blank" href="https://deepmind.com/kinetics">Kinetics-600 dataset</a> will be used for this challenge. Kinetics is a large-scale, high-quality dataset of YouTube video URLs which include a diverse range of human focused actions. The dataset consists of approximately 500K video clips, and covers 600 human action classes with at least 600 video clips for each action class. Each clip lasts around 10s and is labeled with a single class. All of the clips have been through multiple rounds of human annotation, and each is taken from a unique YouTube video. The actions cover a broad range of classes including human-object interactions such as <em>'playing instruments'</em>, as well as human-human interactions such as <em>'shaking hands'</em> and <em>'hugging'</em>. More information about how to download the Kinetics dataset is available <a target="_blank" href="https://github.com/activitynet/ActivityNet/tree/master/Crawler/Kinetics">here</a>.
             </p>
         </div>
       </div>
@@ -126,12 +126,12 @@
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Evaluation Metric</h2>
             <p>
-              The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_kinetics_performance.py">found here</a>. 
+              The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_kinetics_performance.py">found here</a>.
               For each video, an algorithm will produce \( k \) labels \( l_j \) where \( j = 1, \dots , k \). The ground-truth label for the video is \( g \). The error of the algorithm for that video would be:
 
               $$ e = \text{min}_j d \left( l_j, g \right)$$
 
-              with \( d \left( x, y \right) = 0 \) if \( x = y \) and \( 1 \) otherwise. The overall error score for an algorithm is the average error over all videos. We will use \( k = 1 \) and \( k = 5 \) and the winner of the challenge will be selected based on the average of these two errors. 
+              with \( d \left( x, y \right) = 0 \) if \( x = y \) and \( 1 \) otherwise. The overall error score for an algorithm is the average error over all videos. We will use \( k = 1 \) and \( k = 5 \) and the winner of the challenge will be selected based on the average of these two errors.
             </p>
         </div>
       </div>
@@ -159,7 +159,8 @@
               <code class="json">{
   version: "KINETICS VERSION 1.0",
   results: {
-    "-3B32lodo2M": [
+    # Note that each result composes a unique key results "youtubeid_timestart_timeend"
+    "p76-UdadD7w_47_57": [
         {
           label: "abseiling",
           score: 0.65
@@ -201,7 +202,8 @@
         <div class="col-md-12 col-sm-12">
             <h2 class="section-title">Awards</h2>
             <p>
-              The winner of Task 2 (trimmed action recognition) will receive <strong>4,000 USD</strong> and a <strong>Qualcomm</strong> gift. The second place will receive <strong>2,000</strong> USD.   
+              <!-- The winner of Task A (trimmed action recognition) will receive <strong>4,000 USD</strong> and a <strong>Qualcomm</strong> gift. The second place will receive <strong>2,000</strong> USD.    -->
+              Stay tuned &#128521
             </p>
         </div>
       </div>

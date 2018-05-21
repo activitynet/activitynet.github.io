@@ -1,7 +1,8 @@
-SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge17/'
+SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge18/'
 var login_data;
 var leadership_data;
 var EMAIL;
+var TOSAVE;
 var PASSWORD;
 var fullname;
 var FIRSTNAME;
@@ -14,7 +15,7 @@ var fullname;
 var PUBLIC = 'true';
 $(function() {
 
-  print_results()
+  //print_results()
 
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
@@ -40,7 +41,7 @@ $(function() {
           localStorage.setItem("USERID_CACHED", USERID);
           $('#login-content').remove();
           fill_logged_content();
-          //print_classification_result();
+          
           }
           else {
             var message = 'Invalid Username or Password';
@@ -150,6 +151,8 @@ function print_logged(){
         location.href="evaluation.html";
       });
 
+      print_results();
+
 
     }
   });
@@ -159,21 +162,13 @@ json_file_detection = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/fi
 
 function load_example_formats() {
 
-    $.ajax({
-    url:SERVERURL + "/submission_formats/example_untrimmed.html",
-    type:"POST",
-    success: function(html) {
-      $("#example-untrimmed").html(html);
-    }
-  });
-
-    $.ajax({
-    url:SERVERURL + "/submission_formats/example_trimmed.html",
-    type:"POST",
-    success: function(html) {
-      $("#example-trimmed").html(html);
-    }
-  });
+  //   $.ajax({
+  //   url:SERVERURL + "/submission_formats/example_untrimmed.html",
+  //   type:"POST",
+  //   success: function(html) {
+  //     $("#example-untrimmed").html(html);
+  //   }
+  // });
 
     $.ajax({
     url:SERVERURL + "/submission_formats/example_proposals.html",
@@ -199,14 +194,35 @@ function load_example_formats() {
     }
   });
 
+    $.ajax({
+      url:SERVERURL + "/submission_formats/example_trimmed.html",
+      type:"POST",
+      success: function(html) {
+        $("#example-trimmed").html(html);
+      }
+    });
+
+    $.ajax({
+      url:SERVERURL + "/submission_formats/example_spatiotemporal.html",
+      type:"POST",
+      success: function(html) {
+        $("#example-spatiotemporal").html(html);
+      }
+    });
+
+    $.ajax({
+      url:SERVERURL + "/submission_formats/example_spatiotemporal.html",
+      type:"POST",
+      success: function(html) {
+        $("#example-spatiotemporal_full").html(html);
+      }
+    });
+
 }
 
 function print_results_format(html) {
-  var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-untrimmed></code></pre>"
-  untrimmed_ = sprintf(untrimmed_, SERVERURL + "/submission_formats/example_untrimmed.json");
-
-  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Action Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
-  trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
+  // var untrimmed_ = "<h3>Submit Your Results</h3><h4>Untrimmed Video Classification</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-untrimmed></code></pre>"
+  // untrimmed_ = sprintf(untrimmed_, SERVERURL + "/submission_formats/example_untrimmed.json");
 
   var proposals_ = "<h3>Submit Your Results</h3><h4>Temporal Action Proposals</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-proposals></code></pre>"
   proposals_ = sprintf(proposals_, SERVERURL + "/submission_formats/example_proposals.json");
@@ -218,27 +234,41 @@ function print_results_format(html) {
   captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
   //var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
 
-  html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
+  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Activity Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
+  trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
+
+  var spatiotemporal_ = "<h3>Submit Your Results</h3><h4>Spatio-temporal Action Localization (AVA - Computer Vision ONLY)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal></code></pre>"
+  spatiotemporal_ = sprintf(spatiotemporal_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
+
+  var spatiotemporal_full_ = "<h3>Submit Your Results</h3><h4>Spatio-temporal Action Localization (AVA - Full)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal_full></code></pre>"
+  spatiotemporal_full_ = sprintf(spatiotemporal_full_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
+
+  //html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
+  html = sprintf(html, proposals_, localization_, captioning_, trimmed_, spatiotemporal_, spatiotemporal_full_);
   return html;
 }
 
 function print_classification_content() {
  	TASKID = 1;
-  	var html = '<div id="evaluate" >'+
-				  '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
-					  '<div class="panel-heading"><span class="nav-tab-title pull-right">Upload your results </span>'+
-					  '<ul class="nav nav-tabs"><li class="active"><a href="#untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
-            '<li><a href="#trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
-            '<li><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
-            '<li><a href="#localization" data-toggle="tab">&nbsp;Localization</a></li>'+
-					  '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
-					  '<div class="panel-body"><div class="tab-content">'+
-						  '<div class="tab-pane active" id="untrimmed">%s</div>'+
-						  '<div class="tab-pane" id="trimmed">%s</div>'+
-              '<div class="tab-pane" id="proposals">%s</div>'+
+
+    var html = '<div id="evaluate" >'+
+          '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
+            '<div class="panel-heading">'+//<span class="nav-tab-title pull-right">Upload your results </span>'+
+            '<ul class="nav nav-tabs"><li class="active"><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+            '<li><a href="#localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
+            '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
+            '<li><a href="#trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
+            '<li><a href="#spatiotemporal" data-toggle="tab">&nbsp;AVA (#1)</a></li>'+
+            '<li><a href="#spatiotemporal_full" data-toggle="tab">&nbsp;AVA (#2)</a></li></ul></div>'+
+            '<div class="panel-body"><div class="tab-content">'+
+              '<div class="tab-pane active" id="proposals">%s</div>'+
               '<div class="tab-pane" id="localization">%s</div>'+
               '<div class="tab-pane" id="captioning">%s</div>'+
-				  	'</div></div>';
+              '<div class="tab-pane" id="trimmed">%s</div>'+
+              '<div class="tab-pane" id="spatiotemporal">%s</div>'+
+              '<div class="tab-pane" id="spatiotemporal_full">%s</div>'+
+            '</div></div>';
+
     html = print_results_format(html);
   	html += '<input id="file_to_upload" name="file_to_upload" type="file" multiple=false class="file-loading">' +
 			'<div id="kv-success-2" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
@@ -254,7 +284,7 @@ function print_classification_content() {
         uploadAsync: false,
         uploadUrl:SERVERURL + "/upload.php",
         mainClass: "input-group-lg",
-        allowedFileExtensions: ["json"],
+        allowedFileExtensions: ["json", "csv"],
         uploadExtraData: function() {
             return {
                 email: EMAIL,
@@ -267,13 +297,19 @@ function print_classification_content() {
 		$('.kv-upload-progress').remove();
 		var file_extension = data.filenames[0].split('.').pop();
 		if(file_extension=="json"){
-		$('#kv-success-2').html('<div style="background:url(../../images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating JSON file … This might take a few minutes</span></div></div>').show();
+		$('#kv-success-2').html('<div style="background:url(../../images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating your JSON file. This might take few minutes. We will send you an email when we are done processing your file.</span></div></div>').show();
 		}
+
+    if(file_extension=="csv"){
+    $('#kv-success-2').html('<div style="background:url(../../images/process_48.gif) no-repeat center center; width=100%; height:107px;"><div class="section-title text-center" style="padding-top:86px"><span >Uploading and evaluating your JSON file. This might take few minutes. We will send you an email when we are done processing your file.</span></div></div>').show();
+    }
+
     });
 
 	$("#file_to_upload").on('filebatchuploadsuccess', function(event, data) {
 		var out = '';
 		//var result_url = data.response[0];
+    TOSAVE = data;
 		var metric1 = data.response;
 		//var metric2 = data.response[2];
     //var metric3 = data.response[3];
@@ -307,33 +343,54 @@ function print_classification_content() {
 
 	$('#evaluate li').on('click', function(){
 		var currid = $(this).children(":first").attr('href');
-		if(currid == '#untrimmed'){
-			//$(this).addClass("active").siblings().removeClass("active");
-			TASKID = 1;
-			$('#file_to_upload').fileinput('clear');
-      		$('#kv-success-2').hide();
-			$('#kv-error-2').hide();
-		}else if(currid == '#trimmed'){
-			//$(this).addClass("active").siblings().removeClass("active");
-			TASKID = 2;
-			$('#file_to_upload').fileinput('clear');
-     		$('#kv-success-2').hide();
-			$('#kv-error-2').hide();
-		}else if(currid == '#proposals'){
+		// if(currid == '#untrimmed'){
+		// 	//$(this).addClass("active").siblings().removeClass("active");
+		// 	TASKID = 1;
+		// 	$('#file_to_upload').fileinput('clear');
+  //     		$('#kv-success-2').hide();
+		// 	$('#kv-error-2').hide();
+		// }else if(currid == '#trimmed'){
+		// 	//$(this).addClass("active").siblings().removeClass("active");
+		// 	TASKID = 2;
+		// 	$('#file_to_upload').fileinput('clear');
+  //    		$('#kv-success-2').hide();
+		// 	$('#kv-error-2').hide();
+		// }else 
+    if(currid == '#proposals'){
       //$(this).addClass("active").siblings().removeClass("active");
-      TASKID = 3;
+      TASKID = 1;
       $('#file_to_upload').fileinput('clear');
         $('#kv-success-2').hide();
       $('#kv-error-2').hide();
     }else if(currid == '#localization'){
       //$(this).addClass("active").siblings().removeClass("active");
-      TASKID = 4;
+      TASKID = 2;
       $('#file_to_upload').fileinput('clear');
         $('#kv-success-2').hide();
       $('#kv-error-2').hide();
     }else if(currid == '#captioning'){
       //$(this).addClass("active").siblings().removeClass("active");
+      TASKID = 3;
+      $('#file_to_upload').fileinput('clear');
+        $('#kv-success-2').hide();
+      $('#kv-error-2').hide();
+    }else if(currid == '#trimmed'){
+      //$(this).addClass("active").siblings().removeClass("active");
+      TASKID = 4;
+      $('#file_to_upload').fileinput('clear');
+        $('#kv-success-2').hide();
+      $('#kv-error-2').hide();
+    }
+    else if(currid == '#spatiotemporal'){
+      //$(this).addClass("active").siblings().removeClass("active");
       TASKID = 5;
+      $('#file_to_upload').fileinput('clear');
+        $('#kv-success-2').hide();
+      $('#kv-error-2').hide();
+    }
+    else if(currid == '#spatiotemporal_full'){
+      //$(this).addClass("active").siblings().removeClass("active");
+      TASKID = 6;
       $('#file_to_upload').fileinput('clear');
         $('#kv-success-2').hide();
       $('#kv-error-2').hide();
@@ -343,65 +400,33 @@ function print_classification_content() {
 	});
 }
 
-/*
-function print_classification_result() {
-	var actionstatus= "detection_action";
-	var html = '<div id="evaluate" >'+
-			      '<div class="row"><div class="col-md-12"><div class="panel panel-default panel-fade">'+
-			          '<div class="panel-heading"><span class="nav-tab-title pull-right"> </span>'+
-					  '<ul class="nav nav-tabs"><li class="active"><a href="#detection2" data-toggle="tab"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;&nbsp;Detection</a></li>'+
-					  '<li><a href="#classification2" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>&nbsp;Classification</a></li></ul></div>'+
-			   '<div id="table-content" class="container-fluid" style="margin-top:30px;"></div>'+
-			   '</div></div></div></div>';
-  	$("#leader_div").html(html);
-    $("#leader_div").show();
-	load_leaderboard(actionstatus);
-	$('#evaluate li').on('click', function(){
-		var currid = $(this).children(':first').attr('href');
-		if(currid == "#classification2"){
-			$('#myTable tbody>tr').empty();
-			actionstatus = "classification_action";
-			load_leaderboard(actionstatus);
-		}else if(currid == "#detection2"){
-			$('#myTable tbody>tr').empty();
-			actionstatus = "detection_action";
-			load_leaderboard(actionstatus);
-		}
-	});
-}
-*/
-
 function print_results() {
+
     var html = '<div id="leaderboard" >'+
           '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
-            '<div class="panel-heading"><span class="nav-tab-title pull-right">Leadership board </span>'+
-            '<ul class="nav nav-tabs"><li class="active"><a href="#leaderboard_untrimmed" data-toggle="tab">&nbsp;Untrimmed</a></li>'+
-            '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Trimmed</a></li>'+
-            '<li><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
-            '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Localization</a></li>'+
-            '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li></ul></div>'+
+            '<div class="panel-heading">'+//<span class="nav-tab-title pull-right">Leadership board </span>'+
+            '<ul class="nav nav-tabs"><li class="active"><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
+            '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
+            '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
+            '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
+            '<li><a href="#leaderboard_spatiotemporal" data-toggle="tab">&nbsp;AVA (#1)</a></li>'+
+            '<li><a href="#leaderboard_spatiotemporal_full" data-toggle="tab">&nbsp;AVA (#2)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
-              '<div class="tab-pane active" id="leaderboard_untrimmed"></div>'+
-              '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
-              '<div class="tab-pane" id="leaderboard_proposals"></div>'+
+              '<div class="tab-pane active" id="leaderboard_proposals"></div>'+
               '<div class="tab-pane" id="leaderboard_localization"></div>'+
               '<div class="tab-pane" id="leaderboard_captioning"></div>'+
+              '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
+              '<div class="tab-pane" id="leaderboard_spatiotemporal"></div>'+
+              '<div class="tab-pane" id="leaderboard_spatiotemporal_full"></div>'+
             '</div><div id="table-content" class="container-fluid" style="margin-top:30px;"></div></div>';
+
     $("#leader_div").append(html);
     $("#leader_div").show();
-  load_leaderboard(actionstatus='untrimmed');
+  load_leaderboard(actionstatus='proposals');
   $('#leaderboard li').on('click', function(){
     var currid = $(this).children(':first').attr('href');
-    if(currid == "#leaderboard_untrimmed"){
-      $('#myTable tbody>tr').empty();
-      actionstatus = "untrimmed";
-      load_leaderboard(actionstatus);
-    }else if(currid == "#leaderboard_trimmed"){
-      $('#myTable tbody>tr').empty();
-      actionstatus = "trimmed";
-      load_leaderboard(actionstatus);
-    }
-    else if(currid == "#leaderboard_proposals"){
+
+    if(currid == "#leaderboard_proposals"){
       $('#myTable tbody>tr').empty();
       actionstatus = "proposals";
       load_leaderboard(actionstatus);
@@ -416,19 +441,28 @@ function print_results() {
       actionstatus = "captioning";
       load_leaderboard(actionstatus);
     }
+    else if (currid == "#leaderboard_trimmed"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "trimmed";
+      load_leaderboard(actionstatus);
+    }
+    else if (currid == "#leaderboard_spatiotemporal"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "spatiotemporal";
+      load_leaderboard(actionstatus);
+    }
+    else if (currid == "#leaderboard_spatiotemporal_full"){
+      $('#myTable tbody>tr').empty();
+      actionstatus = "spatiotemporal_full";
+      load_leaderboard(actionstatus);
+    }
   });
 }
 
 function load_leaderboard(STATUS){
 	var typecontent;
-	if(STATUS == "untrimmed"){
-		typecontent = "Untrimmed Video Classification ";
-    var performance = 'Top-1 Error'
-	}else if(STATUS == "trimmed"){
-		typecontent = "Trimmed Action Recognition";
-    var performance = 'Avg. Error'
-	}
-  else if(STATUS == "proposals"){
+ 
+  if(STATUS == "proposals"){
     typecontent = "Temporal Action Proposals";
     var performance = 'AUC'
   }
@@ -440,7 +474,19 @@ function load_leaderboard(STATUS){
     typecontent = "Dense-Captioning Events in Videos";
     var performance = 'Avg. Meteor'
   }
-   var html = '<h3>' + typecontent + '</h3>'+
+  else if(STATUS == "trimmed"){
+    typecontent = "Trimmed Activity Recognition (Kinetics)";
+    var performance = 'Avg. Error'
+  }
+  else if(STATUS == "spatiotemporal"){
+    typecontent = "Spatio-temporal Action Localization (AVA - Computer Vision ONLY)";
+    var performance = 'mAP@0.5IoU'
+  }
+  else if(STATUS == "spatiotemporal_full"){
+    typecontent = "Spatio-temporal Action Localization (AVA - Full)";
+    var performance = 'mAP@0.5IoU'
+  }
+  var html = '<h3>' + typecontent + '</h3>'+
 		   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
 			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
 		   	  '<th class="sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
@@ -451,30 +497,9 @@ function load_leaderboard(STATUS){
 
 	$("#table-content").html(html);
 
-  var task_mapping = {'untrimmed': 1, 'trimmed': 2, 'proposals': 3, 'localization': 4, 'captioning': 5}
+  var task_mapping = {'proposals': 1, 'localization': 2, 'captioning': 3, 'trimmed': 4, 'spatiotemporal': 5, 'spatiotemporal_full': 6}
   get_best_result(USERID, task_mapping[STATUS])
 
-  /*
-		$.ajax({
-		url:SERVERURL + "leadership.php",
-    //url:SERVERURL + "Server/backend/api_leaderboard.py"
-		type:"POST",
-   		data:{action: STATUS},
-      	success: function(data) {
-			//Take all records from JSON
-			var leadership_data = jQuery.parseJSON(data);
-			 $.each(leadership_data, function(i, ls){
-				 var rank = i + 1;
-         if (STATUS == "classification_action") {
-				    $('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td><td>'+ ls['metric2'] +'</td></tr>');
-         }
-         else if (STATUS == "detection_action") {
-           $('#myTable').append('<tr><td>'+ ls['rank'] +'</td><td>'+ ls['username'] +'</td><td>'+ ls['organization'] +'</td><td>'+ ls['uploadtime'] +'</td><td>'+ ls['metric1'] +'</td></tr>');
-         }
-		  	});
-			$("table.sort_table").sort_table({ "action" : "init" });
-    	}
-	});*/
 }
 
 function get_best_result(userid, taskid) {
@@ -493,50 +518,11 @@ function get_best_result(userid, taskid) {
       var result_rank = i+1;
       console.log(data)
       $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric'] +'</td></tr>');
-      /*
-      if (taskid == 1) {
-        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric1'] +'</td><td>'+ data['metric3'] +'</td><td>'+ data['metric2'] +'</td></tr>');
-      }
-      else if (taskid == 2) {
-        $('#myTable').append('<tr><td>'+ result_rank +'</td><td>'+ data['username'] +'</td><td>'+ data['organization'] +'</td><td>'+ data['uploadtime'] +'</td><td>'+ data['metric1'] +'</td><td>'+ data['metric2'] +'</td><td>'+ data['metric3'] +'</td><td>' + data['metric4'] +'</td></tr>');
-      }*/
       }
       $("table.sort_table").sort_table({ "action" : "init" });
     }
   });
 }
-
-
-/*
-function pdf_upload() {
-    title_explain_pdf()
-    var html =  '<div id="loadpdf" >'+'<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'
-    +'<div class="panel-heading"><span class="nav-tab-title pull-right"></span>'
-    html += '<input id="pdf" name="pdf" type="file" multiple=false class="file-loading" >' +
-      '<div id="kv-success-3" class="alert alert-success fade in" style="margin-top:20px;display:none"></div>'+
-      '<div id="kv-error-3" class="alert alert-danger fade in" style="margin-top:20px;display:none"></div>'+
-      '</div></div></div></div></div>';
-
-	$("#pdf_div").html(html);
-  $("#pdf").fileinput({
-  showPreview:false,
-      maxFileCount: 1,
-      uploadAsync: false,
-      uploadUrl:SERVERURL+"upload_pdf.php",
-      mainClass: "input-group-lg",
-      allowedFileExtensions: ['pdf'],
-      uploadExtraData: function() {
-          return {
-              email: EMAIL,
-              taskid: TASKID
-
-          };
-      }
-    });
-
-
-  }
-  */
 
   function title_explain_pdf(){
 
