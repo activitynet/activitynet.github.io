@@ -15,7 +15,7 @@ var fullname;
 var PUBLIC = 'true';
 $(function() {
 
-  //print_results()
+  print_results()
 
   $('#login-button').on('click', function() {
     var email = document.getElementById("email").value;
@@ -402,6 +402,13 @@ function print_classification_content() {
 
 function print_results() {
 
+
+    $("#leader_div").empty();
+
+    var header_html = `<h3> Our Evaluation Server is open for ActivityNet Challenge 2018 submissions! </h3>
+                       <h3>Leadership board</h3>`
+    $("#leader_div").append(header_html);
+
     var html = '<div id="leaderboard" >'+
           '<div class="row"><div class="col-md-12"><div class="panel with-nav-tabs panel-default">'+
             '<div class="panel-heading">'+//<span class="nav-tab-title pull-right">Leadership board </span>'+
@@ -486,8 +493,13 @@ function load_leaderboard(STATUS){
     typecontent = "Spatio-temporal Action Localization (AVA - Full)";
     var performance = 'mAP@0.5IoU'
   }
-  var html = '<h3>' + typecontent + '</h3>'+
-		   '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
+  var html = '<h3>' + typecontent + '</h3>'
+
+  if (STATUS == "trimmed") {
+    html += '<p>The leaderboard for this task will not be released. Please refer to our <a href="https://groups.google.com/forum/?pli=1#!topic/activity-net/4tKhqTPXmcY" target="_blank"> Google Group post </a> for more details.</p>'
+  }
+
+  html += '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
 			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
 		   	  '<th class="sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
 		      '<th class="sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
