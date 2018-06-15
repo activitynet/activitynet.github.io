@@ -405,7 +405,8 @@ function print_results() {
 
     $("#leader_div").empty();
 
-    var header_html = `<h3>We are post-processing this year submissions. Thanks for participating!</h3>
+    var header_html = `<h3>Thanks all for participating and pushing the limits of video understanding!</h3>
+                       <h3>Congratulations to all the winners. We hope to see you all at CVPR!</h3>
                        <h3>Leadership board</h3>`
     $("#leader_div").append(header_html);
 
