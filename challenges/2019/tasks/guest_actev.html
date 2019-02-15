@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Task D &ndash; Spatio-temporal Action Localization (AVA)| ActivityNet Large Scale Activity Recognition Challenge 2019</title>
+    <!-- core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <!-- Code highlighter -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../../images/favicon.png" >
+
+    <!-- Tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56208223-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../people.html">People</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="../challenge.html">Challenge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../program.html">Program</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dates.html">Dates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../evaluation.html">Evaluation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link right-logo" href="http://cvpr2019.thecvf.com" target="_black">
+            <img src="../images/cvpr19logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+          </a>
+        </li>
+      </ul>
+    </div> <!-- collapse -->
+    </div>
+  </nav>
+
+  <section class="normal-page-title challenge-title">
+    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <h1 class="title">Task D &ndash; Activity Detection in Extended Videos (ActEV-PC) </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <p class="sub-navigation">
+              <a href="../challenge.html">Challenge 2019</a> &rarr;
+              <strong>Task D &ndash; Activity Detection in Extended Videos (ActEV-PC)</strong>
+            </p>
+            <p>
+              The Activities in Extended Videos Prize Challenge (ActEV-PC) seeks to encourage the development of robust automatic activity detection algorithms for an extended video. Challenge participants will develop algorithms that address the &quot;Activity Detection Task&quot; which requires systems to detect and temporally localize the activity instance for 18 activities that are to be found in extended videos. Extended videos contain significant spans without any activities and intervals with potentially multiple concurrent activities.
+            </p>
+
+            <p>ActEV-PC task has two phases:</p>
+
+            <p>
+              <strong>ActEV-PC Open Leaderboard Evaluation (Phase 1)</strong>: challenge participants will run their activity detection software on their compute hardware and submit system output defined by the ActEV-PC <a href="https://actev.nist.gov/pub/ActEVPrizeChallenge_EvaluationPlan_110818.pdf" target="_blank"> evaluation plan</a> to the <a href="https://actev.nist.gov/prizechallenge" target="_blank"> NIST ActEV Scoring Server </a>. This phase will serve as a qualifying stage where the top 6 participants will proceed to phase 2.
+            </p>
+
+            <p>
+              <strong>ActEV-PC Independent Evaluation (Phase 2)</strong>: invited challenge participants will submit their runnable activity detection software to NIST using the forthcoming Evaluation Commandline Interface Submission Instructions. NIST will then evaluate system performance on sequestered data using NIST hardware.
+            </p>
+
+            <p>For more detailed information about this task, visit the <a href="https://actev.nist.gov/prizechallenge" target="_blank">ActEV-PC website</a>. For any questions please contact <a href="mailto:actev-nist@nist.gov" target="_top">actev-nist@nist.gov</a>
+            </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Schedule</h2>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Nov 8, 2018</th>
+                  <!-- add class="deleted" to <scope> and <td> when gone -->
+                  <td>
+                    <p>Account registration opens, evaluation plan released and encrypted evaluation data available for download.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Nov 12, 2018</th>
+                  <!-- add class="deleted" to <scope> and <td> when gone -->
+                  <td>
+                    <p>Evaluation data unlocked (decryption key published).</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Dec 12, 2018</th>
+                  <td>
+                    <p>Leaderboard open for submissions.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">March 21, 2019 - 4:00 PM EST</th>
+                  <td>
+                    <p>Top six teams on the Leaderboard selected for participation in Phase 2</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">March 25, 2019</th>
+                  <td>
+                    <p>Challenge participants selected for Phase 2 deliver software.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">March 25, 2019</th>
+                  <td>
+                    <p>NIST evaluates challenge participants’ code on sequestered data.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">May 22, 2019</th>
+                  <td>
+                    <p>NIST reports results to IARPA.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">May 30, 2019</th>
+                  <td>
+                    <p>Challenge winners announced.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">June 3, 2019</th>
+                  <td>Deadline for the reports by winners.</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dataset">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Dataset</h2>
+              <p>VIRAT V1, V2 and the M1 datasets are used for the ActEV-PC challenge. These datasets contain
+                multi-camera, continuous, long-duration video and multiple activities can happen at any time,
+                anywhere in the frame and across cameras.
+                Please refer to the <a href="https://actev.nist.gov/prizechallenge" target="_blank">DATA tab (on the ActEV-PC website)</a> for more information about how to download the data.
+              </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="evaluation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Evaluation</h2>
+            <p>
+              The main scoring metrics will be based on detection, temporal localization, and spatio-temporal localization using evaluation measures that include the probability of missed detection and rate of false alarm. You can find more details of the ActEV evaluation plan <a href="https://actev.nist.gov/pub/ActEVPrizeChallenge_EvaluationPlan_110818.pdf" target="_blank">here</a>, and the ActEV scoring software <a href="https://github.com/usnistgov/ActEV_Scorer" target="_blank">here</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="submission-format">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Submission Format</h2>
+
+            <p>
+              The system output file should be a JSON file that includes a list of videos processed by the system, along with a collection of activity instance records with spatio-temporal localization information (please see the <a href="https://actev.nist.gov/pub/ActEVPrizeChallenge_EvaluationPlan_110818.pdf" target="_blank">ActEV-PC evaluation plan</a> for more details).
+            </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Baselines</h2>
+            <p>
+                The top 6 challenge participants will deliver their algorithms that are compatible with the CLI protocol to NIST. The purpose is to test for compatibility and to ensure that the test results that the challenge participants obtained on the “validation dataset” when running on their own server match what NIST is getting when they run it on the Independent Evaluation Infrastructure. On <a href="https://actev.nist.gov/prizechallenge" target="_blank">ActEV-PC website</a>, there is a CLI/BASELINE tab with more information about CLI and baseline codes.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <img src="../images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <ul class="footer-nav">
+              <li class="nav-item">
+                <a href="../">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="../people.html">People</a>
+              </li>
+              <li class="nav-item">
+                <a href="../challenge.html">Challenge</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Program</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="../dates.html">Dates</a>
+                </li>
+              <li class="nav-item">
+                <a href="#">Evaluation</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">Contact</h4>
+              <p class="footer-section-text">
+                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
+              </p>
+            </div>
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">FAQ</h4>
+              <p class="footer-section-text">
+                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- Code Highlighter -->
+  <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
