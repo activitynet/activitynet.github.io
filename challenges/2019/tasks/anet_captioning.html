@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Task 3 &ndash; Dense-Captioning Events in Videos | ActivityNet Large Scale Activity Recognition Challenge 2019</title>
+    <!-- core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Code highlighter -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../../images/favicon.png" >
+
+    <!-- Tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56208223-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../people.html">People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../challenge.html">Challenge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Program</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dates.html">Dates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Evaluation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link right-logo" href="http://cvpr2019.thecvf.com" target="_black">
+            <img src="../images/cvpr19logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+          </a>
+        </li>
+      </ul>
+    </div> <!-- collapse -->
+    </div>
+  </nav>
+
+  <section class="normal-page-title challenge-title">
+    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <h1 class="title">Task 3 &ndash; Dense-Captioning Events in Videos</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <p class="sub-navigation">
+              <a href="../challenge.html">Challenge 2019</a> &rarr;
+              <strong>Task 3 &ndash; Dense-Captioning Events in Videos</strong>
+            </p>
+            <p>
+             Most natural videos contain numerous events. For example, in a video of a 'man playing a piano', the video might also contain another 'man dancing' or 'a crowd clapping'. This challenge studies the task of dense-captioning events, which involves both detecting and describing events in a video. This challenge uses the ActivityNet Captions dataset, a new large-scale benchmark for dense-captioning events. ActivityNet Captions contains 20K videos amounting to 849 video hours with 100K total descriptions, each with its unique start and end time.
+          </p>
+            <p>
+              <strong>For information related to this task, please contact:</strong> <a href="mailto:ranjaykrishna@gmail.com?Subject=CaptivityNet Challenge" target="_top">ranjaykrishna@gmail.com</a>, <a href="mailto:shyamal@cs.stanford.edu?Subject=ActivityNet Challenge" target="_top">shyamal@cs.stanford.edu</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dataset">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Dataset</h2>
+            <p>
+           The <a target="_blank" href="http://cs.stanford.edu/people/ranjaykrishna/densevid/">ActivityNet Captions dataset</a> will be used for this challenge. The dataset connects videos to a series of temporally annotated sentence descriptions. Each sentence covers a unique segment of the video, describing multiple events that occur. These events may occur over very long or short periods of time and are not limited in any capacity, allowing them to co-occur. On average, each of the 20K videos in Captivity Net contains \( 3.65 \) temporally localized sentences, resulting in a total of 100K sentences. We find that the number of sentences per video follows a relatively normal distribution. Furthermore, as the video duration increases, the number of sentences also increases. Each sentence has an average length of \( 13.48 \) words, which is also normally distributed.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="evaluation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Evaluation Metric</h2>
+            <p>
+              The evaluation code used by the evaluation server can be <a target="_blank" href="http://github.com/ranjaykrishna/densevid_eval.git">found here</a>.
+            </p>
+
+            <p>
+              Inspired by the dense-image captioning metric, we use a similar metric to measure the joint ability of our model to both localize and caption events. This metric computes the average precision (AP) across tIoU thresholds of \( 0.3, 0.5, 0.7\), and \(0.9 \), when captioning the top <code>1000</code> proposals. We measure precision of our captions using traditional evaluation metrics: <code>BlEU</code>, <code>METEOR</code> and <code>CIDEr</code>.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Baselines</h2>
+            <p> Baseline results are available in <a target="_blank" href="http://cs.stanford.edu/people/ranjaykrishna/densevid"> the paper available here </a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="submission-format">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Submission Format</h2>
+            <p> Please use the following JSON format when submitting your results for the challenge:</p>
+            <pre>
+              <code class="json">{
+  version: "VERSION 1.0",
+  results: {
+    "v_5n7NCViB5TU": [
+        {
+        sentence: "One player moves all around the net holding the ball", # String description of an event.
+        timestamp: [1.23,4.53] # The start and end times of the event (in seconds).
+        },
+        {
+        sentence: "A small group of men are seen running around a basketball court playing a game".
+        timestamp: [5.24, 18.23]
+        }
+    ]
+  }
+  external_data: {
+    used: true, # Boolean flag. True indicates the use of external data.
+    details: "First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set", # This string details what kind of external data you used and how you used it.
+  }
+}
+              </code>
+            </pre>
+            <p>The example above is illustrative. Comments must be removed in your submission. You can <a target="_blank" href="https://raw.githubusercontent.com/ranjaykrishna/densevid_eval/master/sample_submission.json" download=""> download here </a> a sample submission file.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <img src="../images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <ul class="footer-nav">
+              <li class="nav-item">
+                <a href="../">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="../people.html">People</a>
+              </li>
+              <li class="nav-item">
+                <a href="../challenge.html">Challenge</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Program</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Evaluation</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">Contact</h4>
+              <p class="footer-section-text">
+                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
+              </p>
+            </div>
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">FAQ</h4>
+              <p class="footer-section-text">
+                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- Code Highlighter -->
+  <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
