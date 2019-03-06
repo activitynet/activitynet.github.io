@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Task B &ndash; Spatio-temporal Action Localization (AVA)| ActivityNet Large Scale Activity Recognition Challenge 2019</title>
+    <!-- core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <!-- Code highlighter -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../../images/favicon.png" >
+
+    <!-- Tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56208223-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../people.html">People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../challenge.html">Challenge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Program</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dates.html">Dates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Evaluation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link right-logo" href="http://cvpr2019.thecvf.com" target="_black">
+            <img src="../images/cvpr19logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+          </a>
+        </li>
+      </ul>
+    </div> <!-- collapse -->
+    </div>
+  </nav>
+
+  <section class="normal-page-title challenge-title">
+    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <h1 class="title">Task B &ndash; Spatio-temporal Action Localization (AVA)</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <p class="sub-navigation">
+              <a href="../challenge.html">Challenge 2019</a> &rarr;
+              <strong>Task B &ndash; Spatio-temporal Action Localization (AVA)</strong>
+            </p>
+            <p>
+              This task is intended to evaluate the ability of algorithms to localize human actions in space and time, using the <a href="https://research.google.com/ava/" target="_blank">AVA Dataset</a>. This year we'll continue with <a href="https://arxiv.org/abs/1705.08421" target="_blank">AVA Actions</a> as the primary challenge, while also introducing a new secondary challenge based on the recently-released <a href="https://arxiv.org/abs/1901.01342" target="_blank">AVA ActiveSpeaker</a> dataset. Performance will be ranked separately for the two challenges.
+            </p>
+
+            <p>For more information on the challenges, or questions, please subscribe to Google Group:
+              <a href="https://groups.google.com/forum/#!forum/ava-dataset-users" target="_blank">ava-dataset-users</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="challenge">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h2 class="section-title">Challenge #1: AVA Actions</h2>
+          <p>
+            For this task, participants will use the <a href="https://research.google.com/ava/" target="_blank">AVA Actions dataset</a>. The long term goal of this dataset is to enable modeling of complex activities by building on top of current work in recognizing atomic actions.
+          </p>
+
+          <p>
+            Each labeled video segment can contain multiple subjects, each performing potentially multiple actions. The goal is to identify these subjects and actions over continuous 15-minute video clips extracted from movies.
+          </p>
+
+          <p>
+            Participants are allowed to leverage any input modalities (e.g. audio/video) or additional datasets, but are requested to document these in the report to be submitted to the challenge.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container dataset">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Dataset</h3>
+            <p>
+                The <a href="https://research.google.com/ava/download.html" target="_blank">AVA Actions Dataset version v2.2</a> will be used for this task. The AVA dataset densely annotates 80 atomic visual actions in 430 15-minute movie clips, where actions are localized in space and time, resulting in 1.62M action labels with multiple labels per human occurring frequently. Clips are drawn from contiguous segments of movies, to open the door for temporal reasoning about activities. The dataset is split into 235 videos for training, 64 videos for validation, and 131 videos for test. More information
+                about how to download the AVA dataset is
+                available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>.
+            </p>
+            <p>The list of test videos is now available on
+              the <a href="https://research.google.com/ava/download.html"
+              target="_blank">AVA website</a>, along with details of which
+              timestamps will be used for testing.
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container evaluation">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Evaluation Metric</h3>
+            <p>
+                The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation">ActivityNet
+                  Github repository</a>. Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank">this Google Group</a> with any questions or issues about the code.
+            </p>
+
+            <p>The official metric used in this task is the Frame-mAP at spatial IoU >=
+              0.5. Since action frequency in AVA follows the natural distribution, averaged
+              across the top 60 most common action classes in AVA,
+              listed <a href="https://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">here</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container baseline">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Baselines</h3>
+            <p>A basic pre-trained model will be available on the
+              <a href="https://research.google.com/ava/download.html"
+              target="_blank">AVA website</a>. Baseline results on AVA v2.1 can be found in the <a href="https://arxiv.org/abs/1705.08421"
+              target="_blank">results from last year's challenge</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container submission-format">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h3 class="section-title">Submission Format</h3>
+          <p>When submitting your results for this task, please use the same CSV format
+            used for the ground truth AVA train/val files, with the addition
+            of a score column for each box-label.
+          </p>
+          <p>The format of a row is the following: video_id,
+          middle_frame_timestamp, person_box, action_id, score
+          </p>
+          <ul>
+          <li>video_id: YouTube identifier</li>
+          <li>middle_frame_timestamp: in seconds from the start of the video.</li>
+          <li>person_box: top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
+          <li>action_id: integer identifier of an action class, from <a href="http://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">ava_action_list_v2.2_for_activitynet_2019.pbtxt</a>.</li>
+          <li>score: a float indicating the score for this labeled box.</li>
+          </ul>
+
+          <p>An example taken from the validation set is:</p>
+          <pre>
+          1j20qq1JyX4,0902,0.002,0.118,0.714,0.977,12,0.9
+          1j20qq1JyX4,0905,0.193,0.016,1.000,0.978,11,0.8
+          1j20qq1JyX4,0905,0.193,0.016,1.000,0.978,74,0.96
+          20TAGRElvfE,0907,0.285,0.559,0.348,0.764,17,0.72
+          ...
+          </pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="challenge">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h2 class="section-title">Challenge #2: Active Speaker Detection</h2>
+          <p>
+            The goal of this task is to evaluate whether algorithms can determine if and when a visible face is speaking.
+          </p>
+
+          <p>
+            Each labeled video segment and accompanying audio can contain multiple visible subjects. Each visible subject’s face bounding box will be provided, as well as box association over time. Your task will be to determine whether the specified faces are speaking at a given time.
+          </p>
+
+          <p>
+            For this task, participants will use the new <a href="https://research.google.com/ava/" target="_blank">AVA-ActiveSpeaker dataset</a>. The purpose of this dataset is to both extend the AVA Actions dataset to the very useful task of active speaker detection, and to push the state-of-the-art in multimodal perception. So participants are encouraged to use both the audio and video data. If additional data is used, either other modalities or other datasets, we ask that participants provide documentation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container dataset">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Dataset</h3>
+            <p>
+              The <a href="https://research.google.com/ava/" target="_blank">AVA-ActiveSpeaker dataset</a> will be used for this task. The AVA-ActiveSpeaker dataset associates speaking activity with a visible face on the AVA v1.0 videos. It contains 3.65 million frames, in 15-minute continuous video segments. It contains 120 videos for training, and 33 videos for validation. In addition, we will provide 131 videos for test. More information
+              about how to download the AVA dataset is
+              available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>. The list of test videos will be available on the <a href="https://research.google.com/ava/download.html" target="_blank">AVA website</a>, along with details of which timestamps will be used for testing.
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container evaluation">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Evaluation Metric</h3>
+            <p>
+                The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation">ActivityNet
+                  Github repository</a> (coming soon). Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank">this Google Group</a> with any questions or issues about the code.
+            </p>
+
+            <p>The official metric used in this task is the mAP.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container baseline">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Baselines</h3>
+            <p>A basic pre-trained model will be available on the
+              <a href="https://research.google.com/ava/download.html"
+              target="_blank">AVA website</a>. Baseline results can be found in the <a href="https://arxiv.org/abs/1705.08421"
+              target="_blank">paper on arXiv.org</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container submission-format">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h3 class="section-title">Submission Format</h3>
+          <p>
+            When submitting your results for this task, please use the same CSV format used for the ground truth AVA-ActiveSpeaker train/val files, with the addition of a score column for each box-label.
+          </p>
+          <p>
+            The format of a row is the following: video_id, middle_frame_timestamp, person_box, action_id, score
+          </p>
+          <ul>
+          <li>video_id: YouTube identifier</li>
+          <li>middle_frame_timestamp: in seconds from the start of the video.</li>
+          <li>person_box: top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
+          <li>action_id: integer identifier of an action class, from <a href="http://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">ava_action_list_v2.2_for_activitynet_2019.pbtxt</a>.</li>
+          <li>score: a float indicating the score for this labeled box.</li>
+          </ul>
+
+          <p>An example taken from the validation set is:</p>
+          <pre>
+          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AND_AUDIBLE,
+          -IELREHX_js_1740_1800:5,0.713503
+          ...
+          </pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <img src="../images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <ul class="footer-nav">
+              <li class="nav-item">
+                <a href="../">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="../people.html">People</a>
+              </li>
+              <li class="nav-item">
+                <a href="../challenge.html">Challenge</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Program</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Evaluation</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">Contact</h4>
+              <p class="footer-section-text">
+                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
+              </p>
+            </div>
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">FAQ</h4>
+              <p class="footer-section-text">
+                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- Code Highlighter -->
+  <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
