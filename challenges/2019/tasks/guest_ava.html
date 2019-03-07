@@ -136,7 +136,7 @@
                 about how to download the AVA dataset is
                 available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>.
             </p>
-            <p>The list of test videos is now available on
+            <p>The list of test videos is available on
               the <a href="https://research.google.com/ava/download.html"
               target="_blank">AVA website</a>, along with details of which
               timestamps will be used for testing.
@@ -169,7 +169,7 @@
             <h3 class="section-title">Baselines</h3>
             <p>A basic pre-trained model will be available on the
               <a href="https://research.google.com/ava/download.html"
-              target="_blank">AVA website</a>. Baseline results on AVA v2.1 can be found in the <a href="https://arxiv.org/abs/1705.08421"
+              target="_blank">AVA website</a>. Baseline results on AVA v2.1 can be found in the <a href="http://research.google.com/ava/challenge.html"
               target="_blank">results from last year's challenge</a>.
             </p>
         </div>
@@ -222,7 +222,7 @@
           </p>
 
           <p>
-            For this task, participants will use the new <a href="https://research.google.com/ava/" target="_blank">AVA-ActiveSpeaker dataset</a>. The purpose of this dataset is to both extend the AVA Actions dataset to the very useful task of active speaker detection, and to push the state-of-the-art in multimodal perception. So participants are encouraged to use both the audio and video data. If additional data is used, either other modalities or other datasets, we ask that participants provide documentation.
+            For this task, participants will use the new <a href="https://research.google.com/ava/download.html#ava_active_speaker_download" target="_blank">AVA-ActiveSpeaker dataset</a>. The purpose of this dataset is to both extend the AVA Actions dataset to the very useful task of active speaker detection, and to push the state-of-the-art in multimodal perception. So participants are encouraged to use both the audio and video data. If additional data is used, either other modalities or other datasets, we ask that participants provide documentation.
           </p>
         </div>
       </div>
@@ -233,9 +233,9 @@
         <div class="col-md-12 col-sm-12">
             <h3 class="section-title">Dataset</h3>
             <p>
-              The <a href="https://research.google.com/ava/" target="_blank">AVA-ActiveSpeaker dataset</a> will be used for this task. The AVA-ActiveSpeaker dataset associates speaking activity with a visible face on the AVA v1.0 videos. It contains 3.65 million frames, in 15-minute continuous video segments. It contains 120 videos for training, and 33 videos for validation. In addition, we will provide 131 videos for test. More information
+              The <a href="https://research.google.com/ava/download.html#ava_active_speaker_download" target="_blank">AVA-ActiveSpeaker dataset</a> will be used for this task. The AVA-ActiveSpeaker dataset associates speaking activity with a visible face on the AVA v1.0 videos. It contains 3.65 million frames, in 15-minute continuous video segments. It contains 120 videos for training, and 33 videos for validation. In addition, we will provide 131 videos for test. More information
               about how to download the AVA dataset is
-              available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>. The list of test videos will be available on the <a href="https://research.google.com/ava/download.html" target="_blank">AVA website</a>, along with details of which timestamps will be used for testing.
+              available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>. The list of test videos will be available on the <a href="http://research.google.com/ava/download.html#ava_active_speaker_download" target="_blank">AVA website</a>, along with details of which timestamps will be used for testing.
             </p>
         </div>
       </div>
@@ -276,20 +276,20 @@
             When submitting your results for this task, please use the same CSV format used for the ground truth AVA-ActiveSpeaker train/val files, with the addition of a score column for each box-label.
           </p>
           <p>
-            The format of a row is the following: video_id, middle_frame_timestamp, person_box, action_id, score
+            The format of a row is the following: video_id, frame_timestamp, entity_box, label, entity_id, score
           </p>
           <ul>
           <li>video_id: YouTube identifier</li>
-          <li>middle_frame_timestamp: in seconds from the start of the video.</li>
-          <li>person_box: top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
-          <li>action_id: integer identifier of an action class, from <a href="http://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">ava_action_list_v2.2_for_activitynet_2019.pbtxt</a>.</li>
-          <li>score: a float indicating the score for this labeled box.</li>
+          <li>frame_timestamp: in seconds from the start of the video.</li>
+          <li>entity_box: face bounding box, top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
+          <li>label: SPEAKING_AND_AUDIBLE (other labels will be ignored).</li>
+          <li>entity_id: a unique string allowing this box to be linked to other boxes.</li>
+          <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AND_AUDIBLE.</li>
           </ul>
 
           <p>An example taken from the validation set is:</p>
           <pre>
-          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AND_AUDIBLE,
-          -IELREHX_js_1740_1800:5,0.713503
+          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AND_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
           ...
           </pre>
         </div>
