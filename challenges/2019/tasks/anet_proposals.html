@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Task 1 &ndash; Temporal Action Proposals | International Challenge on Activity Recognition 2019 (ActivityNet)</title>
+    <!-- core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Code highlighter -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../../images/favicon.png" >
+
+    <!-- Tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56208223-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../people.html">People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../challenge.html">Challenge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Program</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dates.html">Dates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Evaluation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link right-logo" href="http://cvpr2019.thecvf.com" target="_black">
+            <img src="../images/cvpr19logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+          </a>
+        </li>
+      </ul>
+    </div> <!-- collapse -->
+    </div>
+  </nav>
+
+  <section class="normal-page-title challenge-title">
+    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <h1 class="title">Task 1 &ndash; Temporal Action Proposals</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <p class="sub-navigation">
+              <a href="../challenge.html">Challenge 2019</a> &rarr;
+              <strong>Task 1 &ndash; Temporal Action Proposals</strong>
+            </p>
+            <p>
+              In many large-scale video analysis scenarios, one is interested in localizing and recognizing human activities occuring in short temporal intervals within long untrimmed videos. Current approaches for activity detection still struggle to handle large-scale video collections and efficiently addressing this task remains elusive to our visual systems. This is in part due to the computational complexity of current action recognition approaches and the lack of methods that propose fewer intervals in the video, where activity processing can be focused. These set of candidate temporal segments are widely known as Action Proposals.
+            </p>
+            <p>To be applicable at large-scales and in practical scenarios, a useful action proposal method is driven by two competing goals. (i) The proposal method must be computationally efficient, in representing, encoding, and scoring a temporal segment. (ii) The proposal method must be discriminative of activities that we are interested in, so as to only retrieve temporal segments that contain visual information indicative of these activity classes. Thus, this task is intended to push the state-of-the-art in action proposal generation algorithms forward.
+          </p>
+            <p>
+              <strong>For information related to this task, please contact:</strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge" target="_top">fabian.caba@kaust.edu.sa</a>, <a href="mailto:humam.alwassel@kaust.edu.sa?Subject=ActivityNet Challenge" target="_top">humam.alwassel@kaust.edu.sa</a>, <a href="mailto:victor.escorcia@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">victor.escorcia@kaust.edu.sa</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dataset">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Dataset</h2>
+            <p>
+            The <a target="_blank" href="http://activity-net.org/download.html">ActivityNet Version 1.3 dataset</a> will be used for this challenge. The dataset consists of more than 648 hours of untrimmed videos from a total of ~20K videos.
+            It contains 200 different daily activities such as: <em>'walking the dog', 'long jump', and 'vacuuming floor'</em>. The distribution among training, validation, and testing is <code>~50%</code>, <code>~25%</code>, and
+            <code>25%</code> of the total videos respectively. The dataset annotations can be downloaded directly from <a target="_blank" href="http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/activity_net.v1-3.min.json" download=""> here </a>.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="evaluation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Evaluation Metric</h2>
+            <p>
+              The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_proposal_performance.py">found here</a>.
+            </p>
+
+            <p>
+              We use the area under the <strong>Average Recall</strong> vs. <strong>Average Number of Proposals per Video (AR-AN)</strong> curve as the evaluation metric for this task. A proposal is a true positive if it has a temporal intersection orver union (tIoU) with a ground-truth segment that is greater than that or equal to a given threshold (e.g, \( \text{tIoU} > 0.5 \)). <strong>AR</strong> is defined as the mean of all recall values using \( \text{tIoU} \) between \( 0.5 \) and \( 0.9 \) (<strong>inclusive</strong>) with a step size of \( 0.05 \). <strong>AN</strong> is defined as the total number of proposals divided by the number of videos in the testing subset. We consider 100 bins for <strong>AN</strong>, centered at values between 1 and 100 (<strong>inclusive</strong>) with a step size of 1, when computing the values on the <strong>AR-AN</strong> curve.
+            </p>
+
+            <h3>The specific process in which the submission files are scored using this evaluation metric:</h3>
+            <p>
+              Let
+              $$\text{AN}_{\text{submission}} = \frac{\text{total number of proposals in the submission file}}{\text{total number of videos in the testing subset}} $$
+              and \( \text{AN}_{\text{max}} \) be the maximum average number of proposals per video used in evaluation metric. Here, \( \text{AN}_{\text{max}} = 100 \). Let \( R = \frac{\text{AN}_{\text{max}}}{\text{AN}_{\text{submission}}} \), then we pre-process the submission file in the following way:
+            </p>
+            <ul>
+              <li>If \( R < 1 \), then for <em>each</em> video in the testing subset, we sort its proposals with respect to the proposal score and <em>discard</em> the lowest scoring \( R\% \) proposals.
+              </li>
+              <li>If \( R \geq 1 \), then for <em>each</em> video in the testing subset, we sort its proposals with respect to the proposal score and <em>replicate</em> the lowest scoring \( (R - 1)\% \) proposals from each video, and add the resulting data point on the <strong>AR-AN</strong> curve. The area under the resulting final curve is then computed and reported as the metric score for the submission file.
+              </li>
+            </ul>
+            <p>
+              The resulting filtered submission file will have an \( \text{AN} = \text{AN}_\max \). For each value \( p \) from \( 1 \) to \( 100 \) in steps of \( 1 \), we compute \( AR \) using only the top scoring \( p \% \) proposals from each video, and add the resulting data point on the <strong>AR-AN</strong> curve. The area under the resulting final curve is then computed and reported as the metric score for the submission file.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Baselines</h2>
+            <p> We provide the results for a baseline proposal method (named <strong>Uniform Random</strong>) on the validation subset. <strong>Uniform Random</strong>: the center and length of each proposal are independently drawn from a uniform random distribution over the interval \( [0,d] \), where \( d \) is the video duration. This model scores \( 44.88\% \) on the metric described above.</p>
+            <p>
+              <img class="img-responsive center-block" src="../../2018/images/uniform_random_proposal_performance.png" />
+            </p>
+            <p>
+              The dashed lines are for the recall performance when averaging over a single tIoU threshold, while the solid line is the average recall across all \( \text{tIoU} \) thresholds. As we can see, the recall performance is high for the smaller tIoU thresholds like \( 0.5 \) and \( 0.6 \), but it drops drastically for higher \( \text{tIoU} \)thresholds such as \( 0.8 \) and \( 0.95 \). Therefore, for a proposal method to score high on the evaluation metric, it would need to focus on getting relatively high recall for both low and high tIoU thresholds. Further reading can be found in <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Notebooks/ActivityNet-Release1.3.Proposals.ipynb">this notebook</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="submission-format">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Submission Format</h2>
+            <p> Please use the following JSON format when submitting your results for the challenge:</p>
+            <pre>
+              <code class="json">{
+  version: "VERSION 1.3",
+  results: {
+    "5n7NCViB5TU": [
+      {
+        score: 0.64,
+        segment: [24.25,38.08]
+      },
+      {
+        score: 0.77,
+        segment: [11.25, 19.37]
+      }
+    ]
+  }
+  external_data: {
+    used: true, # Boolean flag. True indicates the use of external data.
+    details: "First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set", # This string details what kind of external data you used and how you used it.
+  }
+}
+              </code>
+            </pre>
+            <p>The example above is illustrative. Comments must be removed in your submission. You can <a target="_blank" href="https://raw.githubusercontent.com/activitynet/ActivityNet/master/Evaluation/data/uniform_random_proposals.json" download=""> download here </a> a sample submission file.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <img src="../images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <ul class="footer-nav">
+              <li class="nav-item">
+                <a href="../">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="../people.html">People</a>
+              </li>
+              <li class="nav-item">
+                <a href="../challenge.html">Challenge</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Program</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Evaluation</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">Contact</h4>
+              <p class="footer-section-text">
+                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
+              </p>
+            </div>
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">FAQ</h4>
+              <p class="footer-section-text">
+                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- Code Highlighter -->
+  <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
