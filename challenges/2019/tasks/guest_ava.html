@@ -282,14 +282,14 @@
           <li>video_id: YouTube identifier</li>
           <li>frame_timestamp: in seconds from the start of the video.</li>
           <li>entity_box: face bounding box, top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
-          <li>label: SPEAKING_AND_AUDIBLE (other labels will be ignored).</li>
+          <li>label: SPEAKING_AUDIBLE (other labels will be ignored).</li>
           <li>entity_id: a unique string allowing this box to be linked to other boxes.</li>
-          <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AND_AUDIBLE.</li>
+          <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AUDIBLE.</li>
           </ul>
 
           <p>An example taken from the validation set is:</p>
           <pre>
-          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AND_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
+          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
           ...
           </pre>
         </div>
