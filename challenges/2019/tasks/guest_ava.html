@@ -246,8 +246,8 @@
         <div class="col-md-12 col-sm-12">
             <h3 class="section-title">Evaluation Metric</h3>
             <p>
-                The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation">ActivityNet
-                  Github repository</a> (coming soon). Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank">this Google Group</a> with any questions or issues about the code.
+                The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation/get_ava_active_speaker_performance.py">ActivityNet
+                  Github repository</a>. Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/ava-dataset-users" target="_blank">this Google Group</a> with any questions or issues about the code.
             </p>
 
             <p>The official metric used in this task is the mAP.</p>
@@ -282,14 +282,14 @@
           <li>video_id: YouTube identifier</li>
           <li>frame_timestamp: in seconds from the start of the video.</li>
           <li>entity_box: face bounding box, top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
-          <li>label: SPEAKING_AND_AUDIBLE (other labels will be ignored).</li>
+          <li>label: SPEAKING_AUDIBLE (other labels will be ignored).</li>
           <li>entity_id: a unique string allowing this box to be linked to other boxes.</li>
-          <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AND_AUDIBLE.</li>
+          <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AUDIBLE.</li>
           </ul>
 
           <p>An example taken from the validation set is:</p>
           <pre>
-          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AND_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
+          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
           ...
           </pre>
         </div>
