@@ -496,7 +496,7 @@ function load_leaderboard(STATUS){
   }
   else if(STATUS == "spatiotemporal_full"){
     typecontent = "Active Speaker Detection (AVA)";
-    var performance = 'mAP@0.5IoU'
+    var performance = 'mAP'
   }
   var html = '<h3>' + typecontent + '</h3>'
 
