@@ -1,4 +1,4 @@
-SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge18/'
+SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge19/'
 var login_data;
 var leadership_data;
 var EMAIL;
@@ -237,11 +237,11 @@ function print_results_format(html) {
   var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Activity Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
   trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
 
-  var spatiotemporal_ = "<h3>Submit Your Results</h3><h4>Spatio-temporal Action Localization (AVA - Computer Vision ONLY)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal></code></pre>"
+  var spatiotemporal_ = "<h3>Submit Your Results</h3><h4>Spatio-temporal Action Localization (AVA)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal></code></pre>"
   spatiotemporal_ = sprintf(spatiotemporal_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
 
-  var spatiotemporal_full_ = "<h3>Submit Your Results</h3><h4>Spatio-temporal Action Localization (AVA - Full)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal_full></code></pre>"
-  spatiotemporal_full_ = sprintf(spatiotemporal_full_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
+  var spatiotemporal_full_ = "<h3>Submit Your Results</h3><h4>Active Speaker Detection (AVA)</h4><p>Please format your results as indicated <a href='tasks/guest_ava.html' target='_blank'> here</a>"
+  //spatiotemporal_full_ = sprintf(spatiotemporal_full_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
 
   //html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
   html = sprintf(html, proposals_, localization_, captioning_, trimmed_, spatiotemporal_, spatiotemporal_full_);
@@ -258,8 +258,8 @@ function print_classification_content() {
             '<li><a href="#localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
             '<li><a href="#trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
-            '<li><a href="#spatiotemporal" data-toggle="tab">&nbsp;AVA (#1)</a></li>'+
-            '<li><a href="#spatiotemporal_full" data-toggle="tab">&nbsp;AVA (#2)</a></li></ul></div>'+
+            '<li><a href="#spatiotemporal" data-toggle="tab">&nbsp;AVA (Actions)</a></li>'+
+            '<li><a href="#spatiotemporal_full" data-toggle="tab">&nbsp;AVA (Speaker)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
               '<div class="tab-pane active" id="proposals">%s</div>'+
               '<div class="tab-pane" id="localization">%s</div>'+
@@ -405,9 +405,13 @@ function print_results() {
 
     $("#leader_div").empty();
 
-    var header_html = `<h3>Thanks all for participating and pushing the limits of video understanding!</h3>
-                       <h3>Congratulations to all the winners. We hope to see you all at CVPR!</h3>
-                       <h3>Leadership board</h3>`
+    // var header_html = `<h3>Thanks all for participating and pushing the limits of video understanding!</h3>
+    //                    <h3>Congratulations to all the winners. We hope to see you all at CVPR!</h3>
+    //                    <h3>Leadership board</h3>`
+
+    var header_html = '<h3> ActivityNet Challenge 2019 Evaluation Server'
+
+
     $("#leader_div").append(header_html);
 
     var html = '<div id="leaderboard" >'+
@@ -417,8 +421,8 @@ function print_results() {
             '<li><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
             '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
-            '<li><a href="#leaderboard_spatiotemporal" data-toggle="tab">&nbsp;AVA (#1)</a></li>'+
-            '<li><a href="#leaderboard_spatiotemporal_full" data-toggle="tab">&nbsp;AVA (#2)</a></li></ul></div>'+
+            '<li><a href="#leaderboard_spatiotemporal" data-toggle="tab">&nbsp;AVA (Actions)</a></li>'+
+            '<li><a href="#leaderboard_spatiotemporal_full" data-toggle="tab">&nbsp;AVA (Speaker)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
               '<div class="tab-pane active" id="leaderboard_proposals"></div>'+
               '<div class="tab-pane" id="leaderboard_localization"></div>'+
@@ -487,17 +491,17 @@ function load_leaderboard(STATUS){
     var performance = 'Avg. Error'
   }
   else if(STATUS == "spatiotemporal"){
-    typecontent = "Spatio-temporal Action Localization (AVA - Computer Vision ONLY)";
+    typecontent = "Spatio-temporal Action Localization (AVA)";
     var performance = 'mAP@0.5IoU'
   }
   else if(STATUS == "spatiotemporal_full"){
-    typecontent = "Spatio-temporal Action Localization (AVA - Full)";
+    typecontent = "Active Speaker Detection (AVA)";
     var performance = 'mAP@0.5IoU'
   }
   var html = '<h3>' + typecontent + '</h3>'
 
   if (STATUS == "trimmed") {
-    html += '<p>The leaderboard for this task will not be released. Please refer to our <a href="https://groups.google.com/forum/?pli=1#!topic/activity-net/4tKhqTPXmcY" target="_blank"> Google Group post </a> for more details.</p>'
+    //html += '<p>The leaderboard for this task will not be released. Please refer to our <a href="https://groups.google.com/forum/?pli=1#!topic/activity-net/4tKhqTPXmcY" target="_blank"> Google Group post </a> for more details.</p>'
   }
 
   html += '<table id="myTable" class="table table-striped dataTable no-footer sort_table" role="grid" style=" background-color:#EBEBEB;width:100%"><thead><tr role="row">'+
