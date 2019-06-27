@@ -508,7 +508,7 @@ function load_leaderboard(STATUS){
 			      '<th class="sort sorting_desc_disabled" style="width:50px" rowspan="1" colspan="1">Ranking</th>'+
 		   	  '<th class="sort" style="width:50px" rowspan="1" colspan="1">Username</th>'+
 		      '<th class="sort" style="width:50px" rowspan="1" colspan="1">Organization</th>'+
-		      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Upload time</th>'+
+		      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">Processed time</th>'+
 		      '<th class="sort" sort_status="sortable" style="width:50px" rowspan="1" colspan="1">' + performance + '</th>'+
 		   '</tr></thead><tbody></tbody></table>';
 
