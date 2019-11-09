@@ -1,4 +1,4 @@
-SERVERURL = 'http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/challenge17/'
+SERVERURL = 'http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/challenge17/'
 var login_data;
 var leadership_data;
 var EMAIL;
@@ -6,8 +6,8 @@ var PASSWORD;
 var fullname;
 var FIRSTNAME;
 var LASTNAME;
-var serverurl = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/evaluation_server";
-var files = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files";
+var serverurl = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/evaluation_server";
+var files = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files";
 var TASKID = 1;
 var USERID;
 var fullname;
@@ -154,8 +154,8 @@ function print_logged(){
     }
   });
 }
-json_file_classification = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_classification.json";
-json_file_detection = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_detection.json";
+json_file_classification = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files/example_classification.json";
+json_file_detection = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files/example_detection.json";
 
 function load_example_formats() {
 
