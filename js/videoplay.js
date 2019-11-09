@@ -26,13 +26,13 @@ $('body').on('click', 'a.video', function(){
 	var title = VIDEO_TIME[myVideo].title;
         var video_duration = VIDEO_TIME[myVideo].duration;
 	//Current playing video
-	$('#frame2').attr("src", "https://www.youtube.com/v/" + myVideo + "?autoplay=1&color=red&rel=0&start=" + starting_times[0]* video_duration +"&end=" + ending_times[0]*video_duration).show();	
+	$('#frame2').attr("src", "https://www.youtube.com/embed/" + myVideo + "?autoplay=1&color=red&rel=0&start=" + parseInt(starting_times[0]* video_duration) +"&end=" + parseInt(ending_times[0]*video_duration)).show();	
 	//Video playing list
 	for (var idx=0; idx<starting_times.length; idx++) {
 		var this_start = starting_times[idx];
 		var this_end = ending_times[idx];
 		var index = idx+1;
-		imgUrl = "https://www.youtube.com/v/" + myVideo + "?autoplay=1&color=red&rel=0&start=" + this_start * video_duration + "&end=" + this_end * video_duration;
+		imgUrl = "https://www.youtube.com/embed/" + myVideo + "?autoplay=1&color=red&rel=0&start=" + parseInt(this_start * video_duration) + "&end=" + parseInt(this_end * video_duration);
 		$('ol.list-group').append('<li class= "list-group-item" title="Click to play"><a href="' + imgUrl + '"><div class="tag-status status1"></div><h5>' + title + ' (Instance ' + index + ') ' + '</h5></a></li>');
 
 	}
