@@ -10,8 +10,10 @@
 	return false;
 });*/
 
+$( document ).ready(function() {
 
 $('body').on('click', 'a.video', function(){
+
 	var myVideo = $(this).attr('href');
 	var videotitle = $(this).attr('title');
 
@@ -24,7 +26,7 @@ $('body').on('click', 'a.video', function(){
 	var starting_times = VIDEO_TIME[myVideo].start.split(',');
 	var ending_times = VIDEO_TIME[myVideo].end.split(',');
 	var title = VIDEO_TIME[myVideo].title;
-        var video_duration = VIDEO_TIME[myVideo].duration;
+    var video_duration = VIDEO_TIME[myVideo].duration;
 	//Current playing video
 	$('#frame2').attr("src", "https://www.youtube.com/embed/" + myVideo + "?autoplay=1&color=red&rel=0&start=" + parseInt(starting_times[0]* video_duration) +"&end=" + parseInt(ending_times[0]*video_duration)).show();	
 	//Video playing list
@@ -45,6 +47,7 @@ $('body').on('click', 'a.video', function(){
 
 	//Close the player and mask
 	$('.theme-poptit .close').click(function(){
+		$('#infoWrap').html('<div class="innerwrap" ><iframe id="frame2" name="aa" src="" frameborder="0"  ></iframe></div>');
 		$('.theme-popover-mask').fadeOut(100);
 		$('.theme-popover').slideUp(200);
 		$('body').css('overflow','visible');
@@ -53,8 +56,10 @@ $('body').on('click', 'a.video', function(){
 	});
 
 	return false;
+
 });
 
+});
 
 
 

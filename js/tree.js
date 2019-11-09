@@ -94,6 +94,14 @@ $('body').on('click', '.nextpage',function(e){
     $.each(videos.videos.video, function(i, v){
       $('#info').append('<a class="video" href="'+ v.videoId + '"title="'+ v.title +'" data-witdh = "640" data-height = "360"  href="'+ v.location +
 	  					'"><img src="http://img.youtube.com/vi/'+ v.videoId +'/1.jpg"></a>');
+
+    VIDEO_TIME[v.videoId] = new Object();
+    VIDEO_TIME[v.videoId].annotation = v,
+    VIDEO_TIME[v.videoId].title = v.title;
+    VIDEO_TIME[v.videoId].start = v.startTime;
+    VIDEO_TIME[v.videoId].end = v.endTime;
+    VIDEO_TIME[v.videoId].duration = v.duration;
+
     });
 
     $('.tree li span').removeClass('selected');
