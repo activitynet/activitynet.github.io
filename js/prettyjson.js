@@ -22,9 +22,9 @@ library.json = {
       }
    };
 
-json_file_annotation = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_entry.json";
-json_file_taxonomy = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_taxonomy.json";
-serverurl = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/evaluation_server";
+json_file_annotation = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files/example_entry.json";
+json_file_taxonomy = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files/example_taxonomy.json";
+serverurl = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/evaluation_server";
 $( document ).ready(function() {
     $.ajax({
     url:serverurl + "/submission_formats/example_entry.html",

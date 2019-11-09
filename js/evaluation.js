@@ -1,5 +1,5 @@
-var serverurl = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/evaluation_server/";
-var files = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files";
+var serverurl = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/evaluation_server/";
+var files = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files";
 var login_data;
 var leadership_data
 var EMAIL;
@@ -222,8 +222,8 @@ function get_user_info(useremail){
   });
 }
 
-json_file_classification = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_classification.json";
-json_file_detection = "http://ec2-52-11-11-89.us-west-2.compute.amazonaws.com/files/example_detection.json";
+json_file_classification = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files/example_classification.json";
+json_file_detection = "http://ec2-52-25-205-214.us-west-2.compute.amazonaws.com/files/example_detection.json";
 function load_example_formats() {
   /*
   $.getJSON(json_file_classification, function(json){
