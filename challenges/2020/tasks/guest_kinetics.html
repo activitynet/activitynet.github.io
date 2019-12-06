@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Task A &ndash; Trimmed Action Recognition | ActivityNet Large Scale Activity Recognition Challenge 2019</title>
+    <!-- core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <!-- Code highlighter -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../../images/favicon.png" >
+
+    <!-- Tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-56208223-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="../images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../people.html">People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../challenge.html">Challenge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Program</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../dates.html">Dates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Evaluation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link right-logo" href="http://cvpr2019.thecvf.com" target="_black">
+            <img src="../images/cvpr19logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+          </a>
+        </li>
+      </ul>
+    </div> <!-- collapse -->
+    </div>
+  </nav>
+
+  <section class="normal-page-title challenge-title">
+    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12">
+            <h1 class="title">Task A &ndash; Trimmed Action Recognition</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <p class="sub-navigation">
+              <a href="../challenge.html">Challenge 2019</a> &rarr;
+              <strong>Task A &ndash; Trimmed Action Recognition</strong>
+            </p>
+            <p>
+              The goal of the Kinetics dataset is to help the computer vision and machine learning communities advance models for video understanding. Given this large human action classification dataset, it may be possible to learn powerful video representations that transfer to different video tasks.
+            </p>
+            <p>
+              <strong>For information related to this task, please contact:</strong>
+              <a href="mailto:enoland@google.com?Subject=Kinetics-ActivityNet Challenge" target="_top">enoland@google.com</a>, <a href="mailto:joaoluis@google.com?Subject=Kinetics-ActivityNet Challenge" target="_top">joaoluis@google.com</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dataset">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Dataset</h2>
+            <p>The <a target="_blank" href="https://deepmind.com/kinetics">Kinetics-700 dataset</a> will be used for this challenge. Kinetics-700 is a large-scale, high-quality dataset of YouTube video URLs which include a diverse range of human focused actions. Our aim in releasing the Kinetics dataset is to help the machine learning community to advance models for video understanding. It is an approximate super-set of both Kinetics-400, released in 2017 and Kinetics-600, released in 2018.  </p>
+             <p>The dataset consists of approximately 650,000 video clips, and covers 700 human action classes with at least 600 video clips for each action class. Each clip lasts around 10 seconds and is labeled with a single class. All of the clips have been through multiple rounds of human annotation, and each is taken from a unique YouTube video. The actions cover a broad range of classes including human-object interactions such as playing instruments, as well as human-human interactions such as shaking hands and hugging.</p>
+              
+             <p>More information about how to download the Kinetics dataset is available <a target="_blank" href="https://deepmind.com/research/open-source/open-source-datasets/kinetics/">here</a>.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="evaluation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Evaluation Metric</h2>
+            <p>
+              The evaluation code used by the evaluation server can be <a target="_blank" href="https://github.com/activitynet/ActivityNet/blob/master/Evaluation/get_kinetics_performance.py">found here</a>.
+              For each video, an algorithm will produce \( k \) labels \( l_j \) where \( j = 1, \dots , k \). The ground-truth label for the video is \( g \). The error of the algorithm for that video would be:
+
+              $$ e = \text{min}_j d \left( l_j, g \right)$$
+
+              with \( d \left( x, y \right) = 0 \) if \( x = y \) and \( 1 \) otherwise. The overall error score for an algorithm is the average error over all videos. We will use \( k = 1 \) and \( k = 5 \) and the winner of the challenge will be selected based on the average of these two errors.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Baselines</h2>
+            <p> Pre-trained models and pre-computed features will be available soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="submission-format">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Submission Format</h2>
+            <p> Please use the following JSON format when submitting your results for the challenge:</p>
+            <pre>
+              <code class="json">{
+  version: "KINETICS VERSION 1.0",
+  results: {
+    # Note that each result composes a unique key results "youtubeid_timestart_timeend"
+    "p76-UdadD7w_47_57": [
+        {
+          label: "abseiling",
+          score: 0.65
+        },
+        {
+          label: "shot put",
+          score: 0.15
+        },
+        {
+          label: "skydiving",
+          score: 0.08
+        },
+        {
+          label: "smooking hookah",
+          score: 0.04
+        },
+        {
+          label: "cleaning windows",
+          score: 0.04
+        }
+    ]
+  },
+  external_data: {
+    used: true, # Boolean flag. True indicates the use of external data.
+    details: "First fully-connected layer from VGG-16 pre-trained on ILSVRC-2012 training set", # This string details what kind of external data you used and how you used it.
+  }
+}
+              </code>
+            </pre>
+            <p>The example above is illustrative. Comments must be removed in your submission. Please take into account that <strong>only 5 predictions are allowed per video.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="award">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h2 class="section-title">Awards</h2>
+            <p>
+              <!-- The winner of Task A (trimmed action recognition) will receive <strong>4,000 USD</strong> and a <strong>Qualcomm</strong> gift. The second place will receive <strong>2,000</strong> USD.    -->
+              Stay tuned &#128521
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+    <div class="footer-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <img src="../images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <ul class="footer-nav">
+              <li class="nav-item">
+                <a href="../">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="../people.html">People</a>
+              </li>
+              <li class="nav-item">
+                <a href="../challenge.html">Challenge</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Program</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Evaluation</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">Contact</h4>
+              <p class="footer-section-text">
+                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
+              </p>
+            </div>
+            <div class="footer-text-section">
+              <h4 class="footer-section-title">FAQ</h4>
+              <p class="footer-section-text">
+                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- Code Highlighter -->
+  <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
