@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Program | ActivityNet Large Scale Activity Recognition Challenge 2020</title>
     <!-- core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
@@ -16,262 +17,228 @@
     <script src="../../js/html5shiv.js"></script>
     <script src="../../js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png">
 
     <!-- Tracking code -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-56208223-2', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'UA-56208223-2', 'auto');
+        ga('send', 'pageview');
 
     </script>
 </head><!--/head-->
 
 <body id="challenge" class="challenge-page normal-page">
-  <nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
-    </a>
+        <a class="navbar-brand" href="index.html">
+            <img src="images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+        </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="people.html">People</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="challenge.html">Challenge</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="program.html">Program</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="dates.html">Dates</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="evaluation.html">Evaluation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link right-logo" href="http://cvpr2020.thecvf.com" target="_black">
-            <img src="images/cvpr20logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
-          </a>
-        </li>
-      </ul>
-    </div> <!-- collapse -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="people.html">People</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="challenge.html">Challenge</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="program.html">Program</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dates.html">Dates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="evaluation.html">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link right-logo" href="http://cvpr2020.thecvf.com" target="_black">
+                        <img src="images/cvpr20logo.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+                    </a>
+                </li>
+            </ul>
+        </div> <!-- collapse -->
     </div>
-  </nav>
+</nav>
 
-  <section class="normal-page-title challenge-title">
+<section class="normal-page-title challenge-title">
     <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
     <div class="container">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-12">
-            <h1 class="title">Program</h1>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+                <h1 class="title">Program</h1>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <section class="guidelines">
+<section class="guidelines">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h3>International Challenge on Activity Recognition (ActivityNet) 2020</h3>
-          <h5>TBD</h5>
-          <h5>Date: to be announced</h5>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>International Challenge on Activity Recognition (ActivityNet) 2020</h3>
+<!--                <h5>TBD</h5>-->
+                <h5>Date: June 14th, 2020</h5>
+            </div>
         </div>
-      </div>
-      <div class="row">
-<!--        <div class="col-md-12">-->
-<!--            <table class="table">-->
-<!--                <thead>-->
-<!--                  <tr>-->
-<!--                    <th scope="col">Start time</th>-->
-<!--                    <th scope="col">Title</th>-->
-<!--                    <th scope="col">Speaker/Author(s)</th>-->
-<!--                  </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                    <tr>-->
-<!--                      <th scope="row">9:00</th>-->
-<!--                      <td><a href="https://drive.google.com/open?id=14_LamS2_mUTmufgAfmtmcpi2HQN0Oymu" target="_blank">Welcome and opening remarks</a></td>-->
-<!--                      <td>Bernard Ghanem</td>-->
-<!--                    </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">9:15</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=12IYwrvnndfc-fBwzzrZVIZaIlNokUbz2" target="_blank">Keynote - Invited Talk</a></td>-->
-<!--                    <td>Ivan Laptev (INRIA)</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">10:00</th>-->
-<!--                    <td>Morning break</td>-->
-<!--                    <td> </td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">10:30</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=1bIsZSw595gpxd1pf3NhZbLT370o5rDgO" target="_blank">ActivityNet Temporal Proposal Detection Task (Results)</a></td>-->
-<!--                    <td>Victor Escorcia</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">10:40</th>-->
-<!--                    <td>ActivityNet Temporal Proposal Detection Task (Runner-up Talk)</td>-->
-<!--                    <td></td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">11:00</th>-->
-<!--                    <td>ActivityNet Temporal Proposal & Temporal Activity Detection Task (Winner Talk)</td>-->
-<!--                    <td></td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">11:20</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=1yUxmD07oR40KCKZBDEFhMvsCljvAHLdT" target="_blank">ActivityNet Temporal Activity Detection Task (Results)</a></td>-->
-<!--                    <td>Fabian Caba</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">11:30</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=1MZTBMvLapepn2TMMgjbPfOGnFSeNPes5" target="_blank">Diagnosing Error in Temporal Action Detectors</a></td>-->
-<!--                    <td>Humam Alwassel</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">11:50</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=1vj69E0bTlA928yZ5B6Nr4ToR66nyPgz-" target="_blank">ActivityNet Temporal Captioning Task (Results)</a></td>-->
-<!--                    <td>Ranjay Krishna</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">12:00</th>-->
-<!--                    <td>ActivityNet Temporal Captioning Task (Winner Talk)</td>-->
-<!--                    <td>ActivityNet Organizer</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">12:30</th>-->
-<!--                    <td>Lunch</td>-->
-<!--                    <td> </td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">13:30</th>-->
-<!--                    <td><a href="https://drive.google.com/file/d/1-PwBTw6_xKgptPKaXge-wPf5eSchAI9B/view" target="_blank">Keynote - Invited Talk</a></td>-->
-<!--                    <td>Kate Saenko (Boston University)</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">14:15</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=164kU_MFTKzmefbgOLntuiiTmADutl_x0" target="_blank">Kinetics Task (Results)</a></td>-->
-<!--                    <td>Joao Carreira</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">14:30</th>-->
-<!--                    <td>Kinetics Task (Winner Talk)</td>-->
-<!--                    <td>Task Winner</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">15:00</th>-->
-<!--                    <td>Afternoon break</td>-->
-<!--                    <td> </td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">15:30</th>-->
-<!--                    <td><a href="https://docs.google.com/presentation/d/170FRbQgRx8OuQfS8syrl4fLS-w8Ac6F6LGQFBaQDBow/edit?usp=sharing" target="_blank">AVA Task (Results)</a></td>-->
-<!--                    <td>David Ross and Sourish Chaudhuri</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">15:45</th>-->
-<!--                    <td>AVA Task (Winner Talks)</td>-->
-<!--                    <td>Task Winner</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">16:00</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=1SWvdHJcTDgxgEkX3l0UbhmzU47GYTHYJ" target="_blank">ActEv Task (Results)</a></td>-->
-<!--                    <td>Afzal Godil</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">16:10</th>-->
-<!--                    <td>ActEv Task (Winner Talks)</td>-->
-<!--                    <td>Task Winner</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">16:45</th>-->
-<!--                    <td><a href="https://drive.google.com/open?id=14gxJjNINeML5BevpAYC06tZaDVgkoCIV" target="_blank">EPIC-Kitchen Task (Results)</a></td>-->
-<!--                    <td>Dima Damen</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">16:55</th>-->
-<!--                    <td>EPIC-Kitchen Task (Winner Talks)</td>-->
-<!--                    <td>Task Winner</td>-->
-<!--                  </tr>-->
-<!--                  <tr>-->
-<!--                    <th scope="row">17:25</th>-->
-<!--                    <td>Closing remarks</td>-->
-<!--                    <td>ActivityNet Organizer</td>-->
-<!--                  </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-<!--        </div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Start time</th>
+                        <th scope="col">Title</th>
+                        <!--                    <th scope="col">Speaker/Author(s)</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row"> 9:00-9:15</th>
+                        <td> Opening Remarks</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 9:15-10:00</th>
+                        <td> Keynote - Invited Talk</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 10:00-10:30</th>
+                      <td> <a href="tasks/anet_localization.html">ActivityNet Temporal Action Localization</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 10:30-10:45</th>
+                        <td> Morning Break</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 10:45-11:15</th>
+                      <td> <a href="http://hacs.csail.mit.edu/challenge.html">HACS Temporal Action Localization</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 11:15-11:45</th>
+                      <td> <a href="tasks/anet_captioning.html">ActivityNet Temporal Captioning</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 11:45-12:15</th>
+                      <td> <a href="tasks/guest_anet_eol.html">ActivityNet Entities</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 12:15-13:15</th>
+                        <td> Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 13:15-14:00</th>
+                        <td> Keynote - Invited Talk</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 14:00-14:30</th>
+                      <td> <a href="tasks/guest_kinetics_ava.html">AVA-Kinetics Task</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 14:30-15:00</th>
+                      <td> <a href="tasks/guest_ava.html">AVA Tasks</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 15:00-15:30</th>
+                        <td> Afternoon Break</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 15:30-16:00</th>
+                      <td> <a href="tasks/guest_actev.html">ActEV SDL Task</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 16:00-16:30</th>
+                        <td> Concluding Remarks</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    </div>
-  </section>
+</section>
 
 
-  <footer class="footer">
+<footer class="footer">
     <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
     <div class="footer-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-xs-12">
-            <img src="images/ChallengeLogo_White.svg" alt="" class="footer-logo">
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <ul class="footer-nav">
-              <li class="nav-item">
-                <a href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="people.html">People</a>
-              </li>
-              <li class="nav-item">
-                <a href="challenge.html">Challenge</a>
-              </li>
-              <li class="nav-item">
-                <a href="program.html">Program</a>
-              </li>
-              <li class="nav-item">
-                <a href="evaluation.html">Evaluation</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="footer-text-section">
-              <h4 class="footer-section-title">Contact</h4>
-              <p class="footer-section-text">
-                For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
-              </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <img src="images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <ul class="footer-nav">
+                        <li class="nav-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="people.html">People</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="challenge.html">Challenge</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="program.html">Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="evaluation.html">Evaluation</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="footer-text-section">
+                        <h4 class="footer-section-title">Contact</h4>
+                        <p class="footer-section-text">
+                            For general information or inquiry about the ActivityNet workshop (evaluation server, dates,
+                            or program), please contact <strong>Fabian Caba </strong> <a
+                                href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry"
+                                target="_top">fabian.caba@kaust.edu.sa</a>
+                        </p>
+                    </div>
+                    <div class="footer-text-section">
+                        <h4 class="footer-section-title">FAQ</h4>
+                        <p class="footer-section-text">
+                            For ActivityNet Database FAQs visit our<a
+                                href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google
+                            Group.</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-text-section">
-              <h4 class="footer-section-title">FAQ</h4>
-              <p class="footer-section-text">
-                For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
