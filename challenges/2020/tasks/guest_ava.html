@@ -96,7 +96,10 @@
               <strong>Task C &ndash; Spatio-temporal Action Localization (AVA)</strong>
             </p>
             <p>
-              This task is intended to evaluate the ability of algorithms to localize human actions in space and time, using the <a href="https://research.google.com/ava/" target="_blank">AVA Dataset</a>. This year we'll continue with <a href="https://arxiv.org/abs/1705.08421" target="_blank">AVA Actions</a> as the primary challenge, while also introducing a new secondary challenge based on the recently-released <a href="https://arxiv.org/abs/1901.01342" target="_blank">AVA ActiveSpeaker</a> dataset. Performance will be ranked separately for the two challenges.
+              This task is intended to evaluate the ability of algorithms to localize human actions in space and time, using the <a href="https://research.google.com/ava/" target="_blank">AVA Dataset</a>.
+<!--              This year we'll continue with <a href="https://arxiv.org/abs/1705.08421" target="_blank">AVA Actions</a> as the primary challenge, while also introducing a new secondary challenge based on the recently-released <a href="https://arxiv.org/abs/1901.01342" target="_blank">AVA ActiveSpeaker</a> dataset.-->
+              This year we'll introduce Ava-Kinetics Crossover Challenge and Active Speaker Detection.
+              Performance will be ranked separately for the two challenges.
             </p>
 
             <p>For more information on the challenges, or questions, please subscribe to Google Group:
@@ -111,17 +114,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-          <h2 class="section-title">Challenge #1: AVA Actions</h2>
+          <h2 class="section-title">Challenge #1: Ava-Kinetics Crossover</h2>
           <p>
-            For this task, participants will use the <a href="https://research.google.com/ava/" target="_blank">AVA Actions dataset</a>. The long term goal of this dataset is to enable modeling of complex activities by building on top of current work in recognizing atomic actions.
+            The AVA-Kinetics task is an umbrella for a crossover of the previous AVA and Kinetics tasks, where Kinetics <stong>has</stong> now been annotated with AVA labels (but AVA <stong>has not</stong> been annotated with Kinetics labels). There has always been some interactions between the two datasets, e.g. many of the AVA methods are pre-trained on Kinetics.
+            The new annotations should allow for improved performance on both tasks and also increase the diversity of the AVA evaluation set (which now also includes Kinetics clips).
           </p>
-
           <p>
-            Each labeled video segment can contain multiple subjects, each performing potentially multiple actions. The goal is to identify these subjects and actions over continuous 15-minute video clips extracted from movies.
-          </p>
-
-          <p>
-            Participants are allowed to leverage any input modalities (e.g. audio/video) or additional datasets, but are requested to document these in the report to be submitted to the challenge.
+            <strong>For information related to this task, please contact:</strong>
+            <a href="mailto:joaoluis@google.com?Subject=Kinetics-ActivityNet Challenge" target="_top">joaoluis@google.com</a>
           </p>
         </div>
       </div>
@@ -131,16 +131,16 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
             <h3 class="section-title">Dataset</h3>
-            <p>
-                The <a href="https://research.google.com/ava/download.html" target="_blank">AVA Actions Dataset version v2.2</a> will be used for this task. The AVA dataset densely annotates 80 atomic visual actions in 430 15-minute movie clips, where actions are localized in space and time, resulting in 1.62M action labels with multiple labels per human occurring frequently. Clips are drawn from contiguous segments of movies, to open the door for temporal reasoning about activities. The dataset is split into 235 videos for training, 64 videos for validation, and 131 videos for test. More information
-                about how to download the AVA dataset is
-                available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>.
-            </p>
-            <p>The list of test videos is available on
-              the <a href="https://research.google.com/ava/download.html"
-              target="_blank">AVA website</a>, along with details of which
-              timestamps will be used for testing.
-            </p>
+          <p>
+            The <a href="https://research.google.com/ava/download.html" target="_blank">AVA-Kinetics Dataset</a> will be used for this task. The AVA-Kinetics dataset consists of the original 430 videos from AVA v2.2, together with 238k videos from the Kinetics-700 dataset.
+          </p>
+          <p>
+            AVA-Kinetics, our latest release, is a crossover between the AVA Actions and <a href="https://deepmind.com/research/open-source/kinetics" target="_blank">Kinetics datasets</a>.
+            In order to provide localized action labels on a wider variety of visual scenes, we've provided AVA action labels on videos from Kinetics-700, nearly doubling the number of total annotations, and increasing the number of unique videos by over 500x.
+            We hope this will expand the generalizability of localized action models, and open the door to new approaches in multi-task learning.
+
+            AVA-Kinetics is described in detail in the <a href="https://arxiv.org/abs/2005.00214" target="_blank">arXiv paper</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -148,17 +148,17 @@
     <div class="container evaluation">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h3 class="section-title">Evaluation Metric</h3>
-            <p>
-                The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation">ActivityNet
-                  Github repository</a>. Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank">this Google Group</a> with any questions or issues about the code.
-            </p>
+          <h3 class="section-title">Evaluation Metric</h3>
+          <p>
+            The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation">ActivityNet
+            Github repository</a>. Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank">this Google Group</a> with any questions or issues about the code.
+          </p>
 
-            <p>The official metric used in this task is the Frame-mAP at spatial IoU >=
-              0.5. Since action frequency in AVA follows the natural distribution, averaged
-              across the top 60 most common action classes in AVA,
-              listed <a href="https://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">here</a>.
-            </p>
+          <p>The official metric used in this task is the Frame-mAP at spatial IoU >=
+            0.5. Since action frequency in AVA follows the natural distribution, averaged
+            across the top 60 most common action classes in AVA,
+            listed <a href="https://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">here</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -166,12 +166,12 @@
     <div class="container baseline">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h3 class="section-title">Baselines</h3>
-            <p>A basic pre-trained model will be available on the
-              <a href="https://research.google.com/ava/download.html"
-              target="_blank">AVA website</a>. Baseline results on AVA v2.1 can be found in the <a href="http://research.google.com/ava/challenge.html"
-              target="_blank">results from last year's challenge</a>.
-            </p>
+          <h3 class="section-title">Baselines</h3>
+          <p>A basic pre-trained model will be available on the
+            <a href="https://research.google.com/ava/download.html"
+               target="_blank">AVA website</a>. Baseline results on AVA v2.1 can be found in the <a href="http://research.google.com/ava/challenge.html"
+                                                                                                    target="_blank">results from last year's challenge</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -185,14 +185,14 @@
             of a score column for each box-label.
           </p>
           <p>The format of a row is the following: video_id,
-          middle_frame_timestamp, person_box, action_id, score
+            middle_frame_timestamp, person_box, action_id, score
           </p>
           <ul>
-          <li>video_id: YouTube identifier</li>
-          <li>middle_frame_timestamp: in seconds from the start of the video.</li>
-          <li>person_box: top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
-          <li>action_id: integer identifier of an action class, from <a href="http://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">ava_action_list_v2.2_for_activitynet_2019.pbtxt</a>.</li>
-          <li>score: a float indicating the score for this labeled box.</li>
+            <li>video_id: YouTube identifier</li>
+            <li>middle_frame_timestamp: in seconds from the start of the video.</li>
+            <li>person_box: top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
+            <li>action_id: integer identifier of an action class, from <a href="http://research.google.com/ava/download/ava_action_list_v2.2_for_activitynet_2019.pbtxt" target="_blank">ava_action_list_v2.2_for_activitynet_2019.pbtxt</a>.</li>
+            <li>score: a float indicating the score for this labeled box.</li>
           </ul>
 
           <p>An example taken from the validation set is:</p>
@@ -207,6 +207,7 @@
       </div>
     </div>
   </section>
+
 
   <section class="challenge">
     <div class="container">
