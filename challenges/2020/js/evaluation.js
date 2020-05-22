@@ -237,7 +237,7 @@ function print_results_format(html) {
   var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Activity Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
   trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
 
-  var spatiotemporal_ = "<h3>Submit Your Results</h3><h4>Spatio-temporal Action Localization (AVA)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal></code></pre>"
+  var spatiotemporal_ = "<h3>Submit Your Results</h3><h4>AVA-Kinetics</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal></code></pre>"
   spatiotemporal_ = sprintf(spatiotemporal_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
 
   var spatiotemporal_full_ = "<h3>Submit Your Results</h3><h4>Active Speaker Detection (AVA)</h4><p>Please format your results as indicated <a href='tasks/guest_ava.html' target='_blank'> here</a>"
@@ -261,7 +261,7 @@ function print_classification_content() {
             '<li class="active"><a href="#localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
             '<li><a href="#trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
-            '<li><a href="#spatiotemporal" data-toggle="tab">&nbsp;AVA (Actions)</a></li>'+
+            '<li><a href="#spatiotemporal" data-toggle="tab">&nbsp;AVA-Kinetics</a></li>'+
             '<li><a href="#spatiotemporal_full" data-toggle="tab">&nbsp;AVA (Speaker)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
               // '<div class="tab-pane active" id="proposals">%s</div>'+
@@ -426,7 +426,7 @@ function print_results() {
             '<li class="active"><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
             '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
-            '<li><a href="#leaderboard_spatiotemporal" data-toggle="tab">&nbsp;AVA (Actions)</a></li>'+
+            '<li><a href="#leaderboard_spatiotemporal" data-toggle="tab">&nbsp;AVA-Kinetics</a></li>'+
             '<li><a href="#leaderboard_spatiotemporal_full" data-toggle="tab">&nbsp;AVA (Speaker)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
               // '<div class="tab-pane active" id="leaderboard_proposals"></div>'+
@@ -496,7 +496,7 @@ function load_leaderboard(STATUS){
     var performance = 'Avg. Error'
   }
   else if(STATUS == "spatiotemporal"){
-    typecontent = "Spatio-temporal Action Localization (AVA)";
+    typecontent = "AVA-Kinetics";
     var performance = 'mAP@0.5IoU'
   }
   else if(STATUS == "spatiotemporal_full"){
