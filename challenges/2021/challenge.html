@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Challenge Description | International Challenge on Activity Recognition 2020 (ActivityNet)</title>
+  <!-- core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]>
+  <script src="../../js/html5shiv.js"></script>
+  <script src="../../js/respond.min.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+
+  <!-- Tracking code -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56208223-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">People</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="challenge.html">Challenge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Program</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Evaluation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link right-logo" href="http://cvpr2021.thecvf.com" target="_black">
+            <img src="images/cvpr21.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+          </a>
+        </li>
+      </ul>
+    </div> <!-- collapse -->
+  </div>
+</nav>
+
+<section class="normal-page-title challenge-title">
+  <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12">
+        <h1 class="title">Challenge Description</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guidelines">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="section-title">Challenge Introduction</h2>
+
+<!--        <p class="para-text">To be announced...</p>-->
+                    <p class="para-text">
+
+Since the success of the previous ActivityNet Challenges and based on your feedback, we have worked hard on making this round richer and more inclusive. We are proud to announce that this year's challenge will be a packed half-day workshop with parallel tracks and will host <b>12 diverse challenges</b>, which aim to push the limits of semantic visual understanding of videos as well as bridging visual content with human captions.</br>
+Three out of the twolve challenges are based on the ActivityNet Dataset. These tasks focus on tracing evidence of activities in time in the form of class labels, captions, and object entities. In this installment of the challenge, we will host ten guest tasks, which enrich the understanding of visual information in videos. These tasks focus on complementary aspects of the video understanding problems at large scale and involve challenging and recently compiled datasets.
+
+                    </p>
+<!--                    <p class="para-text">-->
+<!--                      In this installment of the challenge, we will host four guest tasks which enrich the understanding of visual information in videos. These tasks focus on complementary aspects of the activity recognition problem at large scale and involve challenging and recently compiled video understanding datasets, including <a href="https://deepmind.com/kinetics" target="_blank">Kinetics</a> (Google DeepMind), <a href="https://research.google.com/ava/" target="_blank">AVA</a> (Google), <a href="https://epic-kitchens.github.io/2018" target="_blank"> EPIC-Kitchens </a> (University of Bristol), and <a href="https://actev.nist.gov/prizechallenge" target="_blank"> VIRAT </a> (NIST)-->
+<!--                    </p>-->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tasks flex-list" id="action-recognition">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="section-title">Action Recognition</h2>
+
+
+        <!-- Kinetics -->
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="tasks/guest_kinetics.html">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/kinetics.png"/>
+                  </div>
+<!--                   <div class="text">
+                    <h4 class="has-label">Task 1</h4>
+                    <div class="label">5th ed.</div>
+                  </div> -->
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">Kinetics-700 Challenge</h4>
+                <p class="description">
+                The Kinetics 2021 challenge will have two tracks: supervised and self-supervised classification. Both will be restricted to using RGB and/or audio modalities from videos in the Kinetics-700-2020 dataset.
+                </p>
+                <div class="flex-item-button">
+                  <a href="tasks/guest_kinetics.html" class="box-animated-link">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TinyActions -->
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="https://www.crcv.ucf.edu/tiny-actions-challenge-cvpr2021/" target='_blank'>
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/tinyactions.png"/>
+                  </div>
+<!--                   <div class="text">
+                    <h4 class="has-label">Task 1</h4>
+                    <div class="label">5th ed.</div>
+                  </div> -->
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">TinyActions</h4>
+                <p class="description">
+                This challenge focuses on recognizing tiny actions in videos. It contains two tasks: i) Activity recognition, and ii) Activity detection. The tasks will run on two benchmark datasets, TinyVIRAT and TinyActions.
+                </p>
+                <div class="flex-item-button">
+                  <a href="https://www.crcv.ucf.edu/tiny-actions-challenge-cvpr2021/" class="box-animated-link" target='_blank'>
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--          <p class="para-text">To be announced...</p>-->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tasks flex-list" id="temporal-localization">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="section-title">Temporal Localization</h2>
+
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="tasks/anet_localization.html">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/anet_localization.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name"><span style="color: #F54E4E">ActivityNet</span> Temporal Action Localization</h4>
+                <p class="description">
+                  This task is intended to evaluate the ability of algorithms to <strong>temporally localize activities in untrimmed video sequences</strong>. Here, videos can contain more than one activity instance, and mutiple activity categories can appear in the video.
+                </p>
+                <div class="flex-item-button">
+                  <a href="tasks/anet_localization.html" class="box-animated-link">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="http://hacs.csail.mit.edu/challenge.html" target="_blank">
+              <div class="flex-item-icon">
+                <div class="image">
+                  <img class="img-responsive" src="./images/tasks/hacs.png"/>
+                </div>
+              </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">HACS Temporal Action Localization Challenge 2021</h4>
+                <p class="description">
+                  The goal of this challenge is to detect actions in untrimmed videos. Please find more details on the <a href="http://hacs.csail.mit.edu/challenge.html">website</a>.
+                </p>
+                <div class="flex-item-button">
+                  <a href="http://hacs.csail.mit.edu/challenge.html" class="box-animated-link" target="_blank">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="https://soccer-net.org/" target="_blank">
+              <div class="flex-item-icon">
+                <div class="image">
+                  <img class="img-responsive" src="./images/tasks/soccernet.png"/>
+                </div>
+              </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">SoccerNet Challenge</h4>
+                <p class="description">
+                This challenge leverages the SoccerNet-V2 dataset, which contains over 500 games covering three seasons of the six major European football leagues. It aims to encourage participants to spot the exact timestamps in the video at which: (i) various actions occur, and (ii) actions replayed in the sequences occur, given a professional soccer broadcast.
+                </p>
+                <div class="flex-item-button">
+                  <a href="https://soccer-net.org/" class="box-animated-link" target="_blank">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tasks flex-list" id="spatiotemporal-localization">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="section-title">Spatio-Temporal Localization</h2>
+
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="tasks/guest_ava.html">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/ava.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">AVA-Kinetics & Active Speakers</h4>
+                <p class="description">
+                  This challenge addresses two fundamental problems for spatio-temporal video understanding: (i) localize actions extents in space and time, and (ii) densely detect active speakers in video sequences.
+                </p>
+                <div class="flex-item-button">
+                  <a href="tasks/guest_ava.html" class="box-animated-link">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="https://actev.nist.gov/sdl" target="_blank">
+              <div class="flex-item-icon">
+                <div class="image",style="height: auto ! important;">
+                  <!-- <img class="img-responsive" src="https://actev.nist.gov/uassets/3"/> -->
+                  <img class="img-responsive"
+                       src="http://mig.nist.gov/public/actev/2017-10-DIVA-v1-preview-annotations/DIVA-v1-preview-annotations/gifs/Loading-00.gif" style="height: auto;"/>
+                </div>
+              </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">ActEV SDL Unknown Facility (UF)</h4>
+                <p class="description">
+                  This challenge encourages participants to submit their runnable activity detection system for Known Activities using an ActEV Command Line Interface (CLI) submission on the Unknown Facility EO video dataset. <a href="tasks/guest_actev.html"> Executive summary</a>.
+                </p>
+                <div class="flex-item-button">
+                  <a href="https://actev.nist.gov/sdl" class="box-animated-link" target="_blank">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tasks flex-list" id="video-language">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="section-title">Complex Event Understanding</h2>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="tasks/anet_captioning.html">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/anet_captioning.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name"><span style="color: #F54E4E">ActivityNet</span> Event Dense-Captioning</h4>
+                <p class="description">
+                  This task involves both <strong>detecting and describing events</strong> in a video. For this task, participants will use the ActivityNet Captions dataset, a new large-scale benchmark for dense-captioning events.
+                </p>
+                <div class="flex-item-button">
+                  <a href="tasks/anet_captioning.html" class="box-animated-link">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="https://github.com/facebookresearch/ActivityNet-Entities#activitynet-entities-object-localization-challenge-2021" target="_blank">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/anet_eol.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">ActivityNet Entities Object Localization</h4>
+                <p class="description">
+                  This task aims to evaluate how <strong> grounded or faithful </strong> a description (could be generated or ground-truth) is to the video they describe.
+                  An object word is first identified in the description and then localized in the video in the form of a spatial bounding box.
+                  The prediction is compared against the human annotation to determine the correctness and overall localization accuracy.
+                  <a href="https://github.com/facebookresearch/ActivityNet-Entities#activitynet-entities-object-localization-challenge-2021" target="_blank"> External Link </a>
+                </p>
+                <div class="flex-item-button">
+                  <a href="https://github.com/facebookresearch/ActivityNet-Entities#activitynet-entities-object-localization-challenge-2021" class="box-animated-link" target="_blank">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="vidsitu.org">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/vidsitu.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">Video Semantic Role Labeling (VidSitu dataset)</h4>
+                <p class="description">
+                This challenge evaluates the ability of vision algorithms to understand complex related events in a video. Each event may be described by a verb corresponding to the most salient action in a video segment and its semantic roles. VidSRL involves 3 sub-tasks: (1) predicting a verb-sense describing the most salient action; (2) predicting the semantic roles for a given verb; and (3) predicting event relations given the verbs and semantic roles for two events. More details at <a href="vidsitu.org" > vidsitu.org </a>
+                </p>
+                <div class="flex-item-button">
+                  <a href="vidsitu.org">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tasks flex-list" id="multi-view">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="section-title">Multi-view & Cross-modal Video Understanding</h2>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="https://mmact19.github.io/2019/" target="_blank">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/mmact.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">MMAct Challnge</h4>
+                <p class="description">
+                This challenge focuses on cross-modal video action recognition/localization addressing shortcomings in visual-only approaches, by leveraging both sensor-based, e.g. body-worn sensors, and vision-based modalities in ways that can overcome the limitations imposed by  modality discrepancy between train(sensor + video) and test (only video) phase.
+
+                </p>
+                <div class="flex-item-button">
+                  <a href="https://mmact19.github.io/2019/" target="_blank" class="box-animated-link">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="flex-list-item">
+              <a href="https://homeactiongenome.org/" target="_blank">
+                <div class="flex-item-icon">
+                  <div class="image">
+                    <img class="img-responsive" src="images/tasks/homage.png"/>
+                  </div>
+                </div>
+              </a>
+              <div class="flex-item-info">
+                <h4 class="name">HOMAGE</h4>
+                <p class="description">
+                We are releasing, Action Genome, and Home Action Genome (HOMAGE). Action Genome is a compositional activity recognition based on Charades.  As with Action Genome, Home Action Genome is focused on compositional activity recognition in the home, but adds multiple views, and additional sensor modalities.  We will have two tracks for this challenge: Activity Recognition, and Scene Graph Detection.
+
+                </p>
+                <div class="flex-item-button">
+                  <a href="https://homeactiongenome.org/" target="_blank" class="box-animated-link">
+                    <span>Details</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+  <div class="footer-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-12">
+          <img src="images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <ul class="footer-nav">
+            <li class="nav-item">
+              <a href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="people.html">People</a>
+            </li>
+            <li class="nav-item">
+              <a href="challenge.html">Challenge</a>
+            </li>
+            <li class="nav-item">
+              <a href="program.html">Program</a>
+            </li>
+            <li class="nav-item">
+              <a href="evaluation.html">Evaluation</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <div class="footer-text-section">
+            <h4 class="footer-section-title">Contact</h4>
+            <p class="footer-section-text">
+              For general information or inquiry about the ActivityNet workshop (evaluation server, dates, or program), please contact <strong>Fabian Caba </strong> <a href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry" target="_top">fabian.caba@kaust.edu.sa</a>
+            </p>
+          </div>
+          <div class="footer-text-section">
+            <h4 class="footer-section-title">FAQ</h4>
+            <p class="footer-section-text">
+              For ActivityNet Database FAQs visit our<a href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google Group.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>
