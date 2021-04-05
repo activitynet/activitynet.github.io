@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>ActivityNet Challenge</title>
+<!-- core CSS -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/animate.min.css" rel="stylesheet">
+<link href="../../css/owl.carousel.css" rel="stylesheet">
+<link href="../../css/owl.transitions.css" rel="stylesheet">
+<link href="../../css/prettyPhoto.css" rel="stylesheet">
+<link href="../2017/css/main.css" rel="stylesheet">
+<link href="../../css/responsive.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link href="../../evaluation/fileinput/css/fileinput.css" rel="stylesheet">
+<link href="../../css/popover-mask.css" rel="stylesheet">
+
+
+<link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png" >
+
+<style>
+pre {
+   background-color: ghostwhite;
+   border: 1px solid #CCCCCC;
+   padding: 10px 20px;
+   margin: 30px;
+   }
+.json-key {
+   color: #F54E4E;
+   }
+.json-value {
+   color: #666666;
+   }
+.json-string {
+   color: #666666;
+   }
+.json-comment {
+   color: #71BC78;
+   }
+
+  #rcorners2 {
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border: 1px solid #CCCCCC;
+   }
+
+
+
+</style>
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+  <div class="container">
+
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+
+        <div id="register-input" class="modal-content">
+          <div class="modal-header">
+            <button type="button" id='upclose'class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">User Registration</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Form goes here -->
+
+          <form id="signup" class="form-horizontal">
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="name" id="newfirstname" placeholder="Name" value="" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">Lastname</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lastname" id="newlastname" placeholder="Lastname" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="organization" class="col-sm-2 control-label">Organization</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lastname" id="organization" placeholder="Organization" value="" >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" name="email" id="newemail" placeholder="Email" value="" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="password" id="newpassword" placeholder="Password" value="">
+            </div>
+          </div>
+        </form>
+          <div class="modal-footer">
+            <span id="warning-register" style="text-align: center; display:inline;"></span>
+              <button type="button" id="close-signup" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+              <button type="button" id="signup-button" name="signup" class="btn btn-success btn-sm">Register</button>
+          </div>
+        </div>
+        <!-- End of form -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+  <!-- regester -->
+
+
+
+
+  <header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="../2017/images/ChallengeLogo.svg" class="d-inline-black-align-top" height="40" width="auto" alt="logo"></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-right"  style="font-size:13px" >
+          <ul class="nav navbar-nav">
+
+            <li class="scroll"><a href="index.html">Home</a></li>
+
+            <li class="scroll"><a href="people.html">People</a></li>
+            <!-- <li class="scroll"><a href="dates.html">Important Dates</a></li> -->
+            <li class="scroll"><a href="challenge.html">Challenge</a></li>
+            <li class="scroll"><a href="#">Program</a></li>
+            <li class="scroll"><a href="dates.html">Dates</a></li>
+            <li class="scroll active"><a href="evaluation.html">Evaluation</a></li>
+            <li class="scroll"><a href="contact.html">Contact</a></li>
+
+          </ul>
+          <!--<a class="navbar-brand" href="http://cvpr2017.thecvf.com/" target="_blank"><img src="images/CVPRLogo.png" style="margin:15px 0px" align="bottom"  width="125" height="40" alt="logo"></a>-->
+          <a class="navbar-brand" href="http://cvpr2020.thecvf.com/" target="_blank"><img src="images/cvpr20logo.jpg" height="40" width="auto"></a>
+
+
+        </div>
+      </div><!--/.container-->
+    </nav><!--/nav-->
+  </header><!--/header-->
+
+
+  <!-- DOWNLOAD  PAGE -->
+
+  <section id="evaluation">
+    <div>
+      <div class="container">
+
+        <div id='main-content' class="row">
+           <div id='login-content' class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+            <form action="" method="post"  class="navbar-form navbar-left" role="form">
+                <a data-toggle="modal" data-target="#signup-modal"  href="#"> <span class="glyphicon glyphicon-user"></span> Register</a>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password"  required="required" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <button type="button" id="login-button" name="login" class="btn btn-primary btn-sm"> <span class="glyphicon glyphicon-ok-sign"></span> Sign in</button>
+                  <span id="warning-message_log" ></span>
+                </div>
+            </form>
+          <div>
+          </br></br>
+          </br>
+          </div>
+          </div>
+          <div id='logged-content'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>
+
+          <div id='leader_div' class="col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>          
+
+<!--          <div id='leader_div' class="col-sm-10 col-sm-offset-1 wow fadeInDown"> -->
+<!-- &lt;!&ndash;             <h3>Thanks all for participating and pushing the limits of video understanding!</h3>-->
+<!--            <h3>Congratulations to all the winners. We hope to see you all at CVPR!</h3> &ndash;&gt;-->
+<!--            <h3>Leadership board</h3>-->
+<!--            -->
+<!--          </div>-->
+
+          <div id='upload_file'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>
+          <div id='title_pdf_explain'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+
+
+          </div>
+          <!--
+          <div id='pdf_div'class=" col-sm-10 col-sm-offset-1 wow fadeInDown">
+          </div>-->
+
+
+        </div> 
+
+
+      </div>
+    </div>
+  </section><!--/#Download-->
+
+  <script src="../../js/jquery.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/mousescroll.js"></script>
+  <script src="../../js/smoothscroll.js"></script>
+  <script src="../../js/jquery.prettyPhoto.js"></script>
+  <script src="../../js/jquery.isotope.min.js"></script>
+  <script src="../../js/jquery.inview.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="js/evaluation.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="../2017/js/sprintf.min.js"></script>
+  <script src="../2017/js/fileinput.js"></script>
+  <script src="../../js/prettycode.js"></script>
+
+  <script src="../../js/jquery.table-sort.js"></script>
+
+
+</body>
+</html>
