@@ -111,9 +111,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Dataset</h2>
-            <p>The <a target="_blank" href="https://deepmind.com/kinetics">Kinetics-700 dataset</a> will be used for this challenge. Kinetics-700 is a large-scale, high-quality dataset of YouTube video URLs which include a diverse range of human focused actions. Our aim in releasing the Kinetics dataset is to help the machine learning community to advance models for video understanding. It is an approximate super-set of both Kinetics-400, released in 2017 and Kinetics-600, released in 2018.  </p>
-             <p>The dataset consists of approximately 650,000 video clips, and covers 700 human action classes with at least 600 video clips for each action class. Each clip lasts around 10 seconds and is labeled with a single class. All of the clips have been through multiple rounds of human annotation, and each is taken from a unique YouTube video. The actions cover a broad range of classes including human-object interactions such as playing instruments, as well as human-human interactions such as shaking hands and hugging.</p>
+             <h2 class="section-title">Dataset</h2>
+             <p>The <a target="_blank" href="https://deepmind.com/kinetics">Kinetics-700-2020 dataset</a> will be used for this challenge. Kinetics-700-2020 is a large-scale, high-quality dataset of YouTube video URLs which include a diverse range of human focused actions. The aim of the Kinetics dataset is to help the machine learning community create more advanced models for video understanding. It is an approximate super-set of both Kinetics-400, released in 2017, Kinetics-600, released in 2018 and Kinetics-700, released in 2019.   </p>
+             <p>The dataset consists of approximately 650,000 video clips, and covers 700 human action classes with at least 700 video clips for each action class. Each clip lasts around 10 seconds and is labeled with a single class. All of the clips have been through multiple rounds of human annotation, and each is taken from a unique YouTube video. The actions cover a broad range of classes including human-object interactions such as playing instruments, as well as human-human interactions such as shaking hands and hugging.</p>
 
              <p>More information about how to download the Kinetics dataset is available <a target="_blank" href="https://deepmind.com/research/open-source/open-source-datasets/kinetics/">here</a>.
             </p>
@@ -127,21 +127,29 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-            <h2 class="section-title">Tasks</h2>
-            <p> 
+            
+          <h2 class="section-title">Tasks</h2>
+          
+          <p> 
             The Kinetics 2021 challenge will have two tracks: supervised and self-supervised classification.
-            Both will be restricted to using RGB and/or audio modalities from videos in the Kinetics-700-2020 dataset.
-            </p>
-             
-            <p>
-              <b>The supervised track</b> is similar to previous years, except for evaluation. For both tracks, this year we will ask participants to upload one 512d feature vector for each training and test video -- not class scores anymore. We will then train ourselves a linear classifier on top of these feature vectors to determine top-1 and top-5 accuracy and decide on the winning model.
-            </p>
-            <p>
-            For <b>the self-supervised track</b> we will ask the participants to train on videos from just half of the classes to test for out of domain generalization. Class labels should otherwise not be used for this track -- the goal is to learn representations without them! Participants in this track will be asked to upload feature vectors for videos from all classes in both train and test splits (even for those videos from the split that the model is not trained on).
+            Both will be restricted to using RGB and/or audio modalities from videos in the Kinetics-700-2020 dataset  (no other modalities, and no external data).
           </p>
              
+           
+          <p>
+              <b>The supervised track</b> is similar to previous years, except for evaluation. For both tracks, this year we will ask participants to upload one 512d feature vector for each training and test video -- not class scores anymore. We will then train ourselves a linear classifier on top of these feature vectors to determine top-1 and top-5 accuracy and decide on the winning model. </p>
+            
+          <p>
+            For <b>the self-supervised track</b>  we will ask the participants to train on videos from a subset of classes (found <a target="_blank" href="https://drive.google.com/file/d/10He-tIyw15mIIdYAsywWhM457xoumLcr/view"> here </a> ) 
+              to test for out of domain generalization. Class labels should otherwise not be used for this track -- the goal is to learn representations without them! Participants in this track will be asked to upload feature vectors for videos from all classes in both train and test splits (even for those videos from the split that the model is not trained on).
+          </p>
+          <p>
             We will release our own leaderboard for both tasks (stay tunned).
             </p>
+          
+          <p>
+            Challenge participants are encouraged to also try out in the <a target="_blank"  href="http://activity-net.org/challenges/2021/tasks/guest_ava.html"> AVA-Kinetics </a> challenge, which shares much of the same training data. We are excited to see if anyone can improve performance using co-training on the two tasks, or other creative uses of the two label sets.
+          </p>
         </div>
       </div>
     </div>
