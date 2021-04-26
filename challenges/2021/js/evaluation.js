@@ -1,4 +1,4 @@
-SERVERURL = 'http://ec2-35-167-219-180.us-west-2.compute.amazonaws.com/challenge20/'
+SERVERURL = 'http://ec2-35-167-219-180.us-west-2.compute.amazonaws.com/challenge21/'
 var login_data;
 var leadership_data;
 var EMAIL;
@@ -234,8 +234,8 @@ function print_results_format(html) {
   captioning_ = sprintf(captioning_, SERVERURL + "/submission_formats/example_captioning.json");
   //var captioning_ = "<h4>Dense-Captioning Events in Videos</h4><p>Evaluation server for this task will be available soon.</p>"
 
-  var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Activity Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
-  trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
+  // var trimmed_ = "<h3>Submit Your Results</h3><h4>Trimmed Activity Recognition (Kinetics)</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-trimmed></code></pre>"
+  // trimmed_ = sprintf(trimmed_, SERVERURL + "/submission_formats/example_trimmed.json");
 
   var spatiotemporal_ = "<h3>Submit Your Results</h3><h4>AVA-Kinetics</h4><p>Please format your results as illustrated in the example below. You can also download this <a href='%s' target='_blank' download> example submission file</a>. For anonymous submissions please contact us at fabian.caba@kaust.edu.sa</p><pre><code id=example-spatiotemporal></code></pre>"
   spatiotemporal_ = sprintf(spatiotemporal_, SERVERURL + "/submission_formats/example_spatiotemporal.csv");
@@ -245,7 +245,8 @@ function print_results_format(html) {
 
   //html = sprintf(html, untrimmed_, trimmed_, proposals_, localization_, captioning_);
   //html = sprintf(html, proposals_, localization_, captioning_, trimmed_, spatiotemporal_, spatiotemporal_full_);
-  html = sprintf(html, localization_, captioning_, trimmed_, spatiotemporal_, spatiotemporal_full_);
+  html = sprintf(html, localization_, captioning_, spatiotemporal_, spatiotemporal_full_);
+  // html = sprintf(html, localization_, captioning_, trimmed_, spatiotemporal_, spatiotemporal_full_);
   return html;
 }
 
@@ -260,14 +261,14 @@ function print_classification_content() {
             // '<li class="active"><a href="#proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
             '<li class="active"><a href="#localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
-            '<li><a href="#trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
+            // '<li><a href="#trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
             '<li><a href="#spatiotemporal" data-toggle="tab">&nbsp;AVA-Kinetics</a></li>'+
             '<li><a href="#spatiotemporal_full" data-toggle="tab">&nbsp;AVA (Speaker)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
               // '<div class="tab-pane active" id="proposals">%s</div>'+
               '<div class="tab-pane active" id="localization">%s</div>'+
               '<div class="tab-pane" id="captioning">%s</div>'+
-              '<div class="tab-pane" id="trimmed">%s</div>'+
+              // '<div class="tab-pane" id="trimmed">%s</div>'+
               '<div class="tab-pane" id="spatiotemporal">%s</div>'+
               '<div class="tab-pane" id="spatiotemporal_full">%s</div>'+
             '</div></div>';
@@ -413,7 +414,7 @@ function print_results() {
     //                    <h3>Congratulations to all the winners. We hope to see you all at CVPR!</h3>
     //                    <h3>Leadership board</h3>`
 
-    var header_html = '<h3> ActivityNet Challenge 2020 Evaluation Server </h3> </br> <h3> Account Entries </h3>'
+    var header_html = '<h3> ActivityNet Challenge 2021 Evaluation Server </h3> </br> <h3> Account Entries </h3>'
 
 
     $("#leader_div").append(header_html);
@@ -425,14 +426,14 @@ function print_results() {
             // '<li class="active"><a href="#leaderboard_proposals" data-toggle="tab">&nbsp;Proposals</a></li>'+
             '<li class="active"><a href="#leaderboard_localization" data-toggle="tab">&nbsp;Temporal Localization</a></li>'+
             '<li><a href="#leaderboard_captioning" data-toggle="tab">&nbsp;Captioning</a></li>'+
-            '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
+            // '<li><a href="#leaderboard_trimmed" data-toggle="tab">&nbsp;Kinetics</a></li>'+
             '<li><a href="#leaderboard_spatiotemporal" data-toggle="tab">&nbsp;AVA-Kinetics</a></li>'+
             '<li><a href="#leaderboard_spatiotemporal_full" data-toggle="tab">&nbsp;AVA (Speaker)</a></li></ul></div>'+
             '<div class="panel-body"><div class="tab-content">'+
               // '<div class="tab-pane active" id="leaderboard_proposals"></div>'+
               '<div class="tab-pane active" id="leaderboard_localization"></div>'+
               '<div class="tab-pane" id="leaderboard_captioning"></div>'+
-              '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
+              // '<div class="tab-pane" id="leaderboard_trimmed"></div>'+
               '<div class="tab-pane" id="leaderboard_spatiotemporal"></div>'+
               '<div class="tab-pane" id="leaderboard_spatiotemporal_full"></div>'+
             '</div><div id="table-content" class="container-fluid" style="margin-top:30px;"></div></div>';
@@ -491,10 +492,10 @@ function load_leaderboard(STATUS){
     typecontent = "Dense-Captioning Events in Videos";
     var performance = 'Avg. Meteor'
   }
-  else if(STATUS == "trimmed"){
-    typecontent = "Trimmed Activity Recognition (Kinetics)";
-    var performance = 'Avg. Error'
-  }
+  // else if(STATUS == "trimmed"){
+  //   typecontent = "Trimmed Activity Recognition (Kinetics)";
+  //   var performance = 'Avg. Error'
+  // }
   else if(STATUS == "spatiotemporal"){
     typecontent = "AVA-Kinetics";
     var performance = 'mAP@0.5IoU'
