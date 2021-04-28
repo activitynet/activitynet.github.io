@@ -144,7 +144,7 @@
               to test for out of domain generalization. Class labels should otherwise not be used for this track -- the goal is to learn representations without them! Participants in this track will be asked to upload feature vectors for videos from all classes in both train and test splits (even for those videos from the split that the model is not trained on).
           </p>
           <p>
-            We will release our own leaderboard for both tasks (stay tuned).
+            We will release our own leaderboard for both tasks (stay tuned). <b>The deadline for submitting results is the 9th of June. For general questions about the challenge please join the following group: kinetics-dataset-users@googlegroups.com. </b>
             </p>
           <p> </p>
           <p>
@@ -155,6 +155,45 @@
     </div>
   </section>
 
+
+  <section class="tasks">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+
+          <h2 class="section-title">FAQ</h2>
+
+          <p>
+            1. Possible to use ImageNet checkpoints?
+          <br>
+            We allow finetuning from public ImageNet checkpoints for the supervised track -- but a link to the specific checkpoint should be provided with each submission.
+
+
+          <p>
+          2. Possible to use optical flow?
+          <br>
+          Flow can be used as long as not trained on external datasets, except if they are synthetic.
+
+          <p>
+          3. Can we train on test data without labels (e.g. transductive)?
+          <br>
+          No.
+          </p>
+
+          <p>
+            4. Can we use semantic class label information?
+            <br>
+            Yes, for the supervised track.
+            </p>
+          <p>
+            5. Will there be special tracks for methods using fewer FLOPs / small models or just RGB vs RGB+Audio in the self-supervised track?
+            <br>
+            We will ask participants to provide the total number of model parameters and the modalities used and plan to create special mentions for those doing well in each setting, but not specific tracks.          </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer">
     <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
