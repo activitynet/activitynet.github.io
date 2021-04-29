@@ -241,82 +241,77 @@
               now available at the <a href="https://research.google.com/ava/download.html#ava_active_speaker_download" target="_blank">Active Speaker Download page</a>.
               The true label for these entries is <b>not</b> provided; instead the label column always contains SPEAKING_AUDIBLE.
             </p>
-<!--            <p>-->
-<!--              More information about how to download the AVA dataset is-->
-<!--              available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>, and information-->
-<!--              about how to submit model predictions to the evaluation server are provided in the <b>Submission Format</b> section below.-->
-<!--            </p>-->
-          <p> <b>More information is available on how to obtain the <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank"> AVA dataset</a>
-            and <a href="https://github.com/cvdfoundation/kinetics-dataset" target="_blank"> Kinetics dataset</a>.</b>
-            Information
-            about how to submit model predictions to the evaluation server are provided in the <b>Submission Format</b> section below.
+            <p>
+              More information about how to download the AVA dataset is
+              available <a href="https://github.com/cvdfoundation/ava-dataset" target="_blank">here</a>, and information
+              about how to submit model predictions to the evaluation server are provided in the <b>Submission Format</b> section below.
             </p>
-                    </div>
-                  </div>
-                </div>
+        </div>
+      </div>
+    </div>
 
-                <div class="container evaluation">
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <h3 class="section-title">Evaluation Metric</h3>
-                        <p>
-                            The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation/get_ava_active_speaker_performance.py">ActivityNet
-                              Github repository</a>. Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/ava-dataset-users" target="_blank">this Google Group</a> with any questions or issues about the code.
-                        </p>
+    <div class="container evaluation">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Evaluation Metric</h3>
+            <p>
+                The evaluation code used by the evaluation server can be found in the <a href="https://github.com/activitynet/ActivityNet/tree/master/Evaluation/get_ava_active_speaker_performance.py">ActivityNet
+                  Github repository</a>. Please contact the AVA team via <a href="https://groups.google.com/forum/#!forum/ava-dataset-users" target="_blank">this Google Group</a> with any questions or issues about the code.
+            </p>
 
-                        <p>The official metric used in this task is the mAP.</p>
-                    </div>
-                  </div>
-                </div>
+            <p>The official metric used in this task is the mAP.</p>
+        </div>
+      </div>
+    </div>
 
-                <div class="container baseline">
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <h3 class="section-title">Baselines</h3>
-                        <p>A basic pre-trained model will be available on the
-                          <a href="https://research.google.com/ava/download.html"
-                          target="_blank">AVA website</a>. Baseline results can be found in the <a href="https://arxiv.org/abs/1705.08421"
-                          target="_blank">paper on arXiv.org</a>.
-                        </p>
-                    </div>
-                  </div>
-                </div>
+    <div class="container baseline">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3 class="section-title">Baselines</h3>
+            <p>A basic pre-trained model will be available on the
+              <a href="https://research.google.com/ava/download.html"
+              target="_blank">AVA website</a>. Baseline results can be found in the <a href="https://arxiv.org/abs/1705.08421"
+              target="_blank">paper on arXiv.org</a>.
+            </p>
+        </div>
+      </div>
+    </div>
 
-                <div class="container submission-format">
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                      <h3 class="section-title">Submission Format</h3>
-                      <p>
-                        Submissions to the evaluation server will consist of a <b>single CSV file</b>, containing model predictions for
-                        each entry in each video in the held out test set, and must therefore contain a total of 2,053,509 lines.
-                      </p>
-                      <p>
-                        When submitting your results for this task, please use the same CSV format used for the ground truth AVA-ActiveSpeaker train/val files, with the addition of a score column for each box-label.
-                      </p>
-                      <p>
-                        The format of a row is the following: video_id, frame_timestamp, entity_box, label, entity_id, score
-                      </p>
-                      <ul>
-                      <li>video_id: YouTube identifier</li>
-                      <li>frame_timestamp: in seconds from the start of the video.</li>
-                      <li>entity_box: face bounding box, top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
-                      <li>label: SPEAKING_AUDIBLE (other labels will be ignored).</li>
-                      <li>entity_id: a unique string allowing this box to be linked to other boxes.</li>
-                      <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AUDIBLE.</li>
-                      </ul>
+    <div class="container submission-format">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h3 class="section-title">Submission Format</h3>
+          <p>
+            Submissions to the evaluation server will consist of a <b>single CSV file</b>, containing model predictions for
+            each entry in each video in the held out test set, and must therefore contain a total of 2,053,509 lines.
+          </p>
+          <p>
+            When submitting your results for this task, please use the same CSV format used for the ground truth AVA-ActiveSpeaker train/val files, with the addition of a score column for each box-label.
+          </p>
+          <p>
+            The format of a row is the following: video_id, frame_timestamp, entity_box, label, entity_id, score
+          </p>
+          <ul>
+          <li>video_id: YouTube identifier</li>
+          <li>frame_timestamp: in seconds from the start of the video.</li>
+          <li>entity_box: face bounding box, top-left (x1, y1) and bottom-right (x2, y2) normalized with respect to frame size, where (0.0, 0.0) corresponds to the top left, and (1.0, 1.0) corresponds to bottom right.</li>
+          <li>label: SPEAKING_AUDIBLE (other labels will be ignored).</li>
+          <li>entity_id: a unique string allowing this box to be linked to other boxes.</li>
+          <li>score: a float in [0.0,1.0] indicating the score for the label. Larger values indicate a higher confidence that the user is SPEAKING_AUDIBLE.</li>
+          </ul>
 
-                      <p>An example taken from the validation set is:</p>
-                      <pre>
-                      -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
-                      ...
-                      </pre>
-                    </div>
-                  </div>
-                </div>
-              </section>
+          <p>An example taken from the validation set is:</p>
+          <pre>
+          -IELREHX_js,1744.88,0.514803,0,0.919408,0.701754,SPEAKING_AUDIBLE,-IELREHX_js_1740_1800:5,0.713503
+          ...
+          </pre>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <footer class="footer">
-                <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+  <footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
     <div class="footer-content">
       <div class="container">
         <div class="row">
