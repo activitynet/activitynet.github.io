@@ -137,6 +137,57 @@ pre {
         -->
     </div>
 	  
+
+    <div class="col-sm-12 fadeInUp animated">
+      <h2 class="section-title text-left">Download and Visualize using FiftyOne</h2>
+      <p> We have collaborated with the team at <a href="https://voxel51/com">Voxel51</a> to make loading and visualizing ActivityNet a breeze using their open-source tool <a href="https://fiftyone.ai">FiftyOne</a>. </p>
+
+    <p><a href="http://fiftyone.ai/" target="_blank"><img style="max-width: 70%"
+                                                          src="images/fiftyone.png"
+                                                          alt="FiftyOne Example"></a></p>
+
+    <p>
+    As with any other dataset in the <a
+      href="https://voxel51.com/docs/fiftyone/user_guide/dataset_zoo/index.html" target="_blank">FiftyOne
+    Dataset Zoo</a>,
+    loading ActivityNet is as easy as calling:
+    <pre>dataset = fiftyone.zoo.load_zoo_dataset("activitynet-200", split="validation")</pre>
+    The function allows you to:
+    <ul>
+      <li>Choose which split to download.</li>
+      <li>Choose which classes of activities to download (e.g. Horseback riding).</li>
+      <li>Limit the number of samples, to do a first exploration of the data.</li>
+      <li>Specify the maximum length of videos to download.</li>
+    </ul>
+
+    These properties give you the ability to quickly
+    <a href="https://voxel51.com/docs/fiftyone/user_guide/dataset_zoo/datasets.html#dataset-zoo-activitynet-200"
+       target="_blank">download subsets of the dataset</a>
+    that are relevant to you.
+
+    <pre>dataset = fiftyone.zoo.load_zoo_dataset(
+              "activitynet-200",
+              split="validation",
+              classes=["Horseback riding"],
+              max_samples=3,
+          )</pre>
+
+    FiftyOne also provides native
+    <a href="https://voxel51.com/docs/fiftyone/user_guide/evaluation.html#activitynet-style-evaluation-default-temporal"
+       target="_blank">support for ActivityNet-style evaluation</a>
+    to compute mAP, plot PR curves, interact with confusion matrices, and explore
+    individual label-level results.
+    <pre>results = dataset.evaluate_detections("predictions", gt_field="detections", method="activitynet")</pre>
+
+    <span id="download_specific_subsets"></span><span id="download_manually"></span>
+
+    For additional details, see the FiftyOne and ActivityNet integration 
+    <a href="https://voxel51.com/docs/fiftyone/integrations/activitynet.html" target="_blank">documentation</a>
+
+    </p>
+
+    </div>
+
     <div class="col-sm-12 fadeInUp animated">
       <h2 class="section-title text-left">Missing Videos</h2>
       <p> To accommodate missing data requests, we have made the full dataset available on Google and Baidu drives. 
