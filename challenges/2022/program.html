@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Program | ActivityNet Large Scale Activity Recognition Challenge 2020</title>
+    <!-- core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="../../images/favicon.png">
+
+    <!-- Tracking code -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-56208223-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <style>
+        .table > tbody > tr > td {
+            vertical-align: middle;
+        }
+    </style>
+
+</head><!--/head-->
+
+<body id="challenge" class="challenge-page normal-page">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/ChallengeLogo.svg" class="d-inline-black-align-top" height="45" width="auto">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="people.html">People</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="challenge.html">Challenge</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="program.html">Program</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dates.html">Dates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="evaluation.html">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link right-logo" href="http://cvpr2021.thecvf.com" target="_black">
+                        <img src="images/cvpr21.jpg" class="img-responsive cvpr-logo" height="45" width="auto">
+                    </a>
+                </li>
+            </ul>
+        </div> <!-- collapse -->
+    </div>
+</nav>
+
+<section class="normal-page-title challenge-title">
+    <!-- <img class="title-banner" src="images/people_banner.svg" /> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+                <h1 class="title">Program</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="guidelines">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>International Challenge on Activity Recognition (ActivityNet) 2021</h3>
+                <!--                <h5>TBD</h5>-->
+                <h5>Date: June 19th, 2021</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <p class="para-text">
+                <b>All times Pacific Time</b>
+            </p>
+        </div>
+
+        <div class="row">
+            <h3> Invited Talks: Morning Session </h3>
+
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width: 20%" scope="col">Speaker</th>
+                        <th style="width: 42.5%" scope="col">Title</th>
+                        <th style="width: 17.5%" scope="col">Time</th>
+                        <th style="width: 20%" scope="col">Live Event</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="https://www.grasp.upenn.edu/wp-content/uploads/2020/10/2400405.jpg"
+                                     class="img-responsive speaker-avatar" width="80%" height="auto">
+                                <br>
+                                <span class="speaker-affiliate">Gedas Bertasius</span>
+                            </center>
+                        </td>
+                        <td> Is Space-Time Attention All You Need for Video Understanding? </td>
+                        <td> 8:00 - 8:30 AM</td>
+                        <td>
+                            [<a href="https://www.youtube.com/watch?v=XR42Ex4JKzc&t=330s" target="_blank">Recording</a>]
+                            [<a href="https://drive.google.com/file/d/1ipLRwR2_A6RTzYpxmdCsGa1CAhxqHNgQ/view">Slides</a>]
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="https://www.jbalayrac.com/photos/id3_circle.png"
+                                     class="img-responsive speaker-avatar" width="80%" height="auto">
+                                <br>
+                                <span class="speaker-affiliate">Jean-Baptiste Alayrac</span>
+                            </center>
+                        </td>
+                        <td> Towards Versatile and Powerful MultiModal Networks </td>
+                        <td> 8:30 - 9:00 AM</td>
+                        <td>
+                            [<a href="https://www.youtube.com/watch?v=XR42Ex4JKzc&t=2130s" target="_blank">Recording</a>]
+                            [<a href="https://drive.google.com/file/d/1vZvxucj3xb9Fu5BPP1ZA5HQXEvmf7vxt/view">Slides</a>]
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <h3> Invited Talks: Afternoon Session </h3>
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width: 20%" scope="col">Speaker</th>
+                        <th style="width: 42.5%" scope="col">Title</th>
+                        <th style="width: 17.5%" scope="col">Time</th>
+                        <th style="width: 20%" scope="col">Live Event</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="http://www.cs.columbia.edu/~vondrick/photo-me.jpg"
+                                     class="img-responsive speaker-avatar" width="80%" height="auto">
+                                <br>
+                                <span class="speaker-affiliate">Carl Vondrick</span>
+                            </center>
+                        </td>
+                        <td> Predicting Unpredictability </td>
+                        <td> 3:00 - 3:30 PM</td>
+                        <td>
+                            [<a href="https://www.youtube.com/watch?v=QGQ40EFor8s&t=0s" target="_blank">Recording</a>]
+                            [<a href="https://drive.google.com/file/d/1x-1GT8UUOU50wW8Dy6NcIVLkP3gLhQFe/view?usp=sharing">Slides</a>]
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="https://cs-people.bu.edu/hxu/huijuan_photo.jpg"
+                                     class="img-responsive speaker-avatar" width="80%" height="auto">
+                                <br>
+                                <span class="speaker-affiliate">Huijuan Xu</span>
+                            </center>
+                        </td>
+                        <td> Toward Compositional Action Recognition Using Semantic Scene Graphs </td>
+                        <td> 3:30 - 4:00 PM</td>
+                        <td>
+                            [<a href="https://www.youtube.com/watch?v=QGQ40EFor8s&t=2237s" target="_blank">Recording</a>]
+                            [<a href="https://drive.google.com/file/d/11c9h6MSxFaAaGm4o869D1A-RcfzvSjqn/view?usp=sharing">Slides</a>]
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!--                    <div class="row">-->
+            <h3> Pre-recorded Sessions </h3>
+
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width: 15%" scope="col">Speaker</th>
+                        <th style="width: 50%" scope="col">Session</th>
+                        <th style="width: 15%" scope="col">Video Link</th>
+                        <th style="width: 20%" scope="col">Q&A (June 19th)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--                                    <tr>-->
+                    <!--                                        <td>-->
+                    <!--                                                <center>-->
+                    <!--                                                <img src="images/icon/opening_remarks.png" class="img-responsive speaker-avatar" width="80%" height="auto">-->
+                    <!--                                                </center>-->
+                    <!--                                        </td>-->
+                    <!--                                        <td> Opening Remarks</td>-->
+                    <!--                                        <td>-->
+                    <!--                                            <a href="https://www.youtube.com/watch?v=RmX2ZhOmSHk&list=PLw6H4u-XW8siSxqdRVcD5aBn3OTuA7M7x" target="_blank">YouTube</a>-->
+                    <!--                                            </br>-->
+                    <!--                                            <a href="https://www.bilibili.com/video/BV1Tf4y117n5" target="_blank">BiliBili</a>-->
+
+                    <!--                                        </td>-->
+                    <!--                                    </tr>-->
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/icon/anet_localization.png" class="img-responsive speaker-avatar"
+                                     width="80%" height="auto">
+                            </center>
+                        </td>
+                        <td> ActivityNet Temporal Action Localization Results</td>
+                        <td>
+                            <a href="https://youtu.be/FXbf7nb-S0w" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1gb4y1o7JN/" target="_blank">BiliBili</a>
+
+                        </td>
+                        <td>N.A.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/icon/anet_captioning.png" class="img-responsive speaker-avatar"
+                                     width="80%" height="auto">
+                            </center>
+                        </td>
+                        <td> ActivityNet Dense Event Captioning</td>
+                        <td>
+                            <a href="https://youtu.be/5zHz44qdXv0" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1c64y197i1/" target="_blank">BiliBili</a>
+
+                        </td>
+
+                        <td>N.A.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/icon/anet_eol.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> ActivityNet Entities Object Localization</td>
+                        <td>
+                            <a href="https://youtu.be/g4ty-0Qb1H4" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1wM4y1u7bk/" target="_blank">BiliBili</a>
+                        </td>
+                        <td>
+                            <a href="https://nam04.safelinks.protection.outlook.com/ap/t-59584e83/?url=https%3A%2F%2Fteams.microsoft.com%2Fl%2Fmeetup-join%2F19%253ameeting_MjRmMWJmN2ItNTdmNC00NDZiLWFlYjEtNzdmZmMyZGM2ODBj%2540thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%252272f988bf-86f1-41af-91ab-2d7cd011db47%2522%252c%2522Oid%2522%253a%2522f24dad9a-206e-49e7-97ce-5ea20ef94232%2522%257d&data=04%7C01%7Ccaba%40adobe.com%7Ce0b7a8e244fe4ba6bd8f08d92fa98fb1%7Cfa7b1b5a7b34438794aed2c178decee1%7C0%7C0%7C637593228623226099%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=JulIyG%2BQ5%2FqQTo7iHcxU7Es32WbQK0y8nojk30UaRik%3D&reserved=0"
+                               target="_blank">
+                                11:00-11:30 AM
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/icon/hacs.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> HACS Temporal Action Localization Challenge 2021</td>
+                        <td>
+                            <a href="https://youtu.be/q8W0b2qER7E" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV18V411s7Zc/" target="_blank">BiliBili</a>
+
+                        </td>
+
+                        <td>N.A.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/icon/kinetics.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> Kinetics-700</td>
+                        <td>
+                            <a href="https://youtu.be/UnAd-HA2Uwc" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1i64y1r7TX/" target="_blank">BiliBili</a>
+
+                        </td>
+
+                        <td>N.A.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/icon/ava.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> AVA-Kinetics & Active Speakers</td>
+                        <td>
+                            <a href="https://youtu.be/SEqFdkqdwlE" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1664y1X7rZ/" target="_blank">BiliBili</a>
+
+                        </td>
+
+                        <td>N.A.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="http://mig.nist.gov/public/actev/2017-10-DIVA-v1-preview-annotations/DIVA-v1-preview-annotations/gifs/Loading-00.gif"
+                                     class="img-responsive speaker-avatar" width="80%" height="auto">
+                            </center>
+                        </td>
+                        <td> ActEV SDL Unknown Facility</td>
+                        <td>
+                            <a href="https://youtu.be/uxsNYM4nINQ" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1B64y1r7Gg/" target="_blank">BiliBili</a>
+                            </br>
+
+                        </td>
+                        <td>
+                            <a href="https://nist-secure.webex.com/nist-secure/j.php?MTID=m61ca1441371d5e3a274ecfce99ad3eeb"
+                               target="_black">
+                                2:30-3:00 PM</a>*
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/tasks/tinyactions.png" class="img-responsive speaker-avatar"
+                                     width="80%" height="auto">
+                            </center>
+                        </td>
+                        <td> TinyActions</td>
+                        <td>
+                            <a href="https://youtu.be/gJ-7Uh9TPsM" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1MM4y1u7ju/" target="_blank">BiliBili</a>
+
+                        </td>
+                        <td>N.A.</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="./images/tasks/soccernet.png" class="img-responsive speaker-avatar"
+                                     width="80%" height="auto">
+                            </center>
+                        </td>
+                        <td> SoccerNet Challenge</td>
+                        <td>
+                            <a href="https://youtu.be/5fM6wxw760s" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1bB4y1M7nR/" target="_blank">BiliBili</a>
+
+                        </td>
+                        <td>N.A.</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/tasks/vidsitu.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> Video Semantic Role Labeling </td>
+                        <td>
+                            <a href="https://youtu.be/3w1_9xl-67E" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1xX4y1A7cM/" target="_blank">BiliBili</a>
+
+                        </td>
+                        <td>N.A.</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/tasks/mmact.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> MMAct Challnge</td>
+                        <td>
+                            <a href="https://youtu.be/ZmFtI_ljmOE" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1f64y1X77t/" target="_blank">BiliBili</a>
+
+                        </td>
+                        <td>N.A.</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <center>
+                                <img src="images/tasks/homage.png" class="img-responsive speaker-avatar" width="80%"
+                                     height="auto">
+                            </center>
+                        </td>
+                        <td> HOMAGE</td>
+                        <td>
+                            <a href="https://youtu.be/EmT5Gck2VSI" target="_blank">YouTube</a>
+                            </br>
+                            <a href="https://www.bilibili.com/video/BV1sv411W75A/" target="_blank">BiliBili</a>
+
+                        </td>
+                        <td>N.A.</a>
+                        </td>
+                    </tr>
+
+                    <!--                                    <tr>-->
+                    <!--                                        <td>-->
+                    <!--                                                <center>-->
+                    <!--                                                <img src="images/icon/opening_remarks.png" class="img-responsive speaker-avatar" width="80%" height="auto">-->
+                    <!--                                                </center>-->
+                    <!--                                        </td>-->
+                    <!--                                        <td> Closing Remarks</td>-->
+                    <!--                                        <td>-->
+                    <!--                                            <a href="https://www.youtube.com/watch?v=IfxP-r3vYao&list=PLw6H4u-XW8siSxqdRVcD5aBn3OTuA7M7x" target="_blank">YouTube</a>-->
+                    <!--                                            </br>-->
+                    <!--                                            <a href="#" target="_blank">BiliBili</a>-->
+
+                    <!--                                        </td>-->
+
+                    <!--                                        <td>N.A.</td>-->
+                    <!--                                    </tr>-->
+                    </tbody>
+                </table>
+                * Meeting number (access code): 199 731 9247 | Meeting password: HyW2QDs65J@
+                </br>
+                ** Bilibili videos will be available on 21-06-20 07:00:00, Beijing time.
+            </div>
+
+        </div>
+
+        <!--                    <div class="row">-->
+        <!--                        <h3> Got Questions about the Worshop Logistics? </h3>-->
+        <!--                        <p class="para-text">-->
+        <!--                            <b>Email us at:</b> mengmeng.xu@kaust.edu.sa, humam.alwassel@kaust.edu.sa, fabian.caba@kaust.edu.sa.-->
+        <!--                        </p>-->
+        <!--                        <center>-->
+        <!--                            <h4><a href="https://zoom.us/j/94123406448?pwd=aFdaTnFRd05ETUdQbUJZbU8vbnRxdz09"> Or ask questions via our CVPR Workshop Zoom Room </a></h4>-->
+        <!--                        </center>-->
+        <!--                    </div>-->
+
+    </div>
+</section>
+
+
+<footer class="footer">
+    <!-- <img src="images/footer_pattern.svg" alt="" class="footer-pattern"> -->
+    <div class="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <img src="images/ChallengeLogo_White.svg" alt="" class="footer-logo">
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <ul class="footer-nav">
+                        <li class="nav-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="people.html">People</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="challenge.html">Challenge</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="program.html">Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="evaluation.html">Evaluation</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="footer-text-section">
+                        <h4 class="footer-section-title">Contact</h4>
+                        <p class="footer-section-text">
+                            For general information or inquiry about the ActivityNet workshop (evaluation server, dates,
+                            or program), please contact <strong>Fabian Caba </strong> <a
+                                href="mailto:fabian.caba@kaust.edu.sa?Subject=ActivityNet Challenge Inquiry"
+                                target="_top">fabian.caba@kaust.edu.sa</a>
+                        </p>
+                    </div>
+                    <div class="footer-text-section">
+                        <h4 class="footer-section-title">FAQ</h4>
+                        <p class="footer-section-text">
+                            For ActivityNet Database FAQs visit our<a
+                                href="https://groups.google.com/forum/#!forum/activity-net" target="_blank"> Google
+                            Group.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
