@@ -1,4 +1,4 @@
-SERVERURL = 'http://ec2-35-167-219-180.us-west-2.compute.amazonaws.com/challenge21/'
+SERVERURL = 'http://ec2-35-167-219-180.us-west-2.compute.amazonaws.com/challenge22/'
 var login_data;
 var leadership_data;
 var EMAIL;
@@ -414,7 +414,7 @@ function print_results() {
     //                    <h3>Congratulations to all the winners. We hope to see you all at CVPR!</h3>
     //                    <h3>Leadership board</h3>`
 
-    var header_html = '<h3> ActivityNet Challenge 2021 Evaluation Server </h3> </br> <h3> Account Entries </h3>'
+    var header_html = '<h3> ActivityNet Challenge 2022 Evaluation Server </h3> </br> <h3> Account Entries </h3>'
 
 
     $("#leader_div").append(header_html);
